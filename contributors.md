@@ -30,7 +30,10 @@ This file will outline the preliminary plans and development steps for this cour
 
 # Rules
 
-- Each task must be created and assigned in github issues
+- Each task must be created and assigned in github issues;
+- Branch should be create using github issues. Open your issue -> press "Create a branch" button -> clone this branch;
+- PRs should be opened to the main branch and merged when they have at least 3 approvals;
+- PR name example: (feat) 003: your feature description. Where 003 is your issue number (.../react-native-course/issues/3);
 
 # Communication channels
 
