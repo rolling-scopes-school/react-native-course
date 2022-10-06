@@ -1,0 +1,17 @@
+.custom-presentation-name {
+  font-size: 200%;
+}
+
+.custom-slide-name {
+  text-decoration: underline;
+  padding-bottom: 5%;
+}
+
+.custom-slide-text {
+  text-align: justify;
+}
+
+.custom-slide-text-bold {
+  text-align: left;
+  font-weight: bold;
+}
