@@ -4,6 +4,7 @@
     - iOS and Android overview
     - Types of apps
     - What is React Native
+    - Expo vs React Native
     - Alternatives 
 2. Environment setup
 3. Creating a new app
