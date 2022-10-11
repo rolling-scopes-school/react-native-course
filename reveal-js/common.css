@@ -1,17 +1,167 @@
-.custom-presentation-name {
-  font-size: 200%;
+/* Slide layout */
+
+.slides .layout {
+  display: flex;
+  justify-content: space-between;
 }
 
-.custom-slide-name {
+.slides .width-100 {
+  width: 100%;
+}
+
+.slides .width-90 {
+  width: 90%;
+}
+
+.slides .width-80 {
+  width: 75%;
+}
+
+.slides .width-70 {
+  width: 66%;
+}
+
+.slides .width-60 {
+  width: 58%;
+}
+
+.slides .width-50 {
+  width: 48%;
+}
+
+.slides .width-40 {
+  width: 40%;
+}
+
+.slides .width-30 {
+  width: 33%;
+}
+
+.slides .width-25 {
+  width: 24%;
+}
+
+.slides .width-20 {
+  width: 23%;
+}
+
+.slides .height-100 {
+  height: 100%;
+}
+
+.slides .info-section {
+  padding-bottom: 15px;
+}
+
+.slides .horizontal-center {
+  margin: 0 auto;
+}
+
+/* Typography */
+
+.slide-name {
   text-decoration: underline;
   padding-bottom: 5%;
 }
 
-.custom-slide-text {
-  text-align: justify;
+.slides p {
+  text-align: left;
 }
 
-.custom-slide-text-bold {
+.slides .align-center {
+  text-align: center;
+}
+
+.slides .font-size-1 {
+  font-size: 1rem;
+}
+
+.slides .font-size-1-3 {
+  font-size: 1.3rem;
+}
+
+.slides .font-size-1-5 {
+  font-size: 1.5rem;
+}
+
+.slides .font-size-2 {
+  font-size: 2rem;
+}
+
+.slides .font-size-2-5 {
+  font-size: 2.5rem;
+}
+
+.slides .font-size-3 {
+  font-size: 3rem;
+}
+
+.slides .text-info {
   text-align: left;
-  font-weight: bold;
+}
+
+.slides .points-list {
+  display: block;
+  margin: 0;
+  padding-left: 22px;
+}
+
+.slides .points-list li {
+  font-size: 1.5rem;
+  list-style-type: none;
+}
+
+.slides .points-list.circle li {
+  font-size: 1.5rem;
+  list-style-type: circle;
+}
+
+.slides .video-title {
+  margin-top: 0;
+  font-size: 2rem;
+}
+
+.slides .info-title {
+  text-align: left;
+}
+
+/* Decorations */
+
+.slides .framed-1 {
+  border: 1px solid grey;
+}
+
+.slides .framed-2 {
+  border: 2px solid grey;
+}
+
+.slides .framed-card {
+  padding: 20px 10px;
+  border-radius: 10px;
+}
+
+.slides .framed-bottom-white-1,
+.slides .framed-bottom-white-1 td {
+  border-bottom: 1px solid white;
+}
+
+.slides .framed-right-white-1 td,
+.slides .framed-right-white-1 th {
+  border-right: 1px solid white;
+}
+
+.slides .framed-bottom-white-2 {
+  border-bottom: 2px solid white;
+}
+
+.slides .background-colored-blue-1 {
+  background-color: lightskyblue;
+}
+
+.slides .background-colored-blue-2 {
+  background-color: lightsteelblue;
+}
+
+.slides .background-colored-blue-3 {
+  background-color: aliceblue;
 }
