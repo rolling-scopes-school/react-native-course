@@ -9,11 +9,11 @@
 2. Environment setup
 3. Creating a new app
 4. Project structure overview
-5. Core Components
+5. Components
 6. Styles
     - StyleSheet 
     - Flexbox
-7. List Views 
+7. Handling touches
 8. Platform Specific Code
 9. Architecture 
     - Old
