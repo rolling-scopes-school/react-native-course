@@ -1,6 +1,6 @@
 # Module content
 
-1. Testing in software development​
+1. Testing in software development
     - testing role
     - benefits
     - testing scope
@@ -9,12 +9,15 @@
     - pros and cons
 4. TDD & BDD
 5. Testing statistic
-6. Jest as a testing framework
+6. React Native testing libraries
+    - overview
+    - comparison
+7. Jest as a testing framework
     - set up & configure
     - test structure
     - expect function
     - mocking & jest object
     - snapshots
     - coverage
-7. Husky
+8. Husky
     - overview
