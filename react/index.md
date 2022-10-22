@@ -12,5 +12,5 @@
 - - Custom hooks
 - - Hoc
 - Controlled/Uncontrolled components
-- Reconsilation
+- Reconciliation
 - Fiber​
