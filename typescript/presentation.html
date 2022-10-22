@@ -598,6 +598,14 @@ export const SomeComponent: React.FC<Props> = ({
           RevealHighlight,
         ],
       });
+
+      document.getElementById("jsStyle").innerHTML = `
+          <style>
+          img, video, iframe {
+              height: ${window.innerHeight * 0.8}px !important;
+              width: ${window.innerWidth * 0.8}px !important;
+          }
+          </style>`;
     </script>
   </body>
 </html>
