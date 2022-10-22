@@ -30,11 +30,15 @@
     <script src="../reveal-js/plugin/markdown/markdown.js"></script>
     <script src="../reveal-js/plugin/highlight/highlight.js"></script>
     <script>
+      var url = new URL(window.location.href);
+      var showNotes = true; // TODO Uncomment before merging!!! url.searchParams.has("showNotes");
+
       Reveal.initialize({
         controls: true,
         progress: true,
         center: false,
         hash: true,
+        showNotes,
         plugins: [
           RevealZoom,
           RevealNotes,
@@ -43,6 +47,14 @@
           RevealHighlight,
         ],
       });
+
+      document.getElementById("jsStyle").innerHTML = `
+          <style>
+          img, video, iframe {
+              height: ${window.innerHeight * 0.8}px !important;
+              width: ${window.innerWidth * 0.8}px !important;
+          }
+          </style>`;
     </script>
   </body>
 </html>
