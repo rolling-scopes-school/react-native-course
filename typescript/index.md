@@ -6,10 +6,10 @@
 - TypeScript features
 - - Base types
 - - Array
-- - Turples
+- - Tuples
 - - Functions
 - - Enum
-- - Type alias
+- - Type alias + overview of setting typescript aliases
 - - Unions
 - - Interface
 - - Generic
