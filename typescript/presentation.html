@@ -585,6 +585,7 @@ export const SomeComponent: React.FC<Props> = ({
       var url = new URL(window.location.href);
       var showNotes = true; // TODO Uncomment before merging!!! url.searchParams.has("showNotes");
       Reveal.initialize({
+        disableLayout: true,
         controls: true,
         progress: true,
         center: false,
