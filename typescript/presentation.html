@@ -3,13 +3,23 @@
   <head>
     <meta charset="utf-8" />
     <title>react-native-course - name module</title>
-    <meta name="description" content="rolling-scopes-school/react-native-course - react module" />
+    <meta
+      name="description"
+      content="rolling-scopes-school/react-native-course - react module"
+    />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../reveal-js/dist/reset.css" />
     <link rel="stylesheet" href="../reveal-js/dist/reveal.css" />
-    <link rel="stylesheet" href="../reveal-js/dist/theme/white.css" id="theme" />
+    <link
+      rel="stylesheet"
+      href="../reveal-js/dist/theme/white.css"
+      id="theme"
+    />
     <!-- Theme used for syntax highlighting of code -->
     <link rel="stylesheet" href="../reveal-js/plugin/highlight/monokai.css" />
     <link rel="stylesheet" href="../reveal-js/common.css" />
@@ -19,7 +29,549 @@
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
         <section class="center">
-          <h2 class="custom-presentation-name"> Presentation​ Name </h3>
+          <h3 class="font-size-3">Typescript Fundamentals</h3>
+        </section>
+
+        <section>
+          <h3 class="slide-name">AGENDA</h3>
+          <ul>
+            <li class="fragment">Introduction</li>
+            <li class="fragment">Features</li>
+            <li class="fragment">Usage in RN project</li>
+          </ul>
+        </section>
+
+        <section>
+          <section data-auto-animate>
+            <h3 class="slide-name">WHAT IS TYPESCRIPT?</h3>
+            <img
+              src="assets/images/WHAT_IS_TYPESCRIPT.png"
+              alt="simple"
+              height="334"
+              width="1176"
+            />
+            <aside class="notes">
+              What is TypeScript?
+              <br />
+              <br />
+              TypeScript is a syntactic superset of JavaScript which adds
+              <strong>static typing</strong>. This basically means that
+              TypeScript adds syntax on top of JavaScript, allowing developers
+              to add types. <br />
+              <br />
+              TypeScript builds <strong>on top of JavaScript</strong>. First,
+              you write the TypeScript code. Then, you
+              <strong>compile</strong> the TypeScript code into plain JavaScript
+              code using a TypeScript compiler. Once you have the plain
+              JavaScript code, you can deploy it to any environments that
+              JavaScript runs. <br />
+              <br />
+              TypeScript files use the .ts extension rather than the .js
+              extension of JavaScript files.
+            </aside>
+          </section>
+
+          <section data-auto-animate>
+            <h3 class="slide-name">WHAT IS TYPESCRIPT?</h3>
+            <img
+              src="assets/images/WHAT_IS_TYPESCRIPT_2.png"
+              alt="simple"
+              height="450"
+              width="458"
+            />
+          </section>
+
+          <aside class="notes">
+            TypeScript uses the JavaScript syntaxes and
+            <strong>adds additional syntaxes</strong>
+            for supporting Types. If you have a JavaScript program that doesn't
+            have any syntax errors, it is also a TypeScript program. It means
+            that all JavaScript programs are TypeScript programs. This is very
+            <strong>helpful if you're migrating</strong> an existing JavaScript
+            codebase to TypeScript.
+          </aside>
+        </section>
+
+        <section>
+          <h3 class="slide-name">ADVANTAGES</h3>
+          <ul>
+            <li class="fragment">Supports static typing</li>
+            <li class="fragment">Makes code easier to read and understand</li>
+            <li class="fragment">Proin ut est pretium, ultrices</li>
+            <li class="fragment">
+              Helps to avoid a lot of painful bugs thanks to type checking in
+              the code
+            </li>
+            <li class="fragment">
+              Encourages developers to follow best OOP practices
+            </li>
+            <li class="fragment">As a result - saves developer's time</li>
+          </ul>
+
+          <aside class="notes">
+            todo https://videoportal.epam.com/video/L7xRgqY4
+          </aside>
+        </section>
+
+        <section>
+          <h3 class="slide-name">WHY AND WHEN TO USE TYPESCRIPT?</h3>
+          <ul>
+            <li class="fragment">You have a large codebase</li>
+            <li class="fragment">One developer can make critical changes</li>
+            <li class="fragment">
+              Your team's developers are already accustom to statically-typed
+              languages
+            </li>
+            <li class="fragment">You really feel the need for speed</li>
+            <li class="fragment">
+              Encourages developers to follow best OOP practices
+            </li>
+            <li class="fragment">As a result - saves developer's time</li>
+          </ul>
+
+          <aside class="notes">
+            <strong>Predictability</strong>
+            With TypeScript, everything stays the way it was initially defined.
+            If a variable is declared as a string, it will always be a string
+            and won’t turn into a Boolean. This enhances the likelihood of
+            functions working the way initially intended. 
+            <br /><br />
+            <strong>Early spotted bugs</strong>
+            Researchers found that TypeScript detects 15 percent of common bugs
+            at the compile stage. 
+            <br /><br />
+            <strong>New Features + Browser Compatibility</strong>
+            Typescript mixes the old with the new in the best way possibility.
+            You can use newer features from ES6, ES7, and beyond, and the
+            compiler will convert them to ES5 (or whatever you specify).
+            <br /><br />
+            <strong>Enhanced IDE Experience</strong>
+            Due to the static types, several IDEs are able to offer even more
+            predictive assistance than usual (with an instance of a class and
+            its attributes, for example).
+            <br /><br />
+            <strong>Fast refactoring</strong>
+            Refactoring or updating the app without changing its behavior is
+            needed to keep the codebase robust and maintainable. TypeScript
+            makes this important process less painful. With IDEs knowing much
+            about your code, you are equipped with navigation tools like “find
+            all references” or “go to definition.”
+            <br /><br />
+            <strong>Support from the tech world</strong>
+            TypeScript is an open-source language with a steadily growing
+            community. The very fact that it is loved by millions of developers
+            and backed by Microsoft conveys confidence that the technology won’t
+            be abandoned, and you always can seek (and get!) assistance from the
+            wide TypeScript community.
+          </aside>
+        </section>
+
+        <section>
+          <h3 class="slide-name">BASIC TYPES</h3>
+          <pre class="font-size-1">
+            <code class="ts" data-line-numbers="2|4|6|8-10">
+              <script type="text/template">
+const booleanValue: boolean = true;
+
+const numberValue: number = 3;
+
+const stringValue: string = 'string value';
+
+let anyValue: any = 32;
+anyValue = 'string'
+anyValue = false;                      
+              </script>
+            </code>
+          </pre>
+
+          <aside class="notes">
+            <strong>boolean</strong> is for the two values true and false
+            <br /><br />
+            <strong>number</strong> is for numbers like 42. JavaScript does not
+            have a special runtime value for integers, so there’s no equivalent
+            to int or float - everything is simply number <br /><br />
+            <strong>string</strong> represents string values like "Hello, world”
+          </aside>
+        </section>
+
+        <section>
+          <h3 class="slide-name">COLLECTIONS</h3>
+          <pre class="font-size-1">
+            <code class="ts" data-line-numbers="2,3|5,6">
+              <script type="text/template">
+// Using square brackets
+const fruits1: string[] = ['Apple', 'Orange', 'Banana'];
+
+// Using a generic array type
+const fruits2: Array<string> = ['Apple', 'Orange', 'Banana'];
+              </script>
+            </code>
+          </pre>
+
+          <aside class="notes">
+            Both methods produce the same output.
+            https://www.tutorialsteacher.com/typescript/typescript-array
+          </aside>
+        </section>
+
+        <section>
+          <h3 class="slide-name">READONLY COLLECTIONS</h3>
+          <pre class="font-size-1">
+            <code class="ts" data-line-numbers="2-4|3,6|3,7|3,8|2,3,9|2,3,10">
+              <script type="text/template">
+let num: Array<number> = [1, 2, 3, 4, 5];
+let roNum: ReadonlyArray <number> = [...num]; // 1-st variant
+let roNum2: readonly number[] = [...num]; // 2-nd variant
+
+roNum[0] = 3; // error
+roNum.push(6); // error
+roNum.length = 100; // error
+num = roNum; // error
+num = roNum as Array<number>; // ok                  
+              </script>
+            </code>
+          </pre>
+
+          <aside class="notes">
+            https://videoportal.epam.com/video/jRGb4boN
+          </aside>
+        </section>
+
+        <section>
+          <h3 class="slide-name">TURPLES</h3>
+          <pre class="font-size-1">
+            <code class="ts" data-line-numbers="2,3|5,6|8|10,11">
+              <script type="text/template">
+const empId: number = 1;
+const empName: string = "Steve";
+
+// Tuple type variable 
+const employee: [number, string] = [1, "Steve"];
+
+const person: [number, string, boolean] = [1, "Steve", true];
+
+let employees: [number, string][];
+employees = [[1, "Steve"], [2, "Bill"], [3, "Jeff"]];
+              </script>
+            </code>
+          </pre>
+
+          <aside class="notes">
+            https://www.tutorialsteacher.com/typescript/typescript-tuple
+          </aside>
+        </section>
+
+        <section>
+          <h3 class="slide-name">FUNCTIONS</h3>
+          <pre class="font-size-1">
+            <code class="ts" data-line-numbers="2|3|4-6|8-10">
+              <script type="text/template">
+function add(a:string, b?:string):string;
+function add(a:number, b:number): number;
+function add(a: any, b?: any): any {
+  if(b) return a + b;
+  return a;
+}
+
+function buildName(firstName: string, ...restOfName: string[]) {
+  return firstName + " " + restOfName.join(" ");
+}                
+              </script>
+            </code>
+          </pre>
+
+          <aside class="notes">
+            https://www.tutorialsteacher.com/typescript/function-overloading
+          </aside>
+        </section>
+
+        <section>
+          <h3 class="slide-name">ENUM</h3>
+          <pre class="font-size-1">
+            <code class="ts" data-line-numbers="2,3,4|7-15">
+              <script type="text/template">
+enum Direction {
+  Up = 1,
+  Down,
+}
+
+enum UserResponse {
+  No = 0,
+  Yes = "YES",
+}
+function respond(recipient: string, message: UserResponse): {
+  // ...
+}
+
+respond("Princess Caroline", UserResponse.Yes);                             
+              </script>
+            </code>
+          </pre>
+
+          <aside class="notes">
+            https://www.typescriptlang.org/docs/handbook/enums.html
+          </aside>
+        </section>
+
+        <section>
+          <h3 class="slide-name">TYPE ALIAS</h3>
+          <pre class="font-size-1">
+            <code class="ts">
+              <script type="text/template">
+// type alias = existingType;
+type chars = string;
+let message: chars; // same as string type                            
+              </script>
+            </code>
+          </pre>
+
+          <aside class="notes">
+            https://www.typescripttutorial.net/typescript-tutorial/typescript-type-aliases/
+          </aside>
+        </section>
+
+        <section>
+          <h3 class="slide-name">
+            TYPE ALIAS - overview of setting typescript aliases
+          </h3>
+          <p>TODO</p>
+        </section>
+
+        <section>
+          <h3 class="slide-name">UNIONS</h3>
+          <pre class="font-size-1">
+            <code class="ts" data-line-numbers="2-4|5-7|8-12|2-14">
+              <script type="text/template">
+type A = { 
+  title: string; 
+};
+type B = {
+  code: number; 
+};
+type C = {
+  response: {
+    title: string;
+  };
+};
+
+type D = A | B | C;                           
+              </script>
+            </code>
+          </pre>
+
+          <aside class="notes">
+            https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html
+          </aside>
+        </section>
+
+        <section>
+          <h3 class="slide-name">CLASSES</h3>
+          <pre class="font-size-1">
+            <code class="ts" data-line-numbers="2-10|12-19">
+              <script type="text/template">
+class Animal {
+  name: string;
+  constructor(theName: string) {
+    this.name = theName;
+  }
+  move(distanceInMeters: number = 0) {
+    console.log(`${this.name} moved ${distanceInMeters}m.`);
+  }
+}
+
+class Snake extends Animal {
+  constructor(name: string) {
+    super(name);
+  }
+  move(distanceInMeters = 5) {
+   console.log("Slithering...");
+  }
+}
+                                          
+              </script>
+            </code>
+          </pre>
+        </section>
+
+        <section>
+          <section>
+            <h3 class="slide-name">INTERFACE</h3>
+            <pre class="font-size-1">
+              <code class="ts" data-line-numbers="2-4|6-8|2-12">
+                <script type="text/template">
+interface Shape {
+  color: string;
+}
+
+interface PenStroke {
+  penWidth: number;
+}
+
+interface Square extends Shape, PenStroke {
+  sideLength: number;
+}                  
+                </script>
+              </code>
+            </pre>
+            <aside class="notes">
+              https://www.typescriptlang.org/docs/handbook/interfaces.html
+            </aside>
+          </section>
+          <section>
+            <h3 class="slide-name">INTERFACE</h3>
+            <pre class="font-size-1">
+              <code class="ts" data-line-numbers="2-4|2-13">
+                <script type="text/template">
+interface ClockInterface {
+  currentTime: Date;
+  setTime(d: Date): void;
+}
+
+class Clock implements ClockInterface {
+  currentTime: Date = new Date();
+  setTime(d: Date) {
+    this.currentTime = d;
+  }
+  constructor(h: number, m: number) {}
+}                                 
+                </script>
+              </code>
+            </pre>
+            <aside class="notes">
+              https://www.typescriptlang.org/docs/handbook/interfaces.html
+            </aside>
+          </section>
+          <section>
+            <h3 class="slide-name">INTERFACE</h3>
+            <pre class="font-size-1">
+              <code class="ts" data-line-numbers="2-4|2-9">
+                <script type="text/template">
+interface SearchFunc {
+  (source: string, subString: string): boolean;
+}
+
+const mySearch: SearchFunc = function (src: string, sub: string): boolean {
+  let result = src.search(sub);
+  return result > -1;
+};                                                   
+                </script>
+              </code>
+            </pre>
+            <aside class="notes">
+              https://www.typescriptlang.org/docs/handbook/interfaces.html
+            </aside>
+          </section>
+          <section>
+            <h3 class="slide-name">INTERFACE</h3>
+            <pre class="font-size-1">
+              <code class="ts" data-line-numbers="2-4|2-7">
+                <script type="text/template">
+interface ReadonlyStringArray {
+  readonly [index: number]: string;
+}
+
+let myArray: ReadonlyStringArray = ["Alice", "Bob"];
+myArray[2] = "Mallory"; // error!                                                                     
+                </script>
+              </code>
+            </pre>
+            <aside class="notes">
+              https://www.typescriptlang.org/docs/handbook/interfaces.html
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <h3 class="slide-name">GENERIC</h3>
+          <pre class="font-size-1">
+            <code class="ts" data-line-numbers="2-6|8-14">
+              <script type="text/template">
+function f<Type>(arg: Type): Type {
+  return arg;
+}
+const o = f<string>("str");
+const o2 = f<number>(22);
+
+interface A {
+  a: number;
+}
+function f2<Type extends A>(arg: Type): Type {
+  console.log(arg.a); // Now we know it has a .a property
+  return arg;
+}                                                                  
+              </script>
+            </code>
+          </pre>
+
+          <aside class="notes">
+            https://www.typescriptlang.org/docs/handbook/2/generics.html
+          </aside>
+        </section>
+
+        <section>
+          <h3 class="slide-name">Usage in RN project</h3>
+          <p class="font-size-1-3">
+            npx react-native init MyApp --template
+            react-native-template-typescript
+          </p>
+          <pre data-id="code-animation" class="width-100">
+              <code class="ts" data-line-numbers="2-4|2-7">
+                <script type="text/template">
+/* PROJECT_ROOT/tsconfig.json */
+{
+  "extends": "@tsconfig/react-native/tsconfig.json",
+  "compilerOptions": {
+    "skipLibCheck": true /* Skip type checking all .d.ts files. */
+  }
+}                                                                 
+                </script>
+              </code>
+            </pre>
+        </section>
+
+        <section>
+          <h3 class="slide-name">RN component example</h3>
+          <pre class="font-size-1">
+            <code class="ts" data-line-numbers="1-6|2-10|2-18">
+              <script type="text/template">
+import React from 'react';
+
+type Props = {
+  name: string;
+};
+
+export const SomeComponent: React.FC<Props> = ({
+  name
+}) => {
+  const formatNewName = (newName: string) => {
+    // ...
+  }
+  return (
+    <>
+    </>
+  );
+};                                                              
+              </script>
+            </code>
+          </pre>
+        </section>
+
+        <section>
+          <h3 class="slide-name">RN redux example?</h3>
+        </section>
+
+        <section>
+          <h3 class="slide-name">RN navigation example?</h3>
+        </section>
+
+        <section>
+          <h3 class="slide-name">
+            RN потенциальные ошибки пример демонстрация пользы?
+          </h3>
+        </section>
+
+        <section class="center">
+          <h1 class="font-size-3">QA</h1>
         </section>
       </div>
     </div>
@@ -30,11 +582,14 @@
     <script src="../reveal-js/plugin/markdown/markdown.js"></script>
     <script src="../reveal-js/plugin/highlight/highlight.js"></script>
     <script>
+      var url = new URL(window.location.href);
+      var showNotes = true; // TODO Uncomment before merging!!! url.searchParams.has("showNotes");
       Reveal.initialize({
         controls: true,
         progress: true,
         center: false,
         hash: true,
+        showNotes,
         plugins: [
           RevealZoom,
           RevealNotes,
