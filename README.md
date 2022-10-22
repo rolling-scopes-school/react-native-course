@@ -11,3 +11,6 @@
 - [Javascript](javascript/index.md)
 - [Typescript](typescript/index.md)
 - [Unit tests](unit-testing/index.md)
+
+# Contributors
+- [Guide](contributors.md)
