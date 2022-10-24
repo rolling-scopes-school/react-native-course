@@ -1,27 +1,310 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>react-native-course - name module</title>
-    <meta name="description" content="rolling-scopes-school/react-native-course - react module" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../reveal-js/dist/reset.css" />
-    <link rel="stylesheet" href="../reveal-js/dist/reveal.css" />
-    <link rel="stylesheet" href="../reveal-js/dist/theme/white.css" id="theme" />
-    <!-- Theme used for syntax highlighting of code -->
-    <link rel="stylesheet" href="../reveal-js/plugin/highlight/monokai.css" />
-    <link rel="stylesheet" href="../reveal-js/common.css" />
-  </head>
-  <body>
-    <div class="reveal">
-      <!-- Any section element inside of this container is displayed as a slide -->
-      <div class="slides">
-        <section class="center">
-          <h2 class="custom-presentation-name"> Presentation​ Name </h3>
+<head>
+  <meta charset="utf-8" />
+  <title>react-native-course - name module</title>
+  <meta name="description" content="rolling-scopes-school/react-native-course - react module" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../reveal-js/dist/reset.css" />
+  <link rel="stylesheet" href="../reveal-js/dist/reveal.css" />
+  <link rel="stylesheet" href="../reveal-js/dist/theme/white.css" id="theme" />
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="../reveal-js/plugin/highlight/monokai.css" />
+  <link rel="stylesheet" href="../reveal-js/common.css" />
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <!-- 0 slide -->
+      <section class="center">
+        <h2 class="font-size-3">Unit tests​</h2>
+      </section>
+      <!-- 1 slide -->
+      <section>
+        <h3 class="slide-name">AGENDA</h3>
+        <ul>
+          <li class="fragment">Testing in software development</li>
+          <li class="fragment">Testing Pyramid</li>
+          <li class="fragment">Unit tests</li>
+          <li class="fragment">TDD & BDD</li>
+          <li class="fragment">Testing statistic</li>
+          <li class="fragment">Testing libraries</li>
+          <li class="fragment">Jest as a testing framework</li>
+          <li class="fragment">Husky</li>
+        </ul>
+      </section>
+      <!-- 2 slide -->
+      <section>
+        <h3 class="slide-name">Testing role in Software Development​</h3>
+        <ul>
+          <li class="fragment">Testing is about verifying that what was specified is what was delivered.</li>
+          <li class="fragment">The testing is important since it discovers defects/bugs before the delivery to the
+            client, which guarantees the quality of the software.​</li>
+        </ul>
+      </section>
+      <!-- 3 slide -->
+      <section>
+        <h3 class="slide-name">Major benefits of software testing​</h3>
+        <ul>
+          <li class="fragment">Launch a flawless software application</li>
+          <li class="fragment">Prevent targeted malware attacks</li>
+          <li class="fragment">Improves the user experience</li>
+          <li class="fragment">Curtail maintain costs</li>
+          <li class="fragment">Improve time-to-market</li>
+          <li class="fragment">Enhance quality of apllication</li>
+          <li class="fragment">Boost competitiveness</li>
+        </ul>
+      </section>
+      <!-- 4 slide -->
+      <section>
+        <h3 class="slide-name">The scope of Testing​</h3>
+        <p class="font-size-2 align-center">
+          The test scope defines what areas, features, and functionalities of an application should be tested</p>
+      </section>
+      <!-- 5 slide -->
+      <section>
+        <h3 class="slide-name">Testing Pyramid​​</h3>
+        <img src='assets/images/testing_pyramid.svg' height="500"/>
+      </section>
+      <!-- 6 slide -->
+      <section>
+        <h3 class="slide-name">Benefits of unit tests​​</h3>
+        <ul>
+          <li class="fragment">Save development time</li>
+          <li class="fragment">Provide quick access to code documentation</li>
+          <li class="fragment">Contribute to code quality​</li>
+          <li class="fragment">Improve application architecture​</li>
+          <li class="fragment">Debug process​</li>
+          <li class="fragment">Reduce costs in long run</li>
+        </ul>
+      </section>
+      <!-- 7 slide -->
+      <section>
+        <h3 class="slide-name">Impacts of neglecting unit tests</h3>
+        <ul>
+          <li class="fragment">The risks of simple mistakes leaking to the end user significantly increase in the
+            absence of unit tests.</li>
+          <li class="fragment">Skipping unit tests quickly turns fresh code into legacy code, which is harder to
+            maintain.</li>
+        </ul>
+      </section>
+      <!-- 8 slide -->
+      <section>
+        <h3 class="slide-name">TDD vs BDD</h3>
+        <img src='assets/images/tdd_bdd.png' height="500"/>
+      </section>
+      <!-- 9 slide -->
+      <section>
+        <h3 class="slide-name">TDD is RED-GREEN-BLUE development​</h3>
+        <img src='assets/images/tdd.png' height="500"/>
+      </section>
+      <!-- 10 slide -->
+      <section>
+        <!-- 10/0 slide -->
+        <section>
+          <h3 class="slide-name">Testing statistic​</h3>
+          <img src='assets/images/statistic_1.png' />
         </section>
-      </div>
+        <!-- 10/1 slide -->
+        <section>
+          <h3 class="slide-name">Testing statistic​</h3>
+          <img src='assets/images/statistic_2.png' />
+        </section>
+      </section>
+      <!-- 11 slide -->
+      <section>
+        <h3 class="slide-name">Writing testable code​​</h3>
+        <p class="font-size-2 align-center">
+          To make your app more testable, start by separating the view part of your app from your business logic and app
+          state.</p>
+        <img src='assets/images/separate_logic_and_ui.png' />
+      </section>
+      <!-- 12 slide -->
+      <section>
+        <!-- 12/0 slide -->
+        <section>
+          <h3 class="slide-name">Testing libraries</h3>
+          <div class="layout">
+            <div class="fragment width-50">
+              <p class="align-center">Jest</p>
+              <img src='assets/images/jest_icon.png' alt="simple" height="100" width="100" />
+            </div>
+            <div class="fragment width-50">
+              <p class="align-center">Mocha</p>
+              <img src='assets/images/mocha_icon.png' alt="simple" height="100" width="100" />
+            </div>
+            <div class="fragment width-50">
+              <p class="align-center">Jasmine</p>
+              <img src='assets/images/jasmine-icon.png' alt="simple" height="100" width="500" />
+            </div>
+          </div>
+          <div class="layout">
+            <div class="fragment width-50">
+              <p class="align-center">Ava</p>
+              <img src='assets/images/ava_icon.png' alt="simple" height="100" width="200" />
+            </div>
+            <div class="fragment width-50">
+              <p class="align-center">Vitest</p>
+              <img src='assets/images/vitest_icon.png' alt="simple" height="100" width="100" />
+            </div>
+          </div>
+        </section>
+        <!-- 12/1 slide -->
+        <section>
+          <img src='assets/images/frameworks_ comparison.png' height="500"/>
+        </section>
+      </section>
+      <!-- 13 slide -->
+      <section>
+        <h3 class="slide-name">Why Jest?</h3>
+        <ul>
+          <li class="fragment">Facebook developed the Jest unit testing framework.</li>
+          <li class="fragment">The default template of React Native ships with Jest testing framework.</li>
+        </ul>
+      </section>
+      <!-- 14 slide -->
+      <section>
+        <h3 class="slide-name">How to set up Jest?</h3>
+        <p class="font-size-2 align-center">
+          After command ​'react-native init' The following configuration should be automatically added to your
+          package.json file:</p>
+        <pre><code data-trim data-noescape>
+            {​​
+              "scripts": {​​
+                "test": "jest",​​
+              },​​
+              "jest": {​​
+                "preset": "react-native",​​
+              }​​
+            }
+          </code></pre>
+      </section>
+      <!-- 15 slide -->
+      <section>
+        <h3 class="slide-name">jest.config.js and jest.setup.js files​</h3>
+        <p class="font-size-2 align-center">
+          A list of paths to modules that run some code to configure or set up the testing environment. Each setupFile
+          will be run once per test file.​​​</p>
+        <pre><code data-trim data-noescape>
+            module.exports = {​​
+              roots: ['<rootDir>/src'],​​
+              collectCoverage: true,​​
+              coverageThreshold: {​​ ... },​​
+              preset: 'react-native',​​
+              setupFiles: ['<rootDir>jest.setup.js'],​​
+              setupFilesAfterEnv: ['<rootDir>/src/globalMock.js'],​​
+            };
+          </code></pre>
+      </section>
+      <!-- 16 slide -->
+      <section>
+        <h3 class="slide-name">Structuring Tests​</h3>
+        <pre><code data-trim data-noescape>
+          beforeAll(() => {​
+            // ...​​
+          });​​
+          afterAll(() => {​​
+            // ...​​
+          });​​
+          describe('Our component', () => {​​
+            beforeEach(() => {​​
+             // ...​​
+            });​​
+            it('should test this', () => {​​
+             // ...​​
+            });​​
+          });
+          </code></pre>
+      </section>
+      <!-- 17 slide -->
+      <section>
+        <h3 class="slide-name">Expect​</h3>
+        <pre><code data-trim data-noescape>
+          expect(value)​​
+          expect.anything()​​
+          expect.any(constructor)​​
+          .not​​
+          .toBe(value)​​
+          .toHaveBeenCalled()​​
+          .toBeLessThan(number | bigint)​​
+          .toBeNull()​​
+          .toContain(item)​​
+          .toEqual(value)​​
+          .toMatch(regexp | string)​​
+          .toMatchSnapshot(propertyMatchers?, hint?)​​
+          .toThrow(error?)​​
+        </code></pre>
+      </section>
+      <!-- 18 slide -->
+      <section>
+        <h3 class="slide-name">Mocking & The Jest Object​</h3>
+        <pre><code data-trim data-noescape>
+          // Mock functions​​
+          jest.mock(moduleName, factory)​​
+          jest.unmock(moduleName)​​
+          jest.requireActual(moduleName)​​
+          jest.resetModules()​​
+          jest.isolateModules(fn)​​
+          // Mock modules​​
+          jest.fn(implementation?)​​
+          jest.spyOn(object, methodName)​​
+          jest.clearAllMocks()​​
+          jest.resetAllMocks()​​
+          jest.restoreAllMocks()​​
+        </code></pre>
+      </section>
+      <!-- 19 slide -->
+      <section>
+        <h3 class="slide-name">Snapshots​​</h3>
+        <pre><code data-trim data-noescape>
+          it('should match snapshot', () => {​​
+            const {toJSON} = render(<MyButton title="title" />);​​
+            expect(toJSON()).toMatchSnapshot();​​
+          });​​
+        </code></pre>
+      </section>
+      <!-- 20 slide -->
+      <section>
+        <!-- 20/0 slide -->
+        <section>
+          <h3 class="slide-name">Test coverage​</h3>
+          <p class="font-size-2 align-center">With that being said it is generally accepted that 80% coverage is a good
+            goal to aim for.</p>
+          <p class="font-size-2 align-center">Trying to reach a higher coverage might turn out to be costly, while not
+            necessary producing enough benefit.​</p>
+        </section>
+        <!-- 20/1 slide -->
+        <section>
+          <img src='assets/images/coverage_1.png' height="500"/>
+        </section>
+        <!-- 20/2 slide -->
+        <section>
+          <img src='assets/images/coverage_2.png' height="500"/>
+        </section>
+        <!-- 20/3 slide -->
+        <section>
+          <img src='assets/images/coverage_3.png' height="500"/>
+        </section>
+      </section>
+      <!-- 21 slide -->
+      <section>
+        <h3 class="slide-name">When tests fail​​</h3>
+        <img src='assets/images/failed_tests.png' height="500"/>
+      </section>
+      <!-- 22 slide -->
+      <section>
+        <h3 class="slide-name">Husky</h3>
+        <pre><code data-trim data-noescape>
+      "husky": {​​
+        "hooks": {​​
+          "pre-commit": "YOUR_COMMAND",​​
+          "pre-push": "YOUR_COMMAND"​​
+        }​​
+      }​​
+    </code></pre>
+      </section>
     </div>
     <script src="../reveal-js/dist/reveal.js"></script>
     <script src="../reveal-js/plugin/zoom/zoom.js"></script>
