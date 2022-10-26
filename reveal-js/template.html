@@ -19,19 +19,18 @@
     <!-- Theme used for syntax highlighting of code -->
     <link rel="stylesheet" href="./plugin/highlight/monokai.css" />
     <link rel="stylesheet" href="./common.css" />
+    <style class="jsStyle"></style>
   </head>
   <body>
     <div class="reveal">
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
-        <section class="flex-container height-100">
-          <h4 class="flex-item-horizontal-center font-size-3">
-            Presentation Name
-          </h4>
+        <section class="presentation-name-slide">
+          <h4>Presentation Name</h4>
         </section>
 
-        <section class="flex-container height-100">
-          <h4 class="flex-item-horizontal-center font-size-3">NOTES</h4>
+        <section>
+          <h4>NOTES</h4>
 
           <aside class="notes">
             <strong>Nulla facilisi</strong>
@@ -45,7 +44,7 @@
           </aside>
         </section>
 
-        <section>
+        <section class="agenda-slide">
           <h4 class="slide-name">AGENDA (MAX 7 ITEMS)</h4>
           <ul>
             <li class="fragment">Lorem ipsum dolor sit amet</li>
@@ -62,47 +61,39 @@
           </aside>
         </section>
 
-        <section>
+        <section class="picture-slide">
           <h4 class="slide-name">SLIDE WITH PICTURE</h4>
-          <img class="height-70" src="assets/images/image.png" alt="simple" />
+          <img src="assets/images/image.png" alt="simple" />
         </section>
 
-        <section>
+        <section class="text-and-picture-slide">
           <h4 class="slide-name">SLIDE WITH TEXT AND PICTURE</h4>
-          <img src="assets/images/image.png" alt="simple" width="280" />
-          <p class="font-size-1-5 align-center">
-            Etiam dui turpis, accumsan et neque eget, mollis consectetur ipsum.
-            Etiam mollis arcu elit, et condimentum dolor accumsan nec. Morbi ac
-            velit ut quam condimentum interdum. Curabitur eu felis suscipit
-            mauris fringilla iaculis a a ante. Curabitur ac pretium neque. Proin
-            ante felis, sollicitudin et convallis quis, dignissim in felis. Duis
-            ultrices, ex quis commodo euismod, purus ex suscipit tortor, at
-            ornare tortor tellus eu enim. Etiam dui turpis, accumsan et neque
-            eget, mollis consectetur ipsum. Etiam mollis arcu elit, et
-            condimentum dolor accumsan nec. Morbi ac velit ut quam condimentum
-            interdum. Curabitur eu felis suscipit mauris fringilla iaculis a a
-            ante. Curabitur ac pretium neque. Proin ante felis, sollicitudin et
-            convallis quis, dignissim in felis. Duis ultrices, ex quis commodo
-            euismod, purus ex suscipit tortor, at ornare tortor tellus eu enim.
-            Etiam dui turpis, accumsan et neque eget, mollis consectetur ipsum.
-            Etiam mollis arcu elit, et condimentum dolor accumsan nec. Morbi ac
-            velit ut quam condimentum interdum. Curabitur eu felis suscipit
-            mauris fringilla iaculis a a ante. Curabitur ac pretium neque. Proin
-            ante felis, sollicitudin et convallis quis, dignissim in felis. Duis
-            ultrices, ex quis commodo euismod, purus ex suscipit tortor, at
-            ornare tortor tellus eu enim. Etiam dui turpis, accumsan et neque
-            eget, mollis consectetur ipsum. Etiam mollis arcu elit, et
-            condimentum dolor accumsan nec. Morbi ac velit ut quam condimentum
-            interdum. Curabitur eu felis suscipit mauris fringilla iaculis a a
-            ante. Curabitur ac pretium neque. Proin ante felis, sollicitudin et
-            convallis quis, dignissim in felis. Duis ultrices, ex quis commodo
-            euismod, purus ex suscipit tortor, at ornare tortor tellus eu enim.
-          </p>
+          <div>
+            <img src="assets/images/image.png" alt="simple" />
+            <p>
+              Etiam dui turpis, accumsan et neque eget, mollis consectetur
+              ipsum. Etiam mollis arcu elit, et condimentum dolor accumsan nec.
+              Morbi ac velit ut quam condimentum interdum. Curabitur eu felis
+              suscipit mauris fringilla iaculis a a ante. Curabitur ac pretium
+              neque. Proin ante felis, sollicitudin et convallis quis, dignissim
+              in felis. Duis ultrices, ex quis commodo euismod, purus ex
+              suscipit tortor, at ornare tortor tellus eu enim. Etiam dui
+              turpis, accumsan et neque eget, mollis consectetur ipsum. Etiam
+              mollis arcu elit, et condimentum dolor accumsan nec. Morbi ac
+              velit ut quam condimentum interdum. Curabitur eu felis suscipit
+              mauris fringilla iaculis a a ante. Curabitur ac pretium neque.
+              Proin ante felis, sollicitudin et convallis quis, dignissim in
+              felis. Duis ultrices, ex quis commodo euismod, purus ex suscipit
+              tortor, at ornare tortor tellus eu enim. Etiam dui turpis,
+              accumsan et neque eget, mollis consectetur ipsum. Etiam mollis
+              arcu elit, et condimentum dolor accumsan nec.
+            </p>
+          </div>
         </section>
 
-        <section>
+        <section class="text-slide">
           <h4 class="slide-name">SLIDE WITH TEXT</h4>
-          <p class="font-size-1-5 align-center">
+          <p>
             Etiam dui turpis, accumsan et neque eget, mollis consectetur ipsum.
             Etiam mollis arcu elit, et condimentum dolor accumsan nec. Morbi ac
             velit ut quam condimentum interdum. Curabitur eu felis suscipit
@@ -116,9 +107,9 @@
           </p>
         </section>
 
-        <section>
+        <section class="text-and-conding-slide">
           <h4 class="slide-name">SLIDE WITH TEXT AND CODING</h4>
-          <p class="fragment font-size-1-5" data-fragment-index="1">
+          <p class="fragment" data-fragment-index="1">
             Etiam dui turpis, accumsan et neque eget, mollis consectetur ipsum.
             Etiam mollis arcu elit, et condimentum dolor accumsan nec. Morbi ac
             velit ut quam condimentum interdum. Curabitur eu felis suscipit
@@ -127,7 +118,7 @@
             ultrices, ex quis commodo euismod, purus ex suscipit tortor, at
             ornare tortor tellus eu enim.
           </p>
-          <pre class="fragment width-100" data-fragment-index="2">
+          <pre class="fragment" data-fragment-index="2">
               <code data-trim data-line-numbers>
                 function isPalindrome(s, i) {
                   return (
@@ -138,49 +129,45 @@
                 }
               </code>
             </pre>
-          <pre class="fragment width-100" data-fragment-index="3">
+          <pre class="fragment" data-fragment-index="3">
               <code data-trim data-line-numbers>
                 const element = <h1>Hello, {name}</h1>;
               </code>
             </pre>
         </section>
 
-        <section>
+        <section class="text-and-conding-slide">
           <h4 class="slide-name">SLIDE WITH TEXT AND CODING 2</h4>
-          <p class="font-size-1-3">Fusce efficitur placerat bibendum</p>
-          <pre data-id="code-animation" class="width-100">
+          <div>
+            <p>1 Fusce efficitur placerat bibendum</p>
+            <pre data-id="code-animation" class="width-100">
 						<code class="js" data-trim data-line-numbers>
 							const element = <h1>Hello, {name}</h1>;
 						</code>
 					</pre>
-          <p class="font-size-1-3">
-            Mauris enim nisl, sollicitudin porttitor nisl et, suscipit mattis
-            tellus.
-          </p>
-          <pre data-id="code-animation" class="width-100">
+          </div>
+          <div>
+            <p>
+              2 Mauris enim nisl, sollicitudin porttitor nisl et, suscipit
+              mattis tellus.
+            </p>
+            <pre data-id="code-animation" class="width-100">
 						<code class="js" data-trim data-line-numbers>
 							const element = <h1>Hello, {name}</h1>;
 						</code>
 					</pre>
-          <p class="font-size-1-3">
-            Vivamus turpis odio, pulvinar et mollis ut
-          </p>
-          <pre data-id="code-animation" class="width-100">
+          </div>
+          <div>
+            <p>3 Vivamus turpis odio, pulvinar et mollis ut</p>
+            <pre data-id="code-animation" class="width-100">
 						<code class="js" data-trim data-line-numbers>
 							const element = <h1>Hello, {name}</h1>;
 						</code>
 					</pre>
-          <p class="font-size-1-3">
-            Morbi sit amet nisi purus. In ut gravida eros.
-          </p>
-          <pre data-id="code-animation" class="width-100">
-						<code class="js" data-trim data-line-numbers>
-							const element = <h1>Hello, {name}</h1>;
-						</code>
-					</pre>
+          </div>
         </section>
 
-        <section>
+        <section class="bullets-slide">
           <h4 class="slide-name">SLIDE WITH BULLETS</h4>
           <ul>
             <li class="fragment">Lorem ipsum dolor sit amet</li>
@@ -193,7 +180,7 @@
           </ul>
         </section>
 
-        <section>
+        <section class="numbering-slide">
           <h4 class="slide-name">SLIDE WITH NUMBERING</h4>
           <ol>
             <li class="fragment">Lorem ipsum dolor sit amet</li>
@@ -206,9 +193,10 @@
           </ol>
         </section>
 
-        <section>
+        <section class="numbering-and-schema-slide">
           <h4 class="slide-name">SLIDE WITH NUMBERING AND SCHEMA</h4>
-          <div class="layout">
+          <div>
+            <img src="assets/images/image.png" alt="simple" />
             <ol class="width-60">
               <li>Lorem ipsum dolor sit amet</li>
               <li>Ut massa leo, sollicitudin quis</li>
@@ -217,43 +205,23 @@
               <li>Maecenas metus sem, congue eget</li>
               <li>Nunc sed justo dolor</li>
             </ol>
-            <img
-              src="assets/images/image.png"
-              alt="simple"
-              height="340"
-              width="400"
-              class="width-40"
-            />
           </div>
         </section>
 
-        <section>
-          <h4 class="slide-name">VIDEO AND INFO WITH LIST</h4>
-          <div class="layout">
-            <div class="fragment width-50" data-fragment-index="1">
-              <p class="video-title">Video title</p>
+        <section class="video-slide">
+          <h4 class="slide-name">VIDEO</h4>
+          <div>
+            <div>
+              <a href="https://www.youtube.com" target="_blank"> Video title</a>
               <iframe
-                width="560"
-                height="315"
                 src="https://www.youtube.com/embed/hQAHSlTtcmY"
                 title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen
               >
               </iframe>
-              <a
-                class="font-size-2"
-                href="https://www.youtube.com/embed/hQAHSlTtcmY"
-                target="_blank"
-                >Video Link</a
-              >
             </div>
-            <div class="width-50">
-              <p
-                class="fragment text-info font-size-1-3"
-                data-fragment-index="2"
-              >
+            <div>
+              <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
                 massa leo, sollicitudin quis urna in, porta faucibus leo.
                 Vestibulum facilisis rutrum tellus, eget interdum magna
@@ -262,201 +230,87 @@
                 Morbi et lorem eleifend, porta nunc ac, interdum libero. Nulla
                 facilisi.
               </p>
-              <div class="fragment" data-fragment-index="3">
-                <ul class="points-list framed-1 framed-card">
-                  <li class="fragment" data-fragment-index="3">
-                    - Lorem ipsum dolor sit amet
-                  </li>
-                  <li class="fragment" data-fragment-index="4">
-                    - Vestibulum facilisis rutrum tellus
-                  </li>
-                  <li class="fragment" data-fragment-index="5">
-                    - Nulla facilisi.
-                  </li>
-                  <li class="fragment" data-fragment-index="6">
-                    - Suspendisse at porttitor
-                  </li>
-                  <li class="fragment" data-fragment-index="7">
-                    - Aenean dui sem, vulputate nec ex et
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <h4 class="slide-name">IMAGE WITH LIST</h4>
-          <div class="layout">
-            <div class="fragment width-50" data-fragment-index="1">
-              <img
-                src="assets/images/image.png"
-                alt="simple"
-                height="340"
-                width="400"
-              />
-            </div>
-            <div class="width-50">
-              <div class="info-section">
-                <h5
-                  class="info-title font-size-2-5 fragment"
-                  data-fragment-index="2"
-                >
-                  Pros:
-                </h5>
-                <ul class="points-list circle">
-                  <li class="fragment" data-fragment-index="3">
-                    Lorem ipsum dolor sit amet
-                  </li>
-                  <li class="fragment" data-fragment-index="4">
-                    Vestibulum facilisis rutrum tellus
-                  </li>
-                  <li class="fragment" data-fragment-index="5">
-                    Nulla facilisi.
-                  </li>
-                  <li class="fragment" data-fragment-index="6">
-                    Suspendisse at porttitor
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h5
-                  class="info-title font-size-2-5 fragment"
-                  data-fragment-index="2"
-                >
-                  Cons:
-                </h5>
-                <ul class="points-list circle">
-                  <li class="fragment" data-fragment-index="8">
-                    Lorem ipsum dolor sit amet
-                  </li>
-                  <li class="fragment" data-fragment-index="9">
-                    Vestibulum facilisis rutrum tellus
-                  </li>
-                  <li class="fragment" data-fragment-index="10">
-                    Nulla facilisi.
-                  </li>
-                  <li class="fragment" data-fragment-index="11">
-                    Suspendisse at porttitor
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <h4 class="slide-name">THREE SECTIONS</h4>
-          <div class="layout">
-            <div class="fragment width-30" data-fragment-index="1">
-              <img
-                src="assets/images/image.png"
-                alt="simple"
-                height="340"
-                width="400"
-              />
-            </div>
-            <div class="fragment width-30" data-fragment-index="2">
-              <img
-                src="assets/images/image.png"
-                alt="simple"
-                height="340"
-                width="400"
-              />
-            </div>
-            <div class="fragment width-30" data-fragment-index="3">
-              <img
-                src="assets/images/image.png"
-                alt="simple"
-                height="340"
-                width="400"
-              />
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <h4 class="slide-name">FOUR SECTIONS</h4>
-          <div class="layout">
-            <div class="fragment width-25" data-fragment-index="1">
-              <img
-                src="assets/images/image.png"
-                alt="simple"
-                height="340"
-                width="400"
-              />
-            </div>
-            <div class="fragment width-25" data-fragment-index="2">
-              <img
-                src="assets/images/image.png"
-                alt="simple"
-                height="340"
-                width="400"
-              />
-            </div>
-            <div class="fragment width-25" data-fragment-index="3">
-              <img
-                src="assets/images/image.png"
-                alt="simple"
-                height="340"
-                width="400"
-              />
-            </div>
-            <div class="fragment width-25" data-fragment-index="4">
-              <img
-                src="assets/images/image.png"
-                alt="simple"
-                height="340"
-                width="400"
-              />
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <h4 class="slide-name">SLIDE WITH SPEAKER NOTES</h4>
-          <p class="font-size-2 align-center">
-            There's a speaker view. It includes a timer, preview of the upcoming
-            slide as well as your speaker notes. Press the S key to try it out.
-            When used locally, this feature requires that reveal.js runs from a
-            local web server.
-          </p>
-          <p class="font-size-2 align-center">
-            Etiam dui turpis, accumsan et neque eget, mollis consectetur ipsum.
-            Etiam mollis arcu elit, et condimentum dolor accumsan nec. Morbi ac
-            velit ut quam condimentum interdum. Curabitur eu felis suscipit
-            mauris fringilla iaculis a a ante.
-          </p>
-          <aside class="notes">
-            These are your private notes 📝. Press B or . on your keyboard to
-            pause the presentation. This is helpful when you're on stage and
-            want to take distracting slides off the screen.
-          </aside>
-        </section>
-
-        <section>
-          <h4 class="slide-name">INFO WITH PHONE VIDEO</h4>
-          <div class="layout">
-            <div class="width-80">
-              <p
-                class="fragment text-info font-size-1-3"
-                data-fragment-index="1"
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                massa leo, sollicitudin quis urna in, porta faucibus leo.
-                Vestibulum facilisis rutrum tellus, eget interdum magna
-                imperdiet at. Suspendisse at porttitor ex. Proin ut est pretium,
-                ultrices nisi in, iaculis enim. Pellentesque eu consequat dolor.
-                Morbi et lorem eleifend, porta nunc ac, interdum libero. Nulla
-                facilisi. Quisque gravida commodo neque, quis cursus tellus
-                condimentum ac. Aenean dui sem, vulputate nec ex et, faucibus
-                ullamcorper sapien.
+              <p>
+                - Lorem ipsum dolor sit amet
+                <br />
+                - Lorem ipsum dolor sit amet
+                <br />
+                - Lorem ipsum dolor sit amet
+                <br />
+                - Lorem ipsum dolor sit amet
+                <br />
+                - Lorem ipsum dolor sit amet
+                <br />
+                - Lorem ipsum dolor sit amet
+                <br />
+                - Lorem ipsum dolor sit amet
+                <br />
               </p>
-              <div class="fragment" data-fragment-index="2">
-                <pre class="font-size-1 width-100">
-                  <code class="js" data-line-numbers="1,3|7,8,11,12|9,10">
-                    <script type="text/template">import { createNativeStackNavigator } from '@react-navigation/native-stack';
+            </div>
+          </div>
+        </section>
 
+        <section class="several-pictures-2-slide">
+          <h4 class="slide-name">SEVERAL pictures 2</h4>
+          <div>
+            <div class="fragment" data-fragment-index="1">
+              <img src="assets/images/image.png" alt="simple" />
+            </div>
+            <div class="fragment" data-fragment-index="2">
+              <img src="assets/images/image.png" alt="simple" />
+            </div>
+          </div>
+        </section>
+
+        <section class="several-pictures-3-slide">
+          <h4 class="slide-name">SEVERAL pictures 3</h4>
+          <div>
+            <div class="fragment" data-fragment-index="1">
+              <img src="assets/images/image.png" alt="simple" />
+            </div>
+            <div class="fragment" data-fragment-index="2">
+              <img src="assets/images/image.png" alt="simple" />
+            </div>
+            <div class="fragment" data-fragment-index="3">
+              <img src="assets/images/image.png" alt="simple" />
+            </div>
+          </div>
+        </section>
+
+        <section class="several-pictures-4-slide">
+          <h4 class="slide-name">SEVERAL pictures 4</h4>
+          <div>
+            <div class="fragment" data-fragment-index="1">
+              <img src="assets/images/image.png" alt="simple" />
+            </div>
+            <div class="fragment" data-fragment-index="2">
+              <img src="assets/images/image.png" alt="simple" />
+            </div>
+            <div class="fragment" data-fragment-index="3">
+              <img src="assets/images/image.png" alt="simple" />
+            </div>
+            <div class="fragment" data-fragment-index="4">
+              <img src="assets/images/image.png" alt="simple" />
+            </div>
+          </div>
+        </section>
+
+        <section class="text-conding-video-slide">
+          <h4 class="slide-name">text + coding + video</h4>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut massa
+            leo, sollicitudin quis urna in, porta faucibus leo. Vestibulum
+            facilisis rutrum tellus, eget interdum magna imperdiet at.
+            Suspendisse at porttitor ex. Proin ut est pretium, ultrices nisi in,
+            iaculis enim. Pellentesque eu consequat dolor. Morbi et lorem
+            eleifend, porta nunc ac, interdum libero. Nulla facilisi. Quisque
+            gravida commodo neque, quis cursus tellus condimentum ac. Aenean dui
+            sem, vulputate nec ex et, faucibus ullamcorper sapien.
+          </p>
+          <div class="fragment">
+            <pre>
+                <code class="js" data-line-numbers="1,3|7,8,11,12|9,10">
+                  <script type="text/template">import { createNativeStackNavigator } from '@react-navigation/native-stack';
 const Stack = createNativeStackNavigator()
 
 function App() {
@@ -469,16 +323,12 @@ function App() {
     </NavigationContainer>
   )
 }
-                    </script>
-                  </code>
-                </pre>
-              </div>
-            </div>
-            <div class="fragment width-20" data-fragment-index="1">
-              <video width="240" autoplay muted>
-                <source data-src="assets/videos/video.mp4" type="video/mp4" />
-              </video>
-            </div>
+                  </script>
+                </code>
+            </pre>
+            <video>
+              <source data-src="assets/videos/video.mp4" type="video/mp4" />
+            </video>
           </div>
         </section>
 
@@ -537,9 +387,9 @@ function App() {
           </section>
         </section>
 
-        <section>
+        <section class="table-slide">
           <h4 class="slide-name">SLIDE WITH TABLE</h4>
-          <p class="fragment text-info font-size-1-3" data-fragment-index="1">
+          <p class="fragment" data-fragment-index="1">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut massa
             leo, sollicitudin quis urna in, porta faucibus leo. Vestibulum
             facilisis rutrum tellus, eget interdum magna imperdiet at.
@@ -549,13 +399,8 @@ function App() {
             gravida commodo neque, quis cursus tellus condimentum ac. Aenean dui
             sem, vulputate nec ex et, faucibus ullamcorper sapien.
           </p>
-          <table
-            class="fragment width-100 font-size-1-5"
-            data-fragment-index="2"
-          >
-            <thead
-              class="background-colored-blue-1 framed-bottom-white-2 framed-right-white-1"
-            >
+          <table class="fragment" data-fragment-index="2">
+            <thead>
               <tr>
                 <th>REACT NATIVE UI COMPONENT</th>
                 <th>WEB ANALOG</th>
@@ -563,23 +408,17 @@ function App() {
               </tr>
             </thead>
             <tbody>
-              <tr
-                class="background-colored-blue-2 framed-bottom-white-1 framed-right-white-1"
-              >
+              <tr>
                 <td>&lt;View&gt;</td>
                 <td>A non-scrolling &lt;div&gt;</td>
                 <td>Container</td>
               </tr>
-              <tr
-                class="background-colored-blue-3 framed-bottom-white-1 framed-right-white-1"
-              >
+              <tr>
                 <td>&lt;Text&gt;</td>
                 <td>&lt;p&gt;</td>
                 <td>Displays, styles, and nests strings of text</td>
               </tr>
-              <tr
-                class="background-colored-blue-2 framed-bottom-white-1 framed-right-white-1"
-              >
+              <tr>
                 <td>&lt;Image&gt;</td>
                 <td>&lt;img&gt;</td>
                 <td>Displays different types of images</td>
@@ -588,8 +427,8 @@ function App() {
           </table>
         </section>
 
-        <section class="flex-container height-100">
-          <h4 class="flex-item-horizontal-center font-size-3">QA</h4>
+        <section class="qa-slide">
+          <h4>QA</h4>
         </section>
       </div>
     </div>
@@ -601,7 +440,7 @@ function App() {
     <script src="./plugin/highlight/highlight.js"></script>
     <script>
       var url = new URL(window.location.href);
-      var showNotes = true; // TODO Uncomment before merging!!! url.searchParams.has("showNotes");
+      var showNotes = false; // TODO Uncomment before merging!!! url.searchParams.has("showNotes");
 
       Reveal.initialize({
         disableLayout: true,
@@ -619,13 +458,13 @@ function App() {
         ],
       });
 
-      document.getElementById("jsStyle").innerHTML = `
-          <style>
-          img, video, iframe {
-              height: ${window.innerHeight * 0.8}px !important;
-              width: ${window.innerWidth * 0.8}px !important;
-          }
-          </style>`;
+      // document.getElementById("jsStyle").innerHTML = `
+      //     <style>
+      //     img, video, iframe {
+      //         height: ${window.innerHeight * 0.8}px !important;
+      //         width: ${window.innerWidth * 0.8}px !important;
+      //     }
+      //     </style>`;
     </script>
   </body>
 </html>
