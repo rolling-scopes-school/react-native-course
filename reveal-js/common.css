@@ -268,6 +268,9 @@ img {
   .slides > .several-pictures-4-slide > div {
     flex-direction: column;
   }
+  .slides > .several-pictures-4-slide div {
+    height: 38vh;
+  }
   .slides > .several-pictures-2-slide > div > * {
     max-height: 40vh;
   }
@@ -281,10 +284,10 @@ img {
     max-height: 25vh;
   }
   .slides > .several-pictures-4-slide > div > * {
-    max-height: 21vh;
+    max-height: 19vh;
   }
   .slides > .several-pictures-4-slide > div > * > * {
-    max-height: 20vh;
+    max-height: 18vh;
   }
 }
 
