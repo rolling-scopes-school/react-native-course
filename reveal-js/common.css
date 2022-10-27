@@ -157,13 +157,16 @@ img {
   margin: auto !important;
   justify-content: space-around;
 }
-.slides > .text-and-conding-slide pre {
-  width: calc(100% - 40px); /* 40 = section *:not(section) padding */
+.slides > .text-and-conding-slide > pre {
+  width: calc(100% - 40px) !important; /* 40 = section *:not(section) padding */
+}
+.slides > .text-and-conding-slide div > pre {
+  width: calc(100%) !important;
 }
 
 @media only screen and (max-width: 1000px) {
   .slides > .text-and-conding-slide pre {
-    width: calc(100% - 10px); /* 10 = section *:not(section) padding */
+    width: calc(100% - 10px);
   }
 }
 
