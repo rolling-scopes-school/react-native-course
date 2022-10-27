@@ -208,8 +208,8 @@
           </div>
         </section>
 
-        <section class="video-slide">
-          <h4 class="slide-name">VIDEO</h4>
+        <section class="video-text-slide">
+          <h4 class="slide-name">VIDEO text</h4>
           <div>
             <div>
               <a href="https://www.youtube.com" target="_blank"> Video title</a>
@@ -286,6 +286,8 @@
             <div class="fragment" data-fragment-index="2">
               <img src="assets/images/image.png" alt="simple" />
             </div>
+          </div>
+          <div>
             <div class="fragment" data-fragment-index="3">
               <img src="assets/images/image.png" alt="simple" />
             </div>
@@ -295,41 +297,36 @@
           </div>
         </section>
 
-        <section class="text-conding-video-slide">
-          <h4 class="slide-name">text + coding + video</h4>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut massa
-            leo, sollicitudin quis urna in, porta faucibus leo. Vestibulum
-            facilisis rutrum tellus, eget interdum magna imperdiet at.
-            Suspendisse at porttitor ex. Proin ut est pretium, ultrices nisi in,
-            iaculis enim. Pellentesque eu consequat dolor. Morbi et lorem
-            eleifend, porta nunc ac, interdum libero. Nulla facilisi. Quisque
-            gravida commodo neque, quis cursus tellus condimentum ac. Aenean dui
-            sem, vulputate nec ex et, faucibus ullamcorper sapien.
-          </p>
-          <div class="fragment">
-            <pre>
-                <code class="js" data-line-numbers="1,3|7,8,11,12|9,10">
-                  <script type="text/template">import { createNativeStackNavigator } from '@react-navigation/native-stack';
-const Stack = createNativeStackNavigator()
-
-function App() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="ScreenName1">
-        <Stack.Screen name="ScreenName1" component={Screen1} />
-        <Stack.Screen name="ScreenName2" component={Screen2} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  )
-}
-                  </script>
+        <section>
+          <section class="text-and-conding-slide">
+            <h4 class="slide-name">text + coding + video</h4>
+            <p class="fragment" data-fragment-index="1">
+              Etiam dui turpis, accumsan et neque eget, mollis consectetur
+              ipsum. Etiam mollis arcu elit, et condimentum dolor accumsan nec.
+              Morbi ac velit ut quam condimentum interdum. Curabitur eu felis
+              suscipit mauris fringilla iaculis a a ante. Curabitur ac pretium
+              neque. Proin ante felis, sollicitudin et convallis quis, dignissim
+              in felis. Duis ultrices, ex quis commodo euismod, purus ex
+              suscipit tortor, at ornare tortor tellus eu enim.
+            </p>
+            <pre class="fragment" data-fragment-index="2">
+                <code data-trim data-line-numbers>
+                  function isPalindrome(s, i) {
+                    return (
+                      (i = i || 0) < 0 ||
+                      i >= s.length >> 1 ||
+                      (s[i] == s[s.length - 1 - i] && isPalindrome(s, ++i))
+                    );
+                  }
                 </code>
-            </pre>
-            <video>
-              <source data-src="assets/videos/video.mp4" type="video/mp4" />
-            </video>
-          </div>
+              </pre>
+          </section>
+          <section class="video-slide">
+            <h4 class="slide-name">text + coding + video</h4>
+            <div class="fragment">
+              <iframe data-src="assets/videos/video.mp4" data-preload></iframe>
+            </div>
+          </section>
         </section>
 
         <section>
@@ -440,7 +437,7 @@ function App() {
     <script src="./plugin/highlight/highlight.js"></script>
     <script>
       var url = new URL(window.location.href);
-      var showNotes = false; // TODO Uncomment before merging!!! url.searchParams.has("showNotes");
+      var showNotes = true; // TODO Uncomment before merging!!! url.searchParams.has("showNotes");
 
       Reveal.initialize({
         disableLayout: true,
@@ -448,6 +445,7 @@ function App() {
         progress: true,
         center: false,
         hash: true,
+        autoPlayMedia: true,
         showNotes,
         plugins: [
           RevealZoom,
@@ -457,14 +455,6 @@ function App() {
           RevealHighlight,
         ],
       });
-
-      // document.getElementById("jsStyle").innerHTML = `
-      //     <style>
-      //     img, video, iframe {
-      //         height: ${window.innerHeight * 0.8}px !important;
-      //         width: ${window.innerWidth * 0.8}px !important;
-      //     }
-      //     </style>`;
     </script>
   </body>
 </html>
