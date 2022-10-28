@@ -137,24 +137,19 @@
             <h4 class="slide-name">CODE SANDBOX - step 1</h4>
             <img src="assets/images/code_sandbox_1.png" alt="code_sandbox_1" />
             <p>
-              1. Open https://codesandbox.io/<br />2. Click "New Sandbox" button
+              Open
+              <a href="https://codesandbox.io/" target="_blank"
+                >https://codesandbox.io/</a
+              >, click "Create" button and choose React template
             </p>
             <aside class="notes">
               The quickest way to get started with a React project is to use
               CodeSandbox at codesandbox.io.
               <br /><br />
-              Here if you click on the link in the center to create a sandbox,
-              and then on the next page, there are a ton of different templates
-              that you can use to get started with many different web
-              development projects.
-            </aside>
-          </section>
-
-          <section class="picture-with-description-slide">
-            <h4 class="slide-name">CODE SANDBOX - step 2</h4>
-            <img src="assets/images/code_sandbox_2.png" alt="code_sandbox_2" />
-            <p>3. Choose React template</p>
-            <aside class="notes">
+              Here if you click on the Create button then on the next page,
+              there are a ton of different templates that you can use to get
+              started with many different web development projects.
+              <br /><br />
               The first of them, probably the most popular, used with
               CodeSandbox is React. So simply clicking on this will allow you to
               interact with some code directly in the browser, and we can see
@@ -163,19 +158,36 @@
           </section>
 
           <section class="picture-with-description-slide">
+            <h4 class="slide-name">CODE SANDBOX - step 2</h4>
+            <img src="assets/images/code_sandbox_2.png" alt="code_sandbox_2" />
+            <p>Your project is created</p>
+          </section>
+
+          <section class="text-and-conding-slide">
             <h4 class="slide-name">CODE SANDBOX - step 3</h4>
+            <p class="fragment" data-fragment-index="1">
+              Let's change index.js file to avoid issue with 2 renders. Please
+              paste code bellow to the index.js file.
+            </p>
+            <pre class="fragment" data-fragment-index="2">
+                <code data-trim data-line-numbers>
+                  import ReactDOM from "react-dom";
+
+                  import App from "./App";
+
+                  const rootElement = document.getElementById("root");
+                  ReactDOM.render(&lt;App />, rootElement);
+                </code>
+              </pre>
+          </section>
+
+          <section class="picture-with-description-slide">
+            <h4 class="slide-name">CODE SANDBOX - step 4</h4>
             <img src="assets/images/code_sandbox_3.gif" alt="code_sandbox_3" />
-            <p>4. You are ready to GO</p>
+            <p>You are ready to GO</p>
             <aside class="notes">
               So if you would rather use CodeSandbox instead of setting up your
               own project locally, that's absolutely fine
-              <br /><br />
-              IMPORTANT: change index.js to fix issue with 2 renders
-              <br /><br />
-              import ReactDOM from "react-dom";<br />
-              import App from "./App";<br />
-              const rootElement = document.getElementById("root");<br />
-              ReactDOM.render(<App />, rootElement);<br />
               <br /><br />
               To summarize, this SANDBOX is only recommended for using during
               education, for real project please use IDE.
