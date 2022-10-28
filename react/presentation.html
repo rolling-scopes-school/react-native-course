@@ -303,7 +303,7 @@ class Welcome extends React.Component {
 					    </code>
             </pre>
           </section>
-          <section data-auto-animate class="code-example-slide">
+          <section class="code-example-slide">
             <h4 class="slide-name">CLASS COMPONENT EXAMPLE - APP.JS</h4>
             <p>
               And the last thing we need to do is add our new component to
@@ -334,6 +334,98 @@ class Welcome extends React.Component {
               src="assets/images/class_component_example.png"
               class="with-border"
               alt="class_component_example"
+            />
+          </section>
+        </section>
+
+        <section>
+          <section class="numbering-slide">
+            <h4 class="slide-name">
+              FUNCTIONAL COMPONENT EXAMPLE - PREPARATION
+            </h4>
+            <ol>
+              <li class="fragment">
+                Create <strong>functional-counter.js</strong> inside
+                <strong>components-and-props</strong> folder
+              </li>
+              <li class="fragment">
+                Start coding your first functional component
+              </li>
+            </ol>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">
+              FUNCTIONAL COMPONENT EXAMPLE - FunctionalCounter
+            </h4>
+            <p>Let's create FunctionalCounter component</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers>
+              import React from "react";
+
+              const FunctionalCounter = (props) => {
+                
+                // ...
+              };
+              
+              export default FunctionalCounter;                
+					    </code>
+            </pre>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">FUNCTIONAL COMPONENT EXAMPLE - RETURN</h4>
+            <p>
+              And now let's add code that will display the third level title
+              obtained from the properties of this component.
+            </p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="4-8">
+                import React from "react";
+
+                const FunctionalCounter = (props) => {
+                  return (
+                    <div>
+                      <h3>{props.name}</h3>
+                    </div>
+                  );
+                };
+                
+                export default FunctionalCounter;                                
+					    </code>
+            </pre>
+          </section>
+          <section class="code-example-slide">
+            <h4 class="slide-name">FUNCTIONAL COMPONENT EXAMPLE - APP.JS</h4>
+            <p>
+              And the last thing we need to do is add our new component to
+              App.js
+            </p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="3,12">
+                import "./styles.css";
+
+                import { ClassCounter, FunctionalCounter } from "./components-and-props";
+
+
+                export default function App() {
+                  return (
+                    <div className="App">
+                      <div>
+                        <h1>Functional and class componets</h1>
+                        &lt;ClassCounter name={"Class Counter"} />
+                        &lt;FunctionalCounter name={"Functional Counter"} />
+                      </div>
+                    </div>
+                  );
+                }
+					    </code>
+            </pre>
+          </section>
+          <section class="picture-slide">
+            <h4 class="slide-name">FUNCTIONAL COMPONENT EXAMPLE - RESULT</h4>
+            <img
+              src="assets/images/functional_component_example.png"
+              class="with-border"
+              alt="functional_component_example"
             />
           </section>
         </section>
