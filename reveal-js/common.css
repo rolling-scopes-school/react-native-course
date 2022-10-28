@@ -245,6 +245,7 @@ img.with-border {
 
 /* numbering-and-picture-slide */
 .numbering-and-picture-slide > div,
+.bullets-and-picture-slide > div,
 .coding-and-picture-slide > div {
   display: flex !important;
 }
@@ -252,6 +253,7 @@ img.with-border {
   min-width: 50%;
 }
 .numbering-and-picture-slide > div > img,
+.bullets-and-picture-slide > div > img,
 .coding-and-picture-slide > div > img {
   width: 50% !important;
   align-self: flex-start !important;
@@ -262,11 +264,13 @@ img.with-border {
 }
 @media only screen and (max-width: 1000px) {
   .numbering-and-picture-slide > div > img,
+  .bullets-and-picture-slide > div > img,
   .coding-and-picture-slide > div > img {
     margin: auto !important;
     max-height: 30vh;
   }
   .numbering-and-picture-slide > div,
+  .bullets-and-picture-slide > div,
   .coding-and-picture-slide > div {
     flex-direction: column;
   }
