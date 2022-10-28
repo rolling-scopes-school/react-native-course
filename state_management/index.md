@@ -1,10 +1,11 @@
 # Module content
 
 1. Introduction
-2. Context
-3. Props Drilling
+2. Props Drilling
+3. Context
 4. Undirectional Data Flow
-5. Redux
+5. Flux
+6. Redux
   - Core Concepts
   - Three Principles
   - Redux Toolkit
