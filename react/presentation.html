@@ -2,24 +2,585 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>react-native-course - name module</title>
-    <meta name="description" content="rolling-scopes-school/react-native-course - react module" />
+    <title>rolling-scopes-school/react-native-course - React module</title>
+    <meta
+      name="description"
+      content="rolling-scopes-school/react-native-course - name module"
+    />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../reveal-js/dist/reset.css" />
     <link rel="stylesheet" href="../reveal-js/dist/reveal.css" />
-    <link rel="stylesheet" href="../reveal-js/dist/theme/white.css" id="theme" />
+    <link
+      rel="stylesheet"
+      href="../reveal-js/dist/theme/white.css"
+      id="theme"
+    />
     <!-- Theme used for syntax highlighting of code -->
     <link rel="stylesheet" href="../reveal-js/plugin/highlight/monokai.css" />
     <link rel="stylesheet" href="../reveal-js/common.css" />
+    <style class="jsStyle"></style>
   </head>
   <body>
     <div class="reveal">
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
-        <section class="center">
-          <h2 class="custom-presentation-name"> Presentation​ Name </h3>
+        <section class="presentation-name-slide">
+          <h4>React</h4>
+
+          <aside class="notes">
+            <strong>ATTENSION SUPER IMPORTANT LECTION</strong>
+            <br /><br />
+            React is one of the most popular libraries for building user
+            interfaces, and companies like Twitter, Netflix, Airbnb, and PayPal
+            use it to power their frontend experiences.
+            <br /><br />
+            React is really awesome, and having a good command of the
+            fundamentals will help you build projects of all sizes.
+            <br /><br />
+            Today we're going to get hands-on experience with React's core
+            concepts.
+          </aside>
+        </section>
+
+        <section class="agenda-slide">
+          <h4 class="slide-name">AGENDA</h4>
+          <ul>
+            <li class="fragment">React foundation</li>
+            <li class="fragment">React lifecycle</li>
+            <li class="fragment">React hooks and HOCs</li>
+            <li class="fragment">Fiber</li>
+          </ul>
+
+          <aside class="notes">
+            On this slide you can see today's agenda.
+            <br /><br />
+            We will start with..
+            <br /><br />
+            Next…
+            <br /><br />
+            And the last one ..
+          </aside>
+        </section>
+
+        <section class="picture-slide">
+          <h4 class="slide-name">FRAMEWORK</h4>
+          <img src="assets/images/Framework_slide.png" alt="Framework_slide" />
+
+          <aside class="notes">
+            Front-end development has continued to improve over the years. From
+            simple static pages to now complex single-page applications, our
+            tools are getting more and more powerful. Now, the
+            <strong>three front-end frameworks</strong> rule the front-end
+            development. <br /><br />
+            When developing web pages IN THE PAST, we mainly operated the DOM
+            through the <strong>DOM API provided by the browser</strong>.
+            However, the DOM API is cumbersome, and there are compatibility
+            problems in different browsers. In order to simplify dom operations
+            and be compatible with different browsers,
+            <strong>jQuery</strong> became popular. At that time, jQuery could
+            be said to be a must-learn technology for front-end developers.
+            <br /><br />
+            Then when developing web pages, we found that what a web page needs
+            to do is to get the data from the server first, and then update the
+            DOM according to the data. And this process is fixed. In order to
+            simplify DOM manipulation, people invented the MVVM framework to
+            automatically map data changes to DOM updates without the need to
+            manually manipulate the DOM. This is what the front-end frameworks
+            <strong>Angular, React, Vue</strong> do.
+          </aside>
+        </section>
+
+        <section>
+          <section class="picture-with-description-slide">
+            <h4 class="slide-name">CODE SANDBOX - step 1</h4>
+            <img src="assets/images/code_sandbox_1.png" alt="code_sandbox_1" />
+            <p>Link: https://codesandbox.io/</p>
+            <p>Click "New Sandbox" button</p>
+            <aside class="notes">
+              The quickest way to get started with a React project is to use
+              CodeSandbox at codesandbox.io.
+              <br /><br />
+              Here if you click on the link in the center to create a sandbox,
+              and then on the next page, there are a ton of different templates
+              that you can use to get started with many different web
+              development projects.
+            </aside>
+          </section>
+
+          <section class="picture-with-description-slide">
+            <h4 class="slide-name">CODE SANDBOX - step 2</h4>
+            <img src="assets/images/code_sandbox_2.png" alt="code_sandbox_2" />
+            <p>Choose React template</p>
+            <aside class="notes">
+              The first of them, probably the most popular, used with
+              CodeSandbox is React. So simply clicking on this will allow you to
+              interact with some code directly in the browser, and we can see
+              them render right away in the preview window.
+            </aside>
+          </section>
+
+          <section class="picture-with-description-slide">
+            <h4 class="slide-name">CODE SANDBOX - step 3</h4>
+            <img src="assets/images/code_sandbox_3.gif" alt="code_sandbox_3" />
+            <p>You are ready to GO</p>
+            <aside class="notes">
+              So if you would rather use CodeSandbox instead of setting up your
+              own project locally, that's absolutely fine
+              <br /><br />
+              IMPORTANT: change index.js to fix issue with 2 renders
+              <br /><br />
+              import ReactDOM from "react-dom";<br />
+              import App from "./App";<br />
+              const rootElement = document.getElementById("root");<br />
+              ReactDOM.render(<App />, rootElement);<br />
+              <br /><br />
+              To summarize, this SANDBOX is only recommended for using during
+              education, for real project please use IDE.
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section class="text-and-conding-slide">
+            <h4 class="slide-name">JSX</h4>
+            <div>
+              <p>Embedding Expressions</p>
+              <pre data-id="code-animation">
+                <code class="js" data-trim data-line-numbers>
+const element = <h1>Hello, {name}</h1>;
+                </code>
+              </pre>
+            </div>
+
+            <div>
+              <p>Specifying Attributes with JSX</p>
+              <pre data-id="code-animation">
+                <code class="js" data-trim data-line-numbers>
+const element = <img src={source} />
+                </code>
+              </pre>
+            </div>
+            <aside class="notes">
+              <strong> JSX it is a syntax extension to JavaScript.</strong
+              ><br />
+              JSX may remind you of a template language, but it comes with the
+              full power of JavaScript.
+              <br /><br />
+              <strong> Embedding Expressions in JSX</strong><br />
+              You can put any valid JavaScript expression inside the curly
+              braces in JSX
+            </aside>
+          </section>
+          <section class="text-and-conding-slide">
+            <h4 class="slide-name">JSX</h4>
+            <div>
+              <p>JSX Prevents Injection Attacks</p>
+              <pre data-id="code-animation">
+                <code class="js" data-trim data-line-numbers>
+const element = <h1>{response.potentiallyMaliciousInput}</h1>
+                </code>
+              </pre>
+            </div>
+            <div>
+              <p>JSX Represents Objects</p>
+              <pre data-id="code-animation">
+                <code class="js" data-trim data-line-numbers>
+const element = <h1 className="greeting">Hello, world!</h1>;
+// ===
+const element = React.createElement(
+  "h1",
+  { className: "greeting" },
+  "Hello, world!"
+);
+                </code>
+              </pre>
+            </div>
+            <aside class="notes">
+              <strong> JSX Prevents Injection Attacks</strong><br />
+              By default, React DOM escapes any values embedded in JSX before
+              rendering them. Thus it ensures that you can never inject anything
+              that's not explicitly written in your application. Everything is
+              converted to a string before being rendered. This helps prevent
+              XSS (cross-site-scripting) attacks.
+              <br /><br />
+              <strong>JSX Represents Objects</strong><br />
+              Babel compiles JSX down to React.createElement() calls. So, two
+              rows in example are identical
+            </aside>
+          </section>
+        </section>
+
+        <section class="coding-and-picture-slide">
+          <h4 class="slide-name">COMPONENTS AND PROPS</h4>
+          <div>
+            <img src="assets/images/components_and_props.png" alt="simple" />
+            <div>
+              <div>
+                <p>Functional component</p>
+                <pre data-id="code-animation">
+                <code class="js" data-trim data-line-numbers>
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}                    
+                </code>
+              </pre>
+              </div>
+              <div>
+                <p>Class component</p>
+                <pre data-id="code-animation">
+                <code class="js" data-trim data-line-numbers>
+class Welcome extends React.Component {
+  render() {
+    return <h1>Hello, {props.name}</h1>;
+  }
+}       
+                </code>
+              </pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="video-text-slide">
+          <h4 class="slide-name">ADDITIONAL MATERIALS</h4>
+          <div>
+            <div>
+              <a
+                href="https://www.youtube.com/watch?v=x7cQ3mrcKaY"
+                target="_blank"
+                >React: Rethinking best practices
+              </a>
+              <iframe
+                src="https://www.youtube.com/embed/x7cQ3mrcKaY"
+                title="React: Rethinking best practices"
+                allowfullscreen
+              >
+              </iframe>
+            </div>
+            <div>
+              <p>
+                Author is a member of the React core team at Facebook and
+                Instagram.
+              </p>
+              <p>
+                - the notion of templates;
+                <br />
+                - re-rendering process;
+                <br />
+                - lightweight implementation of the DOM and events.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="picture-slide">
+          <h4 class="slide-name">REACT LIFECYCLE</h4>
+          <img src="assets/images/react_lifecycle.png" alt="react_lifecycle" />
+        </section>
+
+        <section class="picture-slide">
+          <h4 class="slide-name">REACT LIFECYCLE METHODS - MOUNTING</h4>
+          <img
+            src="assets/images/react_lifecycle_method_mounting.png"
+            alt="react_lifecycle_method_mounting"
+          />
+        </section>
+
+        <section class="picture-slide">
+          <h4 class="slide-name">REACT LIFECYCLE METHODS - UPDATING</h4>
+          <img
+            src="assets/images/react_lifecycle_method_updating.png"
+            alt="react_lifecycle_method_updating"
+          />
+        </section>
+
+        <section class="picture-slide">
+          <h4 class="slide-name">REACT LIFECYCLE METHODS - UNMOUNTING</h4>
+          <img
+            src="assets/images/react_lifecycle_method_unmounting.png"
+            alt="react_lifecycle_method_unmounting"
+          />
+        </section>
+
+        <section class="bullets-slide">
+          <h4 class="slide-name">HOOKS - MOTIVATION</h4>
+          <ul>
+            <li class="fragment">
+              It's hard to reuse stateful logic between components
+            </li>
+            <li class="fragment">
+              Complex components become hard to understand
+            </li>
+            <li class="fragment">Classes confuse both people and machines</li>
+          </ul>
+        </section>
+
+        <section>
+          <section class="text-and-conding-slide">
+            <h4 class="slide-name">HOOKS - BASIC</h4>
+            <div>
+              <p>State Hook</p>
+              <pre data-id="code-animation">
+                <code class="js" data-trim data-line-numbers>
+                  const [state, setState] = useState(initialState);                
+                </code>
+              </pre>
+            </div>
+            <div>
+              <p>Effect Hook</p>
+              <pre data-id="code-animation">
+                <code class="js" data-trim data-line-numbers>
+                  useEffect(didUpdate);                  
+                </code>
+              </pre>
+            </div>
+            <div>
+              <p>Callback Hook</p>
+              <pre data-id="code-animation">
+                <code class="js" data-trim data-line-numbers>
+                  const memoizedCallback = useCallback(() => {
+                      doSomething(a, b);
+                    }, [a, b]);                                  
+                </code>
+              </pre>
+            </div>
+          </section>
+          <section class="coding-and-picture-slide">
+            <h4 class="slide-name">HOOKS - BASIC</h4>
+            <div>
+              <img src="assets/images/hooks_context.png" alt="hooks_context" />
+              <div>
+                <div>
+                  <p>Context Hook</p>
+                  <pre data-id="code-animation">
+                  <code class="js" data-trim data-line-numbers>
+                    const value = useContext(MyContext);
+
+                  </code>
+                </pre>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="text-and-conding-slide">
+            <h4 class="slide-name">HOOKS - BASIC</h4>
+            <div>
+              <p>Memo Hook</p>
+              <pre data-id="code-animation">
+                <code class="js" data-trim data-line-numbers>
+                  const memoizedValue = useMemo(() => {
+                      return computeExpensiveValue(a, b);
+                    }, [a, b]);
+                             
+                </code>
+              </pre>
+            </div>
+            <div>
+              <p>Ref Hook</p>
+              <pre data-id="code-animation">
+                <code class="js" data-trim data-line-numbers>
+                  const refContainer = useRef(initialValue);
+             
+                </code>
+              </pre>
+            </div>
+            <div>
+              <p>Other hooks: https://betterprogramming.pub/</p>
+            </div>
+          </section>
+        </section>
+
+        <section class="text-slide">
+          <h4 class="slide-name">HOOKS - RULES</h4>
+          <p>
+            <strong>Only Call Hooks from React Functions</strong><br />
+            Don't call Hooks from regular JavaScript functions.
+          </p>
+          <p>
+            <strong>Only Call Hooks at the Top Level </strong><br />
+            Don't call Hooks inside loops, conditions, or nested functions.
+          </p>
+        </section>
+
+        <section class="text-slide">
+          <h4 class="slide-name">HOOKS – CUSTOM HOOK EXAMPLE</h4>
+          <p class="text-center-align">
+            A custom Hook is a JavaScript function whose name starts with ”use”
+            and that may call other Hooks.
+          </p>
+        </section>
+
+        <section class="video-text-slide">
+          <h4 class="slide-name">ADDITIONAL MATERIALS</h4>
+          <div>
+            <div>
+              <a
+                href="https://www.youtube.com/watch?v=dpw9EHDh2bM
+              "
+                target="_blank"
+                >React Today and Tomorrow
+              </a>
+              <iframe
+                src="https://www.youtube.com/embed/dpw9EHDh2bM"
+                title="React Today and Tomorrow"
+                allowfullscreen
+              >
+              </iframe>
+            </div>
+            <div>
+              <p>
+                <strong>Sophie Alpert</strong> – manage the react core team at
+                Facebook;
+                <br />
+                <strong>Dan Abramov</strong> – works at react team;
+                <br />
+                <strong>Ryan Florence</strong> – was involved to the developing
+                of several react libraries.
+              </p>
+              <p>
+                - Why react is more popular then other stuff and what problems
+                he has;
+                <br />
+                - How hooks can help us to solve those problems;
+                <br />
+                - Why we should rewrite our apps with hooks.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="text-and-conding-slide">
+          <h4 class="slide-name">HOC-s</h4>
+          <div class="center-align">
+            <p>
+              HOC is a function that takes a component and returns a new
+              component
+            </p>
+            <pre data-id="code-animation">
+						<code class="js" data-trim data-line-numbers>
+							const EnhancedComponent = withHoc(WrappedComponent); 
+						</code>
+					</pre>
+          </div>
+        </section>
+
+        <section class="picture-slide">
+          <h4 class="slide-name">CONTROLLED COMPONENTS</h4>
+          <img
+            src="assets/images/controlled_components.png"
+            alt="controlled_components"
+          />
+        </section>
+
+        <section class="picture-slide">
+          <h4 class="slide-name">UNCONTROLLED COMPONENTS</h4>
+          <img
+            src="assets/images/uncontrolled_components.png"
+            alt="uncontrolled_components"
+          />
+        </section>
+
+        <section class="text-slide">
+          <h4 class="slide-name">RECONCILIATION</h4>
+          <p>
+            DOM operations are heavy -> Virtual DOM
+            <br /><br /><br />
+            To <strong>diff update tree with previous</strong> tree to determine
+            which parts need to be changed. <br /><br /><br />
+            Virtual DOM -> rendering environment -> update (changing state) ->
+            reconciliation (new tree diffed with the old one) -> update
+            rendering environment
+          </p>
+        </section>
+
+        <section class="numbering-and-picture-slide">
+          <h4 class="slide-name">TWO ASSUMPTIONS FOR RECONCILIATION</h4>
+          <div>
+            <img
+              src="assets/images/reconcilation_assumptions.png"
+              alt="reconcilation_assumptions"
+            />
+            <ol>
+              <li>
+                Two elements of different types will produce
+                <strong>different trees.</strong>
+              </li>
+              <li>
+                The developer can hint at which child elements may
+                <strong>be stable</strong> across different renders with a key
+                prop.
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="numbering-and-picture-slide">
+          <h4 class="slide-name">REACT FIBER</h4>
+          <div>
+            <img src="assets/images/fiber.png" alt="fiber" />
+            <ol>
+              <li>
+                A fiber represents a virtual stack frame with scheduling and
+                prioritizing
+              </li>
+              <li>
+                <strong>window.requestIdleCallback(callback)</strong
+                ><br />schedules a low priority function to be called during an
+                idle period
+              </li>
+              <li>
+                <strong>window.requestAnimationFrame(callback); </strong
+                ><br />schedules a high priority function to be called on the
+                next animation frame
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="bullets-slide">
+          <h4 class="slide-name">REACT FIBER</h4>
+          <ul>
+            <li class="fragment">pause work and come back to it later</li>
+            <li class="fragment">assign priority to different types of work</li>
+            <li class="fragment">reuse previously completed work</li>
+            <li class="fragment">abort work if it's no longer needed</li>
+          </ul>
+        </section>
+
+        <section class="video-text-slide">
+          <h4 class="slide-name">ADDITIONAL MATERIALS</h4>
+          <div>
+            <div>
+              <a
+                href="https://www.youtube.com/watch?v=ZCuYPiUIONs"
+                target="_blank"
+                >A Cartoon Intro to Fiber
+              </a>
+              <iframe
+                src="https://www.youtube.com/embed/ZCuYPiUIONs"
+                title="A Cartoon Intro to Fiber
+                "
+                allowfullscreen
+              >
+              </iframe>
+            </div>
+            <div>
+              <p>
+                <strong>Lin Clark</strong> - work in the emerging technologies
+                group at Mozilla.
+              </p>
+              <p>- Basics about Fiber</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="qa-slide">
+          <h4>QA</h4>
         </section>
       </div>
     </div>
@@ -31,7 +592,7 @@
     <script src="../reveal-js/plugin/highlight/highlight.js"></script>
     <script>
       var url = new URL(window.location.href);
-      var showNotes = true; // TODO Uncomment before merging!!! url.searchParams.has("showNotes");
+      var showNotes = url.searchParams.has("showNotes");
 
       Reveal.initialize({
         disableLayout: true,
@@ -39,6 +600,7 @@
         progress: true,
         center: false,
         hash: true,
+        autoPlayMedia: true,
         showNotes,
         plugins: [
           RevealZoom,
@@ -48,14 +610,6 @@
           RevealHighlight,
         ],
       });
-
-      document.getElementById("jsStyle").innerHTML = `
-          <style>
-          img, video, iframe {
-              height: ${window.innerHeight * 0.8}px !important;
-              width: ${window.innerWidth * 0.8}px !important;
-          }
-          </style>`;
     </script>
   </body>
 </html>
