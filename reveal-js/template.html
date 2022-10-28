@@ -383,57 +383,68 @@
         </section>
 
         <section>
-          <section data-auto-animate>
-            <h4 class="slide-name">VERTICAL WITH ANIMATED CODE</h4>
-            <pre
-              data-id="code-animation"
-            ><code class="hljs" data-trim data-line-numbers>
-						import React, { useState } from 'react';
-
-						function Example() {
-						  const [count, setCount] = useState(0);
-
-						  return (
-						    ...
-						  );
-						}
-					</code></pre>
+          <section class="numbering-slide">
+            <h4 class="slide-name">CODE EXAMPLE - PREPARATION</h4>
+            <ol>
+              <li class="fragment">
+                Create folder <strong>folder</strong> inside your
+                <strong>folder</strong> folder
+              </li>
+              <li class="fragment">
+                Create <strong>file.js</strong> inside
+                <strong>folder</strong> folder
+              </li>
+              <li class="fragment">Start coding your first file</li>
+            </ol>
           </section>
-          <section data-auto-animate>
-            <h4 class="slide-name">VERTICAL WITH ANIMATED CODE</h4>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">CODE EXAMPLE - FILE.JS</h4>
+            <p>Let's create something</p>
             <pre data-id="code-animation">
-              <code class="hljs" data-trim data-line-numbers="|4,8-11|17|22-24">
-                <script type="text/template">
-						import React, { useState } from 'react';
+              <code class="hljs" data-trim data-line-numbers>
+              import React, { useState } from 'react';
 
-						function Example() {
-						  const [count, setCount] = useState(0);
+              function Example() {
+                const [count, setCount] = useState(0);
+  
+                return (
+                  ...
+                );
+              }
+					    </code>
+            </pre>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">CODE EXAMPLE - SOME METHOD</h4>
+            <p>
+              And now let's add code to the SOME method that will DO something.
+            </p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="6-12">
+                import React, { useState } from 'react';
 
-						  return (
-						    <div>
-						      <p>You clicked {count} times</p>
-						      <button onClick={() => setCount(count + 1)}>
-						        Click me
-						      </button>
-						    </div>
-						  );
-						}
-
-						function SecondExample() {
-						  const [count, setCount] = useState(0);
-
-						  return (
-						    <div>
-						      <p>You clicked {count} times</p>
-						      <button onClick={() => setCount(count + 1)}>
-						        Click me
-						      </button>
-						    </div>
-						  );
-						}
-              </script>
-            </code>
-          </pre>
+                function Example() {
+                  const [count, setCount] = useState(0);
+    
+                  return (
+                    <div>
+                      <p>You clicked {count} times</p>
+                      <button onClick={() => setCount(count + 1)}>
+                        Click me
+                      </button>
+                    </div>
+                  );
+                }
+					    </code>
+            </pre>
+          </section>
+          <section class="picture-slide">
+            <h4 class="slide-name">CODE EXAMPLE - RESULT</h4>
+            <img
+              src="assets/images/image.png"
+              class="with-border"
+              alt="image"
+            />
           </section>
         </section>
 

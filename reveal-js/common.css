@@ -31,6 +31,11 @@ pre {
   width: calc(100% - 40px) !important;
 }
 
+code.visible {
+  width: calc(100% - 40px) !important;
+  margin-left: 20px;
+}
+
 pre * {
   font-size: 0.8rem !important;
 }
@@ -58,6 +63,10 @@ pre * {
   pre {
     width: calc(100% - 10px) !important;
   }
+  code.visible {
+    width: calc(100% - 10px) !important;
+    margin-left: 10px;
+  }
   pre * {
     font-size: 0.6rem !important;
   }
@@ -71,6 +80,10 @@ pre * {
 
 img {
   object-fit: contain;
+}
+
+img.with-border {
+  border: medium dashed green;
 }
 
 /* typical slides */
