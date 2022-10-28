@@ -18,6 +18,10 @@ section > *:not(section) {
   overflow: hidden;
 }
 
+.slides a {
+  font-size: 1.2rem;
+}
+
 li {
   font-size: 2rem;
 }
@@ -43,6 +47,10 @@ pre * {
   .slides p {
     text-align: justify !important;
     font-size: 1rem;
+    margin-bottom: 0px;
+  }
+  .slides a {
+    font-size: 1.5rem;
   }
   li {
     font-size: 1.5rem;
@@ -158,7 +166,11 @@ img {
   height: 80vh;
 }
 .text-slide > p {
-  margin: auto !important;
+  margin-top: auto !important;
+  margin-bottom: auto !important;
+}
+.text-slide > .text-center-align {
+  text-align: center !important;
 }
 
 /* text-and-conding-slide */
@@ -173,6 +185,12 @@ img {
 }
 .text-and-conding-slide div > pre {
   width: calc(100%) !important;
+}
+.text-and-conding-slide > .center-align {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 70vh;
+  justify-content: center !important;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -247,6 +265,7 @@ img {
 }
 .video-text-slide > div {
   display: flex !important;
+  height: 90vh;
 }
 .video-text-slide > div > * {
   width: 50%;
