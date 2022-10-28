@@ -211,23 +211,31 @@ img {
   }
 }
 
-/* numbering-and-schema-slide */
-.numbering-and-schema-slide > div {
+/* numbering-and-picture-slide */
+.numbering-and-picture-slide > div,
+.coding-and-picture-slide > div {
   display: flex !important;
 }
-
-.numbering-and-schema-slide > div > img {
-  max-width: 50% !important;
+.coding-and-picture-slide > div > div {
+  min-width: 50%;
+}
+.numbering-and-picture-slide > div > img,
+.coding-and-picture-slide > div > img {
+  width: 50% !important;
   align-self: flex-start !important;
   max-height: 70vh;
 }
-
+.coding-and-picture-slide pre {
+  margin: 0;
+}
 @media only screen and (max-width: 1000px) {
-  .numbering-and-schema-slide > div > img {
+  .numbering-and-picture-slide > div > img,
+  .coding-and-picture-slide > div > img {
     margin: auto !important;
     max-height: 30vh;
   }
-  .numbering-and-schema-slide > div {
+  .numbering-and-picture-slide > div,
+  .coding-and-picture-slide > div {
     flex-direction: column;
   }
 }
