@@ -29,6 +29,7 @@
     <div class="reveal">
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
+        <!-- 1-ST SLIDE -->
         <section class="presentation-name-slide">
           <h4>React</h4>
 
@@ -47,6 +48,7 @@
           </aside>
         </section>
 
+        <!-- AGENDA -->
         <section class="agenda-slide">
           <h4 class="slide-name">AGENDA</h4>
           <ul>
@@ -67,6 +69,7 @@
           </aside>
         </section>
 
+        <!-- FRAMEWORK -->
         <section class="picture-slide">
           <h4 class="slide-name">FRAMEWORK</h4>
           <img src="assets/images/Framework_slide.png" alt="Framework_slide" />
@@ -95,6 +98,7 @@
           </aside>
         </section>
 
+        <!-- WHAT IS IT REACT? -->
         <section class="bullets-and-picture-slide">
           <h4 class="slide-name">WHAT IS IT REACT?</h4>
           <div>
@@ -108,8 +112,26 @@
               <li>Amazing products</li>
             </ul>
           </div>
+
+          <aside class="notes">
+            React is a JavaScript <strong>library</strong> that you can use to
+            create user interfaces. <br /><br />
+            It was created at <strong>Facebook and open-sourced</strong> in
+            March of 2013. <br /><br />
+            Since then, React has
+            <strong>expanded beyond the web with React Native</strong>, a tool
+            that allows you to create native mobile applications using React.
+            <br /><br />
+            React is an increasingly popular library with
+            <strong>tens of thousands of stars</strong> on GitHub and used in
+            production by huge companies. <br /><br />
+            But the point of using React is not just because it's popular, but
+            because its component architecture makes
+            <strong>it faster and easier</strong> to build amazing products.
+          </aside>
         </section>
 
+        <!-- CODE SANDBOX -->
         <section>
           <section class="picture-with-description-slide">
             <h4 class="slide-name">CODE SANDBOX - step 1</h4>
@@ -161,6 +183,7 @@
           </section>
         </section>
 
+        <!-- JSX -->
         <section>
           <section class="text-and-conding-slide">
             <h4 class="slide-name">JSX</h4>
@@ -231,6 +254,7 @@ const element = React.createElement(
           </section>
         </section>
 
+        <!-- COMPONENTS AND PROPS -->
         <section class="coding-and-picture-slide">
           <h4 class="slide-name">COMPONENTS AND PROPS</h4>
           <div>
@@ -263,8 +287,32 @@ class Welcome extends React.Component {
               </div>
             </div>
           </div>
+          <aside class="notes">
+            <strong>Components</strong> allow you to break down an interface
+            into independent pieces that are easy to think of as a composition.
+            They can be stacked together and used multiple times.
+
+            <br /><br />
+            There are <strong>two ways</strong> to declare components in
+            functional and class style. <br /><br />
+            The <strong>first example</strong> on the screen shows an example of
+            a functional component. This function is a component because it
+            <strong>takes data</strong> in a single object
+            (“<strong>props</strong>”) as a parameter and
+            <strong>returns a React element</strong>. We will call such
+            components "<strong>functional</strong>" because they are literally
+            functions.
+
+            <br /><br />
+            You can also use an <strong>ES6 class</strong> to define the
+            component, as shown <strong>in the second example</strong>.
+
+            <br /><br />
+            The above two components are equivalent from React's point of view.
+          </aside>
         </section>
 
+        <!-- CLASS COMPONENT EXAMPLE -->
         <section>
           <section class="numbering-slide">
             <h4 class="slide-name">CLASS COMPONENT EXAMPLE - PREPARATION</h4>
@@ -279,6 +327,10 @@ class Welcome extends React.Component {
               </li>
               <li class="fragment">Start coding your first class component</li>
             </ol>
+            <aside class="notes">
+              Let's try to create two examples of counter component in the
+              functional and class components.
+            </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
             <h4 class="slide-name">CLASS COMPONENT EXAMPLE - ClassCounter</h4>
@@ -356,6 +408,7 @@ class Welcome extends React.Component {
           </section>
         </section>
 
+        <!-- FUNCTIONAL COMPONENT EXAMPLE -->
         <section>
           <section class="numbering-slide">
             <h4 class="slide-name">
@@ -445,9 +498,14 @@ class Welcome extends React.Component {
               class="with-border"
               alt="functional_component_example"
             />
+            <aside class="notes">
+              As you can see, declaring components is very simple and now the
+              differences between the two types of components are not that big.
+            </aside>
           </section>
         </section>
 
+        <!-- ADDITIONAL MATERIALS -->
         <section class="video-text-slide">
           <h4 class="slide-name">ADDITIONAL MATERIALS</h4>
           <div>
@@ -478,21 +536,346 @@ class Welcome extends React.Component {
               </p>
             </div>
           </div>
+          <aside class="notes">
+            Author (Pete) is a member of the React core team at Facebook and
+            also the sole engineer on Instagram.com.
+            <br /><br />
+            He has also designed and implemented the video encode backend
+            infrastructure for Facebook and Instagram and computer vision
+            infrastructure and general front-end web engineering for Facebook
+            photos.
+            <br /><br />
+            This video will start with a brief introduction to the framework,
+            and then dive into three controversial topics:
+            <br /><br />
+            - Throwing out the notion of templates and building views with
+            JavaScript, <br />
+            - "re-rendering" your entire application when your data changes,<br />
+            - and a lightweight implementation of the DOM and events.<br />
+          </aside>
         </section>
 
+        <!-- REACT LIFECYCLE -->
         <section class="picture-slide">
           <h4 class="slide-name">REACT LIFECYCLE</h4>
           <img src="assets/images/react_lifecycle.png" alt="react_lifecycle" />
+          <aside class="notes">
+            Each component in React has a lifecycle which you can monitor and
+            manipulate during its three main phases.
+            <br /><br />
+            The three phases are: <strong>Mounting</strong>,
+            <strong>Updating</strong>, and <strong>Unmounting</strong>.
+          </aside>
         </section>
 
+        <!-- REACT LIFECYCLE METHODS - MOUNTING -->
         <section class="picture-slide">
           <h4 class="slide-name">REACT LIFECYCLE METHODS - MOUNTING</h4>
           <img
             src="assets/images/react_lifecycle_method_mounting.png"
             alt="react_lifecycle_method_mounting"
           />
+          <aside class="notes">
+            Every component in React goes through a lifecycle of events. I like
+            to think of them as going through a cycle of birth, growth, and
+            death. <strong>Mounting</strong> - birth of your component.
+            <strong>Updating</strong> - growth of your component. And
+            <strong>unmounting</strong> - death of your component.
+          </aside>
         </section>
 
+        <!-- MOUNTING EXAMPLE -->
+        <section>
+          <section class="numbering-slide">
+            <h4 class="slide-name">MOUNTING EXAMPLE</h4>
+            <ol>
+              <li class="fragment">
+                Create folder <strong>lifecycle</strong> inside your
+                <strong>src</strong> folder
+              </li>
+              <li class="fragment">
+                Create <strong>mouning.js</strong> inside
+                <strong>lifecycle</strong> folder
+              </li>
+              <li class="fragment">
+                Start coding <strong>MountingComponent</strong> component
+              </li>
+            </ol>
+            <aside class="notes"></aside>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">MOUNTING EXAMPLE - Component</h4>
+            <p>Let's create MountingComponent component</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers>
+                import React from "react";
+
+                class MountingComponent extends React.Component {
+                
+                  render() {
+                    // ...
+                  }
+                }
+                
+                export default MountingComponent;                
+					    </code>
+            </pre>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">MOUNTING EXAMPLE - CONSTRUCTOR</h4>
+            <p>
+              Let's add a constructor to our component that will initialize the
+              parent class and add a couple of fields to the state object.
+            </p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="4-11">
+                import React from "react";
+
+                class MountingComponent extends React.Component {
+                  constructor(props) {
+                    super(props);
+                    this.state = {
+                      prevName: this.props.name,
+                      isLoading: true,
+                      lastName: null
+                    };
+                  }
+
+                  render() {
+                    // ...
+                  }
+                }
+                
+                export default MountingComponent;  
+					    </code>
+            </pre>
+            <aside class="notes">
+              The <strong>constructor()</strong> method is called
+              <strong>before anything else</strong>, when the component is
+              initiated, and it is the natural place to set up the
+              <strong>initial state</strong> and other initial values.
+              <br /><br />
+              The constructor() method is called with the props, as arguments,
+              and you should always
+              <strong>start by calling the super(props)</strong> before anything
+              else, this will initiate the parent's constructor method and
+              allows the component to inherit methods from its parent
+              (React.Component).
+            </aside>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">
+              MOUNTING EXAMPLE - getDerivedStateFromProps
+            </h4>
+            <p>Next thing that we'll add it is getDerivedStateFromProps.</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="13-23">
+                import React from "react";
+
+                class MountingComponent extends React.Component {
+                  constructor(props) {
+                    super(props);
+                    this.state = {
+                      prevName: this.props.name,
+                      isLoading: true,
+                      lastName: null
+                    };
+                  }
+
+                  static getDerivedStateFromProps(props, state) {
+                    if (props.name !== state.prevName) {
+                      //Change in props
+                      return {
+                        prevName: props.name,
+                        isLoading: true,
+                        lastName: null
+                      };
+                    }
+                    return null; // No change to state
+                  }
+
+                  render() {
+                    // ...
+                  }
+                }
+                
+                export default MountingComponent;  
+					    </code>
+            </pre>
+            <aside class="notes">
+              getDerivedStateFromProps is invoked right
+              <strong>before calling the render method</strong>, both on the
+              initial mount and on update stages. It should
+              <strong>return an object</strong> to update the state,
+              <strong>or null</strong> to update nothing.
+            </aside>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">MOUNTING EXAMPLE - render</h4>
+            <p>
+              And now let's implement the render method and add some logic
+              related to the loading state.
+            </p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="25-35">
+                import React from "react";
+
+                class MountingComponent extends React.Component {
+                  constructor(props) {
+                    super(props);
+                    this.state = {
+                      prevName: this.props.name,
+                      isLoading: true,
+                      lastName: null
+                    };
+                  }
+
+                  static getDerivedStateFromProps(props, state) {
+                    if (props.name !== state.prevName) {
+                      //Change in props
+                      return {
+                        prevName: props.name,
+                        isLoading: true,
+                        lastName: null
+                      };
+                    }
+                    return null; // No change to state
+                  }
+
+                  render() {
+                    const [{ name }, { isLoading, lastName }] = [this.props, this.state];
+                
+                    if (isLoading) return <p>Loading</p>;
+                
+                    return (
+                      <h3>
+                        {name} {lastName}
+                      </h3>
+                    );
+                  }
+                }
+                
+                export default MountingComponent;  
+					    </code>
+            </pre>
+            <aside class="notes">
+              render() - The render() method is the most used lifecycle method.
+              You will see it in all React classes. This is because
+              <strong>render()</strong>is the only required method within a
+              class component in React. As the name suggests it handles the
+              rendering of your component to the UI. It happens during the
+              <strong>mounting</strong> and <strong>updating</strong> of your
+              component.
+            </aside>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">MOUNTING EXAMPLE - componentDidMount</h4>
+            <p>The last thing is componentDidMount</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="25-29">
+                import React from "react";
+
+                class MountingComponent extends React.Component {
+                  constructor(props) {
+                    super(props);
+                    this.state = {
+                      prevName: this.props.name,
+                      isLoading: true,
+                      lastName: null
+                    };
+                  }
+
+                  static getDerivedStateFromProps(props, state) {
+                    if (props.name !== state.prevName) {
+                      //Change in props
+                      return {
+                        prevName: props.name,
+                        isLoading: true,
+                        lastName: null
+                      };
+                    }
+                    return null; // No change to state
+                  }
+
+                  componentDidMount() {
+                    setTimeout(() => {
+                      this.setState({ isLoading: false, lastName: "LastName" });
+                    }, 3000);
+                  }
+
+                  render() {
+                    const [{ name }, { isLoading, lastName }] = [this.props, this.state];
+                
+                    if (isLoading) return <p>Loading</p>;
+                
+                    return (
+                      <h3>
+                        {name} {lastName}
+                      </h3>
+                    );
+                  }
+                }
+                
+                export default MountingComponent;  
+					    </code>
+            </pre>
+            <aside class="notes">
+              componentDidMount() - Now your component has been mounted and
+              ready, that's when the next React lifecycle method
+              <strong>componentDidMount()</strong>comes in play.
+              <br />
+              It is called as soon as the component is mounted and ready.
+              <br />
+              This method is a good place to
+              <strong>set up any subscriptions</strong>. If you do that,
+              <strong>don't forget to unsubscribe</strong> in
+              componentWillUnmount().
+            </aside>
+          </section>
+          <section class="code-example-slide">
+            <h4 class="slide-name">MOUNTING EXAMPLE - APP.JS</h4>
+            <p>
+              And the last thing we need to do is add our new component to
+              App.js
+            </p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="4,14-18">
+                import "./styles.css";
+
+                import { ClassCounter, FunctionalCounter } from "./components-and-props";
+                import { MountingComponent } from "./lifecycle";
+
+                export default function App() {
+                  return (
+                    <div className="App">
+                      <div>
+                        <h1>Functional and class componets</h1>
+                        &lt;ClassCounter name={"Class Counter"} />
+                        &lt;FunctionalCounter name={"Functional Counter"} />
+                      </div>
+                      <br /> <br />
+                      <div>
+                        <h1>Lifecycle examples</h1>
+                        &lt;MountingComponent name={"FirstName"} />
+                      </div>
+                    </div>
+                  );
+                }              
+					    </code>
+            </pre>
+          </section>
+          <section class="video-slide">
+            <h4 class="slide-name">MOUNTING EXAMPLE - RESULT</h4>
+            <div>
+              <iframe
+                data-src="assets/videos/mounting_example.mp4"
+                data-preload
+              ></iframe>
+            </div>
+          </section>
+        </section>
+
+        <!-- REACT LIFECYCLE METHODS - UPDATING -->
         <section class="picture-slide">
           <h4 class="slide-name">REACT LIFECYCLE METHODS - UPDATING</h4>
           <img
@@ -501,6 +884,7 @@ class Welcome extends React.Component {
           />
         </section>
 
+        <!-- REACT LIFECYCLE METHODS - UNMOUNTING -->
         <section class="picture-slide">
           <h4 class="slide-name">REACT LIFECYCLE METHODS - UNMOUNTING</h4>
           <img
@@ -509,6 +893,7 @@ class Welcome extends React.Component {
           />
         </section>
 
+        <!-- HOOKS - MOTIVATION -->
         <section class="bullets-slide">
           <h4 class="slide-name">HOOKS - MOTIVATION</h4>
           <ul>
@@ -522,6 +907,7 @@ class Welcome extends React.Component {
           </ul>
         </section>
 
+        <!-- HOOKS - BASIC -->
         <section>
           <section class="text-and-conding-slide">
             <h4 class="slide-name">HOOKS - BASIC</h4>
@@ -597,6 +983,7 @@ class Welcome extends React.Component {
           </section>
         </section>
 
+        <!-- HOOKS - RULES -->
         <section class="text-slide">
           <h4 class="slide-name">HOOKS - RULES</h4>
           <p>
@@ -609,6 +996,7 @@ class Welcome extends React.Component {
           </p>
         </section>
 
+        <!-- HOOKS - CUSTOM HOOK EXAMPLE -->
         <section class="text-slide">
           <h4 class="slide-name">HOOKS – CUSTOM HOOK EXAMPLE</h4>
           <p class="text-center-align">
@@ -617,6 +1005,7 @@ class Welcome extends React.Component {
           </p>
         </section>
 
+        <!-- ADDITIONAL MATERIALS -->
         <section class="video-text-slide">
           <h4 class="slide-name">ADDITIONAL MATERIALS</h4>
           <div>
@@ -656,6 +1045,7 @@ class Welcome extends React.Component {
           </div>
         </section>
 
+        <!-- HOC-s -->
         <section class="text-and-conding-slide">
           <h4 class="slide-name">HOC-s</h4>
           <div class="center-align">
@@ -671,6 +1061,7 @@ class Welcome extends React.Component {
           </div>
         </section>
 
+        <!-- CONTROLLED COMPONENTS -->
         <section class="picture-slide">
           <h4 class="slide-name">CONTROLLED COMPONENTS</h4>
           <img
@@ -679,6 +1070,7 @@ class Welcome extends React.Component {
           />
         </section>
 
+        <!-- UNCONTROLLED COMPONENTS -->
         <section class="picture-slide">
           <h4 class="slide-name">UNCONTROLLED COMPONENTS</h4>
           <img
@@ -687,73 +1079,80 @@ class Welcome extends React.Component {
           />
         </section>
 
-        <section class="text-slide">
-          <h4 class="slide-name">RECONCILIATION</h4>
-          <p>
-            DOM operations are heavy -> Virtual DOM
-            <br /><br /><br />
-            To <strong>diff update tree with previous</strong> tree to determine
-            which parts need to be changed. <br /><br /><br />
-            Virtual DOM -> rendering environment -> update (changing state) ->
-            reconciliation (new tree diffed with the old one) -> update
-            rendering environment
-          </p>
+        <!-- RECONCILIATION -->
+        <section>
+          <section class="text-slide">
+            <h4 class="slide-name">RECONCILIATION</h4>
+            <p>
+              DOM operations are heavy -> Virtual DOM
+              <br /><br /><br />
+              To <strong>diff update tree with previous</strong> tree to
+              determine which parts need to be changed. <br /><br /><br />
+              Virtual DOM -> rendering environment -> update (changing state) ->
+              reconciliation (new tree diffed with the old one) -> update
+              rendering environment
+            </p>
+          </section>
+          <section class="numbering-and-picture-slide">
+            <h4 class="slide-name">TWO ASSUMPTIONS FOR RECONCILIATION</h4>
+            <div>
+              <img
+                src="assets/images/reconcilation_assumptions.png"
+                alt="reconcilation_assumptions"
+              />
+              <ol>
+                <li>
+                  Two elements of different types will produce
+                  <strong>different trees.</strong>
+                </li>
+                <li>
+                  The developer can hint at which child elements may
+                  <strong>be stable</strong> across different renders with a key
+                  prop.
+                </li>
+              </ol>
+            </div>
+          </section>
         </section>
 
-        <section class="numbering-and-picture-slide">
-          <h4 class="slide-name">TWO ASSUMPTIONS FOR RECONCILIATION</h4>
-          <div>
-            <img
-              src="assets/images/reconcilation_assumptions.png"
-              alt="reconcilation_assumptions"
-            />
-            <ol>
-              <li>
-                Two elements of different types will produce
-                <strong>different trees.</strong>
+        <!-- FIBER -->
+        <section>
+          <section class="numbering-and-picture-slide">
+            <h4 class="slide-name">REACT FIBER</h4>
+            <div>
+              <img src="assets/images/fiber.png" alt="fiber" />
+              <ol>
+                <li>
+                  A fiber represents a virtual stack frame with scheduling and
+                  prioritizing
+                </li>
+                <li>
+                  <strong>window.requestIdleCallback(callback)</strong
+                  ><br />schedules a low priority function to be called during
+                  an idle period
+                </li>
+                <li>
+                  <strong>window.requestAnimationFrame(callback); </strong
+                  ><br />schedules a high priority function to be called on the
+                  next animation frame
+                </li>
+              </ol>
+            </div>
+          </section>
+          <section class="bullets-slide">
+            <h4 class="slide-name">REACT FIBER</h4>
+            <ul>
+              <li class="fragment">pause work and come back to it later</li>
+              <li class="fragment">
+                assign priority to different types of work
               </li>
-              <li>
-                The developer can hint at which child elements may
-                <strong>be stable</strong> across different renders with a key
-                prop.
-              </li>
-            </ol>
-          </div>
+              <li class="fragment">reuse previously completed work</li>
+              <li class="fragment">abort work if it's no longer needed</li>
+            </ul>
+          </section>
         </section>
 
-        <section class="numbering-and-picture-slide">
-          <h4 class="slide-name">REACT FIBER</h4>
-          <div>
-            <img src="assets/images/fiber.png" alt="fiber" />
-            <ol>
-              <li>
-                A fiber represents a virtual stack frame with scheduling and
-                prioritizing
-              </li>
-              <li>
-                <strong>window.requestIdleCallback(callback)</strong
-                ><br />schedules a low priority function to be called during an
-                idle period
-              </li>
-              <li>
-                <strong>window.requestAnimationFrame(callback); </strong
-                ><br />schedules a high priority function to be called on the
-                next animation frame
-              </li>
-            </ol>
-          </div>
-        </section>
-
-        <section class="bullets-slide">
-          <h4 class="slide-name">REACT FIBER</h4>
-          <ul>
-            <li class="fragment">pause work and come back to it later</li>
-            <li class="fragment">assign priority to different types of work</li>
-            <li class="fragment">reuse previously completed work</li>
-            <li class="fragment">abort work if it's no longer needed</li>
-          </ul>
-        </section>
-
+        <!-- ADDITIONAL MATERIALS -->
         <section class="video-text-slide">
           <h4 class="slide-name">ADDITIONAL MATERIALS</h4>
           <div>
@@ -781,6 +1180,7 @@ class Welcome extends React.Component {
           </div>
         </section>
 
+        <!-- QA -->
         <section class="qa-slide">
           <h4>QA</h4>
         </section>
