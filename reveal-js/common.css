@@ -98,6 +98,7 @@ img.with-border {
   max-width: 100%;
   color: azure !important;
   font-size: 2rem;
+  text-transform: capitalize !important;
 }
 
 @media only screen and (max-width: 1000px) {
