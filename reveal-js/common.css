@@ -110,13 +110,22 @@ img {
 }
 
 /* picture-slide */
-.slides > .picture-slide {
+/* picture-with-description-slide */
+.slides > .picture-slide,
+.slides > .picture-with-description-slide {
   display: flex !important;
   flex-direction: column;
-  height: 80vh;
+  height: 100vh;
 }
-.slides > .picture-slide > img {
+.slides > .picture-slide > img,
+.slides > .picture-with-description-slide > img {
   margin: auto !important;
+}
+.slides > .picture-with-description-slide > p {
+  margin: auto !important;
+}
+.slides > .picture-with-description-slide > img {
+  height: 55vh;
 }
 
 /* text-and-picture-slide */
