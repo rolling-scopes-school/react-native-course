@@ -2868,10 +2868,170 @@ class Welcome extends React.Component {
             </p>
             <pre data-id="code-animation">
 						<code class="js" data-trim data-line-numbers>
-							const EnhancedComponent = withHoc(WrappedComponent); 
+							const EnhancedComponent = withHoc(WrappedComponent); 
 						</code>
 					</pre>
           </div>
+          <aside class="notes">
+            A higher-order component (HOC) is an advanced technique in React for
+            reusing component logic. Components are the primary unit of code
+            reuse in React.
+            <br /><br />
+            HOC doesn't modify the input component, nor does it use inheritance
+            to copy its behavior. Rather, a HOC<strong>composes</strong> the
+            original component by <strong>wrapping</strong> it in a container
+            component. A HOC is a pure function with zero side-effects.
+            <br /><br />
+            The wrapped component receives all the props of the container, along
+            with a new prop, <strong>data</strong>, which it uses to render its
+            output.
+          </aside>
+        </section>
+
+        <!-- HOC EXAMPLE -->
+        <section>
+          <section class="numbering-and-picture-slide">
+            <h4 class="slide-name">HOC example</h4>
+            <div>
+              <img src="assets/images/hoc_example.png" alt="hoc_example" />
+              <ol>
+                <li>
+                  Create folder <strong>hoc</strong> inside your
+                  <strong>src</strong> folder
+                </li>
+                <li>
+                  Create <strong>index.js</strong> inside
+                  <strong>hoc</strong> folder
+                </li>
+                <li>
+                  Create <strong>hoc-component.js</strong> inside
+                  <strong>hoc</strong> folder
+                </li>
+                <li>Start coding <strong>HocComponent</strong> component</li>
+              </ol>
+            </div>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">HOC example - HocComponent</h4>
+            <p>Let's create HocComponent</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers>
+                import React, { useState, useEffect } from "react";
+
+                const withInternetCheck = (Component) => (props) => {
+                  const [isInternetReachable, setIsInternetReachable] = useState(false);
+
+                  useEffect(() => {
+                    console.log("Check internet...");
+                    setTimeout(() => setIsInternetReachable(true), 7000);
+                  }, []);
+
+                  return (
+                    &lt;>
+                      {!isInternetReachable && <p>No internet</p>}
+                      &lt;Component injectedProp={isInternetReachable} {...props} />
+                    &lt;/>
+                  );
+                };
+
+                const _HocComponent = (props) => {
+                  const { injectedProp } = props;
+
+                  return (
+                    <div>
+                      <h2>With HOC component</h2>
+                      <p>Is internet reachable: {`${injectedProp}`}</p>
+                    </div>
+                  );
+                };
+
+                export const HocComponent = withInternetCheck(_HocComponent);
+					    </code>
+            </pre>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">HOC example - INDEX.JS</h4>
+            <p>Let's the following code to the index.js file</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers>
+                import { HocComponent } from "./hoc-component";
+
+                export { HocComponent };
+					    </code>
+            </pre>
+            <aside class="notes"></aside>
+          </section>
+          <section class="code-example-slide">
+            <h4 class="slide-name">HOC example - APP.JS</h4>
+            <p>
+              And the last thing we need to do is add our new component to
+              App.js
+            </p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="18,48-51">
+                import "./styles.css";
+
+                import { ClassCounter, FunctionalCounter } from "./components-and-props";
+                import { 
+                  MountingComponent, 
+                  UpdatingComponent, 
+                  UnmountingComponent 
+                } from "./lifecycle";
+                import {
+                  UseStateComponent,
+                  UseEffectComponent,
+                  UseCallbackComponent,
+                  UseContextComponent,
+                  UseMemoComponent,
+                  UseRefComponent,
+                  UseCustomHookComponent
+                } from "./hooks";
+                import { HocComponent } from "./hoc";
+
+                const blockStyle = { "border-style": "dotted" };
+
+                export default function App() {
+                  return (
+                    &lt;div className="App">
+                      &lt;div style={blockStyle}>
+                        <h1>Functional and class componets</h1>
+                        &lt;ClassCounter name={"Class Counter"} />
+                        &lt;FunctionalCounter name={"Functional Counter"} />
+                      &lt;/div>
+                      <br /> <br />
+                      &lt;div style={blockStyle}>
+                        <h1>Lifecycle examples</h1>
+                        &lt;MountingComponent name={"FirstName"} />
+                        &lt;UpdatingComponent />
+                        &lt;UnmountingComponent />
+                      &lt;/div>
+                      &lt;div style={blockStyle}>
+                        <h1>Hooks</h1>
+                        &lt;UseStateComponent />
+                        &lt;UseEffectComponent />
+                        &lt;UseCallbackComponent />
+                        &lt;UseContextComponent />
+                        &lt;UseMemoComponent />
+                        &lt;UseRefComponent />
+                        &lt;UseCustomHookComponent />
+                      &lt;/div>
+                      <br /> <br />
+                      &lt;div style={blockStyle}>
+                        <h1>HOCs</h1>
+                        &lt;HocComponent />
+                      &lt;/div>
+                    &lt;/div>
+                  );
+                }              
+					    </code>
+            </pre>
+          </section>
+          <section class="video-slide">
+            <h4 class="slide-name">HOC example - result</h4>
+            <div>
+              <iframe data-src="assets/videos/hoc_example.mp4"></iframe>
+            </div>
+          </section>
         </section>
 
         <!-- CONTROLLED COMPONENTS -->
@@ -2881,6 +3041,192 @@ class Welcome extends React.Component {
             src="assets/images/controlled_components.png"
             alt="controlled_components"
           />
+          <aside class="notes">
+            Controlled vs uncontrolled components
+            <br /><br />
+            Let's start with controlled components.<br />
+            As the name says, in the controlled component the form input
+            element's values and mutations are totally driven by event handlers
+            and the value of the input element is always inferred from the
+            state. Here's a flow diagram of a controlled component
+            <br /><br />
+            Let's understand the two most important aspects of controlled
+            components<br />
+            * The component has the <strong>value</strong> attribute set as the
+            components state. This is very important so that
+            <strong>the input</strong> component's value will always be in sync
+            with the components state value.<br />
+            * Secondly, we are handling the change event emitted by the element
+            whenever a user tries to update the element's value. Inside the
+            handler function, we are <strong>mutating</strong> the state with
+            the updated input value.<br />
+          </aside>
+        </section>
+
+        <!-- CONTROLLED EXAMPLE -->
+        <section>
+          <section class="numbering-and-picture-slide">
+            <h4 class="slide-name">Controlled component example</h4>
+            <div>
+              <img
+                src="assets/images/controlled_component_example.png"
+                alt="controlled_component_example"
+              />
+              <ol>
+                <li>
+                  Create folder <strong>controlled-uncontrolled</strong> inside
+                  your <strong>src</strong> folder
+                </li>
+                <li>
+                  Create <strong>index.js</strong> inside
+                  <strong>controlled-uncontrolled</strong> folder
+                </li>
+                <li>
+                  Create <strong>controlled-component.js</strong> inside
+                  <strong>controlled-uncontrolled</strong> folder
+                </li>
+                <li>
+                  Start coding <strong>ControlledComponent</strong> component
+                </li>
+              </ol>
+            </div>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">
+              Controlled component example - ControlledComponent
+            </h4>
+            <p>Let's create ControlledComponent</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers>
+                import React, { useState } from "react";
+
+                const ControlledComponent = () => {
+                  const [name, setName] = useState("");
+                  const [email, setEmail] = useState("");
+
+                  const onSubmit = () => {
+                    console.log("Name value: " + name);
+                    console.log("Email value: " + email);
+                  };
+
+                  return (
+                    <div>
+                      <h3>Controlled Component</h3>
+                      &lt;form onSubmit={onSubmit}>
+                        &lt;input
+                          type="text"
+                          name="name"
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
+                          required
+                        />
+                        &lt;input
+                          type="email"
+                          name="email"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          required
+                        />
+                        <input type="submit" value="Submit" />
+                      &lt;/form>
+                    </div>
+                  );
+                };
+
+                export default ControlledComponent;
+					    </code>
+            </pre>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">Controlled component example - INDEX.JS</h4>
+            <p>Let's the following code to the index.js file</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers>
+                import ControlledComponent from "./controlled-component";
+
+                export { ControlledComponent };
+					    </code>
+            </pre>
+            <aside class="notes"></aside>
+          </section>
+          <section class="code-example-slide">
+            <h4 class="slide-name">Controlled component example - APP.JS</h4>
+            <p>
+              And the last thing we need to do is add our new component to
+              App.js
+            </p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="19,53-57">
+                import "./styles.css";
+
+                import { ClassCounter, FunctionalCounter } from "./components-and-props";
+                import { 
+                  MountingComponent, 
+                  UpdatingComponent, 
+                  UnmountingComponent 
+                } from "./lifecycle";
+                import {
+                  UseStateComponent,
+                  UseEffectComponent,
+                  UseCallbackComponent,
+                  UseContextComponent,
+                  UseMemoComponent,
+                  UseRefComponent,
+                  UseCustomHookComponent
+                } from "./hooks";
+                import { HocComponent } from "./hoc";
+                import { ControlledComponent } from "./controlled-uncontrolled";
+
+                const blockStyle = { "border-style": "dotted" };
+
+                export default function App() {
+                  return (
+                    &lt;div className="App">
+                      &lt;div style={blockStyle}>
+                        <h1>Functional and class componets</h1>
+                        &lt;ClassCounter name={"Class Counter"} />
+                        &lt;FunctionalCounter name={"Functional Counter"} />
+                      &lt;/div>
+                      <br /> <br />
+                      &lt;div style={blockStyle}>
+                        <h1>Lifecycle examples</h1>
+                        &lt;MountingComponent name={"FirstName"} />
+                        &lt;UpdatingComponent />
+                        &lt;UnmountingComponent />
+                      &lt;/div>
+                      &lt;div style={blockStyle}>
+                        <h1>Hooks</h1>
+                        &lt;UseStateComponent />
+                        &lt;UseEffectComponent />
+                        &lt;UseCallbackComponent />
+                        &lt;UseContextComponent />
+                        &lt;UseMemoComponent />
+                        &lt;UseRefComponent />
+                        &lt;UseCustomHookComponent />
+                      &lt;/div>
+                      <br /> <br />
+                      &lt;div style={blockStyle}>
+                        <h1>HOCs</h1>
+                        &lt;HocComponent />
+                      &lt;/div>
+                      <br /> <br />
+                      &lt;div style={blockStyle}>
+                        <h1>Controlled and uncontrolled components</h1>
+                        &lt;ControlledComponent />
+                      &lt;/div>
+                    &lt;/div>
+                  );
+                }              
+					    </code>
+            </pre>
+          </section>
+          <section class="picture-slide">
+            <h4 class="slide-name">Controlled component example - result</h4>
+            <img
+              src="assets/images/controlled_component_example_1.png"
+              alt="controlled_component_example_1"
+            />
+          </section>
         </section>
 
         <!-- UNCONTROLLED COMPONENTS -->
@@ -2890,6 +3236,178 @@ class Welcome extends React.Component {
             src="assets/images/uncontrolled_components.png"
             alt="uncontrolled_components"
           />
+          <aside class="notes">
+            How uncontrolled components work?
+            <br /><br />
+            They don't use any states on input elements or any event handler.
+            This type of component doesn't care about an input element's
+            real-time value changes.
+            <br /><br />
+            In the uncontrolled components, we use Refs to access the values of
+            input elements.
+            <br /><br />
+            Why Controlled vs uncontrolled components are required?<br />
+            React provides both a model-view approach with controlled components
+            and an only view approach using uncontrolled components. <br />
+            While other frameworks like Angular or VueJs provide only Model-View
+            two-way binding approach to the same use case, React provides two
+            distinctively flexible solutions. <br />
+            It depends on the use cases about how and where one would use any of
+            those.
+          </aside>
+        </section>
+
+        <!-- UNCONTROLLED EXAMPLE -->
+        <section>
+          <section class="numbering-and-picture-slide">
+            <h4 class="slide-name">Uncontrolled component example</h4>
+            <div>
+              <img
+                src="assets/images/uncontrolled_component_example.png"
+                alt="uncontrolled_component_example"
+              />
+              <ol>
+                <li>
+                  Create <strong>uncontrolled-component.js</strong> inside
+                  <strong>controlled-uncontrolled</strong> folder
+                </li>
+                <li>
+                  Start coding <strong>UncontrolledComponent</strong> component
+                </li>
+              </ol>
+            </div>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">
+              Uncontrolled component example - UncontrolledComponent
+            </h4>
+            <p>Let's create UncontrolledComponent</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers>
+                import React, { useRef } from "react";
+
+                const UncontrolledComponent = () => {
+                  const nameRef = useRef();
+                  const emailRef = useRef();
+
+                  const onSubmit = () => {
+                    console.log("Name value: " + nameRef.current.value);
+                    console.log("Email value: " + emailRef.current.value);
+                  };
+
+                  return (
+                    <div>
+                      <h3>Uncontrolled Component</h3>
+                      &lt;form onSubmit={onSubmit}>
+                        &lt;input type="text" name="name" ref={nameRef} required />
+                        &lt;input type="email" name="email" ref={emailRef} required />
+                        &lt;input type="submit" value="Submit" />
+                      &lt;/form>
+                    </div>
+                  );
+                };
+
+                export default UncontrolledComponent;
+					    </code>
+            </pre>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">
+              Uncontrolled component example - INDEX.JS
+            </h4>
+            <p>Let's the following code to the index.js file</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="2,4">
+                import ControlledComponent from "./controlled-component";
+                import UncontrolledComponent from "./uncontrolled-component";
+
+                export { ControlledComponent, UncontrolledComponent };
+					    </code>
+            </pre>
+            <aside class="notes"></aside>
+          </section>
+          <section class="code-example-slide">
+            <h4 class="slide-name">Uncontrolled component example - APP.JS</h4>
+            <p>
+              And the last thing we need to do is add our new component to
+              App.js
+            </p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="19-22,60">
+                import "./styles.css";
+
+                import { ClassCounter, FunctionalCounter } from "./components-and-props";
+                import { 
+                  MountingComponent, 
+                  UpdatingComponent, 
+                  UnmountingComponent 
+                } from "./lifecycle";
+                import {
+                  UseStateComponent,
+                  UseEffectComponent,
+                  UseCallbackComponent,
+                  UseContextComponent,
+                  UseMemoComponent,
+                  UseRefComponent,
+                  UseCustomHookComponent
+                } from "./hooks";
+                import { HocComponent } from "./hoc";
+                import {
+                  ControlledComponent,
+                  UncontrolledComponent
+                } from "./controlled-uncontrolled";
+
+                const blockStyle = { "border-style": "dotted" };
+
+                export default function App() {
+                  return (
+                    &lt;div className="App">
+                      &lt;div style={blockStyle}>
+                        <h1>Functional and class componets</h1>
+                        &lt;ClassCounter name={"Class Counter"} />
+                        &lt;FunctionalCounter name={"Functional Counter"} />
+                      &lt;/div>
+                      <br /> <br />
+                      &lt;div style={blockStyle}>
+                        <h1>Lifecycle examples</h1>
+                        &lt;MountingComponent name={"FirstName"} />
+                        &lt;UpdatingComponent />
+                        &lt;UnmountingComponent />
+                      &lt;/div>
+                      &lt;div style={blockStyle}>
+                        <h1>Hooks</h1>
+                        &lt;UseStateComponent />
+                        &lt;UseEffectComponent />
+                        &lt;UseCallbackComponent />
+                        &lt;UseContextComponent />
+                        &lt;UseMemoComponent />
+                        &lt;UseRefComponent />
+                        &lt;UseCustomHookComponent />
+                      &lt;/div>
+                      <br /> <br />
+                      &lt;div style={blockStyle}>
+                        <h1>HOCs</h1>
+                        &lt;HocComponent />
+                      &lt;/div>
+                      <br /> <br />
+                      &lt;div style={blockStyle}>
+                        <h1>Controlled and uncontrolled components</h1>
+                        &lt;ControlledComponent />
+                        &lt;UncontrolledComponent />
+                      &lt;/div>
+                    &lt;/div>
+                  );
+                }              
+					    </code>
+            </pre>
+          </section>
+          <section class="picture-slide">
+            <h4 class="slide-name">Uncontrolled component example - result</h4>
+            <img
+              src="assets/images/uncontrolled_component_example_1.png"
+              alt="uncontrolled_component_example_1"
+            />
+          </section>
         </section>
 
         <!-- RECONCILIATION -->
