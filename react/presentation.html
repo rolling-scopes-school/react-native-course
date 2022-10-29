@@ -339,6 +339,10 @@ class Welcome extends React.Component {
                   your <strong>src</strong> folder
                 </li>
                 <li>
+                  Create <strong>index.js</strong> inside
+                  <strong>components-and-props</strong> folder
+                </li>
+                <li>
                   Create <strong>class-counter.js</strong> inside
                   <strong>components-and-props</strong> folder
                 </li>
@@ -391,6 +395,18 @@ class Welcome extends React.Component {
 					    </code>
             </pre>
           </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">class component example - INDEX.JS</h4>
+            <p>Let's the following code to the index.js file</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers>
+                import ClassCounter from "./class-counter";
+
+                export { ClassCounter };
+					    </code>
+            </pre>
+            <aside class="notes"></aside>
+          </section>
           <section class="code-example-slide">
             <h4 class="slide-name">class component example - APP.JS</h4>
             <p>
@@ -405,12 +421,12 @@ class Welcome extends React.Component {
                 
                 export default function App() {
                   return (
-                    <div className="App">
+                    &lt;div className="App">
                       <div>
                         <h1>Functional and class components</h1>
                         &lt;ClassCounter name={"Class Counter"} />
                       </div>
-                    </div>
+                    &lt;/div>
                   );
                 }                
 					    </code>
@@ -430,7 +446,7 @@ class Welcome extends React.Component {
         <section>
           <section class="numbering-and-picture-slide">
             <h4 class="slide-name">
-              FUNCTIONAL COMPONENT EXAMPLE - FunctionalCounter
+              functional component example - FunctionalCounter
             </h4>
             <div>
               <img
@@ -448,7 +464,7 @@ class Welcome extends React.Component {
           </section>
           <section data-auto-animate class="code-example-slide">
             <h4 class="slide-name">
-              FUNCTIONAL COMPONENT EXAMPLE - FunctionalCounter
+              functional component example - FunctionalCounter
             </h4>
             <p>Let's create FunctionalCounter component</p>
             <pre data-id="code-animation">
@@ -465,7 +481,7 @@ class Welcome extends React.Component {
             </pre>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">FUNCTIONAL COMPONENT EXAMPLE - RETURN</h4>
+            <h4 class="slide-name">functional component example - return</h4>
             <p>
               And now let's add code that will display the third level title
               obtained from the properties of this component.
@@ -486,8 +502,21 @@ class Welcome extends React.Component {
 					    </code>
             </pre>
           </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">functional component example - INDEX.JS</h4>
+            <p>Let's the following code to the index.js file</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="2,4">
+                import ClassCounter from "./class-counter";
+                import FunctionalCounter from "./functional-counter";
+
+                export { ClassCounter, FunctionalCounter };
+					    </code>
+            </pre>
+            <aside class="notes"></aside>
+          </section>
           <section class="code-example-slide">
-            <h4 class="slide-name">FUNCTIONAL COMPONENT EXAMPLE - APP.JS</h4>
+            <h4 class="slide-name">functional component example - APP.JS</h4>
             <p>
               And the last thing we need to do is add our new component to
               App.js
@@ -501,20 +530,20 @@ class Welcome extends React.Component {
 
                 export default function App() {
                   return (
-                    <div className="App">
+                    &lt;div className="App">
                       <div>
                         <h1>Functional and class componets</h1>
                         &lt;ClassCounter name={"Class Counter"} />
                         &lt;FunctionalCounter name={"Functional Counter"} />
                       </div>
-                    </div>
+                    &lt;/div>
                   );
                 }
 					    </code>
             </pre>
           </section>
           <section class="picture-slide">
-            <h4 class="slide-name">FUNCTIONAL COMPONENT EXAMPLE - RESULT</h4>
+            <h4 class="slide-name">functional component example - result</h4>
             <img
               src="assets/images/functional_component_example.png"
               class="with-border"
@@ -529,7 +558,7 @@ class Welcome extends React.Component {
 
         <!-- ADDITIONAL MATERIALS -->
         <section class="video-text-slide">
-          <h4 class="slide-name">ADDITIONAL MATERIALS</h4>
+          <h4 class="slide-name">additional materials</h4>
           <div>
             <div>
               <a
@@ -579,7 +608,7 @@ class Welcome extends React.Component {
 
         <!-- REACT LIFECYCLE -->
         <section class="picture-slide">
-          <h4 class="slide-name">REACT LIFECYCLE</h4>
+          <h4 class="slide-name">react lifecycle</h4>
           <img src="assets/images/react_lifecycle.png" alt="react_lifecycle" />
           <aside class="notes">
             Each component in React has a lifecycle which you can monitor and
@@ -592,7 +621,7 @@ class Welcome extends React.Component {
 
         <!-- REACT LIFECYCLE METHODS - MOUNTING -->
         <section class="picture-slide">
-          <h4 class="slide-name">REACT LIFECYCLE METHODS - MOUNTING</h4>
+          <h4 class="slide-name">react lifecycle - mounting</h4>
           <img
             src="assets/images/react_lifecycle_method_mounting.png"
             alt="react_lifecycle_method_mounting"
@@ -609,7 +638,7 @@ class Welcome extends React.Component {
         <!-- MOUNTING EXAMPLE -->
         <section>
           <section class="numbering-and-picture-slide">
-            <h4 class="slide-name">MOUNTING EXAMPLE</h4>
+            <h4 class="slide-name">mounting example</h4>
             <div>
               <img
                 src="assets/images/mounting_example.png"
@@ -619,6 +648,10 @@ class Welcome extends React.Component {
                 <li>
                   Create folder <strong>lifecycle</strong> inside your
                   <strong>src</strong> folder
+                </li>
+                <li>
+                  Create <strong>index.js</strong> inside
+                  <strong>lifecycle</strong> folder
                 </li>
                 <li>
                   Create <strong>mouning.js</strong> inside
@@ -631,7 +664,7 @@ class Welcome extends React.Component {
             </div>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">MOUNTING EXAMPLE - Component</h4>
+            <h4 class="slide-name">mounting example - Component</h4>
             <p>Let's create MountingComponent component</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers>
@@ -649,7 +682,7 @@ class Welcome extends React.Component {
             </pre>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">MOUNTING EXAMPLE - CONSTRUCTOR</h4>
+            <h4 class="slide-name">mounting example - constructor</h4>
             <p>
               Let's add a constructor to our component that will initialize the
               parent class and add a couple of fields to the state object.
@@ -692,7 +725,7 @@ class Welcome extends React.Component {
           </section>
           <section data-auto-animate class="code-example-slide">
             <h4 class="slide-name">
-              MOUNTING EXAMPLE - getDerivedStateFromProps
+              mounting example - getDerivedStateFromProps
             </h4>
             <p>Next thing that we'll add it is getDerivedStateFromProps.</p>
             <pre data-id="code-animation">
@@ -738,7 +771,7 @@ class Welcome extends React.Component {
             </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">MOUNTING EXAMPLE - render</h4>
+            <h4 class="slide-name">mounting example - render</h4>
             <p>
               And now let's implement the render method and add some logic
               related to the loading state.
@@ -796,7 +829,7 @@ class Welcome extends React.Component {
             </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">MOUNTING EXAMPLE - componentDidMount</h4>
+            <h4 class="slide-name">mounting example - componentDidMount</h4>
             <p>The last thing is componentDidMount</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="25-29">
@@ -859,8 +892,20 @@ class Welcome extends React.Component {
               componentWillUnmount().
             </aside>
           </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">mounting example - INDEX.JS</h4>
+            <p>Let's the following code to the index.js file</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers>
+                import MountingComponent from "./mouning";
+
+                export { MountingComponent };
+					    </code>
+            </pre>
+            <aside class="notes"></aside>
+          </section>
           <section class="code-example-slide">
-            <h4 class="slide-name">MOUNTING EXAMPLE - APP.JS</h4>
+            <h4 class="slide-name">mounting example - APP.JS</h4>
             <p>
               And the last thing we need to do is add our new component to
               App.js
@@ -874,7 +919,7 @@ class Welcome extends React.Component {
 
                 export default function App() {
                   return (
-                    <div className="App">
+                    &lt;div className="App">
                       <div>
                         <h1>Functional and class componets</h1>
                         &lt;ClassCounter name={"Class Counter"} />
@@ -885,14 +930,14 @@ class Welcome extends React.Component {
                         <h1>Lifecycle examples</h1>
                         &lt;MountingComponent name={"FirstName"} />
                       </div>
-                    </div>
+                    &lt;/div>
                   );
                 }              
 					    </code>
             </pre>
           </section>
           <section class="video-slide">
-            <h4 class="slide-name">MOUNTING EXAMPLE - RESULT</h4>
+            <h4 class="slide-name">mounting example - result</h4>
             <div>
               <iframe
                 data-src="assets/videos/mounting_example.mp4"
@@ -904,45 +949,648 @@ class Welcome extends React.Component {
 
         <!-- REACT LIFECYCLE METHODS - UPDATING -->
         <section class="picture-slide">
-          <h4 class="slide-name">REACT LIFECYCLE METHODS - UPDATING</h4>
+          <h4 class="slide-name">react lifecycle - updating</h4>
           <img
             src="assets/images/react_lifecycle_method_updating.png"
             alt="react_lifecycle_method_updating"
           />
         </section>
 
+        <!-- UPDATING EXAMPLE -->
+        <section>
+          <section class="numbering-and-picture-slide">
+            <h4 class="slide-name">updating example</h4>
+            <div>
+              <img
+                src="assets/images/updating_example.png"
+                alt="updating_example"
+              />
+              <ol>
+                <li>
+                  Create <strong>updaing.js</strong> inside
+                  <strong>lifecycle</strong> folder
+                </li>
+                <li>
+                  Start coding <strong>UpdatingComponent</strong> component
+                </li>
+              </ol>
+            </div>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">updating example - UpdatingComponent</h4>
+            <p>
+              Let's create MountingComponent and two arrays in the state to
+              store counter values
+            </p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers>
+                import React from "react";
+
+                class UpdatingComponent extends React.Component {
+                  state = {
+                    counter1: [],
+                    counter2: []
+                  };
+
+                  render() {
+                    // ...
+                  }
+                }
+
+                export default UpdatingComponent;               
+					    </code>
+            </pre>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">updating example - Counter</h4>
+            <p>Now we'll add Counter component</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="33-52|9-30">
+                import React from "react";
+
+                class UpdatingComponent extends React.Component {
+                  state = {
+                    counter1: [],
+                    counter2: []
+                  };
+
+                  return (
+                    &lt;>
+                      &lt;Counter
+                        value={this.state.counter1}
+                        onClick={() =>
+                          this.setState({
+                            counter1: [...this.state.counter1, this.state.counter1.length + 1]
+                          })
+                        }
+                        name={"counter 1"}
+                      />
+                      &lt;Counter
+                        value={this.state.counter2}
+                        onClick={() =>
+                          this.setState({
+                            counter2: [...this.state.counter2, this.state.counter2.length + 1]
+                          })
+                        }
+                        name={"counter 2"}
+                      />
+                    &lt;/>
+                  );
+                }
+
+                class Counter extends React.Component {
+                  // Get box DOM reference
+                  buttonRef = React.createRef();
+
+                  render() {
+                    console.log(`Rendering ${this.props.name}`);
+                    return (
+                      <div>
+                        <h2>{this.props.name}:</h2>
+                        <div>
+                          {this.props.value.map((e, index) => (
+                            <p key={index}>{e}</p>
+                          ))}
+                        </div>
+                        <button ref={this.buttonRef} onClick={this.props.onClick}>
+                          Add
+                        </button>
+                      </div>
+                    );
+                  }
+                }
+
+                export default UpdatingComponent;               
+					    </code>
+            </pre>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">updating example - shouldComponentUpdate</h4>
+            <p>Let's add shouldComponentUpdate</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="37-39">
+                import React from "react";
+
+                class UpdatingComponent extends React.Component {
+                  state = {
+                    counter1: [],
+                    counter2: []
+                  };
+
+                  return (
+                    &lt;>
+                      &lt;Counter
+                        value={this.state.counter1}
+                        onClick={() =>
+                          this.setState({
+                            counter1: [...this.state.counter1, this.state.counter1.length + 1]
+                          })
+                        }
+                        name={"counter 1"}
+                      />
+                      &lt;Counter
+                        value={this.state.counter2}
+                        onClick={() =>
+                          this.setState({
+                            counter2: [...this.state.counter2, this.state.counter2.length + 1]
+                          })
+                        }
+                        name={"counter 2"}
+                      />
+                    &lt;/>
+                  );
+                }
+
+                class Counter extends React.Component {
+                  // Get box DOM reference
+                  buttonRef = React.createRef();
+
+                  shouldComponentUpdate(nextProps) {
+                    return nextProps.value !== this.props.value
+                  }
+
+                  render() {
+                    console.log(`Rendering ${this.props.name}`);
+                    return (
+                      <div>
+                        <h2>{this.props.name}:</h2>
+                        <div>
+                          {this.props.value.map((e, index) => (
+                            <p key={index}>{e}</p>
+                          ))}
+                        </div>
+                        <button ref={this.buttonRef} onClick={this.props.onClick}>
+                          Add
+                        </button>
+                      </div>
+                    );
+                  }
+                }
+
+                export default UpdatingComponent;               
+					    </code>
+            </pre>
+            <aside class="notes">
+              shouldComponentUpdate() - This lifecycle can be handy sometimes
+              when you don't want React to render your state or prop changes.
+              Anytime setState() is called, the component re-renders by default.
+              The shouldComponentUpdate() method is used to let React know if a
+              component is not affected by the state and prop changes. Keep in
+              mind that this lifecycle method should be sparingly used, and it
+              exists only for certain performance optimizations.
+            </aside>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">
+              updating example - getSnapshotBeforeUpdate
+            </h4>
+            <p>Let's add getSnapshotBeforeUpdate</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="41-46">
+                import React from "react";
+
+                class UpdatingComponent extends React.Component {
+                  state = {
+                    counter1: [],
+                    counter2: []
+                  };
+
+                  return (
+                    &lt;>
+                      &lt;Counter
+                        value={this.state.counter1}
+                        onClick={() =>
+                          this.setState({
+                            counter1: [...this.state.counter1, this.state.counter1.length + 1]
+                          })
+                        }
+                        name={"counter 1"}
+                      />
+                      &lt;Counter
+                        value={this.state.counter2}
+                        onClick={() =>
+                          this.setState({
+                            counter2: [...this.state.counter2, this.state.counter2.length + 1]
+                          })
+                        }
+                        name={"counter 2"}
+                      />
+                    &lt;/>
+                  );
+                }
+
+                class Counter extends React.Component {
+                  // Get box DOM reference
+                  buttonRef = React.createRef();
+
+                  shouldComponentUpdate(nextProps) {
+                    return nextProps.value !== this.props.value
+                  }
+
+                  getSnapshotBeforeUpdate() {
+                    // Let componentDidUpdate know whether to override the button color or not.
+                    return {
+                      overrideBoxColor: this.buttonRef.current.offsetTop > 500
+                    };
+                  }
+
+                  render() {
+                    console.log(`Rendering ${this.props.name}`);
+                    return (
+                      <div>
+                        <h2>{this.props.name}:</h2>
+                        <div>
+                          {this.props.value.map((e, index) => (
+                            <p key={index}>{e}</p>
+                          ))}
+                        </div>
+                        <button ref={this.buttonRef} onClick={this.props.onClick}>
+                          Add
+                        </button>
+                      </div>
+                    );
+                  }
+                }
+
+                export default UpdatingComponent;               
+					    </code>
+            </pre>
+            <aside class="notes">
+              getSnapshotBeforeUpdate() is invoked right before the most
+              recently rendered output is committed to e.g. the DOM. It enables
+              your component to capture some information from the DOM (e.g.
+              scroll position) before it is potentially changed. Any value
+              returned by this lifecycle method will be passed as a parameter to
+              componentDidUpdate().
+            </aside>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">updating example - componentDidUpdate</h4>
+            <p>Let's add componentDidUpdate</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="48-53">
+                import React from "react";
+
+                class UpdatingComponent extends React.Component {
+                  state = {
+                    counter1: [],
+                    counter2: []
+                  };
+
+                  return (
+                    &lt;>
+                      &lt;Counter
+                        value={this.state.counter1}
+                        onClick={() =>
+                          this.setState({
+                            counter1: [...this.state.counter1, this.state.counter1.length + 1]
+                          })
+                        }
+                        name={"counter 1"}
+                      />
+                      &lt;Counter
+                        value={this.state.counter2}
+                        onClick={() =>
+                          this.setState({
+                            counter2: [...this.state.counter2, this.state.counter2.length + 1]
+                          })
+                        }
+                        name={"counter 2"}
+                      />
+                    &lt;/>
+                  );
+                }
+
+                class Counter extends React.Component {
+                  // Get box DOM reference
+                  buttonRef = React.createRef();
+
+                  shouldComponentUpdate(nextProps) {
+                    return nextProps.value !== this.props.value
+                  }
+
+                  getSnapshotBeforeUpdate() {
+                    // Let componentDidUpdate know whether to override the button color or not.
+                    return {
+                      overrideBoxColor: this.buttonRef.current.offsetTop > 500
+                    };
+                  }
+
+                  componentDidUpdate(prevProps, prevState, snapshot) {
+                    // Override the button ref directly
+                    if (snapshot.overrideBoxColor) {
+                      this.buttonRef.current.style.backgroundColor = "red";
+                    }
+                  }
+
+                  render() {
+                    console.log(`Rendering ${this.props.name}`);
+                    return (
+                      <div>
+                        <h2>{this.props.name}:</h2>
+                        <div>
+                          {this.props.value.map((e, index) => (
+                            <p key={index}>{e}</p>
+                          ))}
+                        </div>
+                        <button ref={this.buttonRef} onClick={this.props.onClick}>
+                          Add
+                        </button>
+                      </div>
+                    );
+                  }
+                }
+
+                export default UpdatingComponent;               
+					    </code>
+            </pre>
+            <aside class="notes">
+              componentDidUpdate() - This lifecycle method is invoked as soon as
+              the updating happens. The most common use case for the
+              componentDidUpdate() method is updating the DOM in response to
+              prop or state changes. On the screen you can see typical example
+              of usage of this lifecycle method. Notice in this example that we
+              are comparing the current props to the previous props. This is to
+              check if there has been a change in props from what it currently
+              is. In this case, there won't be a need to make the API call if
+              the props did not change.
+            </aside>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">updating example - INDEX.JS</h4>
+            <p>Let's the following code to the index.js file</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="2,4">
+                import MountingComponent from "./mouning";
+                import UpdatingComponent from "./updaing";
+
+                export { MountingComponent, UpdatingComponent };
+					    </code>
+            </pre>
+            <aside class="notes"></aside>
+          </section>
+          <section class="code-example-slide">
+            <h4 class="slide-name">updating example - APP.JS</h4>
+            <p>
+              And the last thing we need to do is add our new component to
+              App.js
+            </p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="4,18">
+                import "./styles.css";
+
+                import { ClassCounter, FunctionalCounter } from "./components-and-props";
+                import { MountingComponent, UpdatingComponent } from "./lifecycle";
+
+                export default function App() {
+                  return (
+                    &lt;div className="App">
+                      <div>
+                        <h1>Functional and class componets</h1>
+                        &lt;ClassCounter name={"Class Counter"} />
+                        &lt;FunctionalCounter name={"Functional Counter"} />
+                      </div>
+                      <br /> <br />
+                      <div>
+                        <h1>Lifecycle examples</h1>
+                        &lt;MountingComponent name={"FirstName"} />
+                        &lt;UpdatingComponent />
+                      </div>
+                    &lt;/div>
+                  );
+                }              
+					    </code>
+            </pre>
+          </section>
+          <section class="video-slide">
+            <h4 class="slide-name">updating example - result</h4>
+            <div>
+              <iframe
+                data-src="assets/videos/updating_example.mp4"
+                data-preload
+              ></iframe>
+            </div>
+          </section>
+        </section>
+
         <!-- REACT LIFECYCLE METHODS - UNMOUNTING -->
         <section class="picture-slide">
-          <h4 class="slide-name">REACT LIFECYCLE METHODS - UNMOUNTING</h4>
+          <h4 class="slide-name">react lifecycle - unmounting</h4>
           <img
             src="assets/images/react_lifecycle_method_unmounting.png"
             alt="react_lifecycle_method_unmounting"
           />
         </section>
 
-        <!-- HOOKS - MOTIVATION -->
-        <section class="bullets-slide">
-          <h4 class="slide-name">HOOKS - MOTIVATION</h4>
-          <ul>
-            <li class="fragment">
-              It's hard to reuse stateful logic between components
-            </li>
-            <li class="fragment">
-              Complex components become hard to understand
-            </li>
-            <li class="fragment">Classes confuse both people and machines</li>
-          </ul>
+        <!-- UNMOUNTING EXAMPLE -->
+        <section>
+          <section class="numbering-and-picture-slide">
+            <h4 class="slide-name">unmounting example</h4>
+            <div>
+              <img
+                src="assets/images/unmounting_example.png"
+                alt="unmounting_example"
+              />
+              <ol>
+                <li>
+                  Create <strong>unmounting.js</strong> inside
+                  <strong>lifecycle</strong> folder
+                </li>
+                <li>
+                  Start coding <strong>UnmountingComponent</strong> component
+                </li>
+              </ol>
+            </div>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">unmounting example - UnmountingComponent</h4>
+            <p>Let's create UnmountingComponent and date in the state</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers>
+                import React from "react";
+
+                class UnmountingComponent extends React.Component {
+                  constructor(props) {
+                    super(props);
+                    this.state = {
+                      date: new Date()
+                    };
+                  }
+
+                  tick() {
+                    this.setState({
+                      date: new Date()
+                    });
+                  }
+
+                  render() {
+                    return <p>{this.state.date.toLocaleTimeString()}</p>;
+                  }
+                }
+
+                export default UnmountingComponent;               
+					    </code>
+            </pre>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">
+              unmounting example - componentWillUnmount
+            </h4>
+            <p>Let's add componentWillUnmount</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="17-25">
+                import React from "react";
+
+                class UnmountingComponent extends React.Component {
+                  constructor(props) {
+                    super(props);
+                    this.state = {
+                      date: new Date()
+                    };
+                  }
+
+                  tick() {
+                    this.setState({
+                      date: new Date()
+                    });
+                  }
+
+                  componentDidMount() {
+                    this.timerID = setInterval(() => {
+                      this.tick();
+                    }, 1000);
+                  }
+                
+                  componentWillUnmount() {
+                    clearInterval(this.timerID);
+                  }
+
+                  render() {
+                    return <p>{this.state.date.toLocaleTimeString()}</p>;
+                  }
+                }
+
+                export default UnmountingComponent;               
+					    </code>
+            </pre>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">unmounting example - INDEX.JS</h4>
+            <p>Let's the following code to the index.js file</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="3-5">
+                import MountingComponent from "./mouning";
+                import UpdatingComponent from "./updaing";
+                import UnmountingComponent from "./unmounting";
+
+                export { MountingComponent, UpdatingComponent, UnmountingComponent };
+					    </code>
+            </pre>
+            <aside class="notes"></aside>
+          </section>
+          <section class="code-example-slide">
+            <h4 class="slide-name">unmounting example - APP.JS</h4>
+            <p>
+              And the last thing we need to do is add our new component to
+              App.js
+            </p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="4-8,23">
+                import "./styles.css";
+
+                import { ClassCounter, FunctionalCounter } from "./components-and-props";
+                import { 
+                  MountingComponent, 
+                  UpdatingComponent, 
+                  UnmountingComponent 
+                } from "./lifecycle";
+
+                export default function App() {
+                  return (
+                    &lt;div className="App">
+                      <div>
+                        <h1>Functional and class componets</h1>
+                        &lt;ClassCounter name={"Class Counter"} />
+                        &lt;FunctionalCounter name={"Functional Counter"} />
+                      </div>
+                      <br /> <br />
+                      <div>
+                        <h1>Lifecycle examples</h1>
+                        &lt;MountingComponent name={"FirstName"} />
+                        &lt;UpdatingComponent />
+                        &lt;UnmountingComponent />
+                      </div>
+                    &lt;/div>
+                  );
+                }              
+					    </code>
+            </pre>
+          </section>
+          <section class="video-slide">
+            <h4 class="slide-name">unmounting example - result</h4>
+            <div>
+              <iframe
+                data-src="assets/videos/unmounting_example.mp4"
+                data-preload
+              ></iframe>
+            </div>
+          </section>
         </section>
 
-        <!-- HOOKS - BASIC -->
+        <!-- HOOKS -->
         <section>
+          <section class="bullets-slide">
+            <h4 class="slide-name">hooks - motivation</h4>
+            <ul>
+              <li>It's hard to reuse stateful logic between components</li>
+              <li>Complex components become hard to understand</li>
+              <li>Classes confuse both people and machines</li>
+            </ul>
+            <aside class="notes">
+              Hooks let us use state and other React features without writing a
+              class.
+              <br /><br />
+              <strong>2 main points about hooks</strong>:<br />
+              - There are no plans to remove classes from React.<br />
+              - Hooks don't replace your knowledge of React concepts. Instead,
+              Hooks provide a more direct API to the React concepts you already
+              know props, state, context, refs, and lifecycle.
+              <br /><br />
+              On the slide you see 3 motivations why hooks were introduced.
+              <br /><br />
+              First, about sharing the business logic. Yes, with hooks, you can
+              extract some component logic from a component so that it can be
+              independently tested and reused. Hooks allow you to reuse stateful
+              logic without changing the component hierarchy. This makes it easy
+              to share hooks between many components or with the community.
+              <br /><br />
+              About second point. We can easy meet hard to maintain components
+              that contains a number of lifecycle methods that often often
+              contains a mix of unrelated logic. For example, components might
+              perform some data fetching in componentDidMount and the same
+              componentDidMount method might also contain some unrelated logic
+              that sets up event listeners. Completely unrelated code combined
+              in a single method. This makes it too easy to introduce bugs and
+              inconsistencies.
+              <br /><br />
+              And about the last point. In addition to making code reuse and
+              code organization more difficult, we've found that classes can be
+              a large barrier to learning React. You have to understand how this
+              works in JavaScript, which is very different from how it works in
+              most languages. You have to remember to bind the event handlers.
+              To solve these problems, Hooks let you use more of React's
+              features without classes. Conceptually, React components have
+              always been closer to functions.
+              <br /><br />
+            </aside>
+          </section>
           <section class="text-and-conding-slide">
-            <h4 class="slide-name">HOOKS - BASIC</h4>
+            <h4 class="slide-name">hooks - basic examples</h4>
             <div>
               <p>State Hook</p>
               <pre data-id="code-animation">
                 <code class="js" data-trim data-line-numbers>
-                  const [state, setState] = useState(initialState);                
+                  const [state, setState] = useState(initialState);                
                 </code>
               </pre>
             </div>
@@ -958,15 +1606,42 @@ class Welcome extends React.Component {
               <p>Callback Hook</p>
               <pre data-id="code-animation">
                 <code class="js" data-trim data-line-numbers>
-                  const memoizedCallback = useCallback(() => {
-                      doSomething(a, b);
-                    }, [a, b]);                                  
+                  const memoizedCallback = useCallback(() => {
+                    doSomething(a, b);
+                  }, [a, b]);                                  
                 </code>
               </pre>
             </div>
+            <aside class="notes">
+              Ok, let's start with the first one - state hook. It is the
+              simplest one and post popular one. It returns a stateful value,
+              and a function to update it. During the initial render, the
+              returned state (state) is the same as the value passed as the
+              first argument (initialState). The setState function is used to
+              update the state. It accepts a new state value and starts a
+              re-render of the component.
+              <br /><br />
+              Next hook is useEffect. The Effect Hook lets you perform side
+              effects in function components Data fetching, setting up a
+              subscription, and manually changing the DOM in React components
+              are all examples of side effects. By using this Hook, you tell
+              React that your component needs to do something after render. If
+              your effect returns a function, React will run it when it is time
+              to clean up. Also, you can tell React to skip applying an effect
+              if certain values haven't changed between re-renders. To do so,
+              pass an array as an optional second argument to useEffect.
+
+              <br /><br />
+              The React useCallback Hook returns a memoized callback function.
+              Think of memoization as caching a value so that it does not need
+              to be recalculated. This allows us to isolate resource intensive
+              functions so that they will not automatically run on every render.
+              The useCallback Hook only runs when one of its dependencies
+              update. This can improve performance.
+            </aside>
           </section>
           <section class="coding-and-picture-slide">
-            <h4 class="slide-name">HOOKS - BASIC</h4>
+            <h4 class="slide-name">hooks - basic examples</h4>
             <div>
               <img src="assets/images/hooks_context.png" alt="hooks_context" />
               <div>
@@ -974,24 +1649,35 @@ class Welcome extends React.Component {
                   <p>Context Hook</p>
                   <pre data-id="code-animation">
                   <code class="js" data-trim data-line-numbers>
-                    const value = useContext(MyContext);
-
+                    const value = useContext(MyContext);
                   </code>
                 </pre>
                 </div>
               </div>
             </div>
+            <aside class="notes">
+              useContext To illustrate the problem that this hook can solve, I
+              want you to imagine many nested components. The component at the
+              top and bottom of the stack need access to the state. To do this
+              without Context, we will need to pass the state as "props" through
+              each nested component. This is called "prop drilling". The
+              solution is to create context. To create context, you must Import
+              createContext and initialize it. Next we'll use the Context
+              Provider to wrap the tree of components that need the state
+              Context. Now, all components in this tree will have access to the
+              user Context. And in order to use the Context in a child
+              component, we need to access it using the useContext Hook.
+            </aside>
           </section>
           <section class="text-and-conding-slide">
-            <h4 class="slide-name">HOOKS - BASIC</h4>
+            <h4 class="slide-name">hooks - basic examples</h4>
             <div>
               <p>Memo Hook</p>
               <pre data-id="code-animation">
                 <code class="js" data-trim data-line-numbers>
-                  const memoizedValue = useMemo(() => {
-                      return computeExpensiveValue(a, b);
-                    }, [a, b]);
-                             
+                  const memoizedValue = useMemo(() => {
+                    return computeExpensiveValue(a, b);
+                  }, [a, b]);         
                 </code>
               </pre>
             </div>
@@ -999,42 +1685,1164 @@ class Welcome extends React.Component {
               <p>Ref Hook</p>
               <pre data-id="code-animation">
                 <code class="js" data-trim data-line-numbers>
-                  const refContainer = useRef(initialValue);
-             
+                  const refContainer = useRef(initialValue);
                 </code>
               </pre>
             </div>
             <div>
               <p>Other hooks: https://betterprogramming.pub/</p>
             </div>
+            <aside class="notes">
+              useMemo - Returns a memoized value. The useMemo Hook only runs
+              when one of its dependencies update. This can improve performance.
+              <br /><br />
+              The useRef Hook allows you to persist values between renders. It
+              can be used to store a mutable value that does not cause a
+              re-render when updated. It can be used to access a DOM element
+              directly.
+            </aside>
+          </section>
+          <section class="text-slide">
+            <h4 class="slide-name">hooks - rules</h4>
+            <p>
+              <strong>Only Call Hooks from React Functions</strong><br />
+              Don't call Hooks from regular JavaScript functions.
+            </p>
+            <p>
+              <strong>Only Call Hooks at the Top Level </strong><br />
+              Don't call Hooks inside loops, conditions, or nested functions.
+            </p>
+            <aside class="notes">
+              1. Don't call Hooks from regular JavaScript functions. Instead,
+              you can: Call Hooks from React function components. Call Hooks
+              from custom Hooks
+              <br /><br />
+              2. Don't call Hooks inside loops, conditions, or nested functions.
+              Instead, always use Hooks at the top level of your React function,
+              before any early returns. By following this rule, you ensure that
+              Hooks are called in the same order each time a component renders.
+            </aside>
+          </section>
+          <section class="text-slide">
+            <h4 class="slide-name">hooks - custom hooks</h4>
+            <p class="text-center-align">
+              A custom Hook is a JavaScript function whose name starts with
+              ”use” and that may call other Hooks.
+            </p>
+            <aside class="notes">
+              Building your own Hooks lets you extract component logic into
+              reusable functions. When we want to share logic between two
+              JavaScript functions, we extract it to a third function. Both
+              components and Hooks are functions, so this works for them too!
+              <br /><br />
+              Unlike a React component, a custom Hook doesn't need to have a
+              specific signature. We can decide what it takes as arguments, and
+              what, if anything, it should return. In other words, it's just
+              like a normal function. Its name should always start with use and
+              let's look to the example.
+            </aside>
           </section>
         </section>
 
-        <!-- HOOKS - RULES -->
-        <section class="text-slide">
-          <h4 class="slide-name">HOOKS - RULES</h4>
-          <p>
-            <strong>Only Call Hooks from React Functions</strong><br />
-            Don't call Hooks from regular JavaScript functions.
-          </p>
-          <p>
-            <strong>Only Call Hooks at the Top Level </strong><br />
-            Don't call Hooks inside loops, conditions, or nested functions.
-          </p>
+        <!-- USE-STATE EXAMPLE -->
+        <section>
+          <section class="numbering-and-picture-slide">
+            <h4 class="slide-name">useState example</h4>
+            <div>
+              <img
+                src="assets/images/use_state_example.png"
+                alt="use_state_example"
+              />
+              <ol>
+                <li>
+                  Create folder <strong>hooks</strong> inside your
+                  <strong>src</strong> folder
+                </li>
+                <li>
+                  Create <strong>index.js</strong> inside
+                  <strong>hooks</strong> folder
+                </li>
+                <li>
+                  Create <strong>use-state-component.js</strong> inside
+                  <strong>hooks</strong> folder
+                </li>
+                <li>
+                  Start coding <strong>UseStateComponent</strong> component
+                </li>
+              </ol>
+            </div>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">useState example - UseStateComponent</h4>
+            <p>Let's create UseStateComponent</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers>
+                import React, { useState } from "react";
+
+                export const UseStateComponent = () => {
+                  const [counter, setCounter] = useState(0);
+
+                  return (
+                    <div>
+                      <h2>Use state component</h2>
+                      <div>{counter}</div>
+                      &lt;button onClick={() => setCounter(counter + 1)}>
+                        Add
+                      &lt;/button>
+                    </div>
+                  );
+                };
+					    </code>
+            </pre>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">useState example - UseStateComponent</h4>
+            <p>We also can set state in this way...</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="10">
+                import React, { useState } from "react";
+
+                export const UseStateComponent = () => {
+                  const [counter, setCounter] = useState(0);
+
+                  return (
+                    <div>
+                      <h2>Use state component</h2>
+                      <div>{counter}</div>
+                      &lt;button onClick={() => setCounter((prevCount) => prevCount + 1)}>
+                        Add
+                      &lt;/button>
+                    </div>
+                  );
+                };
+					    </code>
+            </pre>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">useState example - INDEX.JS</h4>
+            <p>Let's the following code to the index.js file</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers>
+                import { UseStateComponent } from "./use-state-component";
+
+                export {
+                  UseStateComponent
+                };
+					    </code>
+            </pre>
+            <aside class="notes"></aside>
+          </section>
+          <section class="code-example-slide">
+            <h4 class="slide-name">useState example - APP.JS</h4>
+            <p>
+              And the last thing we need to do is add our new component to
+              App.js
+            </p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="9-11,13,18,24,30-34">
+                import "./styles.css";
+
+                import { ClassCounter, FunctionalCounter } from "./components-and-props";
+                import { 
+                  MountingComponent, 
+                  UpdatingComponent, 
+                  UnmountingComponent 
+                } from "./lifecycle";
+                import {
+                  UseStateComponent,
+                } from "./hooks";
+
+                const blockStyle = { "border-style": "dotted" };
+
+                export default function App() {
+                  return (
+                    &lt;div className="App">
+                      &lt;div style={blockStyle}>
+                        <h1>Functional and class componets</h1>
+                        &lt;ClassCounter name={"Class Counter"} />
+                        &lt;FunctionalCounter name={"Functional Counter"} />
+                      &lt;/div>
+                      <br /> <br />
+                      &lt;div style={blockStyle}>
+                        <h1>Lifecycle examples</h1>
+                        &lt;MountingComponent name={"FirstName"} />
+                        &lt;UpdatingComponent />
+                        &lt;UnmountingComponent />
+                      &lt;/div>
+                      &lt;div style={blockStyle}>
+                        <h1>Hooks</h1>
+                        &lt;UseStateComponent />
+                      &lt;/div>
+                    &lt;/div>
+                  );
+                }              
+					    </code>
+            </pre>
+          </section>
+          <section class="video-slide">
+            <h4 class="slide-name">useState example - result</h4>
+            <div>
+              <iframe
+                data-src="assets/videos/use_state_example.mp4"
+                data-preload
+              ></iframe>
+            </div>
+          </section>
         </section>
 
-        <!-- HOOKS - CUSTOM HOOK EXAMPLE -->
-        <section class="text-slide">
-          <h4 class="slide-name">HOOKS – CUSTOM HOOK EXAMPLE</h4>
-          <p class="text-center-align">
-            A custom Hook is a JavaScript function whose name starts with ”use”
-            and that may call other Hooks.
-          </p>
+        <!-- USE-EFFECT EXAMPLE -->
+        <section>
+          <section class="numbering-and-picture-slide">
+            <h4 class="slide-name">useEffect example</h4>
+            <div>
+              <img
+                src="assets/images/use_effect_example.png"
+                alt="use_effect_example"
+              />
+              <ol>
+                <li>
+                  Create <strong>use-effect-component.js</strong> inside
+                  <strong>hooks</strong> folder
+                </li>
+                <li>
+                  Start coding <strong>UseEffectComponent</strong> component
+                </li>
+              </ol>
+            </div>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">useEffect example - UseEffectComponent</h4>
+            <p>Let's create UseEffectComponent</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers>
+                import React, { useState, useEffect } from "react";
+
+                export const UseEffectComponent = () => {
+                  const [title, setTitle] = useState("Title");
+
+                  useEffect(() => {
+                    console.log("Fetch data...");
+                    setTimeout(() => setTitle("New title"), 3000);
+
+                    return () => {
+                      console.log("remove listeners and etc.");
+                    };
+                  }, []);
+
+                  return (
+                    <div>
+                      <h2>Use effect component</h2>
+                      <div>{title}</div>
+                    </div>
+                  );
+                };
+					    </code>
+            </pre>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">useEffect example - INDEX.JS</h4>
+            <p>Let's the following code to the index.js file</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="2,6">
+                import { UseStateComponent } from "./use-state-component";
+                import { UseEffectComponent } from "./use-effect-component";
+
+                export {
+                  UseStateComponent,
+                  UseEffectComponent
+                };
+					    </code>
+            </pre>
+            <aside class="notes"></aside>
+          </section>
+          <section class="code-example-slide">
+            <h4 class="slide-name">useEffect example - APP.JS</h4>
+            <p>
+              And the last thing we need to do is add our new component to
+              App.js
+            </p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="11,34">
+                import "./styles.css";
+
+                import { ClassCounter, FunctionalCounter } from "./components-and-props";
+                import { 
+                  MountingComponent, 
+                  UpdatingComponent, 
+                  UnmountingComponent 
+                } from "./lifecycle";
+                import {
+                  UseStateComponent,
+                  UseEffectComponent,
+                } from "./hooks";
+
+                const blockStyle = { "border-style": "dotted" };
+
+                export default function App() {
+                  return (
+                    &lt;div className="App">
+                      &lt;div style={blockStyle}>
+                        <h1>Functional and class componets</h1>
+                        &lt;ClassCounter name={"Class Counter"} />
+                        &lt;FunctionalCounter name={"Functional Counter"} />
+                      &lt;/div>
+                      <br /> <br />
+                      &lt;div style={blockStyle}>
+                        <h1>Lifecycle examples</h1>
+                        &lt;MountingComponent name={"FirstName"} />
+                        &lt;UpdatingComponent />
+                        &lt;UnmountingComponent />
+                      &lt;/div>
+                      &lt;div style={blockStyle}>
+                        <h1>Hooks</h1>
+                        &lt;UseStateComponent />
+                        &lt;UseEffectComponent />
+                      &lt;/div>
+                    &lt;/div>
+                  );
+                }              
+					    </code>
+            </pre>
+          </section>
+          <section class="video-slide">
+            <h4 class="slide-name">useEffect example - result</h4>
+            <div>
+              <iframe
+                data-src="assets/videos/use_effect_example.mp4"
+                data-preload
+              ></iframe>
+            </div>
+          </section>
+        </section>
+
+        <!-- USE-CALLBACK EXAMPLE -->
+        <section>
+          <section class="numbering-and-picture-slide">
+            <h4 class="slide-name">useCallback example</h4>
+            <div>
+              <img
+                src="assets/images/use_callback_example.png"
+                alt="use_callback_example"
+              />
+              <ol>
+                <li>
+                  Create <strong>use-callback-component.js</strong> inside
+                  <strong>hooks</strong> folder
+                </li>
+                <li>
+                  Start coding <strong>UseCallbackComponent</strong> component
+                </li>
+              </ol>
+            </div>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">
+              useCallback example - UseCallbackComponent
+            </h4>
+            <p>Let's create UseCallbackComponent</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers>
+                import React, { useState, useCallback, memo } from "react";
+
+                export const UseCallbackComponent = () => {
+                  const [count, setCount] = useState(0);
+                  const [items, setItems] = useState([]);
+
+                  const increment = () => {
+                    setCount((c) => c + 1);
+                  };
+
+                  const handleClick = useCallback(() => {
+                    setItems(() => [...items, "New item"]);
+                  }, [items]);
+
+                  return (
+                    &lt;>
+                      <h2>Use callback component</h2>
+                      &lt;MemoComponent onClick={handleClick} />
+                      <br />
+                      <div>
+                        <span>Count: {count}</span>
+                        <button onClick={increment}>+</button>
+                      </div>
+                    &lt;/>
+                  );
+                };
+
+                const InnerComponent = ({ onClick }) => {
+                  console.log("child render");
+                  return <button onClick={onClick}>Button</button>;
+                };
+
+                const MemoComponent = memo(InnerComponent);
+					    </code>
+            </pre>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">useCallback example - INDEX.JS</h4>
+            <p>Let's the following code to the index.js file</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="3,8">
+                import { UseStateComponent } from "./use-state-component";
+                import { UseEffectComponent } from "./use-effect-component";
+                import { UseCallbackComponent } from "./use-callback-component";
+
+                export {
+                  UseStateComponent,
+                  UseEffectComponent,
+                  UseCallbackComponent
+                };
+					    </code>
+            </pre>
+            <aside class="notes"></aside>
+          </section>
+          <section class="code-example-slide">
+            <h4 class="slide-name">useCallback example - APP.JS</h4>
+            <p>
+              And the last thing we need to do is add our new component to
+              App.js
+            </p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="12,36">
+                import "./styles.css";
+
+                import { ClassCounter, FunctionalCounter } from "./components-and-props";
+                import { 
+                  MountingComponent, 
+                  UpdatingComponent, 
+                  UnmountingComponent 
+                } from "./lifecycle";
+                import {
+                  UseStateComponent,
+                  UseEffectComponent,
+                  UseCallbackComponent,
+                } from "./hooks";
+
+                const blockStyle = { "border-style": "dotted" };
+
+                export default function App() {
+                  return (
+                    &lt;div className="App">
+                      &lt;div style={blockStyle}>
+                        <h1>Functional and class componets</h1>
+                        &lt;ClassCounter name={"Class Counter"} />
+                        &lt;FunctionalCounter name={"Functional Counter"} />
+                      &lt;/div>
+                      <br /> <br />
+                      &lt;div style={blockStyle}>
+                        <h1>Lifecycle examples</h1>
+                        &lt;MountingComponent name={"FirstName"} />
+                        &lt;UpdatingComponent />
+                        &lt;UnmountingComponent />
+                      &lt;/div>
+                      &lt;div style={blockStyle}>
+                        <h1>Hooks</h1>
+                        &lt;UseStateComponent />
+                        &lt;UseEffectComponent />
+                        &lt;UseCallbackComponent />
+                      &lt;/div>
+                    &lt;/div>
+                  );
+                }              
+					    </code>
+            </pre>
+          </section>
+          <section class="video-slide">
+            <h4 class="slide-name">useEffect example - result</h4>
+            <div>
+              <iframe
+                data-src="assets/videos/use_callback_example_1.mp4"
+                data-preload
+              ></iframe>
+            </div>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">
+              useCallback example - UseCallbackComponent
+            </h4>
+            <p>Now let's try without useCallback and let's difference</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="11-13">
+                import React, { useState, useCallback, memo } from "react";
+
+                export const UseCallbackComponent = () => {
+                  const [count, setCount] = useState(0);
+                  const [items, setItems] = useState([]);
+
+                  const increment = () => {
+                    setCount((c) => c + 1);
+                  };
+
+                  const handleClick = () => {
+                    setItems(() => [...items, "New item"]);
+                  }
+
+                  return (
+                    &lt;>
+                      <h2>Use callback component</h2>
+                      &lt;MemoComponent onClick={handleClick} />
+                      <br />
+                      <div>
+                        <span>Count: {count}</span>
+                        <button onClick={increment}>+</button>
+                      </div>
+                    &lt;/>
+                  );
+                };
+
+                const InnerComponent = ({ onClick }) => {
+                  console.log("child render");
+                  return <button onClick={onClick}>Button</button>;
+                };
+
+                const MemoComponent = memo(InnerComponent);
+					    </code>
+            </pre>
+            <aside class="notes">
+              Let's try without useCallback. We are using memo, so the
+              InnerComponent component should not re-render since onClick is not
+              changing.
+            </aside>
+          </section>
+          <section class="video-slide">
+            <h4 class="slide-name">useEffect example - without useCallback</h4>
+            <div>
+              <iframe
+                data-src="assets/videos/use_callback_example_2.mp4"
+                data-preload
+              ></iframe>
+            </div>
+            <aside class="notes">
+              Why it is rerendered? This is because of every time a component
+              re-renders, its functions get recreated.
+            </aside>
+          </section>
+        </section>
+
+        <!-- USE-CONTEXT EXAMPLE -->
+        <section>
+          <section class="numbering-and-picture-slide">
+            <h4 class="slide-name">useContext example</h4>
+            <div>
+              <img
+                src="assets/images/use_context_example.png"
+                alt="use_context_example"
+              />
+              <ol>
+                <li>
+                  Create <strong>use-context-component.js</strong> inside
+                  <strong>hooks</strong> folder
+                </li>
+                <li>
+                  Start coding <strong>UseContextComponent</strong> component
+                </li>
+              </ol>
+            </div>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">useContext example - UseContextComponent</h4>
+            <p>Let's create UseContextComponent</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers>
+                import React, { useContext } from "react";
+
+                const themes = {
+                  blue: {
+                    textColor: "blue"
+                  },
+                  red: {
+                    textColor: "red"
+                  }
+                };
+
+                const ThemeContext = React.createContext(themes.blue);
+
+                export const UseContextComponent = () => {
+                  return (
+                    &lt;ThemeContext.Provider value={themes.red}>
+                      &lt;InnerComponent />
+                    &lt;/ThemeContext.Provider>
+                  );
+                };
+
+                const InnerComponent = () => {
+                  const theme = useContext(ThemeContext);
+
+                  return (
+                    <div>
+                      <h2>Use context component</h2>
+                      &lt;p style={{ color: theme.textColor }}>Themed text&lt;/p>
+                    </div>
+                  );
+                };
+					    </code>
+            </pre>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">useContext example - INDEX.JS</h4>
+            <p>Let's the following code to the index.js file</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="4,10">
+                import { UseStateComponent } from "./use-state-component";
+                import { UseEffectComponent } from "./use-effect-component";
+                import { UseCallbackComponent } from "./use-callback-component";
+                import { UseContextComponent } from "./use-context-component";
+
+                export {
+                  UseStateComponent,
+                  UseEffectComponent,
+                  UseCallbackComponent,
+                  UseContextComponent
+                };
+					    </code>
+            </pre>
+            <aside class="notes"></aside>
+          </section>
+          <section class="code-example-slide">
+            <h4 class="slide-name">useContext example - APP.JS</h4>
+            <p>
+              And the last thing we need to do is add our new component to
+              App.js
+            </p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="13,38">
+                import "./styles.css";
+
+                import { ClassCounter, FunctionalCounter } from "./components-and-props";
+                import { 
+                  MountingComponent, 
+                  UpdatingComponent, 
+                  UnmountingComponent 
+                } from "./lifecycle";
+                import {
+                  UseStateComponent,
+                  UseEffectComponent,
+                  UseCallbackComponent,
+                  UseContextComponent
+                } from "./hooks";
+
+                const blockStyle = { "border-style": "dotted" };
+
+                export default function App() {
+                  return (
+                    &lt;div className="App">
+                      &lt;div style={blockStyle}>
+                        <h1>Functional and class componets</h1>
+                        &lt;ClassCounter name={"Class Counter"} />
+                        &lt;FunctionalCounter name={"Functional Counter"} />
+                      &lt;/div>
+                      <br /> <br />
+                      &lt;div style={blockStyle}>
+                        <h1>Lifecycle examples</h1>
+                        &lt;MountingComponent name={"FirstName"} />
+                        &lt;UpdatingComponent />
+                        &lt;UnmountingComponent />
+                      &lt;/div>
+                      &lt;div style={blockStyle}>
+                        <h1>Hooks</h1>
+                        &lt;UseStateComponent />
+                        &lt;UseEffectComponent />
+                        &lt;UseCallbackComponent />
+                        &lt;UseContextComponent />
+                      &lt;/div>
+                    &lt;/div>
+                  );
+                }              
+					    </code>
+            </pre>
+          </section>
+          <section class="picture-slide">
+            <h4 class="slide-name">useContext example - result</h4>
+            <img
+              src="assets/images/use_context_example_result.png"
+              class="with-border"
+              alt="use_context_example_result"
+            />
+          </section>
+        </section>
+
+        <!-- USE-MEMO EXAMPLE -->
+        <section>
+          <section class="numbering-and-picture-slide">
+            <h4 class="slide-name">useMemo example</h4>
+            <div>
+              <img
+                src="assets/images/use_memo_example.png"
+                alt="use_memo_example"
+              />
+              <ol>
+                <li>
+                  Create <strong>use-memo-component.js</strong> inside
+                  <strong>hooks</strong> folder
+                </li>
+                <li>
+                  Start coding <strong>UseMemoComponent</strong> component
+                </li>
+              </ol>
+            </div>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">useMemo example - UseMemoComponent</h4>
+            <p>Let's create UseMemoComponent</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers>
+                import React, { useState, useMemo } from "react";
+
+                export const UseMemoComponent = () => {
+                  return (
+                    &lt;>
+                      <h2>Use memo component</h2>
+                      &lt;InnerComponent value={30} />
+                    &lt;/>
+                  );
+                };
+
+                const InnerComponent = ({ value }) => {
+                  const [count, setCount] = useState(0);
+
+                  const calculated = useMemo(() => {
+                    console.log("some calculations here");
+                    return value * 2;
+                  }, [value]);
+
+                  return (
+                    &lt;>
+                      <p>Count: {count}</p>
+                      <p>Calculated: {calculated}</p>
+                      &lt;button onClick={() => setCount((c) => c + 1)}>Button&lt;/button>
+                    &lt;/>
+                  );
+                };
+					    </code>
+            </pre>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">useMemo example - INDEX.JS</h4>
+            <p>Let's the following code to the index.js file</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="5,12">
+                import { UseStateComponent } from "./use-state-component";
+                import { UseEffectComponent } from "./use-effect-component";
+                import { UseCallbackComponent } from "./use-callback-component";
+                import { UseContextComponent } from "./use-context-component";
+                import { UseMemoComponent } from "./use-memo-component";
+
+                export {
+                  UseStateComponent,
+                  UseEffectComponent,
+                  UseCallbackComponent,
+                  UseContextComponent,
+                  UseMemoComponent
+                };
+					    </code>
+            </pre>
+            <aside class="notes"></aside>
+          </section>
+          <section class="code-example-slide">
+            <h4 class="slide-name">useMemo example - APP.JS</h4>
+            <p>
+              And the last thing we need to do is add our new component to
+              App.js
+            </p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="14,40">
+                import "./styles.css";
+
+                import { ClassCounter, FunctionalCounter } from "./components-and-props";
+                import { 
+                  MountingComponent, 
+                  UpdatingComponent, 
+                  UnmountingComponent 
+                } from "./lifecycle";
+                import {
+                  UseStateComponent,
+                  UseEffectComponent,
+                  UseCallbackComponent,
+                  UseContextComponent,
+                  UseMemoComponent,
+                } from "./hooks";
+
+                const blockStyle = { "border-style": "dotted" };
+
+                export default function App() {
+                  return (
+                    &lt;div className="App">
+                      &lt;div style={blockStyle}>
+                        <h1>Functional and class componets</h1>
+                        &lt;ClassCounter name={"Class Counter"} />
+                        &lt;FunctionalCounter name={"Functional Counter"} />
+                      &lt;/div>
+                      <br /> <br />
+                      &lt;div style={blockStyle}>
+                        <h1>Lifecycle examples</h1>
+                        &lt;MountingComponent name={"FirstName"} />
+                        &lt;UpdatingComponent />
+                        &lt;UnmountingComponent />
+                      &lt;/div>
+                      &lt;div style={blockStyle}>
+                        <h1>Hooks</h1>
+                        &lt;UseStateComponent />
+                        &lt;UseEffectComponent />
+                        &lt;UseCallbackComponent />
+                        &lt;UseContextComponent />
+                        &lt;UseMemoComponent />
+                      &lt;/div>
+                    &lt;/div>
+                  );
+                }              
+					    </code>
+            </pre>
+          </section>
+          <section class="video-slide">
+            <h4 class="slide-name">useMemo example - result</h4>
+            <div>
+              <iframe
+                data-src="assets/videos/use_memo_example_1.mp4"
+                data-preload
+              ></iframe>
+            </div>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">useMemo example - without useMemo</h4>
+            <p>Now let's try without useMemo and let's difference</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="15-18">
+                import React, { useState, useMemo } from "react";
+
+                export const UseMemoComponent = () => {
+                  return (
+                    &lt;>
+                      <h2>Use memo component</h2>
+                      &lt;InnerComponent value={30} />
+                    &lt;/>
+                  );
+                };
+
+                const InnerComponent = ({ value }) => {
+                  const [count, setCount] = useState(0);
+
+                  const calculated = (() => {
+                    console.log("some calculations here");
+                    return value * 2;
+                  })();
+
+                  return (
+                    &lt;>
+                      <p>Count: {count}</p>
+                      <p>Calculated: {calculated}</p>
+                      &lt;button onClick={() => setCount((c) => c + 1)}>Button&lt;/button>
+                    &lt;/>
+                  );
+                };
+					    </code>
+            </pre>
+          </section>
+          <section class="video-slide">
+            <h4 class="slide-name">useMemo example - result</h4>
+            <div>
+              <iframe
+                data-src="assets/videos/use_memo_example_2.mp4"
+                data-preload
+              ></iframe>
+            </div>
+          </section>
+        </section>
+
+        <!-- USE-REF EXAMPLE -->
+        <section>
+          <section class="numbering-and-picture-slide">
+            <h4 class="slide-name">useRef example</h4>
+            <div>
+              <img
+                src="assets/images/use_ref_example.png"
+                alt="use_ref_example"
+              />
+              <ol>
+                <li>
+                  Create <strong>use-ref-component.js</strong> inside
+                  <strong>hooks</strong> folder
+                </li>
+                <li>Start coding <strong>UseRefComponent</strong> component</li>
+              </ol>
+            </div>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">useRef example - UseRefComponent</h4>
+            <p>Let's create UseRefComponent</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers>
+                import React, { useState, useEffect, useRef } from "react";
+
+                export const UseRefComponent = () => {
+                  const [inputValue, setInputValue] = useState("");
+                  const count = useRef(0);
+
+                  useEffect(() => {
+                    count.current = count.current + 1;
+                  });
+
+                  return (
+                    &lt;>
+                      <h2>Use Ref component</h2>
+                      &lt;input
+                        type="text"
+                        value={inputValue}
+                        onChange={(e) => setInputValue(e.target.value)}
+                      />
+                      <h1>Render Count: {count.current}</h1>
+                    &lt;/>
+                  );
+                };
+					    </code>
+            </pre>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">useRef example - INDEX.JS</h4>
+            <p>Let's the following code to the index.js file</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="6,14">
+                import { UseStateComponent } from "./use-state-component";
+                import { UseEffectComponent } from "./use-effect-component";
+                import { UseCallbackComponent } from "./use-callback-component";
+                import { UseContextComponent } from "./use-context-component";
+                import { UseMemoComponent } from "./use-memo-component";
+                import { UseRefComponent } from "./use-ref-component";
+
+                export {
+                  UseStateComponent,
+                  UseEffectComponent,
+                  UseCallbackComponent,
+                  UseContextComponent,
+                  UseMemoComponent,
+                  UseRefComponent
+                };
+					    </code>
+            </pre>
+            <aside class="notes"></aside>
+          </section>
+          <section class="code-example-slide">
+            <h4 class="slide-name">useRef example - APP.JS</h4>
+            <p>
+              And the last thing we need to do is add our new component to
+              App.js
+            </p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="15,42">
+                import "./styles.css";
+
+                import { ClassCounter, FunctionalCounter } from "./components-and-props";
+                import { 
+                  MountingComponent, 
+                  UpdatingComponent, 
+                  UnmountingComponent 
+                } from "./lifecycle";
+                import {
+                  UseStateComponent,
+                  UseEffectComponent,
+                  UseCallbackComponent,
+                  UseContextComponent,
+                  UseMemoComponent,
+                  UseRefComponent
+                } from "./hooks";
+
+                const blockStyle = { "border-style": "dotted" };
+
+                export default function App() {
+                  return (
+                    &lt;div className="App">
+                      &lt;div style={blockStyle}>
+                        <h1>Functional and class componets</h1>
+                        &lt;ClassCounter name={"Class Counter"} />
+                        &lt;FunctionalCounter name={"Functional Counter"} />
+                      &lt;/div>
+                      <br /> <br />
+                      &lt;div style={blockStyle}>
+                        <h1>Lifecycle examples</h1>
+                        &lt;MountingComponent name={"FirstName"} />
+                        &lt;UpdatingComponent />
+                        &lt;UnmountingComponent />
+                      &lt;/div>
+                      &lt;div style={blockStyle}>
+                        <h1>Hooks</h1>
+                        &lt;UseStateComponent />
+                        &lt;UseEffectComponent />
+                        &lt;UseCallbackComponent />
+                        &lt;UseContextComponent />
+                        &lt;UseMemoComponent />
+                        &lt;UseRefComponent />
+                      &lt;/div>
+                    &lt;/div>
+                  );
+                }              
+					    </code>
+            </pre>
+          </section>
+          <section class="video-slide">
+            <h4 class="slide-name">useRef example - result</h4>
+            <div>
+              <iframe
+                data-src="assets/videos/use_ref_example.mp4"
+                data-preload
+              ></iframe>
+            </div>
+          </section>
+        </section>
+
+        <!-- CUSTOM HOOK EXAMPLE -->
+        <section>
+          <section class="numbering-and-picture-slide">
+            <h4 class="slide-name">custom hook example</h4>
+            <div>
+              <img
+                src="assets/images/custom_hook_example.png"
+                alt="custom_hook_example"
+              />
+              <ol>
+                <li>
+                  Create <strong>use-custom-hook-component.js</strong> inside
+                  <strong>hooks</strong> folder
+                </li>
+                <li>
+                  Start coding <strong>UseCustomHookComponent</strong> component
+                </li>
+              </ol>
+            </div>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">custom hook - UseCustomHookComponent</h4>
+            <p>Let's create UseRefComponent</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers>
+                import React, { useState, useEffect } from "react";
+
+                const useData = () => {
+                  const [data, setData] = useState();
+                  const [loading, setLoading] = useState(true);
+
+                  useEffect(() => {
+                    console.log("Fetch custom hook data ...");
+                    setTimeout(() => {
+                      setData("data");
+                      setLoading(false);
+                    }, 3000);
+                  }, []);
+
+                  return { data, loading };
+                };
+
+                export const UseCustomHookComponent = () => {
+                  const { data, loading } = useData();
+
+                  return (
+                    <div>
+                      <h2>Use custom hook component</h2>
+                      {loading && <p>Loading</p>}
+                      {data && <div>{data}</div>}
+                    </div>
+                  );
+                };
+					    </code>
+            </pre>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">custom hook - INDEX.JS</h4>
+            <p>Let's the following code to the index.js file</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="7,16">
+                import { UseStateComponent } from "./use-state-component";
+                import { UseEffectComponent } from "./use-effect-component";
+                import { UseCallbackComponent } from "./use-callback-component";
+                import { UseContextComponent } from "./use-context-component";
+                import { UseMemoComponent } from "./use-memo-component";
+                import { UseRefComponent } from "./use-ref-component";
+                import { UseCustomHookComponent } from "./use-custom-hook-component.js";
+
+                export {
+                  UseStateComponent,
+                  UseEffectComponent,
+                  UseCallbackComponent,
+                  UseContextComponent,
+                  UseMemoComponent,
+                  UseRefComponent,
+                  UseCustomHookComponent
+                };
+					    </code>
+            </pre>
+            <aside class="notes"></aside>
+          </section>
+          <section class="code-example-slide">
+            <h4 class="slide-name">custom hook example - APP.JS</h4>
+            <p>
+              And the last thing we need to do is add our new component to
+              App.js
+            </p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="16,44">
+                import "./styles.css";
+
+                import { ClassCounter, FunctionalCounter } from "./components-and-props";
+                import { 
+                  MountingComponent, 
+                  UpdatingComponent, 
+                  UnmountingComponent 
+                } from "./lifecycle";
+                import {
+                  UseStateComponent,
+                  UseEffectComponent,
+                  UseCallbackComponent,
+                  UseContextComponent,
+                  UseMemoComponent,
+                  UseRefComponent,
+                  UseCustomHookComponent
+                } from "./hooks";
+
+                const blockStyle = { "border-style": "dotted" };
+
+                export default function App() {
+                  return (
+                    &lt;div className="App">
+                      &lt;div style={blockStyle}>
+                        <h1>Functional and class componets</h1>
+                        &lt;ClassCounter name={"Class Counter"} />
+                        &lt;FunctionalCounter name={"Functional Counter"} />
+                      &lt;/div>
+                      <br /> <br />
+                      &lt;div style={blockStyle}>
+                        <h1>Lifecycle examples</h1>
+                        &lt;MountingComponent name={"FirstName"} />
+                        &lt;UpdatingComponent />
+                        &lt;UnmountingComponent />
+                      &lt;/div>
+                      &lt;div style={blockStyle}>
+                        <h1>Hooks</h1>
+                        &lt;UseStateComponent />
+                        &lt;UseEffectComponent />
+                        &lt;UseCallbackComponent />
+                        &lt;UseContextComponent />
+                        &lt;UseMemoComponent />
+                        &lt;UseRefComponent />
+                        &lt;UseCustomHookComponent />
+                      &lt;/div>
+                    &lt;/div>
+                  );
+                }              
+					    </code>
+            </pre>
+          </section>
+          <section class="video-slide">
+            <h4 class="slide-name">custom hook example - result</h4>
+            <div>
+              <iframe
+                data-src="assets/videos/custom_hook_example.mp4"
+                data-preload
+              ></iframe>
+            </div>
+          </section>
         </section>
 
         <!-- ADDITIONAL MATERIALS -->
         <section class="video-text-slide">
-          <h4 class="slide-name">ADDITIONAL MATERIALS</h4>
+          <h4 class="slide-name">Additional materials</h4>
           <div>
             <div>
               <a
@@ -1052,12 +2860,12 @@ class Welcome extends React.Component {
             </div>
             <div>
               <p>
-                <strong>Sophie Alpert</strong> – manage the react core team at
+                <strong>Sophie Alpert</strong> - manage the react core team at
                 Facebook;
                 <br />
-                <strong>Dan Abramov</strong> – works at react team;
+                <strong>Dan Abramov</strong> - works at react team;
                 <br />
-                <strong>Ryan Florence</strong> – was involved to the developing
+                <strong>Ryan Florence</strong> - was involved to the developing
                 of several react libraries.
               </p>
               <p>
@@ -1070,6 +2878,13 @@ class Welcome extends React.Component {
               </p>
             </div>
           </div>
+          <aside class="notes">
+            The first three talks from React Conf 2018 by Sophie Alpert, Dan
+            Abramov, and Ryan Florence.
+            <br /><br />
+            Third speaker with show how hooks feel in a little bit more
+            real-world use case.
+          </aside>
         </section>
 
         <!-- HOC-s -->
