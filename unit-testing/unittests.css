@@ -1,0 +1,11 @@
+.wrapped-img-with-text {
+  flex-direction: row;
+  display:flex;
+  flex-wrap: wrap;
+}
+.narrow-img {
+  width: 200px
+}
+.wide-img {
+  width: 500px
+}
