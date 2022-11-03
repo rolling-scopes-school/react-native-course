@@ -26,6 +26,10 @@ li {
   font-size: 2rem;
 }
 
+li > ul > li {
+  font-size: 1.2rem;
+}
+
 pre {
   box-shadow: none !important;
   width: calc(100% - 40px) !important;
@@ -59,6 +63,9 @@ pre * {
   }
   li {
     font-size: 1.5rem;
+  }
+  li > ul > li {
+    font-size: 1.2rem;
   }
   pre {
     width: calc(100% - 10px) !important;
