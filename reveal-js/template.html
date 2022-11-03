@@ -48,7 +48,13 @@
           <h4 class="slide-name">agenda (max 7 items)</h4>
           <ul>
             <li class="fragment">Lorem ipsum dolor sit amet</li>
-            <li class="fragment">Ut massa leo, sollicitudin quis</li>
+            <li class="fragment">
+              Ut massa leo, sollicitudin quis
+              <ul>
+                <li>Lorem ipsum dolor sit amet</li>
+                <li>Ut massa leo, sollicitudin quis</li>
+              </ul>
+            </li>
             <li class="fragment">Proin ut est pretium, ultrices</li>
             <li class="fragment">Nulla facilisi</li>
             <li class="fragment">Aenean sagittis, purus nec tincidunt</li>
@@ -399,27 +405,22 @@
 
         <section>
           <section class="numbering-and-picture-slide">
-          <h4 class="slide-name">
-            code example - preparation
-          </h4>
-          <div>
-            <img
-              src="assets/images/image.png"
-              alt="image"
-            />
-            <ol>
-              <li>
-                Create folder <strong>folder</strong> inside your
-                <strong>folder</strong> folder
-              </li>
-              <li>
-                Create <strong>file.js</strong> inside
-                <strong>folder</strong> folder
-              </li>
-              <li>Start coding your first file</li>
-            </ol>
-          </div>
-        </section>
+            <h4 class="slide-name">code example - preparation</h4>
+            <div>
+              <img src="assets/images/image.png" alt="image" />
+              <ol>
+                <li>
+                  Create folder <strong>folder</strong> inside your
+                  <strong>folder</strong> folder
+                </li>
+                <li>
+                  Create <strong>file.js</strong> inside
+                  <strong>folder</strong> folder
+                </li>
+                <li>Start coding your first file</li>
+              </ol>
+            </div>
+          </section>
           <section data-auto-animate class="code-example-slide">
             <h4 class="slide-name">code example - FILE.JS</h4>
             <p>Let's create something</p>
@@ -452,9 +453,9 @@
                   return (
                     <div>
                       <p>You clicked {count} times</p>
-                      <button onClick={() => setCount(count + 1)}>
+                      &lt;button onClick={() => setCount(count + 1)}>
                         Click me
-                      </button>
+                      &lt;/button>
                     </div>
                   );
                 }
