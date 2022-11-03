@@ -1,3 +1,14 @@
+@media only screen and (max-width: 1000px) {
+  .reveal {
+    max-height: 80vh !important;
+  }
+  .speaker-notes {
+    max-height: calc(20vh - 3px) !important;
+    overflow-y: scroll !important;
+    padding-bottom: 3px !important;
+  }
+}
+
 section > *:not(section) {
   padding-left: 20px;
   padding-right: 20px;
