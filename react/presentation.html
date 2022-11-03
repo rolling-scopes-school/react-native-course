@@ -135,19 +135,20 @@
           </div>
 
           <aside class="notes">
-            React is a JavaScript <strong>library</strong> that you can use to
-            create user interfaces. <br /><br />
-            It was created at <strong>Facebook and open-sourced</strong> in
+            1 - React is a JavaScript <strong>library</strong> that you can use
+            to create user interfaces. <br /><br />
+            2 - It was created at <strong>Facebook and open-sourced</strong> in
             March of 2013. <br /><br />
-            Since then, React has
+            3 - It's totally free<br /><br />
+            4 - Since then, React has
             <strong>expanded beyond the web with React Native</strong>, a tool
             that allows you to create native mobile applications using React.
             <br /><br />
-            React is an increasingly popular library with
+            5 - React is an increasingly popular library with
             <strong>tens of thousands of stars</strong> on GitHub and used in
             production by huge companies. <br /><br />
-            But the point of using React is not just because it's popular, but
-            because its component architecture makes
+            6 - But the point of using React is not just because it's popular,
+            but because its component architecture makes
             <strong>it faster and easier</strong> to build amazing products.
           </aside>
         </section>
@@ -164,17 +165,17 @@
               >, click "Create" button and choose React template
             </p>
             <aside class="notes">
-              The quickest way to get started with a React project is to use
-              CodeSandbox at codesandbox.io.
-              <br /><br />
-              Here if you click on the Create button then on the next page,
-              there are a ton of different templates that you can use to get
-              started with many different web development projects.
+              <strong>The quickest way</strong> to get started with a React
+              project is to use CodeSandbox at codesandbox.io. <br /><br />
+              Here if you <strong>click on the Create button</strong> then on
+              the next page, there are a ton of different templates that you can
+              use to get started with many different web development projects.
               <br /><br />
               The first of them, probably the most popular, used with
-              CodeSandbox is React. So simply clicking on this will allow you to
-              interact with some code directly in the browser, and we can see
-              them render right away in the preview window.
+              CodeSandbox is <strong>React</strong>. So simply
+              <strong>clicking on this</strong> will allow you to interact with
+              some code directly in the browser, and we can see them render
+              right away in the preview window.
             </aside>
           </section>
 
@@ -182,6 +183,18 @@
             <h4 class="slide-name">code sandbox - step 2</h4>
             <img src="assets/images/code_sandbox_2.png" alt="code_sandbox_2" />
             <p>Your project is created</p>
+            <aside class="notes">
+              As you can see your project has been created.<br /><br />
+              On the left you have a tree of <strong>folders and files</strong>,
+              the main file here is an <strong>App.js</strong> that displays a
+              couple of lines on the screen. <br /><br />
+              Also on the left you see a <strong>Dependencies</strong> block,
+              where React is already present. <br /><br />
+              In the center of the screen is the <strong>code editor</strong>.
+              <br /><br />
+              Well, and the last, on the right side, we have a
+              <strong>window that renders</strong> our React application.
+            </aside>
           </section>
 
           <section class="text-and-conding-slide">
@@ -200,6 +213,14 @@
                   ReactDOM.render(&lt;App />, rootElement);
                 </code>
               </pre>
+            <aside class="notes">
+              For further work, we need to slightly <strong>change</strong> the
+              index.js file to solve a small problem with
+              <strong>double renderings</strong>. <br /><br />
+              Let's do this, <strong>copy the code</strong> that is provided on
+              the slide and <strong>paste</strong> the file into the
+              <strong>index.js</strong> file.
+            </aside>
           </section>
 
           <section class="picture-with-description-slide">
@@ -207,11 +228,18 @@
             <img src="assets/images/code_sandbox_3.gif" alt="code_sandbox_3" />
             <p>You are ready to GO</p>
             <aside class="notes">
+              Well that's it, we are fully <strong>ready to use</strong> our
+              first React app and demonstrate the
+              <strong>main features</strong> of REACT. <br /><br />
               So if you would rather use CodeSandbox instead of setting up your
-              own project locally, that's absolutely fine
+              own project locally, that's absolutely fine.
               <br /><br />
-              To summarize, this SANDBOX is only recommended for using during
-              education, for real project please use IDE.
+              <strong>But</strong>, this SANDBOX is only recommended
+              <strong>for using during education</strong>, for real project
+              please use IDE (like VSCode). <br /><br />
+              Since the
+              <strong>main task of the course is to learn react-native</strong>,
+              in our case, the SANDBOX <strong>will be enough for us</strong>.
             </aside>
           </section>
         </section>
@@ -238,6 +266,11 @@ const element = <img src={source} />
               </pre>
             </div>
             <aside class="notes">
+              So let's start with JSX
+              <br /><br />
+              Speaking very roughly, JSX is a format for writing layout in
+              React.
+              <br /><br />
               <strong> JSX it is a syntax extension to JavaScript.</strong
               ><br />
               JSX may remind you of a template language, but it comes with the
@@ -323,9 +356,14 @@ class Welcome extends React.Component {
           <aside class="notes">
             <strong>Components</strong> allow you to break down an interface
             into independent pieces that are easy to think of as a composition.
-            They can be stacked together and used multiple times.
-
-            <br /><br />
+            They can be stacked together and used multiple times. <br /><br />
+            We can imagine the <strong>application as a constructor</strong>,
+            which we assemble from parts, and in this case, the parts are some
+            kind of components. <br />Components can be buttons, labels, blocks
+            that include other components, and so on. <br /><br />
+            <strong>Why is all this necessary?</strong> I think you already
+            guessed it yourself, in order to reuse components and not duplicate
+            code.<br /><br />
             There are <strong>two ways</strong> to declare components in
             functional and class style. <br /><br />
             The <strong>first example</strong> on the screen shows an example of
