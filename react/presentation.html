@@ -38,13 +38,13 @@
             <br /><br />
             React is one of the most popular libraries for building user
             interfaces, and companies like Twitter, Netflix, Airbnb, and PayPal
-            use it to power their frontend experiences.
+            use it <strong>to power</strong> their frontend experiences.
             <br /><br />
             React is really awesome, and having a good command of the
             fundamentals will help you build projects of all sizes.
             <br /><br />
-            Today we're going to get hands-on experience with React's core
-            concepts.
+            Today we're <strong>going to get hands-on experience</strong> with
+            React's core concepts.
           </aside>
         </section>
 
@@ -3423,6 +3423,33 @@ class Welcome extends React.Component {
               reconciliation (new tree diffed with the old one) -> update
               rendering environment
             </p>
+            <aside class="notes">
+              When you use React, at a single point in time you can think of the
+              <strong>render()</strong> function as creating a tree of React
+              elements. <br />
+              On the next state or props update, that
+              <strong>render()</strong> function will return a different tree of
+              React elements. <br />
+              React then needs to figure out how to efficiently update the UI to
+              match the most recent tree.
+              <br /><br />
+              Let's start with Virtual DOM, this is a representation in the form
+              of an object of the state of our application and through the
+              libraries it matches to the browser-DOM or react-native.<br />
+              DOM operations are very heavy and modifying objects is very
+              easy.<br />
+              Rendering takes place in two stages Reconciling and updating.
+              <br /><br />
+              Reconciliation is when two trees are taken, compared and it
+              determines which parts of this tree have changed and should be
+              redrawn.
+              <br /><br />
+              There is one typical picture of how our application rerenders.<br />
+              There is a virtual DOM that is re-rendered to the environment,
+              this is a react-DOM or a react-native, changes occur and the
+              virtual-DOM changes, a re-enforcement occurs, a new tree is
+              compared with the old one and an IU upgrade occurs.
+            </aside>
           </section>
           <section class="numbering-and-picture-slide">
             <h4 class="slide-name">TWO ASSUMPTIONS FOR RECONCILIATION</h4>
@@ -3442,6 +3469,297 @@ class Welcome extends React.Component {
                   prop.
                 </li>
               </ol>
+            </div>
+            <aside class="notes">
+              For the algorithm to work quickly, there are two assumptions that
+              are most often equal.
+              <br /><br />
+              1.<br />
+              When comparing two trees, React first compares the two root
+              elements. <br />
+              Whenever the root elements have different types, React will tear
+              down the old tree and build the new tree from scratch.<br />
+              When tearing down a tree, old DOM nodes are destroyed. Component
+              instances receive componentWillUnmount().
+              <br /><br />
+              When comparing two React DOM elements of the same type, React
+              looks at the attributes of both, keeps the same underlying DOM
+              node, and only updates the changed attributes.
+              <br /><br />
+              2. Second assumption is about using KEYS.
+              <br /><br />
+              Recursing On Children<br />
+              By default, when recursing on the children of a DOM node, React
+              just iterates over both lists of children at the same time and
+              generates a mutation whenever there's a difference.<br />
+              If you implement it naively, inserting an element at the beginning
+              has worse performance.<br />
+              In order to solve this issue, React supports a
+              <strong>key</strong> attribute. <br />
+              When children have keys, React uses the key to match children in
+              the original tree with children in the subsequent tree.
+            </aside>
+          </section>
+        </section>
+
+        <!-- RECONCILIATION EXAMPLE -->
+        <section>
+          <section class="numbering-and-picture-slide">
+            <h4 class="slide-name">Reconciliation example</h4>
+            <div>
+              <img
+                src="assets/images/reconciliation_example.png"
+                alt="reconciliation_example"
+              />
+              <ol>
+                <li>
+                  Create folder <strong>reconciliation</strong> inside your
+                  <strong>src</strong> folder
+                </li>
+                <li>
+                  Create <strong>index.js</strong> inside
+                  <strong>reconciliation</strong> folder
+                </li>
+                <li>
+                  Create <strong>reconciliation-component.js</strong> inside
+                  <strong>reconciliation</strong> folder
+                </li>
+                <li>
+                  Start coding
+                  <strong>ReconciliationComponent</strong> component
+                </li>
+              </ol>
+            </div>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">
+              Reconciliation example - ReconciliationComponent
+            </h4>
+            <p>Let's create ReconciliationComponent</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers>
+                import React, { useState, useEffect, memo } from "react";
+
+                const ReconciliationComponent = () => {
+                  const [items, setItems] = useState([
+                    { name: "item 1", key: "item_1" },
+                    { name: "item 30", key: "item_30" },
+                    { name: "item 70", key: "item_70" },
+                    { name: "item 130", key: "item_130" }
+                  ]);
+
+                  const handleAddToTop = () =>
+                    setItems((prev) => [
+                      { name: `Item ${prev.length}`, key: `item_${prev.length}` },
+                      ...prev
+                    ]);
+
+                  const handleAddToBottom = () =>
+                    setItems((prev) => [
+                      { name: `Item ${prev.length}`, key: `item_${prev.length}` },
+                      ...prev
+                    ]);
+
+                  return (
+                    &lt;>
+                      <ul>
+                        {items.map((i) => (
+                          &lt;li key={i.key}>
+                            &lt;InnerComponent name={i.name} />
+                          &lt;/li>
+                        ))}
+                      </ul>
+                      &lt;button onClick={handleAddToTop}>Add to top&lt;/button>
+                      &lt;button onClick={handleAddToBottom}>Add to bottom&lt;/button>
+                    &lt;/>
+                  );
+                };
+
+                const _InnerComponent = ({ name }) => {
+                  useEffect(
+                    () => () => {
+                      console.log(`unmount inner component: ${name}`);
+                    },
+                    [name]
+                  );
+
+                  return <p>Inner component {name}</p>;
+                };
+
+                const InnerComponent = memo(_InnerComponent);
+
+                export default ReconciliationComponent;
+					    </code>
+            </pre>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">Reconciliation example - INDEX.JS</h4>
+            <p>Let's the following code to the index.js file</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="1,3">
+                import ReconciliationComponent from "./reconciliation-component";
+
+                export { ReconciliationComponent };
+					    </code>
+            </pre>
+            <aside class="notes"></aside>
+          </section>
+          <section class="code-example-slide">
+            <h4 class="slide-name">Reconciliation example - APP.JS</h4>
+            <p>
+              And the last thing we need to do is add our new component to
+              App.js
+            </p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="23,64-67">
+                import "./styles.css";
+
+                import { ClassCounter, FunctionalCounter } from "./components-and-props";
+                import { 
+                  MountingComponent, 
+                  UpdatingComponent, 
+                  UnmountingComponent 
+                } from "./lifecycle";
+                import {
+                  UseStateComponent,
+                  UseEffectComponent,
+                  UseCallbackComponent,
+                  UseContextComponent,
+                  UseMemoComponent,
+                  UseRefComponent,
+                  UseCustomHookComponent
+                } from "./hooks";
+                import { HocComponent } from "./hoc";
+                import {
+                  ControlledComponent,
+                  UncontrolledComponent
+                } from "./controlled-uncontrolled";
+                import { ReconciliationComponent } from "./reconciliation";                
+
+                const blockStyle = { "border-style": "dotted" };
+
+                export default function App() {
+                  return (
+                    &lt;div className="App">
+                      &lt;div style={blockStyle}>
+                        <h1>Functional and class componets</h1>
+                        &lt;ClassCounter name={"Class Counter"} />
+                        &lt;FunctionalCounter name={"Functional Counter"} />
+                      &lt;/div>
+                      <br /> <br />
+                      &lt;div style={blockStyle}>
+                        <h1>Lifecycle examples</h1>
+                        &lt;MountingComponent name={"FirstName"} />
+                        &lt;UpdatingComponent />
+                        &lt;UnmountingComponent />
+                      &lt;/div>
+                      &lt;div style={blockStyle}>
+                        <h1>Hooks</h1>
+                        &lt;UseStateComponent />
+                        &lt;UseEffectComponent />
+                        &lt;UseCallbackComponent />
+                        &lt;UseContextComponent />
+                        &lt;UseMemoComponent />
+                        &lt;UseRefComponent />
+                        &lt;UseCustomHookComponent />
+                      &lt;/div>
+                      <br /> <br />
+                      &lt;div style={blockStyle}>
+                        <h1>HOCs</h1>
+                        &lt;HocComponent />
+                      &lt;/div>
+                      <br /> <br />
+                      &lt;div style={blockStyle}>
+                        <h1>Controlled and uncontrolled components</h1>
+                        &lt;ControlledComponent />
+                        &lt;UncontrolledComponent />
+                      &lt;/div>
+                      <br /> <br />
+                      &lt;div style={blockStyle}>
+                        <h1>Reconciliation</h1>
+                        &lt;ReconciliationComponent />
+                      &lt;/div>
+                    &lt;/div>
+                  );
+                }              
+					    </code>
+            </pre>
+          </section>
+          <section class="video-slide">
+            <h4 class="slide-name">Reconciliation example - result</h4>
+            <div>
+              <iframe
+                data-src="assets/videos/reconciliation_example.mp4"
+              ></iframe>
+            </div>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">
+              Reconciliation example - ReconciliationComponent
+            </h4>
+            <p>Let's try without keys now</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="27-29">
+                import React, { useState, useEffect, memo } from "react";
+
+                const ReconciliationComponent = () => {
+                  const [items, setItems] = useState([
+                    { name: "item 1", key: "item_1" },
+                    { name: "item 30", key: "item_30" },
+                    { name: "item 70", key: "item_70" },
+                    { name: "item 130", key: "item_130" }
+                  ]);
+
+                  const handleAddToTop = () =>
+                    setItems((prev) => [
+                      { name: `Item ${prev.length}`, key: `item_${prev.length}` },
+                      ...prev
+                    ]);
+
+                  const handleAddToBottom = () =>
+                    setItems((prev) => [
+                      { name: `Item ${prev.length}`, key: `item_${prev.length}` },
+                      ...prev
+                    ]);
+
+                  return (
+                    &lt;>
+                      <ul>
+                        {items.map((i) => (
+                          &lt;li>
+                            &lt;InnerComponent name={i.name} />
+                          &lt;/li>
+                        ))}
+                      </ul>
+                      &lt;button onClick={handleAddToTop}>Add to top&lt;/button>
+                      &lt;button onClick={handleAddToBottom}>Add to bottom&lt;/button>
+                    &lt;/>
+                  );
+                };
+
+                const _InnerComponent = ({ name }) => {
+                  useEffect(
+                    () => () => {
+                      console.log(`unmount inner component: ${name}`);
+                    },
+                    [name]
+                  );
+
+                  return <p>Inner component {name}</p>;
+                };
+
+                const InnerComponent = memo(_InnerComponent);
+
+                export default ReconciliationComponent;
+					    </code>
+            </pre>
+          </section>
+          <section class="video-slide">
+            <h4 class="slide-name">Reconciliation example - result</h4>
+            <div>
+              <iframe
+                data-src="assets/videos/reconciliation_example_1.mp4"
+              ></iframe>
             </div>
           </section>
         </section>
@@ -3469,6 +3787,42 @@ class Welcome extends React.Component {
                 </li>
               </ol>
             </div>
+            <aside class="notes">
+              React Fiber is a complete rewrite of React's reconciler algorithm
+              to fix some of the longstanding problems in React. The main
+              feature is that it implements incremental rendering.
+              <br /><br />
+              Because Fiber is asynchronous, React can:<br />
+              - Pause, resume, and restart rendering work on components as new
+              updates come in<br />
+              - Reuse previously completed work and even abort it if not
+              needed<br />
+              - Split work into chunks and prioritize tasks based on importance
+              <br /><br />
+              By the end of the reconciliation, React knows the result of the
+              DOM tree, and a renderer like react-dom or react-native applies
+              the minimal set of changes necessary to update the DOM nodes.This
+              means that when you call ReactDOM.render() or setState(), React
+              performs reconciliation.
+              <br /><br />
+              What is the React stack reconciler?<br />
+              Oh, by the way, why is this called the “stack” reconciler? This
+              name is derived from the “stack” data structure, which is a
+              last-in, first-out mechanism.<br />
+              And, what does stack have anything to do with what we just saw?
+              Well, as it turns out, since we are effectively performing
+              recursion, it has everything to do with a stack.
+              <br /><br />
+              The picture shows the main idea, which allows you to redraw UI at
+              least 16 ms, 16 ms is 60 frames per second, which allows you to
+              adjust the feeling that UI does not slow down.
+              <br /><br />
+              All tasks are divided into small iterations and executed. Views
+              have two callbacks requestIdleCallback and
+              requestAnimationFrame.<br />
+              requestIdleCallback is called when the browser puts down,
+              requestIdleCallback is called for higher priority tasks.
+            </aside>
           </section>
           <section class="bullets-slide">
             <h4 class="slide-name">REACT FIBER</h4>
@@ -3480,6 +3834,9 @@ class Welcome extends React.Component {
               <li class="fragment">reuse previously completed work</li>
               <li class="fragment">abort work if it's no longer needed</li>
             </ul>
+            <aside class="notes">
+              The slide shows the features of how a fiber can manage tasks
+            </aside>
           </section>
         </section>
 
