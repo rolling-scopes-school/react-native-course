@@ -53,16 +53,16 @@
           <h4 class="slide-name">agenda</h4>
           <ul>
             <li class="fragment">
-              React foundation
+              Foundation
               <ul>
-                <li class="fragment">What is it React?</li>
-                <li class="fragment">JSX</li>
-                <li class="fragment">Components and props</li>
+                <li>React framework</li>
+                <li>JSX</li>
+                <li>Components and props</li>
               </ul>
             </li>
-            <li class="fragment">React lifecycle</li>
+            <li class="fragment">Component lifecycle</li>
             <li class="fragment">
-              React hooks and HOCs
+              Hooks and HOCs
               <ul>
                 <li>Motivation</li>
                 <li>Basic hooks</li>
@@ -71,7 +71,7 @@
                 <li>Hoc</li>
               </ul>
             </li>
-            <li class="fragment">Controlled/Uncontrolled components</li>
+            <li class="fragment">Controlled/uncontrolled components</li>
             <li class="fragment">Reconciliation</li>
             <li class="fragment">Fiber</li>
           </ul>
@@ -156,7 +156,7 @@
         <!-- CODE SANDBOX -->
         <section>
           <section class="picture-with-description-slide">
-            <h4 class="slide-name">code sandbox - step 1</h4>
+            <h4 class="slide-name">code sandbox</h4>
             <img src="assets/images/code_sandbox_1.png" alt="code_sandbox_1" />
             <p>
               Open
@@ -180,7 +180,7 @@
           </section>
 
           <section class="picture-with-description-slide">
-            <h4 class="slide-name">code sandbox - step 2</h4>
+            <h4 class="slide-name">code sandbox</h4>
             <img src="assets/images/code_sandbox_2.png" alt="code_sandbox_2" />
             <p>Your project is created</p>
             <aside class="notes">
@@ -198,7 +198,7 @@
           </section>
 
           <section class="text-and-conding-slide">
-            <h4 class="slide-name">code sandbox - step 3</h4>
+            <h4 class="slide-name">code sandbox</h4>
             <p class="fragment" data-fragment-index="1">
               Let's change index.js file to avoid issue with 2 renders. Please
               paste code bellow to the index.js file.
@@ -224,7 +224,7 @@
           </section>
 
           <section class="picture-with-description-slide">
-            <h4 class="slide-name">code sandbox - step 4</h4>
+            <h4 class="slide-name">code sandbox</h4>
             <img src="assets/images/code_sandbox_3.gif" alt="code_sandbox_3" />
             <p>You are ready to GO</p>
             <aside class="notes">
@@ -386,36 +386,38 @@ class Welcome extends React.Component {
         <!-- CLASS COMPONENT EXAMPLE -->
         <section>
           <section class="numbering-and-picture-slide">
-            <h4 class="slide-name">component example - prepation</h4>
+            <h4 class="slide-name">class component example</h4>
             <div>
               <img
                 src="assets/images/class_component_example_0.png"
                 alt="class_component_example_0"
               />
               <ol>
-                <li>
-                  Create folder <strong>components-and-props</strong> inside
-                  your <strong>src</strong> folder
-                </li>
-                <li>
-                  Create <strong>index.js</strong> inside
-                  <strong>components-and-props</strong> folder
-                </li>
-                <li>
-                  Create <strong>class-counter.js</strong> inside
-                  <strong>components-and-props</strong> folder
-                </li>
-                <li>Start coding your first class component</li>
+                <li><strong>components-and-props</strong> folder</li>
+                <li><strong>index.js</strong> file</li>
+                <li><strong>class-counter.js</strong> file</li>
               </ol>
             </div>
             <aside class="notes">
-              Let's try to create two examples of counter component in the
-              functional and class components.
+              So, let's start our <strong>first example</strong> of creating a
+              class component. <br /><br />
+              The first step is to prepare and
+              <strong>create a several of folders and files</strong>.
+              <br /><br />
+              Firstly, we will create folder
+              <strong>components-and-props</strong> inside src folder.
+              <br /><br />
+              Next, we will create <strong>index.js</strong> inside
+              components-and-props folder <br /><br />
+              And the last, we will create
+              <strong>class-counter.js</strong> inside components-and-props
+              folder <br /><br />
+              Now we ready to start coding our first class component
             </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">class component example - ClassCounter</h4>
-            <p>Let's create ClassCounter component with empty render method</p>
+            <h4 class="slide-name">class component example</h4>
+            <p>class-counter.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers>
               import React from "react";
@@ -429,13 +431,14 @@ class Welcome extends React.Component {
               export default ClassCounter;
 					    </code>
             </pre>
+            <aside class="notes">
+              Let's start creation ClassCounter component with empty render
+              method
+            </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">component example - render method</h4>
-            <p>
-              And now let's add code to the render method that will display the
-              third level title obtained from the properties of this component.
-            </p>
+            <h4 class="slide-name">class component example</h4>
+            <p>class-counter.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="4-10">
               import React from "react";
@@ -453,10 +456,14 @@ class Welcome extends React.Component {
               export default ClassCounter;
 					    </code>
             </pre>
+            <aside class="notes">
+              Now let's add code to the render method that will display the
+              third level title obtained from the properties of this component.
+            </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">class component example - INDEX.JS</h4>
-            <p>Let's the following code to the index.js file</p>
+            <h4 class="slide-name">class component example</h4>
+            <p>index.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers>
                 import ClassCounter from "./class-counter";
@@ -464,14 +471,14 @@ class Welcome extends React.Component {
                 export { ClassCounter };
 					    </code>
             </pre>
-            <aside class="notes"></aside>
+            <aside class="notes">
+              The index.js file will contain fairly typical content, import the
+              component and export it outside.
+            </aside>
           </section>
           <section class="code-example-slide">
-            <h4 class="slide-name">class component example - APP.JS</h4>
-            <p>
-              And the last thing we need to do is add our new component to
-              App.js
-            </p>
+            <h4 class="slide-name">class component example</h4>
+            <p>App.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="3,8-11">
                 import "./styles.css";
@@ -490,14 +497,25 @@ class Welcome extends React.Component {
                 }                
 					    </code>
             </pre>
+            <aside class="notes">
+              And the last thing we need to do is add our new component to
+              App.js
+            </aside>
           </section>
           <section class="picture-slide">
-            <h4 class="slide-name">class component example - result</h4>
+            <h4 class="slide-name">class component example</h4>
             <img
               src="assets/images/class_component_example.png"
               class="with-border"
               alt="class_component_example"
             />
+            <aside class="notes">
+              If we look at our React application, it will
+              <string>look like this</string>. <br /><br />
+              As you can see, our new class component
+              <string>is displayed</string> on the page and there is
+              <string>nothing scary</string> with creating and using components.
+            </aside>
           </section>
         </section>
 
