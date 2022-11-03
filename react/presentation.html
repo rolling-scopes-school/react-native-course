@@ -522,28 +522,29 @@ class Welcome extends React.Component {
         <!-- FUNCTIONAL COMPONENT EXAMPLE -->
         <section>
           <section class="numbering-and-picture-slide">
-            <h4 class="slide-name">
-              functional component example - FunctionalCounter
-            </h4>
+            <h4 class="slide-name">functional component example</h4>
             <div>
               <img
                 src="assets/images/functional_component_example_0.png"
                 alt="functional_component_example_0"
               />
               <ol>
-                <li>
-                  Create <strong>functional-counter.js</strong> inside
-                  <strong>components-and-props</strong> folder
-                </li>
-                <li>Start coding your first functional component</li>
+                <li><strong>functional-counter.js</strong> file</li>
               </ol>
             </div>
+            <aside class="notes">
+              Let's make an example similar to the previous one, just using a
+              functional component.
+              <br /><br />
+              We will create
+              <strong>functional-counter.js</strong> inside components-and-props
+              folder <br /><br />
+              Now we ready to start coding our first functional component
+            </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">
-              functional component example - FunctionalCounter
-            </h4>
-            <p>Let's create FunctionalCounter component</p>
+            <h4 class="slide-name">functional component example</h4>
+            <p>functional-counter.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers>
               import React from "react";
@@ -556,9 +557,15 @@ class Welcome extends React.Component {
               export default FunctionalCounter;                
 					    </code>
             </pre>
+            <aside class="notes">
+              As before, we'll start by creating an component with empty render
+              method. <br />
+              Functional components do not have a render method, its function is
+              performed by the return value.
+            </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">functional component example - return</h4>
+            <h4 class="slide-name">functional component example</h4>
             <p>
               And now let's add code that will display the third level title
               obtained from the properties of this component.
@@ -578,10 +585,14 @@ class Welcome extends React.Component {
                 export default FunctionalCounter;                                
 					    </code>
             </pre>
+            <aside class="notes">
+              Now let's add code to the <strong>return</strong> that will
+              display the title obtained from the properties of this component.
+            </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">functional component example - INDEX.JS</h4>
-            <p>Let's the following code to the index.js file</p>
+            <h4 class="slide-name">functional component example</h4>
+            <p>index.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="2,4">
                 import ClassCounter from "./class-counter";
@@ -590,14 +601,13 @@ class Welcome extends React.Component {
                 export { ClassCounter, FunctionalCounter };
 					    </code>
             </pre>
-            <aside class="notes"></aside>
+            <aside class="notes">
+              Let's add our new component to the index and export it outside.
+            </aside>
           </section>
           <section class="code-example-slide">
-            <h4 class="slide-name">functional component example - APP.JS</h4>
-            <p>
-              And the last thing we need to do is add our new component to
-              App.js
-            </p>
+            <h4 class="slide-name">functional component example</h4>
+            <p>App.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="3,12">
                 import "./styles.css";
@@ -618,9 +628,13 @@ class Welcome extends React.Component {
                 }
 					    </code>
             </pre>
+            <aside class="notes">
+              And the last thing we need to do is add our new component to
+              App.js
+            </aside>
           </section>
           <section class="picture-slide">
-            <h4 class="slide-name">functional component example - result</h4>
+            <h4 class="slide-name">functional component example</h4>
             <img
               src="assets/images/functional_component_example.png"
               class="with-border"
