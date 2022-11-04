@@ -2028,7 +2028,7 @@ class Welcome extends React.Component {
                   return (
                     <div>
                       <h2>Use state component</h2>
-                      &lt;button onClick={}>Add&lt;/button>
+                      &lt;button onClick={() => {}}>Add&lt;/button>
                     </div>
                   );
                 };
@@ -2348,21 +2348,81 @@ class Welcome extends React.Component {
                 alt="use_callback_example"
               />
               <ol>
-                <li>
-                  Create <strong>use-callback-component.js</strong> inside
-                  <strong>hooks</strong> folder
-                </li>
-                <li>
-                  Start coding <strong>UseCallbackComponent</strong> component
-                </li>
+                <li><strong>use-callback-component.js</strong> file</li>
               </ol>
             </div>
+            <aside class="notes">
+              Let's make an example of useCallback hook.
+              <br /><br />
+              We will create
+              <strong>use-callback-component.js</strong> hooks lifecycle folder
+              <br /><br />
+              Now we ready to start coding our useCallback hook example
+            </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
             <h4 class="slide-name">useCallback example</h4>
-            <p>Let's create UseCallbackComponent</p>
+            <p>use-callback-component.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers>
+                import React, { useState } from "react";
+
+                export const UseCallbackComponent = () => {
+                  const [count, setCount] = useState(0);
+                  const [items, setItems] = useState([]);
+
+                  return (
+                    &lt;>
+                      <h2>Use callback component</h2>
+                      <br />
+                      <div>
+                        <span>Count: {count}</span>
+                        &lt;button onClick={() => {}}>+&lt;/button>
+                      </div>
+                    &lt;/>
+                  );
+                };
+					    </code>
+            </pre>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">useCallback example</h4>
+            <p>use-callback-component.js</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="1,10,20-25">
+                import React, { useState, memo } from "react";
+
+                export const UseCallbackComponent = () => {
+                  const [count, setCount] = useState(0);
+                  const [items, setItems] = useState([]);
+
+                  return (
+                    &lt;>
+                      <h2>Use callback component</h2>
+                      &lt;MemoComponent onClick={() => {}} />
+                      <br />
+                      <div>
+                        <span>Count: {count}</span>
+                          &lt;button onClick={() => {}}>+&lt;/button>
+                      </div>
+                    &lt;/>
+                  );
+                };
+
+                const InnerComponent = ({ onClick }) => {
+                  console.log("child render");
+                  return <button onClick={onClick}>Button</button>;
+                };
+
+                const MemoComponent = memo(InnerComponent);
+					    </code>
+            </pre>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">useCallback example</h4>
+            <p>use-callback-component.js</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="1,7-13,18,22">
                 import React, { useState, useCallback, memo } from "react";
 
                 export const UseCallbackComponent = () => {
@@ -2401,7 +2461,7 @@ class Welcome extends React.Component {
           </section>
           <section data-auto-animate class="code-example-slide">
             <h4 class="slide-name">useCallback example</h4>
-            <p>Let's the following code to the index.js file</p>
+            <p>index.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="3,8">
                 import { UseStateComponent } from "./use-state-component";
@@ -2415,14 +2475,13 @@ class Welcome extends React.Component {
                 };
 					    </code>
             </pre>
-            <aside class="notes"></aside>
+            <aside class="notes">
+              Let's the following code to the index.js file
+            </aside>
           </section>
           <section class="code-example-slide">
             <h4 class="slide-name">useCallback example</h4>
-            <p>
-              And the last thing we need to do is add our new component to
-              App.js
-            </p>
+            <p>App.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="12,36">
                 import "./styles.css";
@@ -2467,6 +2526,10 @@ class Welcome extends React.Component {
                 }              
 					    </code>
             </pre>
+            <aside class="notes">
+              And the last thing we need to do is add our new component to
+              App.js.
+            </aside>
           </section>
           <section class="video-slide">
             <h4 class="slide-name">useEffect example</h4>
@@ -2475,6 +2538,9 @@ class Welcome extends React.Component {
                 data-src="assets/videos/use_callback_example_1.mp4"
               ></iframe>
             </div>
+            <aside class="notes">
+              As we can see, our component works exactly as we want it to.
+            </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
             <h4 class="slide-name">useCallback example</h4>
