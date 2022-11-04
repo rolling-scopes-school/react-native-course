@@ -697,9 +697,9 @@ class Welcome extends React.Component {
           </aside>
         </section>
 
-        <!-- REACT LIFECYCLE -->
+        <!-- COMPONENT LIFECYCLE -->
         <section class="picture-slide">
-          <h4 class="slide-name">react lifecycle</h4>
+          <h4 class="slide-name">component lifecycle</h4>
           <img src="assets/images/react_lifecycle.png" alt="react_lifecycle" />
           <aside class="notes">
             Each component in React has a lifecycle which you can monitor and
@@ -710,19 +710,20 @@ class Welcome extends React.Component {
           </aside>
         </section>
 
-        <!-- REACT LIFECYCLE METHODS - MOUNTING -->
+        <!-- MOUNTING -->
         <section class="picture-slide">
-          <h4 class="slide-name">react lifecycle - mounting</h4>
+          <h4 class="slide-name">mounting</h4>
           <img
             src="assets/images/react_lifecycle_method_mounting.png"
             alt="react_lifecycle_method_mounting"
           />
           <aside class="notes">
-            Every component in React goes through a lifecycle of events. I like
-            to think of them as going through a cycle of birth, growth, and
-            death. <strong>Mounting</strong> - birth of your component.
-            <strong>Updating</strong> - growth of your component. And
-            <strong>unmounting</strong> - death of your component.
+            This slide shows how the Mounting stage in the component lifecycle.
+            <br /><br />
+            In this diagram, we see functions that are called in a certain
+            order.
+            <br /><br />
+            Let's take a closer look at an example.
           </aside>
         </section>
 
@@ -736,27 +737,26 @@ class Welcome extends React.Component {
                 alt="mounting_example"
               />
               <ol>
-                <li>
-                  Create folder <strong>lifecycle</strong> inside your
-                  <strong>src</strong> folder
-                </li>
-                <li>
-                  Create <strong>index.js</strong> inside
-                  <strong>lifecycle</strong> folder
-                </li>
-                <li>
-                  Create <strong>mouning.js</strong> inside
-                  <strong>lifecycle</strong> folder
-                </li>
-                <li>
-                  Start coding <strong>MountingComponent</strong> component
-                </li>
+                <li><strong>lifecycle</strong> folder</li>
+                <li><strong>index.js</strong> file</li>
+                <li><strong>mouning.js</strong> file</li>
               </ol>
             </div>
+            <aside class="notes">
+              Let's make an example of mounting lifecycle.
+              <br /><br />
+              Firstly, we will create
+              <strong>lifecycle</strong> folder inside src folder <br /><br />
+              Next, we will create
+              <strong>index.js</strong> inside lifecycle folder <br /><br />
+              And the last, we will create
+              <strong>mouning.js</strong> inside lifecycle folder <br /><br />
+              Now we ready to start coding our mounting example
+            </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">mounting example - Component</h4>
-            <p>Let's create MountingComponent component</p>
+            <h4 class="slide-name">mounting example</h4>
+            <p>mouning.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers>
                 import React from "react";
@@ -771,13 +771,14 @@ class Welcome extends React.Component {
                 export default MountingComponent;                
 					    </code>
             </pre>
+            <aside class="notes">
+              First, let's create an empty class component called
+              MountingComponent.
+            </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">mounting example - constructor</h4>
-            <p>
-              Let's add a constructor to our component that will initialize the
-              parent class and add a couple of fields to the state object.
-            </p>
+            <h4 class="slide-name">mounting example</h4>
+            <p>mouning.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="4-11">
                 import React from "react";
@@ -801,6 +802,9 @@ class Welcome extends React.Component {
 					    </code>
             </pre>
             <aside class="notes">
+              Let's add a constructor to our component that will initialize the
+              parent class and add a couple of fields to the state object.
+              <br /><br />
               The <strong>constructor()</strong> method is called
               <strong>before anything else</strong>, when the component is
               initiated, and it is the natural place to set up the
@@ -815,10 +819,8 @@ class Welcome extends React.Component {
             </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">
-              mounting example - getDerivedStateFromProps
-            </h4>
-            <p>Next thing that we'll add it is getDerivedStateFromProps.</p>
+            <h4 class="slide-name">mounting example</h4>
+            <p>mounting.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="13-23">
                 import React from "react";
@@ -854,19 +856,22 @@ class Welcome extends React.Component {
 					    </code>
             </pre>
             <aside class="notes">
+              Next thing that we'll add it is getDerivedStateFromProps.<br />
+              This method is called next after the constructor.
+              <br /><br />
+              This method accepts new properties and the current state, and can
+              handle updating the state.
+              <br /><br />
+              It should <strong>return an object</strong> to update the state,
+              <strong>or null</strong> to update nothing. <br /><br />
               getDerivedStateFromProps is invoked right
               <strong>before calling the render method</strong>, both on the
-              initial mount and on update stages. It should
-              <strong>return an object</strong> to update the state,
-              <strong>or null</strong> to update nothing.
+              initial mount and on update stages.
             </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">mounting example - render</h4>
-            <p>
-              And now let's implement the render method and add some logic
-              related to the loading state.
-            </p>
+            <h4 class="slide-name">mounting example</h4>
+            <p>mounting.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="25-35">
                 import React from "react";
@@ -910,18 +915,23 @@ class Welcome extends React.Component {
 					    </code>
             </pre>
             <aside class="notes">
-              render() - The render() method is the most used lifecycle method.
-              You will see it in all React classes. This is because
-              <strong>render()</strong>is the only required method within a
-              class component in React. As the name suggests it handles the
-              rendering of your component to the UI. It happens during the
+              And now let's implement the render method and add some logic
+              related to the loading state.
+              <br /><br />
+              The render() method is the most used lifecycle method. You will
+              see it in all React classes. <br />
+              <br />
+              This is because <strong>render()</strong>is the only required
+              method within a class component in React. <br />
+              <br />As the name suggests it handles the rendering of your
+              component to the UI. It happens during the
               <strong>mounting</strong> and <strong>updating</strong> of your
               component.
             </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">mounting example - componentDidMount</h4>
-            <p>The last thing is componentDidMount</p>
+            <h4 class="slide-name">mounting example</h4>
+            <p>mounting.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="25-29">
                 import React from "react";
@@ -971,12 +981,13 @@ class Welcome extends React.Component {
 					    </code>
             </pre>
             <aside class="notes">
-              componentDidMount() - Now your component has been mounted and
-              ready, that's when the next React lifecycle method
-              <strong>componentDidMount()</strong>comes in play.
-              <br />
+              The last thing is componentDidMount.
+              <br /><br />
+              Now your component has been mounted and ready, that's when the
+              next React lifecycle method
+              <strong>componentDidMount()</strong>comes in play. <br /><br />
               It is called as soon as the component is mounted and ready.
-              <br />
+              <br /><br />
               This method is a good place to
               <strong>set up any subscriptions</strong>. If you do that,
               <strong>don't forget to unsubscribe</strong> in
@@ -984,8 +995,8 @@ class Welcome extends React.Component {
             </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">mounting example - INDEX.JS</h4>
-            <p>Let's the following code to the index.js file</p>
+            <h4 class="slide-name">mounting example</h4>
+            <p>index.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers>
                 import MountingComponent from "./mouning";
@@ -993,14 +1004,14 @@ class Welcome extends React.Component {
                 export { MountingComponent };
 					    </code>
             </pre>
-            <aside class="notes"></aside>
+            <aside class="notes">
+              The index.js file will contain fairly typical content, import the
+              component and export it outside.
+            </aside>
           </section>
           <section class="code-example-slide">
-            <h4 class="slide-name">mounting example - APP.JS</h4>
-            <p>
-              And the last thing we need to do is add our new component to
-              App.js
-            </p>
+            <h4 class="slide-name">mounting example</h4>
+            <p>App.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="4,14-18">
                 import "./styles.css";
@@ -1026,22 +1037,43 @@ class Welcome extends React.Component {
                 }              
 					    </code>
             </pre>
+            <aside class="notes">
+              And the last thing we need to do is add our new component to
+              App.js
+            </aside>
           </section>
           <section class="video-slide">
-            <h4 class="slide-name">mounting example - result</h4>
+            <h4 class="slide-name">mounting example</h4>
             <div>
               <iframe data-src="assets/videos/mounting_example.mp4"></iframe>
             </div>
+            <aside class="notes">
+              As we can see, our component works exclusively as we wanted from
+              it.
+              <br />
+              <br />
+              We set the initial load state in the constructor to true, then in
+              componentDidMount we set a timeout, which will set the loading to
+              the false and change the name.
+            </aside>
           </section>
         </section>
 
-        <!-- REACT LIFECYCLE METHODS - UPDATING -->
+        <!-- UPDATING -->
         <section class="picture-slide">
-          <h4 class="slide-name">react lifecycle - updating</h4>
+          <h4 class="slide-name">updating</h4>
           <img
             src="assets/images/react_lifecycle_method_updating.png"
             alt="react_lifecycle_method_updating"
           />
+          <aside class="notes">
+            This slide shows how the Updating stage in the component lifecycle.
+            <br /><br />
+            In this diagram, we see functions that are called in a certain
+            order.
+            <br /><br />
+            Let's take a closer look at an example.
+          </aside>
         </section>
 
         <!-- UPDATING EXAMPLE -->
@@ -1054,22 +1086,20 @@ class Welcome extends React.Component {
                 alt="updating_example"
               />
               <ol>
-                <li>
-                  Create <strong>updaing.js</strong> inside
-                  <strong>lifecycle</strong> folder
-                </li>
-                <li>
-                  Start coding <strong>UpdatingComponent</strong> component
-                </li>
+                <li><strong>updating.js</strong> file</li>
               </ol>
             </div>
+            <aside class="notes">
+              Let's make an example of updating lifecycle methods.
+              <br /><br />
+              We will create
+              <strong>updating.js</strong> inside lifecycle folder <br /><br />
+              And now we ready to start coding our updating example
+            </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">updating example - UpdatingComponent</h4>
-            <p>
-              Let's create MountingComponent and two arrays in the state to
-              store counter values
-            </p>
+            <h4 class="slide-name">updating example</h4>
+            <p>updating.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers>
                 import React from "react";
@@ -1088,12 +1118,72 @@ class Welcome extends React.Component {
                 export default UpdatingComponent;               
 					    </code>
             </pre>
+            <aside class="notes">
+              Let's create MountingComponent with empty render method and two
+              arrays in the state to store counter values
+            </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">updating example - Counter</h4>
-            <p>Now we'll add Counter component</p>
+            <h4 class="slide-name">updating example</h4>
+            <p>updating.js</p>
             <pre data-id="code-animation">
-              <code class="hljs" data-trim data-line-numbers="33-52|9-30">
+              <code class="hljs" data-trim data-line-numbers="14-34">
+                import React from "react";
+
+                class UpdatingComponent extends React.Component {
+                  state = {
+                    counter1: [],
+                    counter2: []
+                  };
+
+                  return (
+                    // ...
+                  );
+                }
+
+                class Counter extends React.Component {
+                  // Get box DOM reference
+                  buttonRef = React.createRef();
+
+                  render() {
+                    console.log(`Rendering ${this.props.name}`);
+                    return (
+                      <div>
+                        <h2>{this.props.name}:</h2>
+                        <div>
+                          {this.props.value.map((e, index) => (
+                            <p key={index}>{e}</p>
+                          ))}
+                        </div>
+                        <button ref={this.buttonRef} onClick={this.props.onClick}>
+                          Add
+                        </button>
+                      </div>
+                    );
+                  }
+                }
+
+                export default UpdatingComponent;               
+					    </code>
+            </pre>
+            <aside class="notes">
+              Now we'll add Counter component.
+              <br /><br />
+              This component will display the name and array of values received
+              from properties. And a button that will call the onClick method
+              that also received as a property of this component.
+              <br /><br />
+              Also on the screen you see buttonRef = React.createRef(), which we
+              have not discussed yet, it will help us control the style
+              properties of our button. <br />
+              We will discuss this method in more detail later.
+            </aside>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">updating example</h4>
+            <p>updating.js</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="9-30">
                 import React from "react";
 
                 class UpdatingComponent extends React.Component {
@@ -1151,10 +1241,18 @@ class Welcome extends React.Component {
                 export default UpdatingComponent;               
 					    </code>
             </pre>
+            <aside class="notes">
+              Let's use our Counter component in the render method of
+              UpdatingComponent.
+              <br /><br />
+              In the render method, we will add two counters that will use the
+              values from the state to pass such properites as 'value' and
+              'onClick' handler.
+            </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">updating example - shouldComponentUpdate</h4>
-            <p>Let's add shouldComponentUpdate</p>
+            <h4 class="slide-name">updating example</h4>
+            <p>updating.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="37-39">
                 import React from "react";
@@ -1219,20 +1317,26 @@ class Welcome extends React.Component {
 					    </code>
             </pre>
             <aside class="notes">
-              shouldComponentUpdate() - This lifecycle can be handy sometimes
-              when you don't want React to render your state or prop changes.
-              Anytime setState() is called, the component re-renders by default.
+              The preparatory part is over, let's start studying the methods
+              that are present in the updating stage of the component lifecycle.
+              <br /><br />
+              Let's add <strong>shouldComponentUpdate</strong> <br /><br />
+              This lifecycle method can be useful sometimes when you
+              <strong
+                >don't want React to render your state or prop changes</strong
+              >. <br /><br />
+              <strong>Anytime setState() is called</strong>, the component
+              re-renders by default.<br /><br />
               The shouldComponentUpdate() method is used to let React know if a
-              component is not affected by the state and prop changes. Keep in
-              mind that this lifecycle method should be sparingly used, and it
-              exists only for certain performance optimizations.
+              component <strong>is not affected by the state</strong> and prop
+              changes. <br /><br />Keep in mind that this lifecycle method
+              should be sparingly used, and it exists only for certain
+              performance optimizations.
             </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">
-              updating example - getSnapshotBeforeUpdate
-            </h4>
-            <p>Let's add getSnapshotBeforeUpdate</p>
+            <h4 class="slide-name">updating example</h4>
+            <p>updating.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="41-46">
                 import React from "react";
@@ -1304,17 +1408,24 @@ class Welcome extends React.Component {
 					    </code>
             </pre>
             <aside class="notes">
+              Next method is getSnapshotBeforeUpdate.
+              <br /><br />
               getSnapshotBeforeUpdate() is invoked right before the most
-              recently rendered output is committed to e.g. the DOM. It enables
-              your component to capture some information from the DOM (e.g.
-              scroll position) before it is potentially changed. Any value
-              returned by this lifecycle method will be passed as a parameter to
-              componentDidUpdate().
+              recently rendered output is committed to e.g. the DOM.<br /><br />
+              It enables your component to capture some information from the DOM
+              (e.g. scroll position) before it is potentially changed.<br /><br />
+              Any value returned by this lifecycle method will be
+              <strong>passed as a parameter to componentDidUpdate()</strong>
+              that we will look next.
+              <br /><br />
+              In our example, we look at how far our button is relative to the
+              beginning of the screen. If the condition is true then we set
+              overrideBoxColor to true.
             </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">updating example - componentDidUpdate</h4>
-            <p>Let's add componentDidUpdate</p>
+            <h4 class="slide-name">updating example</h4>
+            <p>updating.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="48-53">
                 import React from "react";
@@ -1393,20 +1504,19 @@ class Welcome extends React.Component {
 					    </code>
             </pre>
             <aside class="notes">
-              componentDidUpdate() - This lifecycle method is invoked as soon as
-              the updating happens. The most common use case for the
-              componentDidUpdate() method is updating the DOM in response to
-              prop or state changes. On the screen you can see typical example
-              of usage of this lifecycle method. Notice in this example that we
-              are comparing the current props to the previous props. This is to
-              check if there has been a change in props from what it currently
-              is. In this case, there won't be a need to make the API call if
-              the props did not change.
+              <strong> componentDidUpdate()</strong> - This lifecycle method is
+              invoked as soon as the updating happens. <br /><br />
+              The most common use case for the componentDidUpdate() method is
+              updating the DOM in response to prop or state changes.
+              <br /><br />
+              On the screen you can see typical example of usage of this
+              lifecycle method. We change the color of the button to red using
+              snapshot.
             </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">updating example - INDEX.JS</h4>
-            <p>Let's the following code to the index.js file</p>
+            <h4 class="slide-name">updating example</h4>
+            <p>index.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="2,4">
                 import MountingComponent from "./mouning";
@@ -1415,14 +1525,13 @@ class Welcome extends React.Component {
                 export { MountingComponent, UpdatingComponent };
 					    </code>
             </pre>
-            <aside class="notes"></aside>
+            <aside class="notes">
+              Let's the following code to the index.js file
+            </aside>
           </section>
           <section class="code-example-slide">
-            <h4 class="slide-name">updating example - APP.JS</h4>
-            <p>
-              And the last thing we need to do is add our new component to
-              App.js
-            </p>
+            <h4 class="slide-name">updating example</h4>
+            <p>App.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="4,18">
                 import "./styles.css";
@@ -1449,22 +1558,34 @@ class Welcome extends React.Component {
                 }              
 					    </code>
             </pre>
+            <aside class="notes">
+              And the last thing we need to do is add our new component to
+              App.js
+            </aside>
           </section>
           <section class="video-slide">
-            <h4 class="slide-name">updating example - result</h4>
+            <h4 class="slide-name">updating example</h4>
             <div>
               <iframe data-src="assets/videos/updating_example.mp4"></iframe>
             </div>
+            <aside class="notes">
+              As we can see, our component works exactly as we want it to.
+            </aside>
           </section>
         </section>
 
-        <!-- REACT LIFECYCLE METHODS - UNMOUNTING -->
+        <!-- UNMOUNTING -->
         <section class="picture-slide">
-          <h4 class="slide-name">react lifecycle - unmounting</h4>
+          <h4 class="slide-name">unmounting</h4>
           <img
             src="assets/images/react_lifecycle_method_unmounting.png"
             alt="react_lifecycle_method_unmounting"
           />
+          <aside class="notes">
+            As you can see in the unmounting stage, we only have one method.
+            <br /><br />
+            Let's take a closer look at an example.
+          </aside>
         </section>
 
         <!-- UNMOUNTING EXAMPLE -->
@@ -1477,19 +1598,21 @@ class Welcome extends React.Component {
                 alt="unmounting_example"
               />
               <ol>
-                <li>
-                  Create <strong>unmounting.js</strong> inside
-                  <strong>lifecycle</strong> folder
-                </li>
-                <li>
-                  Start coding <strong>UnmountingComponent</strong> component
-                </li>
+                <li><strong>unmounting.js</strong> file</li>
               </ol>
             </div>
+            <aside class="notes">
+              Let's make an example of unmounting lifecycle method.
+              <br /><br />
+              We will create
+              <strong>unmounting.js</strong> inside lifecycle folder
+              <br /><br />
+              And now we ready to start coding our unmounting example
+            </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">unmounting example - UnmountingComponent</h4>
-            <p>Let's create UnmountingComponent and date in the state</p>
+            <h4 class="slide-name">unmounting example</h4>
+            <p>unmounting.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers>
                 import React from "react";
@@ -1516,12 +1639,16 @@ class Welcome extends React.Component {
                 export default UnmountingComponent;               
 					    </code>
             </pre>
+            <aside class="notes">
+              In the constructor, add a date to the state, which will be
+              displayed in our component.<br /><br />And also add a tick method
+              that will update the date in the component state to the current
+              date.
+            </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">
-              unmounting example - componentWillUnmount
-            </h4>
-            <p>Let's add componentWillUnmount</p>
+            <h4 class="slide-name">unmounting example</h4>
+            <p>unmounting.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="17-25">
                 import React from "react";
@@ -1558,10 +1685,24 @@ class Welcome extends React.Component {
                 export default UnmountingComponent;               
 					    </code>
             </pre>
+            <aside class="notes">
+              Let's add componentDidMount, which creates an interval that fires
+              every second and calls the tick method.
+              <br /><br />
+              And finally, we will add componentWillUnmount with clearing
+              interval call.
+              <br /><br />
+              As the name suggests this lifecycle method is called just before
+              the component is unmounted and destroyed.
+              <br /><br />If there are any cleanup actions that you would need
+              to do, this would be the right spot Common cleanup activities
+              performed in this method include, clearing timers, cancelling api
+              calls, or clearing any caches in storage.
+            </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">unmounting example - INDEX.JS</h4>
-            <p>Let's the following code to the index.js file</p>
+            <h4 class="slide-name">unmounting example</h4>
+            <p>index.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="3-5">
                 import MountingComponent from "./mouning";
@@ -1571,14 +1712,13 @@ class Welcome extends React.Component {
                 export { MountingComponent, UpdatingComponent, UnmountingComponent };
 					    </code>
             </pre>
-            <aside class="notes"></aside>
+            <aside class="notes">
+              Let's the following code to the index.js file
+            </aside>
           </section>
           <section class="code-example-slide">
             <h4 class="slide-name">unmounting example - APP.JS</h4>
-            <p>
-              And the last thing we need to do is add our new component to
-              App.js
-            </p>
+            <p>App.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="4-8,23">
                 import "./styles.css";
@@ -1610,12 +1750,19 @@ class Welcome extends React.Component {
                 }              
 					    </code>
             </pre>
+            <aside class="notes">
+              And the last thing we need to do is add our new component to
+              App.js
+            </aside>
           </section>
           <section class="video-slide">
-            <h4 class="slide-name">unmounting example - result</h4>
+            <h4 class="slide-name">unmounting example</h4>
             <div>
               <iframe data-src="assets/videos/unmounting_example.mp4"></iframe>
             </div>
+            <aside class="notes">
+              As we can see, our component works exactly as we want it to.
+            </aside>
           </section>
         </section>
 
