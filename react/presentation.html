@@ -1999,29 +1999,51 @@ class Welcome extends React.Component {
                 alt="use_state_example"
               />
               <ol>
-                <li>
-                  Create folder <strong>hooks</strong> inside your
-                  <strong>src</strong> folder
-                </li>
-                <li>
-                  Create <strong>index.js</strong> inside
-                  <strong>hooks</strong> folder
-                </li>
-                <li>
-                  Create <strong>use-state-component.js</strong> inside
-                  <strong>hooks</strong> folder
-                </li>
-                <li>
-                  Start coding <strong>UseStateComponent</strong> component
-                </li>
+                <li><strong>hooks</strong> folder</li>
+                <li><strong>index.js</strong> file</li>
+                <li><strong>use-state-component.js</strong> file</li>
               </ol>
             </div>
+            <aside class="notes">
+              Let's make an example of useState hook.
+              <br /><br />
+              Firstly, we will create
+              <strong>hooks</strong> folder inside src folder <br /><br />
+              Next, we will create
+              <strong>index.js</strong> inside hooks folder <br /><br />
+              And the last, we will create
+              <strong>use-state-component.js</strong> hooks lifecycle folder
+              <br /><br />
+              Now we ready to start coding our useState hook example
+            </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">useState example - UseStateComponent</h4>
-            <p>Let's create UseStateComponent</p>
+            <h4 class="slide-name">useState example</h4>
+            <p>use-state-component.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers>
+                import React from "react";
+
+                export const UseStateComponent = () => {
+                  return (
+                    <div>
+                      <h2>Use state component</h2>
+                      &lt;button onClick={}>Add&lt;/button>
+                    </div>
+                  );
+                };
+					    </code>
+            </pre>
+            <aside class="notes">
+              Let's create a simple UseStateComponent that will display a title
+              and a button.
+            </aside>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">useState example</h4>
+            <p>use-state-component.js</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="1,4,9-12">
                 import React, { useState } from "react";
 
                 export const UseStateComponent = () => {
@@ -2039,10 +2061,16 @@ class Welcome extends React.Component {
                 };
 					    </code>
             </pre>
+            <aside class="notes">
+              Now let's add state to our component.
+              <br /><br />
+              Let's make a counter that will increase when the button is clicked
+              and add a display of the current value of our counter.
+            </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">useState example - UseStateComponent</h4>
-            <p>We also can set state in this way...</p>
+            <h4 class="slide-name">useState example</h4>
+            <p>use-state-component.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="10">
                 import React, { useState } from "react";
@@ -2062,10 +2090,15 @@ class Welcome extends React.Component {
                 };
 					    </code>
             </pre>
+            <aside class="notes">
+              We also can set state in this way. <br /><br />
+              Pass an anonymous function that will take the current value and
+              return the new one.
+            </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">useState example - INDEX.JS</h4>
-            <p>Let's the following code to the index.js file</p>
+            <h4 class="slide-name">useState example</h4>
+            <p>index.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers>
                 import { UseStateComponent } from "./use-state-component";
@@ -2075,16 +2108,15 @@ class Welcome extends React.Component {
                 };
 					    </code>
             </pre>
-            <aside class="notes"></aside>
+            <aside class="notes">
+              Let's the following code to the index.js file
+            </aside>
           </section>
           <section class="code-example-slide">
-            <h4 class="slide-name">useState example - APP.JS</h4>
-            <p>
-              And the last thing we need to do is add our new component to
-              App.js
-            </p>
+            <h4 class="slide-name">useState example</h4>
+            <p>App.js</p>
             <pre data-id="code-animation">
-              <code class="hljs" data-trim data-line-numbers="9-11,13,18,24,30-34">
+              <code class="hljs" data-trim data-line-numbers="9-11,13,18,24,30-33">
                 import "./styles.css";
 
                 import { ClassCounter, FunctionalCounter } from "./components-and-props";
@@ -2123,12 +2155,22 @@ class Welcome extends React.Component {
                 }              
 					    </code>
             </pre>
+            <aside class="notes">
+              And the last thing we need to do is add our new component to
+              App.js.
+              <br /><br />
+              We've also added a few styles to the divs to separate the examples
+              a bit.
+            </aside>
           </section>
           <section class="video-slide">
-            <h4 class="slide-name">useState example - result</h4>
+            <h4 class="slide-name">useState example</h4>
             <div>
               <iframe data-src="assets/videos/use_state_example.mp4"></iframe>
             </div>
+            <aside class="notes">
+              As we can see, our component works exactly as we want it to.
+            </aside>
           </section>
         </section>
 
@@ -2142,21 +2184,47 @@ class Welcome extends React.Component {
                 alt="use_effect_example"
               />
               <ol>
-                <li>
-                  Create <strong>use-effect-component.js</strong> inside
-                  <strong>hooks</strong> folder
-                </li>
-                <li>
-                  Start coding <strong>UseEffectComponent</strong> component
-                </li>
+                <li><strong>use-effect-component.js</strong> file</li>
               </ol>
             </div>
+            <aside class="notes">
+              Let's make an example of useEffect hook.
+              <br /><br />
+              We will create
+              <strong>use-effect-component.js</strong> hooks lifecycle folder
+              <br /><br />
+              Now we ready to start coding our useEffect hook example
+            </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">useEffect example - UseEffectComponent</h4>
-            <p>Let's create UseEffectComponent</p>
+            <h4 class="slide-name">useEffect example</h4>
+            <p>use-effect-component.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers>
+                import React, { useState } from "react";
+
+                export const UseEffectComponent = () => {
+                  const [title, setTitle] = useState("Title");
+
+                  return (
+                    <div>
+                      <h2>Use effect component</h2>
+                      <div>{title}</div>
+                    </div>
+                  );
+                };
+					    </code>
+            </pre>
+            <aside class="notes">
+              Let's create a UseEffectComponent that will have a component title
+              and also display the title value from the state.
+            </aside>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">useEffect example</h4>
+            <p>use-effect-component.js</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="1,6-13">
                 import React, { useState, useEffect } from "react";
 
                 export const UseEffectComponent = () => {
@@ -2180,10 +2248,20 @@ class Welcome extends React.Component {
                 };
 					    </code>
             </pre>
+            <aside class="notes">
+              It's time to add useEffect.
+              <br /><br />
+              Let's add it to our component, it will fire when the component is
+              mounted, it will call the console.log, set a timeout of 3 seconds
+              to change the title.
+              <br /><br />
+              Also, this hook will return a function for cleaning in which a
+              message will be displayed on the console.log.
+            </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">useEffect example - INDEX.JS</h4>
-            <p>Let's the following code to the index.js file</p>
+            <h4 class="slide-name">useEffect example</h4>
+            <p>index.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="2,6">
                 import { UseStateComponent } from "./use-state-component";
@@ -2195,14 +2273,13 @@ class Welcome extends React.Component {
                 };
 					    </code>
             </pre>
-            <aside class="notes"></aside>
+            <aside class="notes">
+              Let's the following code to the index.js file
+            </aside>
           </section>
           <section class="code-example-slide">
-            <h4 class="slide-name">useEffect example - APP.JS</h4>
-            <p>
-              And the last thing we need to do is add our new component to
-              App.js
-            </p>
+            <h4 class="slide-name">useEffect example</h4>
+            <p>App.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="11,34">
                 import "./styles.css";
@@ -2245,12 +2322,19 @@ class Welcome extends React.Component {
                 }              
 					    </code>
             </pre>
+            <aside class="notes">
+              And the last thing we need to do is add our new component to
+              App.js.
+            </aside>
           </section>
           <section class="video-slide">
-            <h4 class="slide-name">useEffect example - result</h4>
+            <h4 class="slide-name">useEffect example</h4>
             <div>
               <iframe data-src="assets/videos/use_effect_example.mp4"></iframe>
             </div>
+            <aside class="notes">
+              As we can see, our component works exactly as we want it to.
+            </aside>
           </section>
         </section>
 
@@ -2275,9 +2359,7 @@ class Welcome extends React.Component {
             </div>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">
-              useCallback example - UseCallbackComponent
-            </h4>
+            <h4 class="slide-name">useCallback example</h4>
             <p>Let's create UseCallbackComponent</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers>
@@ -2318,7 +2400,7 @@ class Welcome extends React.Component {
             </pre>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">useCallback example - INDEX.JS</h4>
+            <h4 class="slide-name">useCallback example</h4>
             <p>Let's the following code to the index.js file</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="3,8">
@@ -2336,7 +2418,7 @@ class Welcome extends React.Component {
             <aside class="notes"></aside>
           </section>
           <section class="code-example-slide">
-            <h4 class="slide-name">useCallback example - APP.JS</h4>
+            <h4 class="slide-name">useCallback example</h4>
             <p>
               And the last thing we need to do is add our new component to
               App.js
@@ -2387,7 +2469,7 @@ class Welcome extends React.Component {
             </pre>
           </section>
           <section class="video-slide">
-            <h4 class="slide-name">useEffect example - result</h4>
+            <h4 class="slide-name">useEffect example</h4>
             <div>
               <iframe
                 data-src="assets/videos/use_callback_example_1.mp4"
@@ -2395,9 +2477,7 @@ class Welcome extends React.Component {
             </div>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">
-              useCallback example - UseCallbackComponent
-            </h4>
+            <h4 class="slide-name">useCallback example</h4>
             <p>Now let's try without useCallback and let's difference</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="11-13">
@@ -2443,7 +2523,7 @@ class Welcome extends React.Component {
             </aside>
           </section>
           <section class="video-slide">
-            <h4 class="slide-name">useEffect example - without useCallback</h4>
+            <h4 class="slide-name">useEffect example</h4>
             <div>
               <iframe
                 data-src="assets/videos/use_callback_example_2.mp4"
@@ -2477,7 +2557,7 @@ class Welcome extends React.Component {
             </div>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">useContext example - UseContextComponent</h4>
+            <h4 class="slide-name">useContext example</h4>
             <p>Let's create UseContextComponent</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers>
@@ -2516,7 +2596,7 @@ class Welcome extends React.Component {
             </pre>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">useContext example - INDEX.JS</h4>
+            <h4 class="slide-name">useContext example</h4>
             <p>Let's the following code to the index.js file</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="4,10">
@@ -2536,7 +2616,7 @@ class Welcome extends React.Component {
             <aside class="notes"></aside>
           </section>
           <section class="code-example-slide">
-            <h4 class="slide-name">useContext example - APP.JS</h4>
+            <h4 class="slide-name">useContext example</h4>
             <p>
               And the last thing we need to do is add our new component to
               App.js
@@ -2589,7 +2669,7 @@ class Welcome extends React.Component {
             </pre>
           </section>
           <section class="picture-slide">
-            <h4 class="slide-name">useContext example - result</h4>
+            <h4 class="slide-name">useContext example</h4>
             <img
               src="assets/images/use_context_example_result.png"
               class="with-border"
@@ -2619,7 +2699,7 @@ class Welcome extends React.Component {
             </div>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">useMemo example - UseMemoComponent</h4>
+            <h4 class="slide-name">useMemo example</h4>
             <p>Let's create UseMemoComponent</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers>
@@ -2654,7 +2734,7 @@ class Welcome extends React.Component {
             </pre>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">useMemo example - INDEX.JS</h4>
+            <h4 class="slide-name">useMemo example</h4>
             <p>Let's the following code to the index.js file</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="5,12">
@@ -2676,7 +2756,7 @@ class Welcome extends React.Component {
             <aside class="notes"></aside>
           </section>
           <section class="code-example-slide">
-            <h4 class="slide-name">useMemo example - APP.JS</h4>
+            <h4 class="slide-name">useMemo example</h4>
             <p>
               And the last thing we need to do is add our new component to
               App.js
@@ -2731,13 +2811,13 @@ class Welcome extends React.Component {
             </pre>
           </section>
           <section class="video-slide">
-            <h4 class="slide-name">useMemo example - result</h4>
+            <h4 class="slide-name">useMemo example</h4>
             <div>
               <iframe data-src="assets/videos/use_memo_example_1.mp4"></iframe>
             </div>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">useMemo example - without useMemo</h4>
+            <h4 class="slide-name">useMemo example</h4>
             <p>Now let's try without useMemo and let's difference</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="15-18">
@@ -2772,7 +2852,7 @@ class Welcome extends React.Component {
             </pre>
           </section>
           <section class="video-slide">
-            <h4 class="slide-name">useMemo example - result</h4>
+            <h4 class="slide-name">useMemo example</h4>
             <div>
               <iframe data-src="assets/videos/use_memo_example_2.mp4"></iframe>
             </div>
@@ -2798,7 +2878,7 @@ class Welcome extends React.Component {
             </div>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">useRef example - UseRefComponent</h4>
+            <h4 class="slide-name">useRef example</h4>
             <p>Let's create UseRefComponent</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers>
@@ -2828,7 +2908,7 @@ class Welcome extends React.Component {
             </pre>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">useRef example - INDEX.JS</h4>
+            <h4 class="slide-name">useRef example</h4>
             <p>Let's the following code to the index.js file</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="6,14">
@@ -2852,7 +2932,7 @@ class Welcome extends React.Component {
             <aside class="notes"></aside>
           </section>
           <section class="code-example-slide">
-            <h4 class="slide-name">useRef example - APP.JS</h4>
+            <h4 class="slide-name">useRef example</h4>
             <p>
               And the last thing we need to do is add our new component to
               App.js
@@ -2909,7 +2989,7 @@ class Welcome extends React.Component {
             </pre>
           </section>
           <section class="video-slide">
-            <h4 class="slide-name">useRef example - result</h4>
+            <h4 class="slide-name">useRef example</h4>
             <div>
               <iframe data-src="assets/videos/use_ref_example.mp4"></iframe>
             </div>
@@ -2937,7 +3017,7 @@ class Welcome extends React.Component {
             </div>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">custom hook - UseCustomHookComponent</h4>
+            <h4 class="slide-name">custom hook</h4>
             <p>Let's create UseRefComponent</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers>
@@ -2973,7 +3053,7 @@ class Welcome extends React.Component {
             </pre>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">custom hook - INDEX.JS</h4>
+            <h4 class="slide-name">custom hook</h4>
             <p>Let's the following code to the index.js file</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="7,16">
@@ -2999,7 +3079,7 @@ class Welcome extends React.Component {
             <aside class="notes"></aside>
           </section>
           <section class="code-example-slide">
-            <h4 class="slide-name">custom hook example - APP.JS</h4>
+            <h4 class="slide-name">custom hook example</h4>
             <p>
               And the last thing we need to do is add our new component to
               App.js
@@ -3058,7 +3138,7 @@ class Welcome extends React.Component {
             </pre>
           </section>
           <section class="video-slide">
-            <h4 class="slide-name">custom hook example - result</h4>
+            <h4 class="slide-name">custom hook example</h4>
             <div>
               <iframe data-src="assets/videos/custom_hook_example.mp4"></iframe>
             </div>
@@ -3166,7 +3246,7 @@ class Welcome extends React.Component {
             </div>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">HOC example - HocComponent</h4>
+            <h4 class="slide-name">HOC example</h4>
             <p>Let's create HocComponent</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers>
@@ -3204,7 +3284,7 @@ class Welcome extends React.Component {
             </pre>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">HOC example - INDEX.JS</h4>
+            <h4 class="slide-name">HOC example</h4>
             <p>Let's the following code to the index.js file</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers>
@@ -3216,7 +3296,7 @@ class Welcome extends React.Component {
             <aside class="notes"></aside>
           </section>
           <section class="code-example-slide">
-            <h4 class="slide-name">HOC example - APP.JS</h4>
+            <h4 class="slide-name">HOC example</h4>
             <p>
               And the last thing we need to do is add our new component to
               App.js
@@ -3281,7 +3361,7 @@ class Welcome extends React.Component {
             </pre>
           </section>
           <section class="video-slide">
-            <h4 class="slide-name">HOC example - result</h4>
+            <h4 class="slide-name">HOC example</h4>
             <div>
               <iframe data-src="assets/videos/hoc_example.mp4"></iframe>
             </div>
@@ -3290,7 +3370,7 @@ class Welcome extends React.Component {
 
         <!-- CONTROLLED COMPONENTS -->
         <section class="picture-slide">
-          <h4 class="slide-name">CONTROLLED COMPONENTS</h4>
+          <h4 class="slide-name">Controlled component</h4>
           <img
             src="assets/images/controlled_components.png"
             alt="controlled_components"
@@ -3346,9 +3426,7 @@ class Welcome extends React.Component {
             </div>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">
-              Controlled component example - ControlledComponent
-            </h4>
+            <h4 class="slide-name">Controlled component example</h4>
             <p>Let's create ControlledComponent</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers>
@@ -3392,7 +3470,7 @@ class Welcome extends React.Component {
             </pre>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">Controlled component example - INDEX.JS</h4>
+            <h4 class="slide-name">Controlled component example</h4>
             <p>Let's the following code to the index.js file</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers>
@@ -3404,7 +3482,7 @@ class Welcome extends React.Component {
             <aside class="notes"></aside>
           </section>
           <section class="code-example-slide">
-            <h4 class="slide-name">Controlled component example - APP.JS</h4>
+            <h4 class="slide-name">Controlled component example</h4>
             <p>
               And the last thing we need to do is add our new component to
               App.js
@@ -3475,7 +3553,7 @@ class Welcome extends React.Component {
             </pre>
           </section>
           <section class="picture-slide">
-            <h4 class="slide-name">Controlled component example - result</h4>
+            <h4 class="slide-name">Controlled component example</h4>
             <img
               src="assets/images/controlled_component_example_1.png"
               alt="controlled_component_example_1"
@@ -3532,9 +3610,7 @@ class Welcome extends React.Component {
             </div>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">
-              Uncontrolled component example - UncontrolledComponent
-            </h4>
+            <h4 class="slide-name">Uncontrolled component example</h4>
             <p>Let's create UncontrolledComponent</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers>
@@ -3566,9 +3642,7 @@ class Welcome extends React.Component {
             </pre>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">
-              Uncontrolled component example - INDEX.JS
-            </h4>
+            <h4 class="slide-name">Uncontrolled component example</h4>
             <p>Let's the following code to the index.js file</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="2,4">
@@ -3581,7 +3655,7 @@ class Welcome extends React.Component {
             <aside class="notes"></aside>
           </section>
           <section class="code-example-slide">
-            <h4 class="slide-name">Uncontrolled component example - APP.JS</h4>
+            <h4 class="slide-name">Uncontrolled component example</h4>
             <p>
               And the last thing we need to do is add our new component to
               App.js
@@ -3656,7 +3730,7 @@ class Welcome extends React.Component {
             </pre>
           </section>
           <section class="picture-slide">
-            <h4 class="slide-name">Uncontrolled component example - result</h4>
+            <h4 class="slide-name">Uncontrolled component example</h4>
             <img
               src="assets/images/uncontrolled_component_example_1.png"
               alt="uncontrolled_component_example_1"
@@ -3667,7 +3741,7 @@ class Welcome extends React.Component {
         <!-- RECONCILIATION -->
         <section>
           <section class="text-slide">
-            <h4 class="slide-name">RECONCILIATION</h4>
+            <h4 class="slide-name">Reconciliation</h4>
             <p>
               DOM operations are heavy -> Virtual DOM
               <br /><br /><br />
@@ -3706,7 +3780,7 @@ class Welcome extends React.Component {
             </aside>
           </section>
           <section class="numbering-and-picture-slide">
-            <h4 class="slide-name">TWO ASSUMPTIONS FOR RECONCILIATION</h4>
+            <h4 class="slide-name">two assumptions for reconciliation</h4>
             <div>
               <img
                 src="assets/images/reconcilation_assumptions.png"
@@ -3759,7 +3833,7 @@ class Welcome extends React.Component {
         <!-- RECONCILIATION EXAMPLE -->
         <section>
           <section class="numbering-and-picture-slide">
-            <h4 class="slide-name">Reconciliation example</h4>
+            <h4 class="slide-name">reconciliation example</h4>
             <div>
               <img
                 src="assets/images/reconciliation_example.png"
@@ -3786,9 +3860,7 @@ class Welcome extends React.Component {
             </div>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">
-              Reconciliation example - ReconciliationComponent
-            </h4>
+            <h4 class="slide-name">Reconciliation example</h4>
             <p>Let's create ReconciliationComponent</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers>
@@ -3847,7 +3919,7 @@ class Welcome extends React.Component {
             </pre>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">Reconciliation example - INDEX.JS</h4>
+            <h4 class="slide-name">Reconciliation example</h4>
             <p>Let's the following code to the index.js file</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="1,3">
@@ -3859,7 +3931,7 @@ class Welcome extends React.Component {
             <aside class="notes"></aside>
           </section>
           <section class="code-example-slide">
-            <h4 class="slide-name">Reconciliation example - APP.JS</h4>
+            <h4 class="slide-name">Reconciliation example</h4>
             <p>
               And the last thing we need to do is add our new component to
               App.js
@@ -3940,7 +4012,7 @@ class Welcome extends React.Component {
             </pre>
           </section>
           <section class="video-slide">
-            <h4 class="slide-name">Reconciliation example - result</h4>
+            <h4 class="slide-name">Reconciliation example</h4>
             <div>
               <iframe
                 data-src="assets/videos/reconciliation_example.mp4"
@@ -3948,9 +4020,7 @@ class Welcome extends React.Component {
             </div>
           </section>
           <section data-auto-animate class="code-example-slide">
-            <h4 class="slide-name">
-              Reconciliation example - ReconciliationComponent
-            </h4>
+            <h4 class="slide-name">Reconciliation example</h4>
             <p>Let's try without keys now</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="27-29">
@@ -4009,7 +4079,7 @@ class Welcome extends React.Component {
             </pre>
           </section>
           <section class="video-slide">
-            <h4 class="slide-name">Reconciliation example - result</h4>
+            <h4 class="slide-name">Reconciliation example</h4>
             <div>
               <iframe
                 data-src="assets/videos/reconciliation_example_1.mp4"
@@ -4021,7 +4091,7 @@ class Welcome extends React.Component {
         <!-- FIBER -->
         <section>
           <section class="numbering-and-picture-slide">
-            <h4 class="slide-name">REACT FIBER</h4>
+            <h4 class="slide-name">Fiber</h4>
             <div>
               <img src="assets/images/fiber.png" alt="fiber" />
               <ol>
@@ -4079,7 +4149,7 @@ class Welcome extends React.Component {
             </aside>
           </section>
           <section class="bullets-slide">
-            <h4 class="slide-name">REACT FIBER</h4>
+            <h4 class="slide-name">Fiber</h4>
             <ul>
               <li class="fragment">pause work and come back to it later</li>
               <li class="fragment">
@@ -4096,7 +4166,7 @@ class Welcome extends React.Component {
 
         <!-- ADDITIONAL MATERIALS -->
         <section class="video-text-slide">
-          <h4 class="slide-name">ADDITIONAL MATERIALS</h4>
+          <h4 class="slide-name">additional materials</h4>
           <div>
             <div>
               <a
