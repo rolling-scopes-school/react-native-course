@@ -1787,30 +1787,29 @@ class Welcome extends React.Component {
               <br /><br />
               On the slide you see 3 motivations why hooks were introduced.
               <br /><br />
-              First, about sharing the business logic. Yes, with hooks, you can
-              extract some component logic from a component so that it can be
-              independently tested and reused. Hooks allow you to reuse stateful
-              logic without changing the component hierarchy. This makes it easy
-              to share hooks between many components or with the community.
-              <br /><br />
+              First, about <strong>sharing the business logic</strong>. Yes,
+              with hooks, you can extract some component logic from a component
+              so that it can be independently tested and reused. Hooks allow you
+              to reuse stateful logic without changing the component hierarchy.
+              This makes it easy to share hooks between many components or with
+              the community. <br /><br />
               About second point. We can easy meet hard to maintain components
-              that contains a number of lifecycle methods that often often
-              contains a mix of unrelated logic. For example, components might
-              perform some data fetching in componentDidMount and the same
-              componentDidMount method might also contain some unrelated logic
-              that sets up event listeners. Completely unrelated code combined
-              in a single method. This makes it too easy to introduce bugs and
-              inconsistencies.
-              <br /><br />
+              that contains a number of <strong>lifecycle methods</strong> that
+              often often contains a <strong>mix of unrelated logic</strong>.
+              For example, components might perform some data fetching in
+              componentDidMount and the same componentDidMount method might also
+              contain some unrelated logic that sets up event listeners.
+              Completely unrelated code combined in a single method. This makes
+              it too easy to introduce bugs and inconsistencies. <br /><br />
               And about the last point. In addition to making code reuse and
-              code organization more difficult, we've found that classes can be
-              a large barrier to learning React. You have to understand how this
-              works in JavaScript, which is very different from how it works in
-              most languages. You have to remember to bind the event handlers.
+              code organization more difficult, we've found that
+              <strong>classes can be a large barrier</strong> to learning React.
+              You have to understand how this works in JavaScript, which is very
+              different from how it works in most languages. You have to
+              remember to bind the event handlers. <br /><br />
               To solve these problems, Hooks let you use more of React's
               features without classes. Conceptually, React components have
               always been closer to functions.
-              <br /><br />
             </aside>
           </section>
           <section class="text-and-conding-slide">
@@ -1842,31 +1841,35 @@ class Welcome extends React.Component {
               </pre>
             </div>
             <aside class="notes">
-              Ok, let's start with the first one - state hook. It is the
-              simplest one and post popular one. It returns a stateful value,
-              and a function to update it. During the initial render, the
-              returned state (state) is the same as the value passed as the
-              first argument (initialState). The setState function is used to
-              update the state. It accepts a new state value and starts a
-              re-render of the component.
-              <br /><br />
-              Next hook is useEffect. The Effect Hook lets you perform side
-              effects in function components Data fetching, setting up a
-              subscription, and manually changing the DOM in React components
-              are all examples of side effects. By using this Hook, you tell
-              React that your component needs to do something after render. If
-              your effect returns a function, React will run it when it is time
-              to clean up. Also, you can tell React to skip applying an effect
-              if certain values haven't changed between re-renders. To do so,
-              pass an array as an optional second argument to useEffect.
+              Ok, let's start with the <strong>first one - state hook</strong>.
+              It is the simplest one and post popular one. It returns a
+              <strong>stateful value, and a function to update it</strong>.
+              During the initial render, the returned state (state) is the same
+              as the value passed as the first argument (initialState). The
+              setState function is used to update the state. It accepts a new
+              state value and starts a re-render of the component. <br /><br />
+              Next hook is <strong>useEffect</strong>. The Effect Hook lets you
+              <strong>perform side effects</strong> in function components Data
+              fetching, setting up a subscription, and manually changing the DOM
+              in React components are all examples of side effects. By using
+              this Hook, you tell React that your component needs to do
+              something after render. If your
+              <strong>effect returns a function</strong>, React will run it when
+              it is time to <strong>clean up</strong>. Also, you can tell React
+              to skip applying an effect if certain values haven't changed
+              between re-renders. To do so, pass an
+              <strong>array as an optional second argument</strong> to
+              useEffect.
 
               <br /><br />
-              The React useCallback Hook returns a memoized callback function.
-              Think of memoization as caching a value so that it does not need
-              to be recalculated. This allows us to isolate resource intensive
-              functions so that they will not automatically run on every render.
-              The useCallback Hook only runs when one of its dependencies
-              update. This can improve performance.
+              The React <strong>useCallback</strong> Hook returns a
+              <strong>memoized callback function</strong>. Think of memoization
+              as caching a value so that it does not need to be recalculated.
+              This allows us to isolate resource intensive functions so that
+              they will not automatically run on every render. The useCallback
+              Hook only
+              <strong>runs when one of its dependencies update</strong>. This
+              can improve performance.
             </aside>
           </section>
           <section class="coding-and-picture-slide">
@@ -1885,17 +1888,21 @@ class Welcome extends React.Component {
               </div>
             </div>
             <aside class="notes">
-              useContext To illustrate the problem that this hook can solve, I
-              want you to imagine many nested components. The component at the
-              top and bottom of the stack need access to the state. To do this
-              without Context, we will need to pass the state as "props" through
-              each nested component. This is called "prop drilling". The
-              solution is to create context. To create context, you must Import
-              createContext and initialize it. Next we'll use the Context
-              Provider to wrap the tree of components that need the state
-              Context. Now, all components in this tree will have access to the
-              user Context. And in order to use the Context in a child
-              component, we need to access it using the useContext Hook.
+              Next hook is <strong>useContext</strong> <br /><br />To illustrate
+              the problem that this hook can solve, I want you to imagine
+              <strong>many nested components</strong>. The component at the top
+              and bottom of the stack <strong>need access to the state</strong>.
+              To do this without Context, we will need to pass the state as
+              "props" through each nested component. This is called "<strong
+                >prop drilling</strong
+              >". <br /><br />
+              The solution is to create context. To create context, you must
+              Import createContext and initialize it. Next we'll use the Context
+              Provider to <strong>wrap the tree of components</strong> that need
+              the state Context. Now, all components in this tree will have
+              access to the user Context. <br /><br />
+              And in order to use the Context in a child component, we need to
+              <strong>access it using the useContext Hook</strong>.
             </aside>
           </section>
           <section class="text-and-conding-slide">
@@ -1922,13 +1929,16 @@ class Welcome extends React.Component {
               <p>Other hooks: https://betterprogramming.pub/</p>
             </div>
             <aside class="notes">
-              useMemo - Returns a memoized value. The useMemo Hook only runs
-              when one of its dependencies update. This can improve performance.
-              <br /><br />
+              <strong>useMemo</strong> - Returns a
+              <strong>memoized value</strong>. The useMemo Hook only runs when
+              one of its <strong>dependencies update</strong>. This can improve
+              performance. <br /><br />
               The useRef Hook allows you to persist values between renders. It
-              can be used to store a mutable value that does not cause a
-              re-render when updated. It can be used to access a DOM element
-              directly.
+              can be used to store a
+              <strong>
+                mutable value that does not cause a re-render when updated </strong
+              >. It can be used to
+              <strong>access a DOM element directly</strong>.
             </aside>
           </section>
           <section class="text-slide">
@@ -1942,14 +1952,18 @@ class Welcome extends React.Component {
               Don't call Hooks inside loops, conditions, or nested functions.
             </p>
             <aside class="notes">
-              1. Don't call Hooks from regular JavaScript functions. Instead,
-              you can: Call Hooks from React function components. Call Hooks
-              from custom Hooks
+              Two rules how we must use hooks.
               <br /><br />
+              1. Don't call Hooks from regular JavaScript functions. Instead,
+              you can:
+              <strong>Call Hooks from React function components</strong>. Call
+              Hooks from <strong>custom Hooks</strong> <br /><br />
               2. Don't call Hooks inside loops, conditions, or nested functions.
-              Instead, always use Hooks at the top level of your React function,
-              before any early returns. By following this rule, you ensure that
-              Hooks are called in the same order each time a component renders.
+              Instead, always
+              <strong>use Hooks at the top level of your React function</strong
+              >, before any early returns. By following this rule, you ensure
+              that Hooks are called in the same order each time a component
+              renders.
             </aside>
           </section>
           <section class="text-slide">
@@ -1959,16 +1973,18 @@ class Welcome extends React.Component {
               ”use” and that may call other Hooks.
             </p>
             <aside class="notes">
-              Building your own Hooks lets you extract component logic into
-              reusable functions. When we want to share logic between two
+              Building your own Hooks lets you
+              <strong>extract component logic into reusable functions</strong>.
+              When we want to <strong>share logic</strong> between two
               JavaScript functions, we extract it to a third function. Both
               components and Hooks are functions, so this works for them too!
               <br /><br />
               Unlike a React component, a custom Hook doesn't need to have a
               specific signature. We can decide what it takes as arguments, and
               what, if anything, it should return. In other words, it's just
-              like a normal function. Its name should always start with use and
-              let's look to the example.
+              like a normal function. Its
+              <strong>name should always start with use</strong>. <br /><br />
+              Let's look to the examples.
             </aside>
           </section>
         </section>
