@@ -3536,29 +3536,50 @@ class Welcome extends React.Component {
             <div>
               <img src="assets/images/hoc_example.png" alt="hoc_example" />
               <ol>
-                <li>
-                  Create folder <strong>hoc</strong> inside your
-                  <strong>src</strong> folder
-                </li>
-                <li>
-                  Create <strong>index.js</strong> inside
-                  <strong>hoc</strong> folder
-                </li>
-                <li>
-                  Create <strong>hoc-component.js</strong> inside
-                  <strong>hoc</strong> folder
-                </li>
-                <li>Start coding <strong>HocComponent</strong> component</li>
+                <li><strong>hoc</strong> folder</li>
+                <li><strong>index.js</strong> file</li>
+                <li><strong>hoc-component.js</strong> file</li>
               </ol>
             </div>
-
-            <aside class="notes"><br /><br /></aside>
+            <aside class="notes">
+              Let's make an example of hoc.
+              <br /><br />
+              Firstly, we will create
+              <strong>hoc</strong> folder inside src folder <br /><br />
+              Next, we will create
+              <strong>index.js</strong> inside hoc folder <br /><br />
+              And the last, we will create
+              <strong>hoc-component.js</strong> hoc folder <br /><br />
+              Now we ready to start coding our hoc example
+            </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
             <h4 class="slide-name">HOC example</h4>
-            <p>Let's create HocComponent</p>
+            <p>hoc-component.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers>
+                import React from "react";
+
+                const _HocComponent = (props) => {
+                  return (
+                    <div>
+                      <h2>With HOC component</h2>
+                      <p>Is internet reachable</p>
+                    </div>
+                  );
+                };
+					    </code>
+            </pre>
+            <aside class="notes">
+              Let's create a _HocComponent component that will take care of
+              displaying the current state of the internet connection.
+            </aside>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">HOC example</h4>
+            <p>hoc-component.js</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="1,3-17,20,25,30">
                 import React, { useState, useEffect } from "react";
 
                 const withInternetCheck = (Component) => (props) => {
@@ -3591,10 +3612,15 @@ class Welcome extends React.Component {
                 export const HocComponent = withInternetCheck(_HocComponent);
 					    </code>
             </pre>
+            <aside class="notes">
+              And now let's add our hook, which will enrich the received
+              component and add an injectedProp property to it, which will store
+              the current state of the internet connection.
+            </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
             <h4 class="slide-name">HOC example</h4>
-            <p>Let's the following code to the index.js file</p>
+            <p>index.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers>
                 import { HocComponent } from "./hoc-component";
@@ -3602,14 +3628,13 @@ class Welcome extends React.Component {
                 export { HocComponent };
 					    </code>
             </pre>
-            <aside class="notes"></aside>
+            <aside class="notes">
+              Let's the following code to the index.js file
+            </aside>
           </section>
           <section class="code-example-slide">
             <h4 class="slide-name">HOC example</h4>
-            <p>
-              And the last thing we need to do is add our new component to
-              App.js
-            </p>
+            <p>App.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="18,48-51">
                 import "./styles.css";
@@ -3668,12 +3693,20 @@ class Welcome extends React.Component {
                 }              
 					    </code>
             </pre>
+            <aside class="notes">
+              And the last thing we need to do is add our new component to
+              App.js.
+            </aside>
           </section>
           <section class="video-slide">
             <h4 class="slide-name">HOC example</h4>
             <div>
               <iframe data-src="assets/videos/hoc_example.mp4"></iframe>
             </div>
+            <aside class="notes">
+              As we can see, our component successfully copes with the task of
+              displaying the current state of the Internet connection.
+            </aside>
           </section>
         </section>
 
@@ -3716,23 +3749,25 @@ class Welcome extends React.Component {
                 alt="controlled_component_example"
               />
               <ol>
-                <li>
-                  Create folder <strong>controlled-uncontrolled</strong> inside
-                  your <strong>src</strong> folder
-                </li>
-                <li>
-                  Create <strong>index.js</strong> inside
-                  <strong>controlled-uncontrolled</strong> folder
-                </li>
-                <li>
-                  Create <strong>controlled-component.js</strong> inside
-                  <strong>controlled-uncontrolled</strong> folder
-                </li>
-                <li>
-                  Start coding <strong>ControlledComponent</strong> component
-                </li>
+                <li><strong>controlled-uncontrolled</strong> file</li>
+                <li><strong>index.js</strong> file</li>
+                <li><strong>controlled-component.js</strong> file</li>
               </ol>
             </div>
+            <aside class="notes">
+              Let's make an example of Controlled component.
+              <br /><br />
+              Firstly, we will create
+              <strong>controlled-uncontrolled</strong> folder inside src folder
+              <br /><br />
+              Next, we will create
+              <strong>controlled-component.js</strong> inside
+              controlled-uncontrolled folder <br /><br />
+              And the last, we will create
+              <strong>index.js</strong> controlled-uncontrolled folder
+              <br /><br />
+              Now we ready to start coding our Controlled component example
+            </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
             <h4 class="slide-name">Controlled component example</h4>
@@ -3777,6 +3812,7 @@ class Welcome extends React.Component {
                 export default ControlledComponent;
 					    </code>
             </pre>
+            <aside class="notes"><br /><br /></aside>
           </section>
           <section data-auto-animate class="code-example-slide">
             <h4 class="slide-name">Controlled component example</h4>
@@ -3788,7 +3824,9 @@ class Welcome extends React.Component {
                 export { ControlledComponent };
 					    </code>
             </pre>
-            <aside class="notes"></aside>
+            <aside class="notes">
+              Let's the following code to the index.js file
+            </aside>
           </section>
           <section class="code-example-slide">
             <h4 class="slide-name">Controlled component example</h4>
@@ -3860,6 +3898,10 @@ class Welcome extends React.Component {
                 }              
 					    </code>
             </pre>
+            <aside class="notes">
+              And the last thing we need to do is add our new component to
+              App.js.
+            </aside>
           </section>
           <section class="picture-slide">
             <h4 class="slide-name">Controlled component example</h4>
@@ -3868,6 +3910,7 @@ class Welcome extends React.Component {
               alt="controlled_component_example_1"
             />
           </section>
+          <aside class="notes"><br /><br /></aside>
         </section>
 
         <!-- UNCONTROLLED COMPONENTS -->
@@ -3908,15 +3951,18 @@ class Welcome extends React.Component {
                 alt="uncontrolled_component_example"
               />
               <ol>
-                <li>
-                  Create <strong>uncontrolled-component.js</strong> inside
-                  <strong>controlled-uncontrolled</strong> folder
-                </li>
-                <li>
-                  Start coding <strong>UncontrolledComponent</strong> component
-                </li>
+                <li><strong>uncontrolled-component.js</strong> file</li>
               </ol>
             </div>
+            <aside class="notes">
+              Let's make an example of Uncontrolled component.
+              <br /><br />
+              We will create
+              <strong>uncontrolled-component.js</strong> inside
+              controlled-uncontrolled folder <br /><br />
+              <br /><br />
+              Now we ready to start coding our Uncontrolled component example
+            </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
             <h4 class="slide-name">Uncontrolled component example</h4>
@@ -3949,6 +3995,7 @@ class Welcome extends React.Component {
                 export default UncontrolledComponent;
 					    </code>
             </pre>
+            <aside class="notes"><br /><br /></aside>
           </section>
           <section data-auto-animate class="code-example-slide">
             <h4 class="slide-name">Uncontrolled component example</h4>
@@ -3961,7 +4008,9 @@ class Welcome extends React.Component {
                 export { ControlledComponent, UncontrolledComponent };
 					    </code>
             </pre>
-            <aside class="notes"></aside>
+            <aside class="notes">
+              Let's the following code to the index.js file
+            </aside>
           </section>
           <section class="code-example-slide">
             <h4 class="slide-name">Uncontrolled component example</h4>
@@ -4037,6 +4086,10 @@ class Welcome extends React.Component {
                 }              
 					    </code>
             </pre>
+            <aside class="notes">
+              And the last thing we need to do is add our new component to
+              App.js.
+            </aside>
           </section>
           <section class="picture-slide">
             <h4 class="slide-name">Uncontrolled component example</h4>
@@ -4044,6 +4097,7 @@ class Welcome extends React.Component {
               src="assets/images/uncontrolled_component_example_1.png"
               alt="uncontrolled_component_example_1"
             />
+            <aside class="notes"><br /><br /></aside>
           </section>
         </section>
 
@@ -4149,24 +4203,24 @@ class Welcome extends React.Component {
                 alt="reconciliation_example"
               />
               <ol>
-                <li>
-                  Create folder <strong>reconciliation</strong> inside your
-                  <strong>src</strong> folder
-                </li>
-                <li>
-                  Create <strong>index.js</strong> inside
-                  <strong>reconciliation</strong> folder
-                </li>
-                <li>
-                  Create <strong>reconciliation-component.js</strong> inside
-                  <strong>reconciliation</strong> folder
-                </li>
-                <li>
-                  Start coding
-                  <strong>ReconciliationComponent</strong> component
-                </li>
+                <li><strong>reconciliation</strong> folder</li>
+                <li><strong>index.js</strong> folder</li>
+                <li><strong>reconciliation-component.js</strong> file</li>
               </ol>
             </div>
+            <aside class="notes">
+              Let's make an example of reconciliation.
+              <br /><br />
+              Firstly, we will create
+              <strong>reconciliation</strong> folder inside src folder
+              <br /><br />
+              Next, we will create
+              <strong>reconciliation-component.js</strong> inside reconciliation
+              folder <br /><br />
+              And the last, we will create
+              <strong>index.js</strong> reconciliation folder <br /><br />
+              Now we ready to start coding our reconciliation example
+            </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
             <h4 class="slide-name">Reconciliation example</h4>
@@ -4226,6 +4280,7 @@ class Welcome extends React.Component {
                 export default ReconciliationComponent;
 					    </code>
             </pre>
+            <aside class="notes"><br /><br /></aside>
           </section>
           <section data-auto-animate class="code-example-slide">
             <h4 class="slide-name">Reconciliation example</h4>
@@ -4237,7 +4292,9 @@ class Welcome extends React.Component {
                 export { ReconciliationComponent };
 					    </code>
             </pre>
-            <aside class="notes"></aside>
+            <aside class="notes">
+              Let's the following code to the index.js file
+            </aside>
           </section>
           <section class="code-example-slide">
             <h4 class="slide-name">Reconciliation example</h4>
@@ -4319,6 +4376,10 @@ class Welcome extends React.Component {
                 }              
 					    </code>
             </pre>
+            <aside class="notes">
+              And the last thing we need to do is add our new component to
+              App.js.
+            </aside>
           </section>
           <section class="video-slide">
             <h4 class="slide-name">Reconciliation example</h4>
@@ -4327,6 +4388,7 @@ class Welcome extends React.Component {
                 data-src="assets/videos/reconciliation_example.mp4"
               ></iframe>
             </div>
+            <aside class="notes"><br /><br /></aside>
           </section>
           <section data-auto-animate class="code-example-slide">
             <h4 class="slide-name">Reconciliation example</h4>
@@ -4386,6 +4448,7 @@ class Welcome extends React.Component {
                 export default ReconciliationComponent;
 					    </code>
             </pre>
+            <aside class="notes"><br /><br /></aside>
           </section>
           <section class="video-slide">
             <h4 class="slide-name">Reconciliation example</h4>
@@ -4394,6 +4457,7 @@ class Welcome extends React.Component {
                 data-src="assets/videos/reconciliation_example_1.mp4"
               ></iframe>
             </div>
+            <aside class="notes"><br /><br /></aside>
           </section>
         </section>
 
