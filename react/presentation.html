@@ -2384,6 +2384,10 @@ class Welcome extends React.Component {
                 };
 					    </code>
             </pre>
+            <aside class="notes">
+              Let's create a UseCallbackComponent component that will hold two
+              states, display a title and have a button.
+            </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
             <h4 class="slide-name">useCallback example</h4>
@@ -2411,12 +2415,25 @@ class Welcome extends React.Component {
 
                 const InnerComponent = ({ onClick }) => {
                   console.log("child render");
-                  return <button onClick={onClick}>Button</button>;
+                  return &lt;button onClick={onClick}>Button&lt;/button>;
                 };
 
                 const MemoComponent = memo(InnerComponent);
 					    </code>
             </pre>
+            <aside class="notes">
+              Below we will add another InnerComponent component that will
+              contain the message output to the console.log, display the button
+              and handle clicks using the method obtained from the properties.
+              <br /><br />
+              As you can see, we are using the memo method for this component.
+              The memo creates a memoized component and if the component
+              properties do not change, then the component is not rerendered.
+              <br /><br />
+              Memo usage is really important thing in this example.
+              <br /><br />
+              We will also add a new component to our UseCallbackComponent.
+            </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
             <h4 class="slide-name">useCallback example</h4>
@@ -2458,6 +2475,14 @@ class Welcome extends React.Component {
                 const MemoComponent = memo(InnerComponent);
 					    </code>
             </pre>
+            <aside class="notes">
+              Now let's create two functions increment and handleClick. The
+              first will change the state of the count and increase it by one.
+              The second will change the state of the items and add a new item
+              there.
+              <br /><br />
+              As you can see, for the second function we used useCallback.
+            </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
             <h4 class="slide-name">useCallback example</h4>
@@ -2544,7 +2569,7 @@ class Welcome extends React.Component {
           </section>
           <section data-auto-animate class="code-example-slide">
             <h4 class="slide-name">useCallback example</h4>
-            <p>Now let's try without useCallback and let's difference</p>
+            <p>use-callback-component.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="11-13">
                 import React, { useState, useCallback, memo } from "react";
@@ -2612,21 +2637,64 @@ class Welcome extends React.Component {
                 alt="use_context_example"
               />
               <ol>
-                <li>
-                  Create <strong>use-context-component.js</strong> inside
-                  <strong>hooks</strong> folder
-                </li>
-                <li>
-                  Start coding <strong>UseContextComponent</strong> component
-                </li>
+                <li><strong>use-context-component.js</strong> file</li>
               </ol>
             </div>
+            <aside class="notes">
+              Let's make an example of useContext hook.
+              <br /><br />
+              We will create
+              <strong>use-context-component.js</strong> hooks lifecycle folder
+              <br /><br />
+              Now we ready to start coding our useContext hook example
+            </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
             <h4 class="slide-name">useContext example</h4>
-            <p>Let's create UseContextComponent</p>
+            <p>use-context-component.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers>
+                import React from "react";
+
+                const themes = {
+                  blue: {
+                    textColor: "blue"
+                  },
+                  red: {
+                    textColor: "red"
+                  }
+                };
+
+                export const UseContextComponent = () => {
+                  return (
+                    &lt;>
+                      &lt;InnerComponent />
+                    &lt;/>
+                  );
+                };
+
+                const InnerComponent = () => {
+                  return (
+                    <div>
+                      <h2>Use context component</h2>
+                      &lt;p>Themed text&lt;/p>
+                    </div>
+                  );
+                };
+					    </code>
+            </pre>
+            <aside class="notes">
+              Let's create two components. <br /><br />The first InnerComponent
+              will render the two text fields. <br /><br />The second
+              UseContextComponent will render the first one. <br /><br />
+              And also create an object containing two thems, blue and red.
+            </aside>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">useContext example</h4>
+            <p>use-context-component.js</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="1,12, 16,18,23,28">
                 import React, { useContext } from "react";
 
                 const themes = {
@@ -2660,10 +2728,22 @@ class Welcome extends React.Component {
                 };
 					    </code>
             </pre>
+            <aside class="notes">
+              Now we are faced with the task of throwing the value of the
+              current theme into the inner component from the outer one, without
+              using the properties, but using the context.
+              <br /><br />
+              To do this, we will create a context on line 12 and specify the
+              default value. Next, in the UseContextComponent component, we will
+              use the created context and take the provider from it.
+              <br /><br />
+              In the InnerComponent, all that's left is to get the context and
+              use it to change the color.
+            </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
             <h4 class="slide-name">useContext example</h4>
-            <p>Let's the following code to the index.js file</p>
+            <p>index.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="4,10">
                 import { UseStateComponent } from "./use-state-component";
@@ -2679,14 +2759,13 @@ class Welcome extends React.Component {
                 };
 					    </code>
             </pre>
-            <aside class="notes"></aside>
+            <aside class="notes">
+              Let's the following code to the index.js file
+            </aside>
           </section>
           <section class="code-example-slide">
             <h4 class="slide-name">useContext example</h4>
-            <p>
-              And the last thing we need to do is add our new component to
-              App.js
-            </p>
+            <p>App.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="13,38">
                 import "./styles.css";
@@ -2733,6 +2812,10 @@ class Welcome extends React.Component {
                 }              
 					    </code>
             </pre>
+            <aside class="notes">
+              And the last thing we need to do is add our new component to
+              App.js.
+            </aside>
           </section>
           <section class="picture-slide">
             <h4 class="slide-name">useContext example</h4>
@@ -2741,6 +2824,10 @@ class Welcome extends React.Component {
               class="with-border"
               alt="use_context_example_result"
             />
+            <aside class="notes">
+              As you can see our example works and we were able to pass the
+              theme value to the inner component without using prop drilling.
+            </aside>
           </section>
         </section>
 
@@ -2754,21 +2841,64 @@ class Welcome extends React.Component {
                 alt="use_memo_example"
               />
               <ol>
-                <li>
-                  Create <strong>use-memo-component.js</strong> inside
-                  <strong>hooks</strong> folder
-                </li>
-                <li>
-                  Start coding <strong>UseMemoComponent</strong> component
-                </li>
+                <li><strong>use-memo-component.js</strong> file</li>
               </ol>
             </div>
+            <aside class="notes">
+              Let's make an example of useMemo hook.
+              <br /><br />
+              We will create
+              <strong>use-memo-component.js</strong> hooks lifecycle folder
+              <br /><br />
+              Now we ready to start coding our useMemo hook example
+            </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
             <h4 class="slide-name">useMemo example</h4>
-            <p>Let's create UseMemoComponent</p>
+            <p>use-memo-component.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers>
+                import React, { useState } from "react";
+
+                export const UseMemoComponent = () => {
+                  return (
+                    &lt;>
+                      <h2>Use memo component</h2>
+                      &lt;InnerComponent value={30} />
+                    &lt;/>
+                  );
+                };
+
+                const InnerComponent = ({ value }) => {
+                  const [count, setCount] = useState(0);
+
+                  const calculated = 20;
+
+                  return (
+                    &lt;>
+                      <p>Count: {count}</p>
+                      <p>Calculated: {calculated}</p>
+                      &lt;button onClick={() => setCount((c) => c + 1)}>Button&lt;/button>
+                    &lt;/>
+                  );
+                };
+					    </code>
+            </pre>
+            <aside class="notes">
+              Let's create two components. The first InnerComponent will accept
+              values through properties, store the state of the count, will
+              display the count, the magic value of the calculated, and also
+              have a button to increase the count.
+              <br /><br />
+              And the second component is UseMemoComponent, which will deal
+              exclusively with rendering the first one.
+            </aside>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">useMemo example</h4>
+            <p>use-memo-component.js</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="1,15-18">
                 import React, { useState, useMemo } from "react";
 
                 export const UseMemoComponent = () => {
@@ -2798,10 +2928,15 @@ class Welcome extends React.Component {
                 };
 					    </code>
             </pre>
+            <aside class="notes">
+              Now is the time to implement calculated. It will be evaluated
+              using a very complex formula and will be wrapped in a useMemo to
+              avoid recalculation if value has not changed.
+            </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
             <h4 class="slide-name">useMemo example</h4>
-            <p>Let's the following code to the index.js file</p>
+            <p>index.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="5,12">
                 import { UseStateComponent } from "./use-state-component";
@@ -2819,14 +2954,13 @@ class Welcome extends React.Component {
                 };
 					    </code>
             </pre>
-            <aside class="notes"></aside>
+            <aside class="notes">
+              Let's the following code to the index.js file
+            </aside>
           </section>
           <section class="code-example-slide">
             <h4 class="slide-name">useMemo example</h4>
-            <p>
-              And the last thing we need to do is add our new component to
-              App.js
-            </p>
+            <p>App.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="14,40">
                 import "./styles.css";
@@ -2875,16 +3009,24 @@ class Welcome extends React.Component {
                 }              
 					    </code>
             </pre>
+            <aside class="notes">
+              And the last thing we need to do is add our new component to
+              App.js.
+            </aside>
           </section>
           <section class="video-slide">
             <h4 class="slide-name">useMemo example</h4>
             <div>
               <iframe data-src="assets/videos/use_memo_example_1.mp4"></iframe>
             </div>
+            <aside class="notes">
+              Our component works fine and when the count changes, our value is
+              not recalculated.
+            </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
             <h4 class="slide-name">useMemo example</h4>
-            <p>Now let's try without useMemo and let's difference</p>
+            <p>use-memo-component.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="15-18">
                 import React, { useState, useMemo } from "react";
@@ -2916,12 +3058,20 @@ class Welcome extends React.Component {
                 };
 					    </code>
             </pre>
+            <aside class="notes">
+              Now let's try without oseMeto and see what the difference is.
+            </aside>
           </section>
           <section class="video-slide">
             <h4 class="slide-name">useMemo example</h4>
             <div>
               <iframe data-src="assets/videos/use_memo_example_2.mp4"></iframe>
             </div>
+            <aside class="notes">
+              As we can see, every time we change the count, we recalculate our
+              value, although the value has not changed and there is no point in
+              recalculating it.
+            </aside>
           </section>
         </section>
 
@@ -2935,19 +3085,51 @@ class Welcome extends React.Component {
                 alt="use_ref_example"
               />
               <ol>
-                <li>
-                  Create <strong>use-ref-component.js</strong> inside
-                  <strong>hooks</strong> folder
-                </li>
-                <li>Start coding <strong>UseRefComponent</strong> component</li>
+                <li><strong>use-ref-component.js</strong> file</li>
               </ol>
             </div>
+            <aside class="notes">
+              Let's make an example of useRef hook.
+              <br /><br />
+              We will create
+              <strong>use-ref-component.js</strong> hooks lifecycle folder
+              <br /><br />
+              Now we ready to start coding our useRef hook example
+            </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
             <h4 class="slide-name">useRef example</h4>
-            <p>Let's create UseRefComponent</p>
+            <p>use-ref-component.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers>
+                import React, { useState } from "react";
+
+                export const UseRefComponent = () => {
+                  const [inputValue, setInputValue] = useState("");
+
+                  return (
+                    &lt;>
+                      <h2>Use Ref component</h2>
+                      &lt;input
+                        type="text"
+                        value={inputValue}
+                        onChange={(e) => setInputValue(e.target.value)}
+                      />
+                    &lt;/>
+                  );
+                };
+					    </code>
+            </pre>
+            <aside class="notes">
+              Let's create a UseRefComponent component, it will store the state
+              and the text input field, which will change this state.
+            </aside>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">useRef example</h4>
+            <p>use-ref-component.js</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="1,5,7-9,19">
                 import React, { useState, useEffect, useRef } from "react";
 
                 export const UseRefComponent = () => {
@@ -2972,10 +3154,15 @@ class Welcome extends React.Component {
                 };
 					    </code>
             </pre>
+            <aside class="notes">
+              Now let's try to count how many times this component is
+              rendered.<br /><br />
+              To do this, we will create a ref and increase it in the effect.
+            </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
             <h4 class="slide-name">useRef example</h4>
-            <p>Let's the following code to the index.js file</p>
+            <p>index.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="6,14">
                 import { UseStateComponent } from "./use-state-component";
@@ -2995,14 +3182,13 @@ class Welcome extends React.Component {
                 };
 					    </code>
             </pre>
-            <aside class="notes"></aside>
+            <aside class="notes">
+              Let's the following code to the index.js file
+            </aside>
           </section>
           <section class="code-example-slide">
             <h4 class="slide-name">useRef example</h4>
-            <p>
-              And the last thing we need to do is add our new component to
-              App.js
-            </p>
+            <p>App.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="15,42">
                 import "./styles.css";
@@ -3053,12 +3239,22 @@ class Welcome extends React.Component {
                 }              
 					    </code>
             </pre>
+            <aside class="notes">
+              And the last thing we need to do is add our new component to
+              App.js.
+            </aside>
           </section>
           <section class="video-slide">
             <h4 class="slide-name">useRef example</h4>
             <div>
               <iframe data-src="assets/videos/use_ref_example.mp4"></iframe>
             </div>
+            <aside class="notes">
+              As you can see our component works fine. <br /><br />
+              It successfully counts the number of renderers. <br /><br />
+              Renderers work only if the state changes, if the value of the ref
+              changes, then the rerender does not start.
+            </aside>
           </section>
         </section>
 
@@ -3072,21 +3268,51 @@ class Welcome extends React.Component {
                 alt="custom_hook_example"
               />
               <ol>
-                <li>
-                  Create <strong>use-custom-hook-component.js</strong> inside
-                  <strong>hooks</strong> folder
-                </li>
-                <li>
-                  Start coding <strong>UseCustomHookComponent</strong> component
-                </li>
+                <li><strong>use-custom-hook-component.js</strong> file</li>
               </ol>
             </div>
+            <aside class="notes">
+              Let's make an example of custom hook.
+              <br /><br />
+              We will create
+              <strong>use-custom-hook-component.js</strong> hooks lifecycle
+              folder <br /><br />
+              Now we ready to start coding our custom hook example
+            </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
             <h4 class="slide-name">custom hook</h4>
-            <p>Let's create UseRefComponent</p>
+            <p>use-custom-hook-component.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers>
+                import React from "react";
+
+                export const UseCustomHookComponent = () => {
+                  const { data, loading } = {
+                    loading: false,
+                    data: null
+                  }
+
+                  return (
+                    <div>
+                      <h2>Use custom hook component</h2>
+                      {loading && <p>Loading</p>}
+                      {data && <div>{data}</div>}
+                    </div>
+                  );
+                };
+					    </code>
+            </pre>
+            <aside class="notes">
+              Let's create a UseCustomHookComponent that will display the
+              loading indicator and some date.
+            </aside>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">custom hook</h4>
+            <p>use-custom-hook-component.js</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="1,3-16,19">
                 import React, { useState, useEffect } from "react";
 
                 const useData = () => {
@@ -3117,10 +3343,21 @@ class Welcome extends React.Component {
                 };
 					    </code>
             </pre>
+            <aside class="notes">
+              <br /><br />
+              Now it's time to create our first custom hook, which will simulate
+              a real request to the server to get data.
+              <br /><br />
+              Therefore, in the first lines, we will create two states to store
+              the loading indicator and data. And in the effect we will simulate
+              a request to the server with a delay.
+              <br /><br />
+              Notice how we named our hook and how easy it is to use.
+            </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
             <h4 class="slide-name">custom hook</h4>
-            <p>Let's the following code to the index.js file</p>
+            <p>index.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="7,16">
                 import { UseStateComponent } from "./use-state-component";
@@ -3142,14 +3379,13 @@ class Welcome extends React.Component {
                 };
 					    </code>
             </pre>
-            <aside class="notes"></aside>
+            <aside class="notes">
+              Let's the following code to the index.js file
+            </aside>
           </section>
           <section class="code-example-slide">
             <h4 class="slide-name">custom hook example</h4>
-            <p>
-              And the last thing we need to do is add our new component to
-              App.js
-            </p>
+            <p>App.js</p>
             <pre data-id="code-animation">
               <code class="hljs" data-trim data-line-numbers="16,44">
                 import "./styles.css";
@@ -3202,12 +3438,17 @@ class Welcome extends React.Component {
                 }              
 					    </code>
             </pre>
+            <aside class="notes">
+              And the last thing we need to do is add our new component to
+              App.js.
+            </aside>
           </section>
           <section class="video-slide">
             <h4 class="slide-name">custom hook example</h4>
             <div>
               <iframe data-src="assets/videos/custom_hook_example.mp4"></iframe>
             </div>
+            <aside class="notes">As you can see, everything works great.</aside>
           </section>
         </section>
 
@@ -3278,7 +3519,7 @@ class Welcome extends React.Component {
             reuse in React.
             <br /><br />
             HOC doesn't modify the input component, nor does it use inheritance
-            to copy its behavior. Rather, a HOC<strong>composes</strong> the
+            to copy its behavior. Rather, a HOC <strong>composes</strong> the
             original component by <strong>wrapping</strong> it in a container
             component. A HOC is a pure function with zero side-effects.
             <br /><br />
@@ -3310,6 +3551,8 @@ class Welcome extends React.Component {
                 <li>Start coding <strong>HocComponent</strong> component</li>
               </ol>
             </div>
+
+            <aside class="notes"><br /><br /></aside>
           </section>
           <section data-auto-animate class="code-example-slide">
             <h4 class="slide-name">HOC example</h4>
