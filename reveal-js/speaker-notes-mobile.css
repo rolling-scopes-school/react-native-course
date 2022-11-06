@@ -3,9 +3,9 @@
     max-height: 50vh !important;
   }
   .speaker-notes {
-    max-height: calc(50vh - 3px) !important;
+    max-height: calc(50vh - 5px) !important;
     overflow-y: scroll !important;
-    padding-bottom: 3px !important;
+    padding-bottom: 5px !important;
   }
 
   .speaker-notes {
