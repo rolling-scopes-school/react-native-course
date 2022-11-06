@@ -1,0 +1,122 @@
+@media only screen and (max-width: 1000px) {
+  .reveal {
+    max-height: 50vh !important;
+  }
+  .speaker-notes {
+    max-height: calc(50vh - 3px) !important;
+    overflow-y: scroll !important;
+    padding-bottom: 3px !important;
+  }
+
+  .slides p {
+    text-align: justify !important;
+    font-size: 0.7rem;
+    margin-bottom: 0px;
+  }
+  .slides a {
+    font-size: 1.1rem;
+  }
+  li {
+    font-size: 1rem;
+  }
+  li > ul > li {
+    font-size: 0.85rem;
+  }
+  pre * {
+    font-size: 0.5rem !important;
+  }
+  .slide-name {
+    font-size: 1.2rem !important;
+  }
+
+  /* picture-slide */
+  /* picture-with-description-slide */
+  .picture-slide,
+  .picture-with-description-slide {
+    height: 48vh;
+  }
+  .picture-slide > img {
+    height: 45vh;
+  }
+  .picture-with-description-slide > img {
+    height: 35vh;
+  }
+
+  /* text-and-picture-slide */
+  .text-and-picture-slide > div > img {
+    max-height: 15vh;
+  }
+
+  /* text-slide */
+  .text-slide {
+    height: 50vh;
+  }
+
+  /* text-and-conding-slide */
+  .text-and-conding-slide > .center-align {
+    height: 40vh;
+  }
+
+  /* numbering-and-picture-slide */
+  .numbering-and-picture-slide > div > img,
+  .bullets-and-picture-slide > div > img,
+  .coding-and-picture-slide > div > img {
+    max-height: 15vh;
+  }
+
+  /* video-text-slide */
+  .video-text-slide > div {
+    height: 15vh;
+  }
+  .video-text-slide iframe {
+    height: 10vh;
+    width: 50%;
+  }
+
+  /* several-pictures-2-slide */
+  /* several-pictures-3-slide */
+  /* several-pictures-4-slide */
+  .several-pictures-2-slide > div,
+  .several-pictures-3-slide > div,
+  .several-pictures-4-slide > div {
+    height: 15vh;
+  }
+  .several-pictures-4-slide div {
+    height: 20vh;
+  }
+  .several-pictures-2-slide > div > * {
+    max-height: 20vh;
+  }
+  .several-pictures-2-slide > div > * > * {
+    max-height: 19vh;
+  }
+  .several-pictures-3-slide > div > * {
+    max-height: 13vh;
+  }
+  .several-pictures-3-slide > div > * > * {
+    max-height: 12vh;
+  }
+  .several-pictures-4-slide > div > * {
+    max-height: 10vh;
+  }
+  .several-pictures-4-slide > div > * > * {
+    max-height: 9vh;
+  }
+
+  /* video-slide */
+  .video-slide > div {
+    height: 45vh;
+  }
+  .video-slide iframe {
+    height: 40vh;
+    width: 50%;
+  }
+
+  /* table-slide */
+  .table-slide > table > thead > tr > th {
+    font-size: 0.85rem !important;
+  }
+  .table-slide > table > tbody > tr > td {
+    font-size: 0.7rem !important;
+  }
+}

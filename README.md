@@ -1,3 +1,8 @@
+# Our contributors
+<a href="https://github.com/rolling-scopes-school/react-native-course/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=rolling-scopes-school/react-native-course" />
+</a>
+
 
 # Materials (WIP)
 - [React](/react/index.md)
@@ -13,4 +18,4 @@
 - [Unit tests](unit-testing/index.md)
 
 # Contributors
-- [Guide](contributors.md)
+- [Guide](CONTRIBUTING.md)
