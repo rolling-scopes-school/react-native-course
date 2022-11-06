@@ -1,14 +1,3 @@
-@media only screen and (max-width: 1000px) {
-  .reveal {
-    max-height: 80vh !important;
-  }
-  .speaker-notes {
-    max-height: calc(20vh - 3px) !important;
-    overflow-y: scroll !important;
-    padding-bottom: 3px !important;
-  }
-}
-
 section > *:not(section) {
   padding-left: 20px;
   padding-right: 20px;
@@ -115,7 +104,7 @@ img.with-border {
   margin-right: 10px;
   max-width: 100%;
   color: azure !important;
-  font-size: 2rem;
+  font-size: 2rem !important;
   text-transform: capitalize !important;
 }
 
@@ -295,7 +284,7 @@ img.with-border {
   }
 }
 
-/* video-slide */
+/* video-text-slide */
 .video-text-slide {
   display: flex !important;
   flex-direction: column;
@@ -414,7 +403,10 @@ img.with-border {
   .table-slide > table {
     width: calc(100% - 20px);
   }
-  .table-slide > table * {
-    font-size: 1rem;
+  .table-slide > table > thead > tr > th {
+    font-size: 0.85rem !important;
+  }
+  .table-slide > table > tbody > tr > td {
+    font-size: 0.7rem !important;
   }
 }
