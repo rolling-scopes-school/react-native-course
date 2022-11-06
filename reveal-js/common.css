@@ -14,16 +14,16 @@ section > *:not(section) {
 
 .slides p {
   text-align: justify !important;
-  font-size: 1.2rem;
+  font-size: 1.2rem !important;
   overflow: hidden;
 }
 
 .slides a {
-  font-size: 1.2rem;
+  font-size: 1.2rem !important;
 }
 
 li {
-  font-size: 2rem;
+  font-size: 2rem !important;
 }
 
 li > ul > li {
@@ -55,14 +55,14 @@ pre * {
 @media only screen and (max-width: 1000px) {
   .slides p {
     text-align: justify !important;
-    font-size: 1rem;
+    font-size: 1rem !important;
     margin-bottom: 0px;
   }
   .slides a {
-    font-size: 1.5rem;
+    font-size: 1.5rem !important;
   }
   li {
-    font-size: 1.5rem;
+    font-size: 1.1rem !important;
   }
   li > ul > li {
     font-size: 1.2rem;
@@ -386,11 +386,11 @@ img.with-border {
 /* table-slide */
 .table-slide > table > thead {
   background-color: lightskyblue;
-  font-size: 1rem;
+  font-size: 1rem !important;
 }
 .table-slide > table * {
   width: calc(100% - 60px);
-  font-size: 1.5rem;
+  font-size: 0.9rem !important;
 }
 .table-slide > table > thead {
   background-color: lightskyblue;
@@ -408,5 +408,8 @@ img.with-border {
   }
   .table-slide > table > tbody > tr > td {
     font-size: 0.7rem !important;
+  }
+  .table-slide > table * {
+    font-size: 0.65rem !important;
   }
 }
