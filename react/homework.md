@@ -4,10 +4,8 @@
 
 ### What should be done:
 
-1. Create a separate branch for this task.
-2. Use CRA with template --typescript.
-3. Set up eslint and prettier so that the project would not build if having errors. Use [configs](https://github.com/rolling-scopes-school/tasks/blob/master/react/modules/module01/configs.md) [RU]
-3. Draw the following on the main view:
+1. Create a new app using the React template on https://codesandbox.io
+2. Draw the following on the main view:
 * Search Bar.\
 examples:\
 https://studio.uxpincdn.com/studio/wp-content/uploads/2020/09/BlogHeader_SearchBar_1200x600.png \
@@ -18,7 +16,6 @@ examples: \
 https://www.webdesignerdepot.com/cdn-origin/uploads/2017/01/behance.jpg \
 https://www.webdesignerdepot.com/cdn-origin/uploads/2017/01/rightmove.jpg \
 https://www.webdesignerdepot.com/cdn-origin/uploads/2017/01/awwwards.jpg \
-**In the situation when the access to life cycles of a component is needed or there is a necessity of state – use class components. Using hooks is forbidden at this stage.**
 6. Add tests for components. Mock LocalStorage. Add test for one card, as well as tests for the list of all cards. You can use either React Testing Library or Enzyme, but only one of them. Prefer React Testing Library.
 
 All logical parts should be set into separate components.
