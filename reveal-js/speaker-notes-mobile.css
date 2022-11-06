@@ -8,9 +8,13 @@
     padding-bottom: 3px !important;
   }
 
+  .speaker-notes {
+    font-size: 0.6rem !important;
+  }
+
   .slides p {
     text-align: justify !important;
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     margin-bottom: 0px;
   }
   .slides a {
@@ -33,10 +37,10 @@
   /* picture-with-description-slide */
   .picture-slide,
   .picture-with-description-slide {
-    height: 48vh;
+    height: 45vh;
   }
   .picture-slide > img {
-    height: 45vh;
+    height: 40vh;
   }
   .picture-with-description-slide > img {
     height: 35vh;
