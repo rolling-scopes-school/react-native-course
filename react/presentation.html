@@ -3722,20 +3722,20 @@ class Welcome extends React.Component {
             <br /><br />
             Let's start with controlled components.<br />
             As the name says, in the controlled component the form input
-            element's values and mutations are totally driven by event handlers
-            and the value of the input element is always inferred from the
-            state. Here's a flow diagram of a controlled component
-            <br /><br />
+            element's values and mutations are totally
+            <strong>driven by event handlers</strong> and the value of the input
+            element is always <strong>inferred from the state</strong>. Here's a
+            flow diagram of a controlled component <br /><br />
             Let's understand the two most important aspects of controlled
             components<br />
             * The component has the <strong>value</strong> attribute set as the
-            components state. This is very important so that
+            components <strong>state</strong>. This is very important so that
             <strong>the input</strong> component's value will always be in sync
             with the components state value.<br />
             * Secondly, we are handling the change event emitted by the element
-            whenever a user tries to update the element's value. Inside the
-            handler function, we are <strong>mutating</strong> the state with
-            the updated input value.<br />
+            whenever a user tries to update the element's value.
+            <strong>Inside the handler function</strong>, we are
+            <strong>mutating the state</strong> with the updated input value.<br />
           </aside>
         </section>
 
@@ -3780,6 +3780,8 @@ class Welcome extends React.Component {
                   const [name, setName] = useState("");
                   const [email, setEmail] = useState("");
 
+                  console.log("render ControlledComponent");
+
                   const onSubmit = () => {
                     console.log("Name value: " + name);
                     console.log("Email value: " + email);
@@ -3816,6 +3818,9 @@ class Welcome extends React.Component {
               In this example, we will create an example of a controlled
               component that will store values in states, will have a form and
               two text fields. And of course the onSubmit method.
+              <br /><br />
+              Let's also add a console.log to keep track of how many times our
+              component is rendered.
             </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
@@ -3899,16 +3904,29 @@ class Welcome extends React.Component {
                 }              
 					    </code>
             </pre>
-            <aside class="notes">App.js.</aside>
+            <aside class="notes">
+              And the last thing we need to do is add our new component to
+              App.js.
+            </aside>
           </section>
-          <section class="picture-slide">
+          <section class="video-slide">
             <h4 class="slide-name">Controlled component example</h4>
-            <img
-              src="assets/images/controlled_component_example_1.png"
-              alt="controlled_component_example_1"
-            />
+            <div>
+              <iframe
+                data-src="assets/videos/controlled_component_example.mp4"
+              ></iframe>
+            </div>
+            <aside class="notes">
+              As we can see our component works, however every time our entire
+              form is re-rendered.
+              <br /><br />
+              This problem can be solved quite easily if each of the text fields
+              is taken out into separate components with its own state.
+              <br />
+              However, for our example, this is not so important, let's now talk
+              about uncontrolled components.
+            </aside>
           </section>
-          <aside class="notes"><br /><br /></aside>
         </section>
 
         <!-- UNCONTROLLED COMPONENTS -->
@@ -3921,10 +3939,10 @@ class Welcome extends React.Component {
           <aside class="notes">
             How uncontrolled components work?
             <br /><br />
-            They don't use any states on input elements or any event handler.
-            This type of component doesn't care about an input element's
-            real-time value changes.
-            <br /><br />
+            They <strong>don't use any states</strong> on input elements
+            <strong>or any event handler</strong>. This type of component
+            <strong>doesn't care</strong> about an input element's
+            <strong>real-time value changes</strong>. <br /><br />
             In the uncontrolled components, we use Refs to access the values of
             input elements.
             <br /><br />
@@ -3933,7 +3951,7 @@ class Welcome extends React.Component {
             and an only view approach using uncontrolled components. <br />
             While other frameworks like Angular or VueJs provide only Model-View
             two-way binding approach to the same use case, React provides two
-            distinctively flexible solutions. <br />
+            distinctively flexible solutions. <br /><br />
             It depends on the use cases about how and where one would use any of
             those.
           </aside>
@@ -3973,6 +3991,8 @@ class Welcome extends React.Component {
                   const nameRef = useRef();
                   const emailRef = useRef();
 
+                  console.log("render UncontrolledComponent");
+
                   const onSubmit = () => {
                     console.log("Name value: " + nameRef.current.value);
                     console.log("Email value: " + emailRef.current.value);
@@ -3993,7 +4013,14 @@ class Welcome extends React.Component {
                 export default UncontrolledComponent;
 					    </code>
             </pre>
-            <aside class="notes"><br /><br /></aside>
+            <aside class="notes">
+              In this example, we will create an example of an uncontrolled
+              component. And we will receive the value through refs in the
+              onSubmit method.
+              <br /><br />
+              Let's also add a console.log to keep track of how many times our
+              component is rendered.
+            </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
             <h4 class="slide-name">Uncontrolled component example</h4>
@@ -4086,13 +4113,16 @@ class Welcome extends React.Component {
               App.js.
             </aside>
           </section>
-          <section class="picture-slide">
+          <section class="video-slide">
             <h4 class="slide-name">Uncontrolled component example</h4>
-            <img
-              src="assets/images/uncontrolled_component_example_1.png"
-              alt="uncontrolled_component_example_1"
-            />
-            <aside class="notes"><br /><br /></aside>
+            <div>
+              <iframe
+                data-src="assets/videos/controlled_component_example.mp4"
+              ></iframe>
+            </div>
+            <aside class="notes">
+              As we can see our component works perfectly.
+            </aside>
           </section>
         </section>
 
@@ -4111,24 +4141,29 @@ class Welcome extends React.Component {
             </p>
             <aside class="notes">
               When you use React, at a single point in time you can think of the
-              <strong>render()</strong> function as creating a tree of React
-              elements. <br />
+              <strong
+                >render() function as creating a tree of React elements.</strong
+              >
+              <br />
+              <br />
               On the next state or props update, that
-              <strong>render()</strong> function will return a different tree of
-              React elements. <br />
+              <strong>render()</strong> function
+              <strong>will return a different tree of React elements</strong>.
+              <br />
               React then needs to figure out how to efficiently update the UI to
               match the most recent tree.
               <br /><br />
-              Let's start with Virtual DOM, this is a representation in the form
-              of an object of the state of our application and through the
-              libraries it matches to the browser-DOM or react-native.<br />
+              Let's start with Virtual DOM, this is a
+              <strong>representation in the form of an object</strong> of the
+              state of our application and through the libraries it matches to
+              the browser-DOM or react-native.<br />
               DOM operations are very heavy and modifying objects is very
               easy.<br />
               Rendering takes place in two stages Reconciling and updating.
               <br /><br />
-              Reconciliation is when two trees are taken, compared and it
-              determines which parts of this tree have changed and should be
-              redrawn.
+              Reconciliation is when <strong>two trees are taken</strong>,
+              <strong>compared</strong> and it determines which parts of this
+              tree <strong>have changed and should be redrawn</strong>.
               <br /><br />
               There is one typical picture of how our application rerenders.<br />
               There is a virtual DOM that is re-rendered to the environment,
@@ -4163,14 +4198,17 @@ class Welcome extends React.Component {
               1.<br />
               When comparing two trees, React first compares the two root
               elements. <br />
-              Whenever the root elements have different types, React will tear
-              down the old tree and build the new tree from scratch.<br />
+              Whenever the root elements have <strong>different types</strong>,
+              React will tear
+              <strong>down the old tree and build the new</strong> tree from
+              scratch.<br />
               When tearing down a tree, old DOM nodes are destroyed. Component
               instances receive componentWillUnmount().
               <br /><br />
-              When comparing two React DOM elements of the same type, React
-              looks at the attributes of both, keeps the same underlying DOM
-              node, and only updates the changed attributes.
+              When comparing two React DOM elements of the
+              <strong>same type</strong>, React
+              <strong>looks at the attributes</strong> of both, keeps the same
+              underlying DOM node, and only updates the changed attributes.
               <br /><br />
               2. Second assumption is about using KEYS.
               <br /><br />
@@ -4246,6 +4284,67 @@ class Welcome extends React.Component {
 
                   return (
                     &lt;>
+                      &lt;button onClick={handleAddToTop}>Add to top&lt;/button>
+                      &lt;button onClick={handleAddToBottom}>Add to bottom&lt;/button>
+                    &lt;/>
+                  );
+                };
+
+                const _InnerComponent = ({ name }) => {
+                  useEffect(() => () => {
+                      console.log(`unmount inner component: ${name}`);
+                    },
+                    [name]
+                  );
+
+                  return <p>Inner component {name}</p>;
+                };
+
+                const InnerComponent = memo(_InnerComponent);
+
+                export default ReconciliationComponent;
+					    </code>
+            </pre>
+            <aside class="notes">
+              Now let's create a memoized InnerComponent component that will
+              display the name, and also print a message to the console.log when
+              it is unmounted.
+              <br /><br />
+              In the ReconciliationComponent, we will create the items state
+              with default values, two functions for pushing new elements into
+              the items state array, and two buttons that will call these
+              methods.
+            </aside>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">Reconciliation example</h4>
+            <p>reconciliation-component.js</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="25-31">
+                import React, { useState, useEffect, memo } from "react";
+
+                const ReconciliationComponent = () => {
+                  const [items, setItems] = useState([
+                    { name: "item 1", key: "item_1" },
+                    { name: "item 30", key: "item_30" },
+                    { name: "item 70", key: "item_70" },
+                    { name: "item 130", key: "item_130" }
+                  ]);
+
+                  const handleAddToTop = () =>
+                    setItems((prev) => [
+                      { name: `Item ${prev.length}`, key: `item_${prev.length}` },
+                      ...prev
+                    ]);
+
+                  const handleAddToBottom = () =>
+                    setItems((prev) => [
+                      { name: `Item ${prev.length}`, key: `item_${prev.length}` },
+                      ...prev
+                    ]);
+
+                  return (
+                    &lt;>
                       <ul>
                         {items.map((i) => (
                           &lt;li key={i.key}>
@@ -4260,8 +4359,7 @@ class Welcome extends React.Component {
                 };
 
                 const _InnerComponent = ({ name }) => {
-                  useEffect(
-                    () => () => {
+                  useEffect(() => () => {
                       console.log(`unmount inner component: ${name}`);
                     },
                     [name]
@@ -4275,7 +4373,10 @@ class Welcome extends React.Component {
                 export default ReconciliationComponent;
 					    </code>
             </pre>
-            <aside class="notes"><br /><br /></aside>
+            <aside class="notes">
+              Now let's add a mapping to our array, pay attention to the KEY
+              attribute we're using.
+            </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
             <h4 class="slide-name">Reconciliation example</h4>
@@ -4380,7 +4481,10 @@ class Welcome extends React.Component {
                 data-src="assets/videos/reconciliation_example.mp4"
               ></iframe>
             </div>
-            <aside class="notes"><br /><br /></aside>
+            <aside class="notes">
+              As we can see, the display of our array works great, there are no
+              unnecessary re-renders.
+            </aside>
           </section>
           <section data-auto-animate class="code-example-slide">
             <h4 class="slide-name">Reconciliation example</h4>
@@ -4425,8 +4529,7 @@ class Welcome extends React.Component {
                 };
 
                 const _InnerComponent = ({ name }) => {
-                  useEffect(
-                    () => () => {
+                  useEffect(() => () => {
                       console.log(`unmount inner component: ${name}`);
                     },
                     [name]
@@ -4440,7 +4543,9 @@ class Welcome extends React.Component {
                 export default ReconciliationComponent;
 					    </code>
             </pre>
-            <aside class="notes"><br /><br /></aside>
+            <aside class="notes">
+              Let's try to render our items state without keys
+            </aside>
           </section>
           <section class="video-slide">
             <h4 class="slide-name">Reconciliation example</h4>
@@ -4449,7 +4554,11 @@ class Welcome extends React.Component {
                 data-src="assets/videos/reconciliation_example_1.mp4"
               ></iframe>
             </div>
-            <aside class="notes"><br /><br /></aside>
+            <aside class="notes">
+              As you can see, the situation has changed a lot, additional
+              renderers have appeared. Let's conclude that the use of the KEY
+              attribute is very important when rendering an array.
+            </aside>
           </section>
         </section>
 
@@ -4477,7 +4586,8 @@ class Welcome extends React.Component {
               </ol>
             </div>
             <aside class="notes">
-              React Fiber is a complete rewrite of React's reconciler algorithm
+              React Fiber is a complete rewrite of React's
+              <strong>reconciler algorithm</strong>
               to fix some of the longstanding problems in React. The main
               feature is that it implements incremental rendering.
               <br /><br />
@@ -4490,10 +4600,9 @@ class Welcome extends React.Component {
               <br /><br />
               By the end of the reconciliation, React knows the result of the
               DOM tree, and a renderer like react-dom or react-native applies
-              the minimal set of changes necessary to update the DOM nodes.This
-              means that when you call ReactDOM.render() or setState(), React
-              performs reconciliation.
-              <br /><br />
+              <strong>the minimal set of changes</strong> necessary to update
+              the DOM nodes.This means that when you call ReactDOM.render() or
+              setState(), React performs reconciliation. <br /><br />
               What is the React stack reconciler?<br />
               Oh, by the way, why is this called the “stack” reconciler? This
               name is derived from the “stack” data structure, which is a
@@ -4502,9 +4611,10 @@ class Welcome extends React.Component {
               Well, as it turns out, since we are effectively performing
               recursion, it has everything to do with a stack.
               <br /><br />
-              The picture shows the main idea, which allows you to redraw UI at
-              least 16 ms, 16 ms is 60 frames per second, which allows you to
-              adjust the feeling that UI does not slow down.
+              The picture shows the main idea, which allows you to
+              <strong>redraw UI at least 16 ms</strong>, 16 ms is 60 frames per
+              second, which allows you to
+              <strong>adjust the feeling</strong> that UI does not slow down.
               <br /><br />
               All tasks are divided into small iterations and executed. Views
               have two callbacks requestIdleCallback and
@@ -4555,6 +4665,9 @@ class Welcome extends React.Component {
               <p>- Basics about Fiber</p>
             </div>
           </div>
+          <aside class="notes">
+            In this video you will get more information about the fiber.
+          </aside>
         </section>
 
         <!-- QA -->
