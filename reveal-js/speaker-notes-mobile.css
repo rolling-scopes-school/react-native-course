@@ -26,8 +26,14 @@
   li > ul > li {
     font-size: 0.85rem;
   }
+  pre {
+    max-height: 35vh !important;
+  }
   pre * {
     font-size: 0.5rem !important;
+  }
+  pre > .hljs {
+    max-height: 35vh !important;
   }
   .slide-name {
     font-size: 1.2rem !important;
