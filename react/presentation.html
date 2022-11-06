@@ -4686,6 +4686,15 @@ class Welcome extends React.Component {
       var url = new URL(window.location.href);
       var showNotes = url.searchParams.has("showNotes");
 
+      if (showNotes) {
+        var head = document.getElementsByTagName("HEAD")[0];
+        var link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        link.href = "../reveal-js/speaker-notes-mobile.css";
+        head.appendChild(link);
+      }
+
       Reveal.initialize({
         disableLayout: true,
         controls: true,
