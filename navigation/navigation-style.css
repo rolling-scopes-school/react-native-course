@@ -75,6 +75,22 @@ section.topic-name-slide {
     width: 30vw;
 }
 
+/* deep linking slide */
+.deep-linking-slide > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 85vh;
+}
+
+.deep-linking-slide > div > p {
+    text-align: center !important;
+}
+.deep-linking-slide > div > img {
+    max-height: 50%
+}
+
 /* frame */
 .frame {
     background-color: whitesmoke;

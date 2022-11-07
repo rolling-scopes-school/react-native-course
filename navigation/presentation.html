@@ -1170,7 +1170,42 @@
           </aside>
         </section>
         <!-- 17 slide -->
-        <!-- todo add deep linking overview -->
+        <section class="deep-linking-slide">
+          <h4 class="slide-name">Deep linking overview</h4>
+          <div>
+            <p>
+              <b>Deep linking</b> uses an URI to navigate to specific location within a mobile app rather simply launching the app
+              <br />
+              <b>Deferred deep linking</b> allows user to deep link to content even if the app isn't already installed
+            </p>
+            <p>
+              There is Linking API in React Native providing a general interface to interact with both incoming and outgoing app links.
+              <br>
+              Usually you register a custom URI scheme for your app to react to incoming links like <em>myApp://somepage</em>
+            </p>
+            <img src="assets/images/deep_linking.png" alt="deep linking" />
+          </div>
+
+          <aside class="notes">
+            Deep Linking is a technique in which a given URL or resource is used to open a specific page or screen on mobile.
+            <br />
+            This particular screen may reside under a series of hierarchical pages, hence the term "deep" in deep linking.
+            It can be a product, an article, secure content behind a paywall, or a login screen.
+            <br /><br />
+            A standard or <b>traditional deep link</b> is one that directs users to a specific part of your app or relevant content, if the user already has the mobile app installed.
+            <br /><br />
+            There is another type of deep link - <b>deferred deep link</b>. It works the same as a standard deep link if your users already have the mobile app installed.
+            But if they don’t have the app installed, it instead takes them to the right app store and asks them to download the app to view the content.
+            <br /><br />
+            As developers, you usually have to handle these flows (sometimes it can be really hard)
+            <br /><br />
+            There are two ways to handle Deep Linking in a React Native app:
+            <br />
+            <strong>Without navigation:</strong> by invoking React Native's core library via JavaScript and directly calling <b>Linking</b>. You can learn more about this in React Native's official documentation
+            <br />
+            <strong>With navigation:</strong> by configuring React Navigation library
+          </aside>
+        </section>
         <!-- 18 slide -->
         <section class="qa-slide">
           <h4>QA</h4>
