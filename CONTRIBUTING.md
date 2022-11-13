@@ -37,13 +37,13 @@ This file will outline the preliminary plans and development steps for this cour
 
 ## How to develop scripts for presenting modules
 1. You should checkout the ```develop``` branch;
-1. You must use the template presentation file located at ```reveal-js/template.html```;
+1. You must use the **template presentation file** located at ```reveal-js/template.html```;
 1. Each section must have a ```class``` attribute, except for sections within a section;
-1. It is **forbidden** to define any custom styles for your presentation;
-1. If you can't find the expected slide in the template, you can define a new slide in the template and create a pull request (if it doesn't affect other slides, you can just push it to the ```develop``` branch), after that you can use it in your presentation;
-1. Each slide should look great on mobile devices;
-1. Each slide should have speaker notes;
-1. Image tags shouldn't have strict height or width;
+1. It is **forbidden to define any custom styles** for your presentation;
+1. If you can't find the expected slide in the template, you can **define a new slide in the template** and create a pull request (if it doesn't affect other slides, you can just push it to the ```develop``` branch), after that you can use it in your presentation;
+1. Each slide should look great on **mobile devices**;
+1. Each slide should have **speaker notes**;
+1. **Image** tags shouldn't have strict height or width;
 
 
 # Communication channels
