@@ -38,7 +38,7 @@ unknown
 ## How to develop scripts for presenting modules
 In order to average out all the presentors, each presentor may have a different level of knowledge on a topic, and the people who created them will not always present the material, so we need to help them understand this material.
 ### 
-- For speaker notes must be used ```aside``` tag with class ```notes```. Please find example in the template file
+- For speaker notes must be used ```aside``` tag with class ```notes```. ```<br /><br />``` and ```<strong>smth important</strong>``` can be used inside ```aside``` tag. Please find example in the template file
 
 
 # Communication channels
