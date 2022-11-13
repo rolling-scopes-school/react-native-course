@@ -23,7 +23,7 @@ unknown
 - PRs should be opened **to the develop branch** and merged when they have at least 3 approvals;
 - PR name example: (feat) 003: your feature description. Where 003 is your issue number (.../react-native-course/issues/3);
 
-## How to materials for module using reveal.js
+## How to develop materials for module using reveal.js
 1. You should checkout the ```develop``` branch;
 1. You must use the **template presentation file** located at ```reveal-js/template.html```;
 1. Each section must have a ```class``` attribute, except for sections within a section;
