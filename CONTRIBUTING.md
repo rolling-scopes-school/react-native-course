@@ -3,30 +3,18 @@
 This file will outline the preliminary plans and development steps for this course.
 
 # Stages
+- **Stage 1.** &#9745; Define modules
+- **Stage 1.** &#9744; Define the contents of modules
+- **Stage 2.** &#9744; Develop materials for each module using reveal.js
+- **Stage 2.** &#9744; Develop scripts for presenting modules
+- **Stage 3.** &#9744; Develop cross-review homeworks
+- **Stage 3.** &#9744; Recheck modules and update them if necessary
+- **Stage 4.** &#9744; Prepare recordings of module presentations and upload them to YouTube channel
+- **Stage 5.** &#9744; Create channels for communication with students
+- **Stage 5.** &#9744; Announce the start of the course
 
-## Stage 1
-
-- &#9745; Define modules
-- &#9744; Define the contents of modules
-
-## Stage 2
-
-- &#9744; Develop materials for each module using **reveal.js?**
-- &#9744; Develop scripts for presenting modules. In order to average out all the presentors, each presentor may have a different level of knowledge on a topic, and the people who created them will not always present the material, so we need to help them understand this material. What form these scenarios will take is still unknown.
-
-## Stage 3
-
-- &#9744; Develop cross-review homeworks
-- &#9744; Recheck modules and update them if necessary
-
-## Stage 4
-
-- &#9744; Prepare recordings of module presentations and upload them to YouTube channel
-
-## Stage 5
-
-- &#9744; Create channels for communication with students
-- &#9744; Announce the start of the course
+# Deadline
+unknown
 
 # Rules
 
@@ -35,7 +23,7 @@ This file will outline the preliminary plans and development steps for this cour
 - PRs should be opened **to the develop branch** and merged when they have at least 3 approvals;
 - PR name example: (feat) 003: your feature description. Where 003 is your issue number (.../react-native-course/issues/3);
 
-## How to develop scripts for presenting modules
+## How to materials for module using reveal.js
 1. You should checkout the ```develop``` branch;
 1. You must use the **template presentation file** located at ```reveal-js/template.html```;
 1. Each section must have a ```class``` attribute, except for sections within a section;
@@ -44,6 +32,13 @@ This file will outline the preliminary plans and development steps for this cour
 1. Each slide should look great on **mobile devices**;
 1. Each slide should have **speaker notes**;
 1. **Image** tags shouldn't have strict height or width;
+1. **Images** should be placed in the ```your_module_folder/assets/images```;
+1. **Videos** should be placed in the ```your_module_folder/assets/videos```;
+
+## How to develop scripts for presenting modules
+In order to average out all the presentors, each presentor may have a different level of knowledge on a topic, and the people who created them will not always present the material, so we need to help them understand this material.
+### 
+- For speaker notes must be used ```aside``` tag with class ```notes```. Please find example in the template file
 
 
 # Communication channels
