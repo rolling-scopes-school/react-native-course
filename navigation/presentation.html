@@ -13,7 +13,6 @@
     <!-- Theme used for syntax highlighting of code -->
     <link rel="stylesheet" href="../reveal-js/plugin/highlight/monokai.css" />
     <link rel="stylesheet" href="../reveal-js/common.css" />
-    <link rel="stylesheet" href="./navigation-style.css" />
   </head>
   <body>
     <div class="reveal">
@@ -103,7 +102,7 @@
             <div>
               <img src="assets/images/bottom_navigation.gif" alt="bottom navigation" />
               <div class="pros-cons-section">
-                <p>
+                <p class="big">
                   Pros:
                 </p>
                 <ul>
@@ -117,7 +116,7 @@
                     easier to reach with the thumb when the device is held in one hand
                   </li>
                 </ul>
-                <p>
+                <p class="big">
                   Cons:
                 </p>
                 <ul>
@@ -139,11 +138,11 @@
             <h4 class="slide-name">Top navigation</h4>
             <div>
               <div>
-                <img src="assets/images/top_navigation_1.png" height="200" alt="top navigation" />
-                <img src="assets/images/top_navigation_2.png" height="200" alt="top navigation" />
+                <img src="assets/images/top_navigation_1.png" alt="top navigation" />
+                <img src="assets/images/top_navigation_2.png" alt="top navigation" />
               </div>
               <div class="pros-cons-section">
-                <p>
+                <p class="big">
                   Pros:
                 </p>
                 <ul>
@@ -154,7 +153,7 @@
                     direct access to specific sections
                   </li>
                 </ul>
-                <p>
+                <p class="big">
                   Cons:
                 </p>
                 <ul>
@@ -182,9 +181,9 @@
           <section class="bullets-and-picture-slide">
             <h4 class="slide-name">Hamburger menu</h4>
             <div>
-              <img src="assets/images/hamburger_menu.gif" class="height-70" alt="hamburger menu" />
+              <img src="assets/images/hamburger_menu.gif" alt="hamburger menu" />
               <div class="pros-cons-section">
-                <p>
+                <p class="big">
                   Pros:
                 </p>
                 <ul>
@@ -195,7 +194,7 @@
                     clean design
                   </li>
                 </ul>
-                <p>
+                <p class="big">
                   Cons:
                 </p>
                 <ul>
@@ -225,17 +224,11 @@
               <br /><br />
               The disadvantages of using this pattern include the following.
               <br /><br />
-              <ul>
-                <li>
-                  Less discoverable. What’s out of sight is out of mind. When navigation is hidden, users are less likely to use it. While this type of navigation is becoming standard and many mobile users are familiar with it, many people still simply don’t think to open it.
-                </li>
-                <li>
-                  The hamburger icon hides context. The hamburger menu doesn't communicate the current location at a glance: Surfacing information about the current location is harder because it's only visible when the person clicks on the hamburger icon.
-                </li>
-                <li>
-                  Reaching a particular page usually takes at least two taps (one tap on the menu icon and another on the target option).
-                </li>
-              </ul>
+              - Less discoverable. What’s out of sight is out of mind. When navigation is hidden, users are less likely to use it. While this type of navigation is becoming standard and many mobile users are familiar with it, many people still simply don’t think to open it.
+              <br /><br />
+              - The hamburger icon hides context. The hamburger menu doesn't communicate the current location at a glance: Surfacing information about the current location is harder because it's only visible when the person clicks on the hamburger icon.
+              <br /><br />
+              - Reaching a particular page usually takes at least two taps (one tap on the menu icon and another on the target option).
             </aside>
           </section>
           <!-- 3.4 slide -->
@@ -244,7 +237,7 @@
             <div>
               <img src="assets/images/floating_action_button.gif" alt="floating action button" />
               <div class="pros-cons-section">
-                <p>
+                <p class="big">
                   Pros:
                 </p>
                 <ul>
@@ -255,7 +248,7 @@
                     takes up little screen space
                   </li>
                 </ul>
-                <p>
+                <p class="big">
                   Cons:
                 </p>
                 <ul>
@@ -282,17 +275,12 @@
               It takes up little screen space. Compared to the tab bar, it doesn’t take up an entire row.
               <br /><br />
               There are also cons of using FAB.
-              <ul>
-                <li>
-                  A floating action button can distract users from content.
-                </li>
-                <li>
-                  It can block content.
-                </li>
-                <li>
-                  It is also icon-only navigation. The problem is that icons are sometimes hard to understand because they’re so open to interpretation.
-                </li>
-              </ul>
+              <br /><br />
+              - A floating action button can distract users from content.
+              <br /><br />
+              - It can block content.
+              <br /><br />
+              - It is also icon-only navigation. The problem is that icons are sometimes hard to understand because they’re so open to interpretation.
             </aside>
           </section>
           <!-- 3.5 slide -->
@@ -301,7 +289,7 @@
             <div>
               <img src="assets/images/gesture-base_navigation.png" alt="gesture-base navigation" />
               <div class="pros-cons-section">
-                <p>
+                <p class="big">
                   Pros:
                 </p>
                 <ul>
@@ -312,7 +300,7 @@
                     UI is more natural
                   </li>
                 </ul>
-                <p>
+                <p class="big">
                   Cons:
                 </p>
                 <ul>
@@ -344,7 +332,7 @@
             <div>
               <img src="assets/images/3d_touch.jpg" alt="3d touch" />
               <div class="pros-cons-section">
-                <p>
+                <p class="big">
                   Pros:
                 </p>
                 <ul>
@@ -355,7 +343,7 @@
                     enables quick, lightweight interaction
                   </li>
                 </ul>
-                <p>
+                <p class="big">
                   Cons:
                 </p>
                 <ul>
@@ -378,19 +366,19 @@
           </section>
         </section>
         <!-- 4 slide -->
-        <section>
+        <section class="slide-with-text-and-logos">
           <h4 class="slide-name">Navigation libraries</h4>
-          <div class="navigation-libraries">
-            <div class="navigation-libraries-text">
+          <div>
+            <div>
               <p><b>React Navigation: </b>well documented, actual, expo, community, JS</p>
               <p><b>React Native Navigation: </b>native, actual, has good documentation, doesn’t work with expo</p>
               <p><b>React-native-router-flux: </b>based on React Navigation</p>
               <p><b>React Router Native: </b>easy to use if familiar with ReactJS and react-router-dom</p>
             </div>
-            <div class="navigation-libraries-images">
-              <img src="assets/images/logo_react_native_navigation.png" alt="logo" height="150" width="150" />
-              <img src="assets/images/logo_react_navigation.svg" alt="logo" height="150" width="150" />
-              <img src="assets/images/logo_react_router_native.svg" alt="logo" height="150" width="150" />
+            <div class="logos">
+              <img src="assets/images/logo_react_native_navigation.png" alt="logo" />
+              <img src="assets/images/logo_react_navigation.svg" alt="logo" />
+              <img src="assets/images/logo_react_router_native.svg" alt="logo" />
             </div>
           </div>
 
@@ -400,29 +388,23 @@
             <br /><br />
             Some of them you can see on the slide.
             <br />
-            <ol>
-              <li>
-                <strong>React navigation </strong>is widely used, well documented. It delivers out-of-the-box, pre-styling navigators such as Stack Navigator, Bottom Tab… You can also customize or extend any part of React Navigation to fit your needs.
-              </li>
-              <li>
-                <strong>React Native Navigation </strong>provided by Wix engineering. This is a popular alternative to React Navigation and may be a better fit for you if you are trying to integrate React Native into an existing large native app. This library doesn’t work with Expo.
-              </li>
-              <li>
-                <strong>react-native-router-flux </strong>this library is based on React Navigation but provides you with a different API to interact with it.
-              </li>
-              <li>
-                <strong>React Router Native </strong>This library is super easy to use if you are a web developer or an ex web developer and familiar with both ReactJS and react-router-dom. Includes everything from react-router and adds a few APIs that are specific to React Native, including &lt;NativeRouter&gt; and a native version of &lt;Link&gt;
-              </li>
-            </ol>
+            - <strong>React navigation </strong>is widely used, well documented. It delivers out-of-the-box, pre-styling navigators such as Stack Navigator, Bottom Tab… You can also customize or extend any part of React Navigation to fit your needs.
+            <br />
+            - <strong>React Native Navigation </strong>provided by Wix engineering. This is a popular alternative to React Navigation and may be a better fit for you if you are trying to integrate React Native into an existing large native app. This library doesn’t work with Expo.
+            <br />
+            - <strong>react-native-router-flux </strong>this library is based on React Navigation but provides you with a different API to interact with it.
+            <br />
+            - <strong>React Router Native </strong>This library is super easy to use if you are a web developer or an ex web developer and familiar with both ReactJS and react-router-dom. Includes everything from react-router and adds a few APIs that are specific to React Native, including &lt;NativeRouter&gt; and a native version of &lt;Link&gt;
+            <br /><br />
             <strong>The most popular and the most frequently used on real projects are the first two.
               They are also recommended by react-native team.
             </strong>
           </aside>
         </section>
         <!-- 5 slide -->
-        <section>
+        <section class="centred-column-text-slide">
           <h4 class="slide-name">React navigation</h4>
-          <div class="column-container-centred">
+          <div>
             <p>routing and navigation for Expo and React Native apps</p>
             <p>completely customizable</p>
             <p>components built for iOS and Android</p>
@@ -470,7 +452,7 @@
             <h4>Installation</h4>
           </section>
           <!-- 7.1 slide -->
-          <section>
+          <section class="text-and-frame-slide">
             <h4 class="slide-name">Installation</h4>
             <div>
               <p>required navigation package</p>
@@ -703,7 +685,7 @@
             </aside>
           </section>
           <!-- 8.4 slide -->
-          <section class="nesting-navigators-slide">
+          <section class="centered-text-and-picture-slide">
             <h4 class="slide-name">Nesting navigators</h4>
             <div>
               <div>
@@ -711,9 +693,7 @@
                 <p>nesting same type of navigators might lead to a confusing UX</p>
                 <p>code becomes difficult to follow when navigating to nested screens</p>
               </div>
-              <div>
-                <img src="assets/images/nesting_navigators.png" alt="nesting navigators">
-              </div>
+              <img src="assets/images/nesting_navigators.png" alt="nesting navigators">
             </div>
 
             <aside class="notes">
@@ -768,7 +748,7 @@
           </aside>
         </section>
         <!-- 10 slide -->
-        <section>
+        <section class="text-and-frame-slide">
           <h4 class="slide-name">Moving between screens</h4>
           <div>
             <div class="fragment" data-fragment-index="1">
@@ -840,7 +820,7 @@
           </aside>
         </section>
         <!-- 11 slide -->
-        <section>
+        <section class="text-and-frame-slide">
           <h4 class="slide-name">Passing parameters to routes</h4>
           <div>
             <div class="fragment" data-fragment-index="1">
@@ -957,25 +937,25 @@
         <section class="text-and-conding-slide">
           <h4 class="slide-name">Navigation events</h4>
           <div class="center-align">
-            <div>
+            <p>
               core events:
               <code class="js background-colored-gray-1">focus</code>,
               <code class="js background-colored-gray-1">blur</code>,
               <code class="js background-colored-gray-1">state</code>,
               <code class="js background-colored-gray-1">beforeRemove</code>
-            </div>
+            </p>
             <br />
-            <div>
+            <p>
               stack navigator events:
               <code class="js background-colored-gray-1">transitionStart</code>,
               <code class="js background-colored-gray-1">transitionEnd</code>,
-            </div>
+            </p>
             <br />
-            <div>
+            <p>
               tab navigator events:
               <code class="js background-colored-gray-1">tabPress</code>,
               etc.
-            </div>
+            </p>
             <br />
             <pre data-id="code-animation">
               <code class="js" data-trim data-line-numbers>
@@ -1022,9 +1002,9 @@
           </aside>
         </section>
         <!-- 14 slide -->
-        <section>
+        <section class="centred-column-text-slide">
           <h4 class="slide-name">Hooks</h4>
-          <div class="column-container-centred">
+          <div>
             <p>useNavigation</p>
             <p>useRoute</p>
             <p>useNavigationState</p>
@@ -1059,18 +1039,18 @@
         <!-- 15 slide -->
         <section class="text-and-conding-slide">
           <h4 class="slide-name">Navigation options</h4>
-          <div>
-            <div>
+          <div class="center-align">
+            <p>
               <code class="js background-colored-gray-1">options</code>
               prop on <b>Screen</b> or
               <code class="js background-colored-gray-1">screenOptions</code>
               prop on <b>Group</b> and <b>Navigator</b>
-            </div>
+            </p>
             <br />
-            <div>
+            <p>
               <code class="js background-colored-gray-1">navigation.setOptions</code>
               method
-            </div>
+            </p>
             <br />
             <pre data-id="code-animation">
               <code class="js" data-trim data-line-numbers>
@@ -1122,7 +1102,7 @@
           </aside>
         </section>
         <!-- 16 slide -->
-        <section class="header-bar-slide">
+        <section class="two-columns-of-pictures-with-description">
           <h4 class="slide-name">Header bar</h4>
           <div>
             <div>
@@ -1162,7 +1142,7 @@
           </aside>
         </section>
         <!-- 17 slide -->
-        <section class="deep-linking-slide">
+        <section class="centred-text-and-bottom-picture-slide">
           <h4 class="slide-name">Deep linking overview</h4>
           <div>
             <p>
