@@ -226,6 +226,7 @@ img.with-border {
   flex-direction: column;
 }
 .video-slide iframe {
+  width: 55vw;
   height: 75vh;
 }
 
