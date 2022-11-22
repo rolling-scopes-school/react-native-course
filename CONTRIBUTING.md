@@ -34,6 +34,7 @@ unknown
 1. **Image** tags shouldn't have strict height or width;
 1. **Images** should be placed in the ```your_module_folder/assets/images```;
 1. **Videos** should be placed in the ```your_module_folder/assets/videos```;
+1. You should use your module name in the ```<title>react-native-course - name module</title>```
 
 ## How to develop scripts for presenting modules
 In order to average out all the presentors, each presentor may have a different level of knowledge on a topic, and the people who created them will not always present the material, so we need to help them understand this material.
