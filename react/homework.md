@@ -1,12 +1,14 @@
 # React homework
 
+Notice: all tasks should be completed in one codesandbox.
+
 ## React. Components
 
 ### What should be done:
 
 1. Create a new app using the React template on https://codesandbox.io
 2. Use class components. Using hooks is forbidden at this stage.
-3. Draw the Search Bar and Cards in the div tag. Try to make it simple.
+3. Draw the Search Bar and Cards in the div tag with id "search-bar". Try to make it simple.
 * examples of Search Bar:\
 https://studio.uxpincdn.com/studio/wp-content/uploads/2020/09/BlogHeader_SearchBar_1200x600.png \
 https://www.sliderrevolution.com/wp-content/uploads/2021/02/cssheader1.jpg \
@@ -21,7 +23,7 @@ All logical parts should be set into separate components.
 
 ### What should be done:
 
-1. Create a component with form in a new separate div tag.
+1. Create a component with form in a new div tag with id "form-component".
 2. Form should be implemented using uncontrolled components.
 3. Add functionality to your app:
    +  Collect information through a form
@@ -69,8 +71,7 @@ Components should not make calls to APIs.
 
 ### What should be done:
 
-1. Create a new component in a new separate div tag.
-2. Choose an API.
+1. Choose an API.
    There are several recommended APIs. But you may choose any other API that you prefer if it supports search, pagination and sorting.
    - https://www.flickr.com/services/api/flickr.photos.search.html
    - https://the-one-api.dev/documentation
@@ -79,11 +80,11 @@ Components should not make calls to APIs.
    - https://pipedream.com/apps/swapi
    - https://github.com/public-apis/public-apis
      **The API should support searching, pagination and sorting. Although you don’t need it at this stage, but there’s a good chance it might come in handy later.**
-3. Use the search page from the first part and rewrite it. Split it into 2 logical parts:
+2. Use the search page from the first part and rewrite it. Split it into 2 logical parts:
    - **Search bar.** Enter text -> Press Enter -> Send the request to API with the searching parameters -> the list of results is updating
    - **The result list of searching**: display the data that the API query returned using Cards.
-4. A customer decided to change requirement. Now every element of the list has to show a small piece of information. After the click on the element we have to show all the  available information about the element in the modal window. The modal window should be closed by clicking on the cross button in the upper right corner or by clicking on a page outside the modal window. When we open a modal window the page should be covered with overlay.
-5. Create a download indicator (a component with animation, or at least with the string "Downloading"). You should place this indicator with your own sense of beauty.
+3. A customer decided to change requirement. Now every element of the list has to show a small piece of information. After the click on the element we have to show all the  available information about the element in the modal window. The modal window should be closed by clicking on the cross button in the upper right corner or by clicking on a page outside the modal window. When we open a modal window the page should be covered with overlay.
+4. Create a download indicator (a component with animation, or at least with the string "Downloading"). You should place this indicator with your own sense of beauty.
 
 All the logical parts must be in separated components.
 **User-friendly interface with the downloading indicator and with notification messages in a case if something goes wrong or some information cannot be found is warmly welcome.**
@@ -92,20 +93,18 @@ All the logical parts must be in separated components.
 
 ### What should be done:
 
-1. Create a new component in a new separate div tag.
-2. Retain the functionality and rewrite the Search Bar and Cards with the hooks.
-3. Retain the functionality and rewrite the form with React Hook Form.
+1. Retain the functionality and rewrite the Search Bar and Cards with the hooks.
+2. Retain the functionality and rewrite the form with React Hook Form.
 
 ## React. Custom app state
 
 ### What should be done:
 
-1. Create a new component in a new separate div tag.
-2. Implement state management solution using useReducer and Context API for search results and form data saving. Now, when switching between pages, all data should be saved.
-3. Add to global state
+1. Implement state management solution using useReducer and Context API for search results and form data saving. Now, when switching between pages, all data should be saved.
+2. Add to global state
     - **switches for sorting** (at least three sorting options). Select a parameter -> send a request to the API with the entered parameter -> the list of search results is updated
     - **switches for pagination.** It should be possible to select the number of results per page and the number of the page we are currently on, the total number of pages. Select a parameter -> send a request to the API with the entered parameter -> the list of search results is updated
-4. The customer has changed the requirements for the output: 
+3. The customer has changed the requirements for the output: 
     - Now, when you click on each item from the search results, you do not need to open a modal, but open the information on a separate page. 
     - Also add a "Back" link on this page. 
     - Display the current position in the header. 
