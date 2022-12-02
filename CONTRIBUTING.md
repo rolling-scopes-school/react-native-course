@@ -46,3 +46,4 @@ In order to average out all the presentors, each presentor may have a different 
 
 - Telegram chat
 - Google Meet
+- [Github Projects](https://github.com/orgs/rolling-scopes-school/projects/3/views/1)
