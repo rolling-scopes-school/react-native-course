@@ -54,9 +54,9 @@
           </ul>
 
           <aside class="notes">
-            On this slide you can se today’s agenda.
+            On this slide you can see today’s agenda.
             <br /><br />
-            we will start by talking about <strong>what navigation is</strong>
+            We will start by talking about <strong>what navigation is</strong>.
             <br /><br />
             Next…
           </aside>
@@ -79,9 +79,9 @@
             <br />
             It has to make users intuitive interactions work well with the app’s functionality.
             <br />
-            If users stop and think, “how can I reach this or that function,” then navigation is bad.
+            If users stop and think “how can I reach this or that function” it means that navigation is bad.
             <br />
-            If navigation is bad, then users won’t like your app. 
+            If navigation is bad, then users won’t like your app.
             <br /><br />
             But establishing good navigation is a challenge on mobile due to the limitations of the small screen.
             <br />
@@ -202,7 +202,7 @@
                     less discoverable
                   </li>
                   <li>
-                    the hamburger icon hides conte
+                    the hamburger icon hides context
                   </li>
                   <li>
                     extra action is required to move to the target destination
@@ -226,7 +226,7 @@
               <br /><br />
               - Less discoverable. What’s out of sight is out of mind. When navigation is hidden, users are less likely to use it. While this type of navigation is becoming standard and many mobile users are familiar with it, many people still simply don’t think to open it.
               <br /><br />
-              - The hamburger icon hides context. The hamburger menu doesn't communicate the current location at a glance: Surfacing information about the current location is harder because it's only visible when the person clicks on the hamburger icon.
+              - The hamburger icon hides context. The hamburger menu doesn't communicate the current location at a glance: surfacing information about the current location is harder because it's only visible when the person clicks on the hamburger icon.
               <br /><br />
               - Reaching a particular page usually takes at least two taps (one tap on the menu icon and another on the target option).
             </aside>
@@ -321,7 +321,7 @@
               <br /><br />
               The great thing about this pattern is that it’s relatively simple to grasp for even the most inexperienced user as the gestures are often intuitive and only require a little experimentation to get right.
               <br /><br />
-              But if the navigation is cluttered, then without proper proper visual hints and cues, users can become confused about how to interact with the app.
+              But if the navigation is cluttered, then without proper visual hints and cues, users can become confused about how to interact with the app.
               <br />
               This will increase the effort of the user.
             </aside>
@@ -355,7 +355,7 @@
             </div>
 
             <aside class="notes">
-              3D Touch is a subtle touch mechanism that was first introduced by Apple,  who found a way to offer direct options from the homescreen of the iPhone.
+              3D Touch is a subtle touch mechanism that was first introduced by Apple, who found a way to offer direct options from the homescreen of the iPhone.
               <br />
               It’s a way to create a navigation shortcut, showing the key actions for the selected app.
               <br />
@@ -384,7 +384,7 @@
 
           <aside class="notes">
             In React Native, we have the option of setting up navigation by creating our own native modules or by building our own JavaScript-based implementation.
-            There are also a number of community- supported libraries that we can use for either of these approaches.
+            There are also a number of community-supported libraries that we can use for either of these approaches.
             <br /><br />
             Some of them you can see on the slide.
             <br />
@@ -392,9 +392,9 @@
             <br />
             - <strong>React Native Navigation </strong>provided by Wix engineering. This is a popular alternative to React Navigation and may be a better fit for you if you are trying to integrate React Native into an existing large native app. This library doesn’t work with Expo.
             <br />
-            - <strong>react-native-router-flux </strong>this library is based on React Navigation but provides you with a different API to interact with it.
+            - <strong>react-native-router-flux </strong>- this library is based on React Navigation but provides you with a different API to interact with it.
             <br />
-            - <strong>React Router Native </strong>This library is super easy to use if you are a web developer or an ex web developer and familiar with both ReactJS and react-router-dom. Includes everything from react-router and adds a few APIs that are specific to React Native, including &lt;NativeRouter&gt; and a native version of &lt;Link&gt;
+            - <strong>React Router Native </strong>- this library is super easy to use if you are a web developer or an ex web developer and familiar with both ReactJS and react-router-dom. Includes everything from react-router and adds a few APIs that are specific to React Native, including &lt;NativeRouter&gt; and a native version of &lt;Link&gt;
             <br /><br />
             <strong>The most popular and the most frequently used on real projects are the first two.
               They are also recommended by react-native team.
@@ -413,7 +413,7 @@
           </div>
 
           <aside class="notes">
-            React Navigation is result of a collaboration between developers from Facebook, Expo and the React community.
+            React Navigation is a result of a collaboration between developers from Facebook, Expo and the React community.
             <br /><br />
             On the slide you can see some facts about this library…
             <br /><br />
@@ -423,7 +423,7 @@
             <br />
             This allows for integration of third-party JS plugins, maximum customization, and easier debugging, with no need to learn Objective-C, Swift, Java, Kotlin, etc.
             <br />
-            Components built for iOS and Android. This means a Platform-specific look-and-feel with smooth animations and gestures.
+            Components built for iOS and Android. This means a platform-specific look-and-feel with smooth animations and gestures.
             <br />
             RN provides hooks. Hooks are great for stateful logic and code organization.
           </aside>
@@ -434,7 +434,7 @@
           <img src="assets/images/built-in_navigators.png" alt="built-in_navigators">
 
           <aside class="notes">
-            React Navigation comes with three built in navigators: StackNavigator, TabNavigator, and DrawerNavigator.
+            React Navigation comes with three built-in navigators: StackNavigator, TabNavigator, and DrawerNavigator.
             <br /><br />
             The first one <strong>StackNavigator</strong> includes or holds screens in stack format, which means when a new screen is viewed, it is positioned on top of the existing one.
             <br /><br />
@@ -622,7 +622,7 @@
             <div>
               <pre data-id="code-animation">
                 <code class="js" data-trim data-line-numbers>
-                  import { createBottomTabNavigator } from ’@react-navigation/ bottom-tabs‘
+                  import { createBottomTabNavigator } from ’@react-navigation/bottom-tabs‘
 
                   const Tab = createBottomTabNavigator()
 
@@ -689,7 +689,7 @@
             <h4 class="slide-name">Nesting navigators</h4>
             <div>
               <div>
-                <p>deeply nested view hierarchy can be cause memory and performance issues in lower end devices</p>
+                <p>deeply nested view hierarchy can be the cause memory and performance issues in lower end devices</p>
                 <p>nesting same type of navigators might lead to a confusing UX</p>
                 <p>code becomes difficult to follow when navigating to nested screens</p>
               </div>
@@ -928,8 +928,6 @@
               If you use the tab bar to switch back to the Screen A, you'll notice you'll be presented with the Screen B - the navigation state of the Screen A has been preserved!
               <br /><br />
               Now that we understand how React lifecycle methods work in React Navigation, let's answer the question we asked at the beginning: "How do we find out that a user is leaving it or coming back to it?”
-              <br /><br />
-              ===> next slide
             </aside>
           </section>
         </section>
@@ -1171,11 +1169,11 @@
             <br /><br />
             As developers, you usually have to handle these flows (sometimes it can be really hard)
             <br /><br />
-            There are two ways to handle Deep Linking in a React Native app:
+            There are two ways to handle Deep Linking in a React Native app.
             <br />
-            <strong>Without navigation:</strong> by invoking React Native's core library via JavaScript and directly calling <b>Linking</b>. You can learn more about this in React Native's official documentation
+            <strong>- Without navigation:</strong> by invoking React Native's core library via JavaScript and directly calling <b>Linking</b>. You can learn more about this in React Native's official documentation
             <br />
-            <strong>With navigation:</strong> by configuring React Navigation library
+            <strong>- With navigation:</strong> by configuring React Navigation library
           </aside>
         </section>
         <!-- 18 slide -->
