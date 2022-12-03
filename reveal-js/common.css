@@ -18,6 +18,10 @@ section > *:not(section) {
   overflow: hidden;
 }
 
+.slides p.big {
+  font-size: 2rem !important;
+}
+
 .slides a {
   font-size: 1.2rem !important;
 }
@@ -56,7 +60,10 @@ pre * {
   .slides p {
     text-align: justify !important;
     font-size: 1rem !important;
-    margin-bottom: 0px;
+    margin-bottom: 0;
+  }
+  .slides p.big {
+    font-size: 1.5rem !important;
   }
   .slides a {
     font-size: 1.5rem !important;
@@ -138,6 +145,14 @@ img.with-border {
   }
 }
 
+/* topic-name-slide  */
+.topic-name-slide {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
 /* picture-slide */
 /* picture-with-description-slide */
 .picture-slide,
@@ -180,6 +195,27 @@ img.with-border {
   }
 }
 
+/* centered-text-and-picture-slide */
+.centered-text-and-picture-slide > div {
+  display: flex !important;
+  align-items: center;
+}
+
+.centered-text-and-picture-slide > div > img {
+  max-width: 50% !important;
+  align-self: flex-start !important;
+  max-height: 70vh;
+}
+
+@media only screen and (max-width: 1000px) {
+  .centered-text-and-picture-slide > div > img {
+    margin: auto !important;
+  }
+  .centered-text-and-picture-slide > div {
+    flex-direction: column;
+  }
+}
+
 /* text-slide */
 .text-slide {
   display: flex !important;
@@ -212,12 +248,24 @@ img.with-border {
   flex-direction: column !important;
   height: 70vh;
   justify-content: center !important;
+  align-items: center;
+}
+.text-and-conding-slide > .center-align > p {
+  font-size: 2rem !important;
+  margin: 0;
+  text-align: center !important;
 }
 
 @media only screen and (max-width: 1000px) {
   .text-and-conding-slide pre {
     width: calc(100% - 10px);
   }
+
+  .text-and-conding-slide > .center-align > p {
+    font-size: 1rem !important;
+    line-height: 1.1rem;
+  }
+
 }
 
 /* video-slide */
@@ -413,4 +461,99 @@ img.with-border {
   .table-slide > table * {
     font-size: 0.65rem !important;
   }
+}
+
+/* two-columns-of-pictures-with-description */
+.two-columns-of-pictures-with-description > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.two-columns-of-pictures-with-description > div > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+}
+.two-columns-of-pictures-with-description > div > div > p {
+  font-size: 1.2rem;
+  margin-bottom: 0;
+  text-align: center !important;
+}
+.two-columns-of-pictures-with-description > div > div > img {
+  width: 30vw;
+}
+
+/* centred-text-and-bottom-picture-slide */
+.centred-text-and-bottom-picture-slide > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 85vh;
+}
+
+.centred-text-and-bottom-picture-slide > div > p {
+  text-align: center !important;
+}
+.centred-text-and-bottom-picture-slide > div > img {
+  max-height: 50%
+}
+
+/* centred-column-text-slide */
+.centred-column-text-slide > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+
+/* slide-with-text-and-logos */
+.slide-with-text-and-logos > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.slide-with-text-and-logos > div > div {
+  min-width: 50%;
+  margin-bottom: 5%;
+}
+.slide-with-text-and-logos > div > div.logos {
+  display: flex;
+  justify-content: space-between;
+}
+.slide-with-text-and-logos > div > div.logos > img {
+  width: 25%;
+}
+
+/* text-and-frame-slide */
+.text-and-frame-slide div.frame {
+  background-color: whitesmoke;
+  border-radius: 10px;
+  padding: 8px;
+  font-size: 1.5rem;
+  text-align: left;
+}
+@media only screen and (max-width: 1000px) {
+  .text-and-frame-slide div.frame {
+    font-size: 1rem;
+  }
+}
+
+
+/* typical sections */
+
+/* pros-cons-section */
+.pros-cons-section {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+.pros-cons-section > p {
+  font-weight: bold;
+}
+
+/* backgrounds */
+.background-colored-gray-1 {
+  background-color: whitesmoke;
 }
