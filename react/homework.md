@@ -1,31 +1,40 @@
 # React homework
 
-Notice: all tasks should be completed in one codesandbox.
+## Overview
 
-## React. Components
+Develop the app with two divs on the page.
+The first div should contain a search bar that allows to make a request to the certain api. The results of the request should be displayed using cards below the search bar.
+The second div should be a form that allows to enter information and display it as cards with records below.
+Also the second tab will be used to display the information from a card that was clicked on.
 
-### What should be done:
+The homework should be done in one codesandbox. Below are the steps with detailed requirements.
+
+  **The usage of Redux or any other solutions for state management is prohibited.**
+
+  **The usage of any libraries with components or form libraries is prohibited.** 
+
+## Steps
 
 1. Create a new app using the React template on https://codesandbox.io
-2. Use class components. Using hooks is forbidden at this stage.
-3. Draw the Search Bar and Cards in the div tag with id "search-bar". Try to make it simple.
-* examples of Search Bar:\
-https://studio.uxpincdn.com/studio/wp-content/uploads/2020/09/BlogHeader_SearchBar_1200x600.png \
-https://www.sliderrevolution.com/wp-content/uploads/2021/02/cssheader1.jpg \
-Input value should be saved to LocalStorage during component’s unmount. During the initialization pick the value from LocalStorage and show it.
-* examples of Cards: \
-https://www.webdesignerdepot.com/cdn-origin/uploads/2017/01/behance.jpg \
-https://www.webdesignerdepot.com/cdn-origin/uploads/2017/01/rightmove.jpg \
-https://www.webdesignerdepot.com/cdn-origin/uploads/2017/01/awwwards.jpg \
+2. Use function components with hooks.
+3. Draw the Search Bar and Cards in the div tag with id "search-bar".
+4. Input value should be saved to LocalStorage during component’s unmount. During the initialization pick the value from LocalStorage and show it.
 
 All logical parts should be set into separate components.
-## React. Forms
+Try to make it simple.
 
-### What should be done:
+* examples of Search Bar:
+![example of Search Bar](images/BlogHeader_SearchBar_1200x600.png)
+![example of Search Bar](images/cssheader1.webp)
 
-1. Create a component with form in a new div tag with id "form-component".
-2. Form should be implemented using uncontrolled components.
-3. Add functionality to your app:
+* examples of Cards:
+![example of Cards](images/behance.jpeg)
+![example of Cards](images/rightmove.jpeg)
+![example of Cards](images/awwwards.jpeg)
+
+4. Create a component with form in a new div tag with id "form-component".
+5. Form should be implemented using uncontrolled components.
+6. Add functionality to your app:
    +  Collect information through a form
    +  You can collect any type of information, but form has to include at least one control of the following types:
       + text input
@@ -49,7 +58,7 @@ All logical parts should be set into separate components.
    
    The quantity of cards should equal the number of form submissions (if the user filled in and submitted the form five times, then five cards have to be displayed under the form).
 
-   **Form validation**
+   ### **Form validation**
    
    Validation should happen after the **Submit** button was clicked. In case some field was filled incorrectly, then error messages should be displayed under it. The card mustn’t be created until the user fixes all errors.
    
@@ -63,15 +72,7 @@ All data must be stored in a local state of the component.
    
 Components should not make calls to APIs.
 
-  **The usage of Redux or any other solutions for state management is prohibited.**
-
-  **The usage of any libraries with components or form libraries is prohibited.** 
-
-## React. API
-
-### What should be done:
-
-1. Choose an API.
+7. Choose an API.
    There are several recommended APIs. But you may choose any other API that you prefer if it supports search, pagination and sorting.
    - https://www.flickr.com/services/api/flickr.photos.search.html
    - https://the-one-api.dev/documentation
@@ -80,48 +81,35 @@ Components should not make calls to APIs.
    - https://pipedream.com/apps/swapi
    - https://github.com/public-apis/public-apis
      **The API should support searching, pagination and sorting. Although you don’t need it at this stage, but there’s a good chance it might come in handy later.**
-2. Use the search page from the first part and rewrite it. Split it into 2 logical parts:
+8. Use the search page from the first part and rewrite it. Split it into 2 logical parts:
    - **Search bar.** Enter text -> Press Enter -> Send the request to API with the searching parameters -> the list of results is updating
    - **The result list of searching**: display the data that the API query returned using Cards.
-3. A customer decided to change requirement. Now every element of the list has to show a small piece of information. After the click on the element we have to show all the  available information about the element in the modal window. The modal window should be closed by clicking on the cross button in the upper right corner or by clicking on a page outside the modal window. When we open a modal window the page should be covered with overlay.
-4. Create a download indicator (a component with animation, or at least with the string "Downloading"). You should place this indicator with your own sense of beauty.
+9. A customer decided to change requirement. Now every element of the list has to show a small piece of information. After the click on the element we have to show all the  available information about the element in the modal window. The modal window should be closed by clicking on the cross button in the upper right corner or by clicking on a page outside the modal window. When we open a modal window the page should be covered with overlay.
+10. Create a download indicator (a component with animation, or at least with the string "Downloading"). You should place this indicator with your own sense of beauty.
 
 All the logical parts must be in separated components.
 **User-friendly interface with the downloading indicator and with notification messages in a case if something goes wrong or some information cannot be found is warmly welcome.**
 
-## React. Hooks
-
-### What should be done:
-
-1. Retain the functionality and rewrite the Search Bar and Cards with the hooks.
-2. Retain the functionality and rewrite the form with React Hook Form.
-
-## React. Custom app state
-
-### What should be done:
-
-1. Implement state management solution using useReducer and Context API for search results and form data saving. Now, when switching between pages, all data should be saved.
-2. Add to global state
+11. Implement state management solution using useReducer and Context API for search results and form data saving.
+12. Add to global state
     - **switches for sorting** (at least three sorting options). Select a parameter -> send a request to the API with the entered parameter -> the list of search results is updated
     - **switches for pagination.** It should be possible to select the number of results per page and the number of the page we are currently on, the total number of pages. Select a parameter -> send a request to the API with the entered parameter -> the list of search results is updated
-3. The customer has changed the requirements for the output: 
-    - Now, when you click on each item from the search results, you do not need to open a modal, but open the information on a separate page. 
-    - Also add a "Back" link on this page. 
+13. The customer has changed the requirements for the output: 
+    - Now, when you click on each item from the search results, you do not need to open a modal, but open the information on the same div. 
+    - Also add a "Back" link on this div that should allow to hide the information and show the search bar with results again. 
     - Display the current position in the header. 
     - The detail page should take data from the global state.
-    - If there is no data, redirect to the home page.
 
 ### Score
 
 The task will be checked by the mentor during the first 6 weeks. Send a codesandbox link to your mentor.
 
-1. React App + components – **9 points**
-2. Form + Cards - **12 points**
-3. App + API - **12 points**
-4. Hooks - **15 points**
-5. Custom State Management - **9 points**
-6. Sorting and pagination - **3 points**
-7. Search details in a separate page - **3 points**
+1. Search bar + components – **2 points**
+2. Form + Cards - **2 points**
+3. API and modal window - **2 points**
+4. Custom State Management - **2 points**
+5. Sorting and pagination - **2 points**
+6. Search details - **2 points**
 
 If one of the items mentioned above is not accomplished – grade for the task is **0 points**. If there are direct DOM manipulations – **0 points**.
 
