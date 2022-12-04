@@ -90,11 +90,12 @@ Components should not make calls to APIs.
 All the logical parts must be in separated components.
 **User-friendly interface with the downloading indicator and with notification messages in a case if something goes wrong or some information cannot be found is warmly welcome.**
 
-11. Implement state management solution using useReducer and Context API for search results and form data saving.
-12. Add to global state
+11. Retain the functionality and **rewrite the form** with library **React Hook Form**. 
+12. Implement state management solution using useReducer and Context API for search results and form data saving.
+13. Add to global state
     - **switches for sorting** (at least three sorting options). Select a parameter -> send a request to the API with the entered parameter -> the list of search results is updated
     - **switches for pagination.** It should be possible to select the number of results per page and the number of the page we are currently on, the total number of pages. Select a parameter -> send a request to the API with the entered parameter -> the list of search results is updated
-13. The customer has changed the requirements for the output: 
+14. The customer has changed the requirements for the output: 
     - Now, when you click on each item from the search results, you do not need to open a modal, but open the information on the same div. 
     - Also add a "Back" link on this div that should allow to hide the information and show the search bar with results again. 
     - Display the current position in the header. 
@@ -113,3 +114,22 @@ The task will be checked by the mentor during the first 6 weeks. Send a codesand
 
 If one of the items mentioned above is not accomplished – grade for the task is **0 points**. If there are direct DOM manipulations – **0 points**.
 
+### Theory
+
+- [Introducing Hooks](https://reactjs.org/docs/hooks-intro.html)
+- [React hooks](https://www.youtube.com/watch?v=3-Zh_DAzCi0)
+* [Rolling Scopes School Lithuania. React. Part 1](https://www.youtube.com/watch?v=L8CmtfCu9AI)
+* [Rolling Scopes School Lithuania. React. Part 2](https://www.youtube.com/watch?v=Rrg4D6AHc5A)
+* [Rolling Scopes School Lithuania. React. Part 3](https://www.youtube.com/watch?v=w9MvuGWVvkY)
+* [Full React Course 2020 - Learn Fundamentals, Hooks, Context API, React Router, Custom Hooks](https://www.youtube.com/watch?v=4UZrsTqkcW4&t=8419s)
+* [React JS фундаментальный курс от А до Я](https://www.youtube.com/watch?v=GNrdg3PzpJQ) [RU]
+* [Forms in React](https://reactjs.org/docs/forms.html)
+* [Full React Tutorial #17 - Fetching Data with useEffect](https://www.youtube.com/watch?v=qdCHEUaFhBk&list=PL4cUxeGkcC9gZD-Tvwfod2gaISzfRiP9d&index=17)
+* [Full React Tutorial #18 - Conditional Loading Message
+  ](https://www.youtube.com/watch?v=qtheqr0jgIQ&list=PL4cUxeGkcC9gZD-Tvwfod2gaISzfRiP9d&index=18)
+* [Full React Tutorial #19 - Handling Fetch Errors](https://www.youtube.com/watch?v=DTBta08fXGU&list=PL4cUxeGkcC9gZD-Tvwfod2gaISzfRiP9d&index=19)
+* [Fetch Data from an API in React](https://www.youtube.com/watch?v=T3Px88x_PsA)
+* [react-hook-form](https://react-hook-form.com/api/)
+* [react-hook-form tutorial](https://www.youtube.com/watch?v=bU_eq8qyjic)
+* [useReducer](https://reactjs.org/docs/hooks-reference.html#usereducer)
+* [useContext](https://reactjs.org/docs/hooks-reference.html#usecontext)
