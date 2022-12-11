@@ -18,7 +18,14 @@ The homework should be done in one codesandbox. Below are the steps with detaile
 1. Create a new app using the React template on https://codesandbox.io
 2. Use function components with hooks.
 3. Draw the Search Bar and Cards in the div tag with id "search-bar".
+Example: [Full React Course 2020 - Props](https://www.youtube.com/watch?v=4UZrsTqkcW4&t=8419s)
 4. Input value should be saved to LocalStorage during component’s unmount. During the initialization pick the value from LocalStorage and show it.
+
+useEffect: [Full React Course 2020 - useEffect](https://www.youtube.com/watch?v=4UZrsTqkcW4&t=17247s)
+
+Example of using Local Storage: [How to use Local Storage in JavaScript](https://www.youtube.com/watch?v=k8yJCeuP6I8)
+
+LocalStorage and other storage options: [JS Cookies vs Local Storage vs Session Storage (timecode)](https://youtu.be/GihQAC1I39Q?t=274)
 
 All logical parts should be set into separate components.
 Try to make it simple.
@@ -116,13 +123,10 @@ If one of the items mentioned above is not accomplished – grade for the task i
 
 ### Theory
 
-- [Introducing Hooks](https://reactjs.org/docs/hooks-intro.html)
-- [React hooks](https://www.youtube.com/watch?v=3-Zh_DAzCi0)
+* [Introducing Hooks](https://reactjs.org/docs/hooks-intro.html)
 * [Rolling Scopes School Lithuania. React. Part 1](https://www.youtube.com/watch?v=L8CmtfCu9AI)
 * [Rolling Scopes School Lithuania. React. Part 2](https://www.youtube.com/watch?v=Rrg4D6AHc5A)
 * [Rolling Scopes School Lithuania. React. Part 3](https://www.youtube.com/watch?v=w9MvuGWVvkY)
-* [Full React Course 2020 - Learn Fundamentals, Hooks, Context API, React Router, Custom Hooks](https://www.youtube.com/watch?v=4UZrsTqkcW4&t=8419s)
-* [React JS фундаментальный курс от А до Я](https://www.youtube.com/watch?v=GNrdg3PzpJQ) [RU]
 * [Forms in React](https://reactjs.org/docs/forms.html)
 * [Full React Tutorial #17 - Fetching Data with useEffect](https://www.youtube.com/watch?v=qdCHEUaFhBk&list=PL4cUxeGkcC9gZD-Tvwfod2gaISzfRiP9d&index=17)
 * [Full React Tutorial #18 - Conditional Loading Message
