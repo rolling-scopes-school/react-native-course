@@ -19,3 +19,7 @@
    2. Benefits on top of Animated API
    3. Usage examples
    4. Useful resources
+
+## Presentation
+
+[link](https://rolling-scopes-school.github.io/react-native-course/animations/presentation.html)

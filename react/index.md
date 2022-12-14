@@ -16,4 +16,5 @@
 - Fiber​
 
 ## Presentation
-https://rolling-scopes-school.github.io/react-native-course/react/presentation.html
+
+[link](https://rolling-scopes-school.github.io/react-native-course/react/presentation.html)
