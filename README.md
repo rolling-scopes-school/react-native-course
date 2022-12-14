@@ -5,7 +5,7 @@
 
 
 # Materials (WIP)
-- [React](/react/index.md)
+- [React](/react/README.md)
 - [State management](/state_management/index.md)
 - [React Native Fundamentals](/react_native_fundamentals/index.md)
 - [Navigation](navigation/index.md)
