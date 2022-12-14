@@ -14,3 +14,6 @@
 - Controlled/Uncontrolled components
 - Reconciliation
 - Fiber​
+
+## Presentation
+https://rolling-scopes-school.github.io/react-native-course/react/presentation.html
