@@ -61,7 +61,7 @@ Try to make it simple.
      file upload - profile picture
      ```
 
-   After the Submit button is clicked, all data from the form has to be displayed as Card in the cards list below the form. The confirmation message (with information that the data has been saved) should be displayed, after that form has to be cleared.
+   After the Submit button is clicked, all data from the form has to be displayed as Card in the cards list below the form. The confirmation message (with information that the data has been saved) should be displayed using simple window.alert or a custom modal window (use [this article](https://medium.com/tinyso/how-to-create-a-modal-component-in-react-from-basic-to-advanced-a3357a2a716a)), after that form has to be cleared.
    
    The quantity of cards should equal the number of form submissions (if the user filled in and submitted the form five times, then five cards have to be displayed under the form).
 
@@ -102,11 +102,6 @@ All the logical parts must be in separated components.
 13. Add to global state
     - **switches for sorting** (at least three sorting options). Select a parameter -> send a request to the API with the entered parameter -> the list of search results is updated
     - **switches for pagination.** It should be possible to select the number of results per page and the number of the page we are currently on, the total number of pages. Select a parameter -> send a request to the API with the entered parameter -> the list of search results is updated
-14. The customer has changed the requirements for the output: 
-    - Now, when you click on each item from the search results, you do not need to open a modal, but open the information on the same div. 
-    - Also add a "Back" link on this div that should allow to hide the information and show the search bar with results again. 
-    - Display the current position in the header. 
-    - The detail page should take data from the global state.
 
 ### Score
 
