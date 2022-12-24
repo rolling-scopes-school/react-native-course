@@ -1,0 +1,160 @@
+* {
+  box-sizing: border-box;
+}
+html {
+  background: rgb(205, 95, 209);
+  background: linear-gradient(
+    180deg,
+    rgba(205, 95, 209, 1) 0%,
+    rgba(64, 144, 194, 1) 65%,
+    rgba(9, 121, 68, 1) 100%
+  );
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+.header {
+  margin-top: 59px;
+}
+
+.header-text {
+  font-weight: 800;
+  text-align: center;
+  font-size: 3.5em;
+  color: #fff;
+}
+
+.filter-bar {
+  height: 50px;
+  width: 80%;
+  position: relative;
+  margin: 59px auto;
+}
+
+.filter-btn {
+  position: absolute;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 100%;
+  background: 0 0;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-transform: none;
+  overflow: visible;
+}
+
+.filter-bar-input {
+  display: block;
+  height: 100%;
+  width: 100%;
+  font-size: 1.2em;
+  font-family: sans-serif;
+  background: #fff;
+  color: #666;
+  line-height: 1.15;
+  padding: 10px 32px 10px 70px;
+  border-radius: 34px;
+  padding-left: 55px;
+  margin: 0;
+  border: 0;
+  overflow: visible;
+}
+
+.filter-bar-input:focus {
+  outline: none;
+}
+
+/* ====================== */
+
+.cards {
+  width: 90%;
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: auto;
+  grid-gap: 20px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 30em) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 50em) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 60em) {
+  .cards {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.7);
+  min-height: 50px;
+  border-radius: 20px;
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center center;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.card article {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card h1 {
+  font-size: 1.5em;
+  margin: 0;
+  color: #333;
+}
+
+.card p {
+  flex: 1;
+  line-height: 1.4;
+  text-align: justify;
+  font-size: 0.8em;
+}
+
+.card span {
+  font-size: 0.8em;
+  font-weight: bold;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0.5em 0 0 0;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  margin-top: 70px;
+  height: 70px;
+}
+
+.footer a {
+  color: #fff;
+}

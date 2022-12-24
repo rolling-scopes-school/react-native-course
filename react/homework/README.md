@@ -1,6 +1,5 @@
 # React homework
 
-## Overview
 
 Develop the app with two divs on the page.
 The first div should contain a search bar that allows to make a request to the certain api. The results of the request should be displayed using cards below the search bar.
