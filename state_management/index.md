@@ -1,6 +1,6 @@
 # Module content
 
-1. Introduction
+1. What is state management
 2. Props Drilling
 3. Context
 4. Undirectional Data Flow
@@ -10,6 +10,8 @@
 - Core Concepts
 - Three Principles
 - Redux Toolkit
+
+7. Mobx
 
 ## Presentation
 
