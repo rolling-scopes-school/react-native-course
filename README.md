@@ -21,3 +21,7 @@
 # Contributors
 
 - [Guide](CONTRIBUTING.md)
+
+# Participation
+
+- [waiting list](https://github.com/rolling-scopes-school/react-native-course/discussions/69)
