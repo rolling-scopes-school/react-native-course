@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>React homework</title>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="./assets/css/pulse.css" />
+    <link rel="stylesheet" href="./assets/css/modal.css" />
+    <script src="index.js"></script>
+  </head>
+  <body onload="loadCards()">
+    <header class="header">
+      <p class="header-text">What are you looking for?</p>
+      <div class="filter-bar">
+        <button class="filter-btn" type="submit">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+            ></path>
+          </svg>
+        </button>
+        <input
+          id="filter-bar-input"
+          type="text"
+          class="filter-bar-input"
+          placeholder="Filter..."
+          oninput="filter()"
+        />
+      </div>
+    </header>
+    <main>
+      <section class="cards" id="cards"></section>
+      <div class="pulse-container">
+        <button
+          class="pulse-button"
+          id="addButton"
+          onclick="handleAddButton()"
+        ></button>
+      </div>
+      <div id="addModal" class="modal">
+        <div class="modal-content">
+          <span
+            class="modal-close"
+            id="closeAddModal"
+            onclick="handleCloseModal()"
+            >&times;</span
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="title"
+            id="form-title"
+            placeholder="Title"
+          />
+          <input
+            type="text"
+            class="form-control"
+            name="author"
+            id="form-author"
+            placeholder="Author"
+          />
+          <textarea
+            name="text"
+            class="form-control"
+            id="form-text"
+            cols="30"
+            rows="7"
+            placeholder="Text"
+          ></textarea>
+          <input
+            type="submit"
+            value="Add"
+            class="addButton"
+            onclick="handleAdd()"
+          />
+        </div>
+      </div>
+      <div id="detailsModal" class="modal" onclick="handleCloseModal()">
+        <div class="modal-content">
+          <span
+            class="modal-close"
+            id="closeDetailsModal"
+            onclick="handleCloseModal()"
+            >&times;</span
+          >
+          <img
+            class="modal-image"
+            id="modal-image"
+            src="./assets/images/cards/card1.png"
+            alt="cdsc"
+          />
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <a href="https://github.com/rolling-scopes-school/react-native-course"
+        >react-native course</a
+      >
+    </footer>
+  </body>
+</html>

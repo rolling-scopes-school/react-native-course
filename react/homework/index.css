@@ -1,0 +1,226 @@
+* {
+  box-sizing: border-box;
+}
+html {
+  background: rgb(205, 95, 209);
+  background: linear-gradient(
+    180deg,
+    rgba(111, 174, 203, 1) 0%,
+    rgba(64, 144, 194, 1) 65%,
+    rgba(20, 39, 154, 1) 100%
+  );
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+.header {
+  margin-top: 59px;
+}
+
+.header-text {
+  font-weight: 800;
+  text-align: center;
+  font-size: 3.5em;
+  color: #fff;
+}
+
+.filter-bar {
+  height: 50px;
+  width: 80%;
+  position: relative;
+  margin: 59px auto;
+}
+
+.filter-btn {
+  position: absolute;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 100%;
+  background: 0 0;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-transform: none;
+  overflow: visible;
+}
+
+.filter-bar-input {
+  display: block;
+  height: 100%;
+  width: 100%;
+  font-size: 1.2em;
+  font-family: sans-serif;
+  background: #fff;
+  color: #666;
+  line-height: 1.15;
+  padding: 10px 32px 10px 70px;
+  border-radius: 34px;
+  padding-left: 55px;
+  margin: 0;
+  border: 0;
+  overflow: visible;
+}
+
+.filter-bar-input:focus {
+  outline: none;
+}
+
+/* ====================== */
+
+.cards {
+  width: 90%;
+  max-width: 1240px;
+  min-height: 40vh;
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: auto;
+  grid-gap: 20px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 30em) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 50em) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 60em) {
+  .cards {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.7);
+  min-height: 50px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.card .card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center center;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.card article {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card h1 {
+  font-size: 1.5em;
+  margin: 0;
+  color: #333;
+}
+
+.card p {
+  flex: 1;
+  line-height: 1.4;
+  text-align: justify;
+  font-size: 0.8em;
+  min-height: 130px;
+}
+
+.card span {
+  font-size: 0.8em;
+  font-weight: bold;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0.5em 0 0 0;
+}
+
+/* ====================== */
+
+.modal .form-control {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-weight: 400;
+  line-height: 1.5;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
+    -webkit-box-shadow 0.15s ease-in-out;
+  font-family: sans-serif;
+  height: 52px;
+  background: #fff;
+  color: #000;
+  font-size: 16px;
+  border-radius: 2px;
+  box-shadow: none !important;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+
+.modal textarea.form-control {
+  min-height: 100px;
+}
+
+.modal .addButton {
+  min-width: 100px;
+  transition: 0.3s;
+  box-shadow: 0px 10px 20px -6px rgb(0 0 0 / 12%);
+  position: relative;
+  margin-bottom: 20px;
+  border-width: 1px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 12px 16px;
+  cursor: pointer;
+  background: #1089ff !important;
+  border-color: #1089ff !important;
+  color: #fff;
+}
+
+/* ====================== */
+
+#detailsModal .modal-content {
+  padding: 0;
+  position: relative;
+}
+#detailsModal .modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.modal .modal-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  border-radius: 20px;
+}
+
+/* ====================== */
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  margin-top: 70px;
+  height: 70px;
+}
+
+.footer a {
+  color: #fff;
+}
