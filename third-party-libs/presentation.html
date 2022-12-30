@@ -45,6 +45,207 @@
           <h4>3d-party libs</h4>
         </section>
 
+        <!-- Finding Libraries -->
+        <section class="picture-with-description-slide">
+          <h4 class="slide-name">Finding Libraries</h4>
+          <img
+            src="assets/svg/react-native-directory.svg"
+            alt="react-native-directory"
+          />
+          <p><a href="https://reactnative.directory/">link</a></p>
+          <aside class="notes">
+            <strong>React Native Directory</strong> is a searchable database of
+            libraries built specifically for React Native. This is the first
+            place to look for a library for your React Native app. <br /><br />
+            React Native Directory allows you to filter by
+            <strong> platform compatibility</strong> , such as iOS, Android,
+            Web, and Windows. If the library you would like to use is not
+            currently listed there, refer to the README for the library to learn
+            more. <br /><br />
+            Usually libraries
+            <strong> built specifically for other platforms</strong> will not
+            work with React Native. Examples include react-select which is built
+            for the web and specifically targets react-dom, and rimraf which is
+            built for Node.js and interacts with your computer file system.
+            Other libraries like lodash
+            <strong> use only JavaScript language</strong> features and work in
+            any environment. <br /><br />
+          </aside>
+        </section>
+
+        <!-- Determining library compatibility -->
+        <section class="text-and-conding-slide">
+          <h4 class="slide-name">Determining library compatibility</h4>
+          <div class="center-align center-text">
+            <p>npm install &lt;library-name>@&lt;version-number></p>
+            <pre data-id="code-animation">
+						<code data-trim data-line-numbers>
+							npm install @react-native-community/netinfo@^2.0.0
+						</code>
+					</pre>
+          </div>
+          <aside class="notes">
+            The latest version of a library is typically compatible with the
+            latest version of React Native. If you are using an older version,
+            you should refer to the README to know which version of the library
+            you should install. You can install a particular version of the
+            library by running npm install library-name and specify
+            version-number, for example: npm install
+            @react-native-community/netinfo@^2.0.0.
+          </aside>
+        </section>
+
+        <!-- Linking Native Code on iOS -->
+        <section class="text-and-conding-slide">
+          <h4 class="slide-name">Linking Native Code on iOS</h4>
+          <div class="center-align center-text">
+            <pre data-id="code-animation">
+              <code data-trim data-line-numbers>
+                npx pod-install
+                npx react-native run-ios
+              </code>
+            </pre>
+          </div>
+          <aside class="notes">
+            React Native uses CocoaPods to manage iOS project dependencies and
+            most React Native libraries follow this same convention. If a
+            library you are using does not, then please refer to their README
+            for additional instruction. In most cases, the following
+            instructions will apply.
+            <br /><br />
+            Run pod install in our ios directory in order to link it to our
+            native iOS project. A shortcut for doing this without switching to
+            the ios directory is to run npx pod-install.
+            <br /><br />
+            Once this is complete, re-build the app binary to start using your
+            new library
+          </aside>
+        </section>
+
+        <!-- Linking Native Code on Android -->
+        <section class="text-and-conding-slide">
+          <h4 class="slide-name">Linking Native Code on Android</h4>
+          <div class="center-align center-text">
+            <pre data-id="code-animation">
+						<code data-trim data-line-numbers>
+							npx react-native run-android
+						</code>
+          </pre>
+          </div>
+
+          <aside class="notes">
+            React Native uses Gradle to manage Android project dependencies.
+            After you install a library with native dependencies, you will need
+            to re-build the app binary to use your new library:
+            <br />
+            npx react-native run-android
+          </aside>
+        </section>
+
+        <!-- react-native-vector-icons -->
+        <section class="picture-with-description-slide">
+          <h4 class="slide-name">react-native-vector-icons</h4>
+          <img src="assets/images/rn-vector-icons.png" alt="rn-vector-icons" />
+          <p>
+            <a href="https://github.com/oblador/react-native-vector-icons"
+              >link</a
+            >
+          </p>
+          <aside class="notes">
+            <strong>react-native-vector-icons</strong> is really popular library
+            for managing icons in react-native apps. <br /><br />
+            Perfect for buttons, logos and nav/tab bars. Easy to extend, style
+            and integrate into your project.
+            <br /><br />
+            Please read github readme file to find steps how to install and use
+            it.
+          </aside>
+        </section>
+
+        <!-- Adding custom fonts  -->
+        <section>
+          <section class="code-example-slide">
+            <h4 class="slide-name">Adding custom fonts</h4>
+
+            <pre data-id="code-animation">
+              <code data-trim data-line-numbers>
+                mkdir src/assets/fonts
+              </code>
+            </pre>
+
+            <pre data-id="code-animation">
+              <code data-trim data-line-numbers>
+                touch react-native.config.js
+              </code>
+            </pre>
+
+            <pre data-id="code-animation">
+              <code class="js" data-trim data-line-numbers>
+                module.exports = {
+                  assets: ['./src/assets/fonts/'],
+                };
+              </code>
+            </pre>
+
+            <pre data-id="code-animation">
+              <code data-trim data-line-numbers>
+                npx react-native-asset
+              </code>
+            </pre>
+
+            <aside class="notes">
+              Create a fonts folder & copy your fonts into this folder
+              <br />
+              <br />
+              Create react-native.config.js file in the root of your project
+              <br />
+              <br />
+              Add following code in react-native.config.js file
+              <br />
+              <br />
+              Last, Run following command to link fonts to your project: npx
+              react-native-asset
+            </aside>
+          </section>
+          <section class="code-example-slide">
+            <h4 class="slide-name">Adding custom fonts</h4>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim>
+                import {SafeAreaView, StyleSheet, Text} from 'react-native';
+                import React from 'react';
+
+                const App = () => {
+                  return (
+                    &lt;SafeAreaView style={styles.container}>
+                      &lt;Text style={styles.Italic}>Italic&lt;/Text>
+                      &lt;Text style={styles.Bold}>Bold&lt;/Text>
+                      &lt;Text style={styles.Regular}>Regular&lt;/Text>
+                      &lt;Text style={styles.Light}>Light&lt;/Text>
+                    &lt;SafeAreaView>
+                  );
+                };
+
+                export default App;
+
+                const styles = StyleSheet.create({
+                  container: {padding: 10},  
+                  Bold: {fontSize: 30, fontFamily: 'Nunito-Bold'},
+                  Light: {fontSize: 30, fontFamily: 'Nunito-Light'},
+                  Regular: {fontSize: 30, fontFamily: 'Nunito-Regular'},
+                  Italic: {fontSize: 30, fontFamily: 'Nunito-Italic'},
+                });
+					    </code>
+            </pre>
+            <aside class="notes">
+              Now open App.tsx file and use your custom font family
+            </aside>
+          </section>
+        </section>
+
+        <!-- 1. Google Maps integration -->
+
+        <!-- 1. Stripe integration -->
+
         <section class="qa-slide">
           <h4>QA</h4>
         </section>
