@@ -2,36 +2,905 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>react-native-course - name module</title>
-    <meta name="description" content="rolling-scopes-school/react-native-course - react module" />
+    <title>rolling-scopes-school/react-native-course - React Native Fundamentals module</title>
+    <meta
+      name="description"
+      content="rolling-scopes-school/react-native-course - name module"
+    />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../reveal-js/dist/reset.css" />
-    <link rel="stylesheet" href="../reveal-js/dist/reveal.css" />
-    <link rel="stylesheet" href="../reveal-js/dist/theme/white.css" id="theme" />
+    <link
+      rel="stylesheet"
+      href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/dist/reset.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/dist/reveal.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/dist/theme/white.css"
+      id="theme"
+    />
     <!-- Theme used for syntax highlighting of code -->
-    <link rel="stylesheet" href="../reveal-js/plugin/highlight/monokai.css" />
+    <link
+      rel="stylesheet"
+      href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/highlight/monokai.css"
+    />
+    <!-- 
+      USE THIS IN YOUR PRESENTATION
+      href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/common.css" 
+    -->
     <link rel="stylesheet" href="../reveal-js/common.css" />
+    <style class="jsStyle"></style>
   </head>
   <body>
     <div class="reveal">
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
-        <section class="center">
-          <h2 class="custom-presentation-name"> Presentation​ Name </h3>
+        <section class="presentation-name-slide">
+          <h4>React Native Fundamentals</h4>
+        </section>
+
+        <section class="agenda-slide">
+          <h4 class="slide-name">AGENDA</h4>
+          <ul>
+            <li class="fragment">Introduction</li>
+            <li class="fragment">Environment setup</li>
+            <li class="fragment">Project structure overview</li>
+            <li class="fragment">Components</li>
+            <li class="fragment">Styles</li>
+            <li class="fragment">Architecture</li>
+            <li class="fragment">Code Quality Tools</li>
+          </ul>
+
+          <aside class="notes">
+            to remove animation -> remove class="fragment"
+          </aside>
+        </section>
+        
+        <section class="topic-name-slide">
+          <h4>Introduction</h4>
+        </section>
+
+        <section class="picture-slide">
+          <h4 class="slide-name">What is React Native</h4>
+          <img src="assets/images/intro.png" alt="simple" />
+          <aside class="notes">
+            React Native is a popular JavaScript-based mobile app framework that allows you to build
+            natively-rendered mobile apps for iOS and Android. It also can be used to develop applications for Web. The
+            framework lets you create an application for various platforms by using the same codebase. React Native also
+            allows you to implement code in OS-native languages.
+          </aside>  
+        </section>
+
+        <section class="picture-slide">
+          <h4 class="slide-name">iOS and Android</h4>
+          <img src="assets/images/ios-and-android.png" alt="simple" />
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="bullets-and-picture-slide">
+          <h4 class="slide-name">Android</h4>
+          <div>
+            <img src="assets/images/android_set.png" alt="simple" />
+            <ul>
+              <li>Android Studio</li>
+              <li>Android apps can be written using Kotlin and Java languages</li>
+              <li>Android Emulator</li>
+            </ul>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="bullets-and-picture-slide">
+          <h4 class="slide-name">iOS</h4>
+          <div>
+            <img src="assets/images/ios_set.png" alt="simple" />
+            <ul>
+              <li>Xcode</li>
+              <li>Objective-C, Swift languages</li>
+              <li>Simulator</li>
+            </ul>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="several-pictures-3-slide-with-description">
+          <h4 class="slide-name">Types of apps</h4>
+          <div>
+            <div class="fragment" data-fragment-index="1">
+              <img src="assets/images/native-type.png" alt="simple" />
+              <p>Native</p>
+            </div>
+            <div class="fragment" data-fragment-index="2">
+              <img src="assets/images/hybrid-type.png" alt="simple" />
+              <p>Hybrid</p>
+            </div>
+            <div class="fragment" data-fragment-index="3">
+              <img src="assets/images/web-type.png" alt="simple" />
+              <p>Web</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="several-pictures-2-slide-with-description">
+          <h4 class="slide-name">Hybrid or Cross-platform?</h4>
+          <div>
+            <div class="fragment" data-fragment-index="1">
+              <img src="assets/images/cordova.png" alt="simple" />
+              <p>Cordova</p>
+            </div>
+            <div class="fragment" data-fragment-index="2">
+              <img src="assets/images/rn_crosspl.png" alt="simple" />
+              <p>React Native</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="picture-slide">
+          <h4 class="slide-name">Selection of CLI</h4>
+          <img src="assets/images/rn_and_expo.png" alt="simple" />
+          <aside class="notes">
+            React Native is a popular JavaScript-based mobile app framework that allows you to build
+            natively-rendered mobile apps for iOS and Android. It also can be used to develop applications for Web. The
+            framework lets you create an application for various platforms by using the same codebase. React Native also
+            allows you to implement code in OS-native languages.
+          </aside>  
+        </section>
+
+        <section class="bullets-and-picture-slide">
+          <h4 class="slide-name">Expo CLI</h4>
+          <div>
+            <img src="assets/images/expo.png" alt="simple" />
+            <div class="pros-cons-section">
+              <p class="big">
+                Pros:
+              </p>
+              <ul>
+                <li>Easy set up</li>
+                <li>Don't need an emulator or a Mac</li>
+                <li>You can share your app live throughout development</li>
+                <li>Own set of basic libraries</li>
+              </ul>
+              <p class="big">
+                Cons:
+              </p>
+              <ul>
+                <li>Can’t add native modules</li>
+                <li>Not All iOS And Android APIs Are Available</li>
+                <li>Can’t use native code libraries</li>
+                <li>Size of app is large</li>
+                <li>Queue  for building</li>
+              </ul>
+            </div>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="bullets-and-picture-slide">
+          <h4 class="slide-name">React Native CLI</h4>
+          <div>
+            <img src="assets/images/rn.png" alt="simple" />
+            <div class="pros-cons-section">
+              <p class="big">
+                Pros:
+              </p>
+              <ul>
+                <li>Native modules</li>
+                <li>Third-party plugin support</li>
+                <li>Build without waiting in queue</li>
+              </ul>
+              <p class="big">
+                Cons:
+              </p>
+              <ul>
+                <li>Initiating a project can be time-consuming</li>
+                <li>Andriod Studio and XCode is needed</li>
+                <li>Share is a bit harder</li>
+              </ul>
+            </div>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="table-slide">
+          <h4 class="slide-name">React-native vs. Expo</h4>
+          <table class="fragment" data-fragment-index="2">
+            <thead>
+              <tr>
+                <th></th>
+                <th>React Native</th>
+                <th>Expo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Native modules</td>
+                <td>+</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>Hello World app size</td>
+                <td>~5 mb</td>
+                <td>~25 mb</td>
+              </tr>
+              <tr>
+                <td>Need Android Studio and XCode</td>
+                <td>+</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>App share</td>
+                <td>Harder (.apk or .ipa)</td>
+                <td>Easy (QR-code)</td>
+              </tr>
+            </tbody>
+          </table>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="picture-slide">
+          <h4 class="slide-name">Alternatives</h4>
+            <img src="assets/images/alternatives.png" alt="simple" />
+        </section>
+
+        <section class="bullets-and-picture-slide">
+          <h4 class="slide-name">Flutter</h4>
+          <div>
+            <img src="assets/images/flutter_big.png" alt="simple" />
+            <div class="pros-cons-section">
+              <p class="big">
+                Pros:
+              </p>
+              <ul>
+                <li>UI building components, Widgets</li>
+                <li>Dart support</li>
+                <li>Perfomance</li>
+              </ul>
+              <p class="big">
+                Cons:
+              </p>
+              <ul>
+                <li>Scarce ecosystem</li>
+                <li>Design features for iOS may not be up to date</li>
+              </ul>
+            </div>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="bullets-and-picture-slide">
+          <h4 class="slide-name">Ionic</h4>
+          <div>
+            <img src="assets/images/ionic_big.png" alt="simple" />
+            <div class="pros-cons-section">
+              <p class="big">
+                Pros:
+              </p>
+              <ul>
+                <li>Short development cycle</li>
+                <li>Easy-to-learn</li>
+              </ul>
+              <p class="big">
+                Cons:
+              </p>
+              <ul>
+                <li>Lower performance</li>
+                <li>App will look the same regardless of platform</li>
+              </ul>
+            </div>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="several-icons-3-slide-with-description">
+          <h4 class="slide-name">Summary</h4>
+          <div>
+            <div class="fragment" data-fragment-index="1">
+              <img src="assets/images/rn_logo.png" alt="simple" />
+              <p>React Native</p>
+              <ul>
+                <li>JavaScript, platform-specific language</li>
+                <li>Close to native performance</li>
+                <li>Native components</li>
+              </ul>
+            </div>
+            <div class="fragment" data-fragment-index="2">
+              <img src="assets/images/ionic.png" alt="simple" />
+              <p>Ionic</p>
+              <ul>
+                <li>HTML5, CSS, and JS</li>
+                <li>Lower performance</li>
+                <li>Web UI components</li>
+              </ul>
+            </div>
+            <div class="fragment" data-fragment-index="3">
+              <img src="assets/images/flutter.png" alt="simple" />
+              <p>Flutter</p>
+              <ul>
+                <li>Dart</li>
+                <li>Better performance</li>
+                <li>Proprietary widgets</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="topic-name-slide">
+          <h4>Environment setup</h4>
+        </section>
+
+        <section class="numbering-and-picture-slide">
+          <h4 class="slide-name">Environment setup</h4>
+          <div>
+            <img src="assets/images/setup_logos.png" alt="simple" />
+            <ol>
+              <li>Node</li>
+              <li>Watchman (optional)</li>
+              <li>React Native command line interface</li>
+              <li>JDK (android)</li>
+              <li>Android Studio (android)</li>
+              <li>Xcode (iOS)</li>
+              <li>CocoaPods (iOS)</li>
+            </ol>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="text-and-frame-slide">
+          <h4 class="slide-name">Creating a new application</h4>
+          <div>
+            <p>To create a new project just run:</p>
+            <div class="frame">
+              <code class="js" data-trim data-line-numbers>
+                npx react-native init yourProject
+              </code>
+            </div>
+
+            <p>[Optional]</p>
+            <p>Using a specific version:</p>
+            <div class="frame">
+              <code class="js" data-trim data-line-numbers>
+                npx react-native init yourProject --version X.XX.X
+              </code>
+            </div>
+
+            <p>Using a specific template:</p>
+            <div class="frame">
+              <code class="js" data-trim data-line-numbers>
+                npx react-native init yourTSProject --template react-native-template-typescript
+              </code>
+            </div>
+          </div>
+
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="topic-name-slide">
+          <h4>Project structure overview</h4>
+        </section>
+
+        <section class="bullets-and-picture-slide">
+          <h4 class="slide-name">Default structure</h4>
+          <div>
+            <img src="assets/images/default_structure.png" alt="simple" />
+            <ul>
+              <li>App.js: main component.</li>
+              <li>index.js: entry point of your application.</li>
+              <li>android and ios: native code or project configuration.</li>
+              <li>metro.config.js: metro configuration file.</li>
+              <li>package.json: project metadata, dependancies, and scripts.</li>
+            </ul>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="text-and-frame-slide">
+          <h4 class="slide-name">Scripts</h4>
+          <div>
+            <p>Runs your android app:</p>
+            <div class="frame">
+              <code class="js" data-trim data-line-numbers>
+                "android": "react-native run-android” 
+              </code>
+            </div>
+
+            <p>Runs your ios app:</p>
+            <div class="frame">
+              <code class="js" data-trim data-line-numbers>
+                "ios": "react-native run-ios”
+              </code>
+            </div>
+
+            <p>Starts Metro Bundler:</p>
+            <div class="frame">
+              <code class="js" data-trim data-line-numbers>
+                "start": "react-native start”
+              </code>
+            </div>
+
+            <p>Example:</p>
+            <div class="frame">
+              <code class="js" data-trim data-line-numbers>
+                "install:full": "rm -rf node_modules && npm install && rm -rf /tmp/metro-bundler-cache-* && cd ./ios && pod install"
+              </code>
+            </div>
+
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="picture-slide">
+          <h4 class="slide-name">Project structure recommendations</h4>
+          <img src="assets/images/project_st_rec.png" alt="simple" />
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="topic-name-slide">
+          <h4>Core Components</h4>
+        </section>
+
+        <section class="table-slide">
+          <h4 class="slide-name">Core Components</h4>
+          <table class="fragment" data-fragment-index="2">
+            <thead>
+              <tr>
+                <th>REACT NATIVE UI COMPONENT</th>
+                <th>WEB ANALOG</th>
+                <th>DESCRIPTION</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>&lt;View&gt;</td>
+                <td>A non-scrolling &lt;div&gt;</td>
+                <td>Container</td>
+              </tr>
+              <tr>
+                <td>&lt;Text&gt;</td>
+                <td>&lt;p&gt;</td>
+                <td>Displays, styles, and nests strings of text</td>
+              </tr>
+              <tr>
+                <td>&lt;Image&gt;</td>
+                <td>&lt;img&gt;</td>
+                <td>Displays different types of images</td>
+              </tr>
+              <tr>
+                <td>&lt;TextInput&gt;</td>
+                <td>&lt;input type="text"&gt;</td>
+                <td>A generic scrolling container</td>
+              </tr>
+              <tr>
+                <td>&lt;ScrollView&gt;</td>
+                <td>&lt;div&gt;</td>
+                <td>Allows the user to enter text</td>
+              </tr>
+            </tbody>
+          </table>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="compare-slide">
+          <h4 class="slide-name">Using List Views</h4>
+          <div>
+          <div>
+            <img src="assets/images/flat-list.gif" alt="simple" />
+            <ul>
+              <li>long lists of data</li>
+              <li>renders items lazily</li>
+            </ul>
+          </div>
+          <div>
+            <img src="assets/images/scroll-view.gif" alt="simple" />
+            <ul>
+              <li>small number of things of a limited size</li>
+              <li>renders all its child components at once</li>
+            </ul>
+          </div>
+        </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="several-pictures-4-slide-with-description">
+          <h4 class="slide-name">Touchables</h4>
+          <div>
+            <div class="fragment" data-fragment-index="1">
+              <img src="assets/images/TouchableOpacity.gif" alt="simple" height="350px" width="240px" />
+              <p>TouchableOpacity</p>
+            </div>
+            <div class="fragment" data-fragment-index="2">
+              <img src="assets/images/TouchableHighlight.gif" alt="simple" height="350px" width="240px"  />
+              <p>TouchableHighlight</p>
+            </div>
+            <div class="fragment" data-fragment-index="3">
+              <img src="assets/images/TouchableWithoutFeedback.gif" alt="simple" height="350px" width="240px"  />
+              <p>TouchableWithoutFeedback</p>
+            </div>
+            <div class="fragment" data-fragment-index="4">
+              <img src="assets/images/TouchableNativeFeedback.gif" alt="simple" height="350px" width="240px"  />
+              <p>TouchableNativeFeedback</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="topic-name-slide">
+          <h4>Styles</h4>
+        </section>
+
+        <section class="text-and-conding-slide">
+          <h4 class="slide-name">Styles</h4>
+          <div class="center-align">
+            <p>Constant</p>
+            <pre data-id="code-animation">
+						<code class="js" data-trim data-line-numbers>
+							const styles = { fontSize: 30, fontWeight: '600' };
+						</code>
+					  </pre>
+            <p>JavaScript expression inside curly brackets</p>
+            <pre data-id="code-animation">
+						<code class="js" data-trim data-line-numbers>
+							style={{ backgroundColor: isUpdated ? 'blue' : 'grey' }}
+						</code>
+					  </pre>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="text-and-conding-slide">
+          <h4 class="slide-name">StyleSheet</h4>
+          <div class="center-align">
+            <p>StyleSheet.create</p>
+            <pre data-id="code-animation">
+						<code class="js" data-trim data-line-numbers>
+              const styles = StyleSheet.create({
+                title: { fontSize: 30 },
+              });              
+						</code>
+					  </pre>
+            <p>StyleSheet.compose</p>
+            <pre data-id="code-animation">
+						<code class="js" data-trim data-line-numbers>
+							const styles = StyleSheet.compose(style1.text, style2.bigText);
+						</code>
+					  </pre>
+            <p>StyleSheet.flatten</p>
+            <pre data-id="code-animation">
+						<code class="js" data-trim data-line-numbers>
+							const styles = StyleSheet.flatten([style1.text, style2.bigText])
+						</code>
+					  </pre>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="picture-slide">
+          <h4 class="slide-name">Flex</h4>
+          <img src="assets/images/flex.png" alt="simple" />
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="several-pictures-3-slide-with-description">
+          <h4 class="slide-name">FlexGrow, FlexBasis and FlexShrink</h4>
+          <div>
+            <div class="fragment" data-fragment-index="1">
+              <img src="assets/images/flexGrow.png" alt="simple" />
+              <p>flexGrow</p>
+            </div>
+            <div class="fragment" data-fragment-index="2">
+              <img src="assets/images/flexBasis.png" alt="simple" />
+              <p>flexBasis</p>
+            </div>
+            <div class="fragment" data-fragment-index="3">
+              <img src="assets/images/flexShrink.png" alt="simple" />
+              <p>flexShrink</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="several-pictures-4-slide-with-description">
+          <h4 class="slide-name">Flex Direction</h4>
+          <div>
+            <div class="fragment" data-fragment-index="1">
+              <img src="assets/images/flexDirection-column.png" alt="simple" />
+              <p>column</p>
+            </div>
+            <div class="fragment" data-fragment-index="2">
+              <img src="assets/images/flexDirection-row.png" alt="simple" />
+              <p>row</p>
+            </div>
+            <div class="fragment" data-fragment-index="3">
+              <img src="assets/images/flexDirection-rr.png" alt="simple" />
+              <p>row-reverse</p>
+            </div>
+            <div class="fragment" data-fragment-index="4">
+              <img src="assets/images/flexDirection-cr.png" alt="simple" />
+              <p>column-reverse</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="several-pictures-3-slide-with-description">
+          <h4 class="slide-name">Justify Content</h4>
+          <div>
+            <div class="fragment" data-fragment-index="1">
+              <img src="assets/images/justifyContent-fs.png" alt="simple" />
+              <p>flex-start</p>
+            </div>
+            <div class="fragment" data-fragment-index="2">
+              <img src="assets/images/justifyContent-center.png" alt="simple" />
+              <p>center</p>
+            </div>
+            <div class="fragment" data-fragment-index="3">
+              <img src="assets/images/justifyContent-fe.png" alt="simple" />
+              <p>flex-end</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="several-pictures-3-slide-with-description">
+          <h4 class="slide-name">Justify Content</h4>
+          <div>
+            <div class="fragment" data-fragment-index="1">
+              <img src="assets/images/justifyContent-sb.png" alt="simple" />
+              <p>space-between</p>
+            </div>
+            <div class="fragment" data-fragment-index="2">
+              <img src="assets/images/justifyContent-sa.png" alt="simple" />
+              <p>space-around</p>
+            </div>
+            <div class="fragment" data-fragment-index="3">
+              <img src="assets/images/justifyContent-se.png" alt="simple" />
+              <p>space-evenly</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="several-pictures-3-slide-with-description">
+          <h4 class="slide-name">Align Items</h4>
+          <div>
+            <div class="fragment" data-fragment-index="1">
+              <img src="assets/images/alignItems-sfb.png" alt="simple" />
+              <p>stretch,
+                flex-start,
+                baseline
+                </p>
+            </div>
+            <div class="fragment" data-fragment-index="2">
+              <img src="assets/images/alignItems-center.png" alt="simple" />
+              <p>center</p>
+            </div>
+            <div class="fragment" data-fragment-index="3">
+              <img src="assets/images/alignItems-fe.png" alt="simple" />
+              <p>flex-end</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="several-pictures-3-slide-with-description">
+          <h4 class="slide-name">Align Content</h4>
+          <div>
+            <div class="fragment" data-fragment-index="1">
+              <img src="assets/images/alignContent-fs.png" alt="simple" />
+              <p>flex-start</p>
+            </div>
+            <div class="fragment" data-fragment-index="2">
+              <img src="assets/images/alignContent-center.png" alt="simple" />
+              <p>center</p>
+            </div>
+            <div class="fragment" data-fragment-index="3">
+              <img src="assets/images/alignContent-fe.png" alt="simple" />
+              <p>flex-end</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="several-pictures-3-slide-with-description">
+          <h4 class="slide-name">Align Content</h4>
+          <div>
+            <div class="fragment" data-fragment-index="1">
+              <img src="assets/images/alignContent-stretch.png" alt="simple" />
+              <p>stretch</p>
+            </div>
+            <div class="fragment" data-fragment-index="2">
+              <img src="assets/images/alignContent-sb.png" alt="simple" />
+              <p>space-between</p>
+            </div>
+            <div class="fragment" data-fragment-index="3">
+              <img src="assets/images/alignContent-sa.png" alt="simple" />
+              <p>space-around</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="several-pictures-4-slide-with-description">
+          <h4 class="slide-name">Align Self</h4>
+          <div>
+            <div class="fragment" data-fragment-index="1">
+              <img src="assets/images/alignSelf-stretch.png" alt="simple" />
+              <p>stretch</p>
+            </div>
+            <div class="fragment" data-fragment-index="2">
+              <img src="assets/images/alignSelf-fsb.png" alt="simple" />
+              <p>flex-start, baseline</p>
+            </div>
+            <div class="fragment" data-fragment-index="3">
+              <img src="assets/images/alignSelf-center.png" alt="simple" />
+              <p>flex-end</p>
+            </div>
+            <div class="fragment" data-fragment-index="4">
+              <img src="assets/images/alignSelf-fe.png" alt="simple" />
+              <p>center</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="several-pictures-2-slide-with-description">
+          <h4 class="slide-name">Flex Wrap</h4>
+          <div>
+            <div class="fragment" data-fragment-index="1">
+              <img src="assets/images/flexwrap_wrap.png" alt="simple" />
+              <p>wrap</p>
+            </div>
+            <div class="fragment" data-fragment-index="2">
+              <img src="assets/images/flexwrap_nowrap.png" alt="simple" />
+              <p>nowrap</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="text-and-conding-slide">
+          <h4 class="slide-name">Platform Specific Code</h4>
+          <div class="center-align">
+            <p>Platform.OS</p>
+            <pre data-id="code-animation">
+						<code class="js" data-trim data-line-numbers>
+              if(Platform.OS === 'ios') {}           
+						</code>
+					  </pre>
+            <p>Platform.Version</p>
+            <pre data-id="code-animation">
+						<code class="js" data-trim data-line-numbers>
+              if(Platform.Version === 25) {}   
+						</code>
+					  </pre>
+            <p>Platform.select</p>
+            <pre data-id="code-animation">
+						<code class="js" data-trim data-line-numbers>
+              const Component = Platform.select({
+                ios: () => require('ComponentIOS'),
+                android: () => require('ComponentAndroid'),
+              });
+						</code>
+					  </pre>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="topic-name-slide">
+          <h4>Architecture</h4>
+        </section>
+
+        <section class="picture-slide-grouped">
+          <h4 class="slide-name">Old architecture in a nutshell</h4>
+            <div class="fragment" data-fragment-index="1">
+              <img src="assets/images/arc_0.png" alt="simple" />
+            </div>
+            <div class="fragment" data-fragment-index="2">
+              <img src="assets/images/arc_1.png" alt="simple" />
+            </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="picture-slide-grouped">
+          <h4 class="slide-name">Old architecture</h4>
+            <div class="fragment" data-fragment-index="1">
+              <img src="assets/images/arc_old_1.png" alt="simple" />
+            </div>
+            <div class="fragment" data-fragment-index="2">
+              <img src="assets/images/arc_old_2.png" alt="simple" />
+            </div>
+            <div class="fragment" data-fragment-index="3">
+              <img src="assets/images/arc_old_3.png" alt="simple" />
+            </div>
+            <div class="fragment" data-fragment-index="4">
+              <img src="assets/images/arc_old_4.png" alt="simple" />
+            </div>
+            <div class="fragment" data-fragment-index="5">
+              <img src="assets/images/arc_old_5.png" alt="simple" />
+            </div>
+            <div class="fragment" data-fragment-index="6">
+              <img src="assets/images/arc_old_6.png" alt="simple" />
+            </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="picture-slide-grouped">
+          <h4 class="slide-name">New architecture</h4>
+            <div class="fragment" data-fragment-index="1">
+              <img src="assets/images/arc_new_1.png" alt="simple" />
+            </div>
+            <div class="fragment" data-fragment-index="2">
+              <img src="assets/images/arc_new_2.png" alt="simple" />
+            </div>
+            <div class="fragment" data-fragment-index="3">
+              <img src="assets/images/arc_new_3.png" alt="simple" />
+            </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="topic-name-slide">
+          <h4>Code Quality Tools</h4>
+        </section>
+
+        <section class="several-pictures-2-slide-with-description">
+          <h4 class="slide-name">ESLint & Prettier </h4>
+          <div>
+            <div class="fragment" data-fragment-index="1">
+              <img src="assets/images/eslint.png" alt="simple" />
+              <p>For catching errors</p>
+            </div>
+            <div class="fragment" data-fragment-index="2">
+              <img src="assets/images/prettier.png" alt="simple" />
+              <p>For formatting</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="text-and-frame-slide">
+          <h4 class="slide-name">Husky</h4>
+          <img src="assets/images/husky.png" alt="simple" />
+          <div>
+            <p>Setup:</p>
+            <div class="frame">
+              <code class="js" data-trim data-line-numbers>
+                npm install husky --save-dev
+              </code>
+            </div>
+            <p>In your package.json file:</p>
+            <div class="frame">
+              <code class="js" data-trim data-line-numbers>
+                "scripts" {
+                  "test": "karma start",
+                  "lint": "npm run tslint \"Client/**/*.ts\"",
+                  "precommit": "npm run lint && npm test",
+                  "prepush": "npm run lint"
+              }              
+              </code>
+            </div>
+          </div>
+          <aside class="notes"></aside>
+        </section>        
+
+        <section class="qa-slide">
+          <h4>QA</h4>
         </section>
       </div>
     </div>
-    <script src="../reveal-js/dist/reveal.js"></script>
-    <script src="../reveal-js/plugin/zoom/zoom.js"></script>
-    <script src="../reveal-js/plugin/notes/notes.js"></script>
-    <script src="../reveal-js/plugin/search/search.js"></script>
-    <script src="../reveal-js/plugin/markdown/markdown.js"></script>
-    <script src="../reveal-js/plugin/highlight/highlight.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/dist/reveal.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/zoom/zoom.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/notes/notes.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/search/search.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/markdown/markdown.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/highlight/highlight.js"></script>
     <script>
       var url = new URL(window.location.href);
-      var showNotes = true; // TODO Uncomment before merging!!! url.searchParams.has("showNotes");
+      var showNotes = url.searchParams.has("showNotes");
+
+      if (showNotes) {
+        var head = document.getElementsByTagName("HEAD")[0];
+        var link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        // USE THIS IN YOUR PRESENTATION
+        // link.href = "https://rolling-scopes-school.github.io/react-native-course/reveal-js/speaker-notes-mobile.css";
+        link.href = "../reveal-js/speaker-notes-mobile.css";
+        head.appendChild(link);
+      }
 
       Reveal.initialize({
         disableLayout: true,
@@ -39,6 +908,7 @@
         progress: true,
         center: false,
         hash: true,
+        autoPlayMedia: true,
         showNotes,
         plugins: [
           RevealZoom,
@@ -48,14 +918,6 @@
           RevealHighlight,
         ],
       });
-
-      document.getElementById("jsStyle").innerHTML = `
-          <style>
-          img, video, iframe {
-              height: ${window.innerHeight * 0.8}px !important;
-              width: ${window.innerWidth * 0.8}px !important;
-          }
-          </style>`;
     </script>
   </body>
 </html>
