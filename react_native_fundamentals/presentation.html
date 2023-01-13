@@ -57,10 +57,6 @@
             <li class="fragment">Architecture</li>
             <li class="fragment">Code Quality Tools</li>
           </ul>
-
-          <aside class="notes">
-            to remove animation -> remove class="fragment"
-          </aside>
         </section>
         
         <section class="topic-name-slide">
@@ -71,7 +67,7 @@
           <h4 class="slide-name">What is React Native</h4>
           <img src="assets/images/intro.png" alt="simple" />
           <aside class="notes">
-            React Native is a popular JavaScript-based mobile app framework that allows you to build
+            React Native is a popular <strong>JavaScript-based mobile app framework </strong>that allows you to build
             natively-rendered mobile apps for iOS and Android. It also can be used to develop applications for Web. The
             framework lets you create an application for various platforms by using the same codebase. React Native also
             allows you to implement code in OS-native languages.
@@ -81,7 +77,9 @@
         <section class="picture-slide">
           <h4 class="slide-name">iOS and Android</h4>
           <img src="assets/images/ios-and-android.png" alt="simple" />
-          <aside class="notes"></aside>
+          <aside class="notes">
+            Since React Native is a JavaScript framework used for developing a real, <strong>native</strong> mobile application for <strong>iOS and Android</strong>, let’s take a closer look at these two platforms.
+          </aside>
         </section>
 
         <section class="bullets-and-picture-slide">
@@ -94,7 +92,13 @@
               <li>Android Emulator</li>
             </ul>
           </div>
-          <aside class="notes"></aside>
+          <aside class="notes">
+            Google’s Android operating system is a mobile-based open-source platform. Nowadays, most smartphones, tablets, televisions, and other devices run on android. Android is open source and hence the source code is available for all developers. In totality it is called the Android <strong>SDK</strong>(also known as the software development kit). SDK is a set of software tools and programs used by developers to create applications for specific platforms.
+Android apps can be written using <strong>Kotlin, Java, and C++</strong> languages. The Android SDK tools compile your code along with any data and resource files into an <strong>APK</strong> or an <strong>Android App Bundle</strong>.
+An Android package, which is an archive file with an .apk suffix, contains the contents of an Android app that are required at runtime and it is the file that Android-powered devices use to install the app.
+An Android App Bundle, which is an archive file with an .aab suffix, contains the contents of an Android app project including some additional metadata that is not required at runtime.
+The easiest way to get started with developing Android applications is to download the Android Studio application suite. Android Studio is the official IDE for Android. It's a software suite that was built by Google and has all the tools built in to build a high-quality Android app. You can run your app on an actual physical device or emulator. The Android Emulator simulates Android devices on your computer so that you can test your application on a variety of devices and Android API levels without needing to have each physical device.
+          </aside>
         </section>
 
         <section class="bullets-and-picture-slide">
@@ -107,7 +111,14 @@
               <li>Simulator</li>
             </ul>
           </div>
-          <aside class="notes"></aside>
+          <aside class="notes">
+            iOS is the mobile operating system that runs on Apple's mobile devices, most notably the iPhone and the iPad.
+Native iOS applications can be written in Objective-C or Swift. Swift is a relatively newer language, introduced only in 2014, while Objective-C is more of an old school programming language.
+Just like an APK (Android Application Package) file can be installed on Android devices, an IPA file can be used for testing iOS applications.
+An .ipa file is an iOS and iPadOS application archive file which stores an iOS/iPadOS app. Each .ipa file includes a binary and can only be installed on an iOS/iPadOS or ARM-based macOS device.
+To develop iOS apps you should use Xcode. Xcode is the IDE (Integrated Development Environment) that Apple creates and uses for iOS and OS X development. 
+You can testing your app on an actual physical iOS device or the Simulator.
+          </aside>
         </section>
 
         <section class="several-pictures-3-slide-with-description">
@@ -126,6 +137,13 @@
               <p>Web</p>
             </div>
           </div>
+          <aside class="notes">
+            Now, for better understanding place of react native in mobile development let’s see what are the different types of mobile apps.
+There are three basic types of mobile apps:
+* Native apps are designed to be “native” to one platform, whether it’s Apple iOS, Google’s Android, or Windows Phone. The native platform can be advantageous because it tends to optimize the user experience. Because it was developed specifically for the platform, it can operate more quickly and intuitively.
+* Web apps are responsive versions of websites that can work on any mobile device or OS because they’re delivered using a mobile browser.
+* Hybrid apps are combinations of both native and web apps, but wrapped within a native app, giving it the ability to have its own icon or be downloaded from an app store. So, these apps can be installed on devices just like native apps, but they run through web browsers. All hybrid apps are developed through the HTML5 programming language. Though hybrid apps are not as fast or reliable as native apps.
+          </aside>
         </section>
 
         <section class="several-pictures-2-slide-with-description">
@@ -140,16 +158,18 @@
               <p>React Native</p>
             </div>
           </div>
+          <aside class="notes">
+            There are a lot of different types if mobile apps, but where does React Native fit in? React Native was built with the goal of learn once, write anywhere. React Native is a cross-platform technology that allows building mobile applications using only JavaScript. While it’s technically a hybrid platform in that it can be written in one language, it has several “native” features. However, it actually compiles into native views. It is a true native app with views that are native to each platform. This solves one of the biggest user experience problems with traditional web hybrid platforms like Ionic or Cordova, that are rendered using Web Views. This web app can use the native wrapper to access features on the device, like the camera roll.
+- The advantage is that developers can write apps that run on multiple platforms.
+- The disadvantage, though, is that it’s hard to make these apps look and feel like real native applications.
+          </aside>
         </section>
 
         <section class="picture-slide">
           <h4 class="slide-name">Selection of CLI</h4>
           <img src="assets/images/rn_and_expo.png" alt="simple" />
           <aside class="notes">
-            React Native is a popular JavaScript-based mobile app framework that allows you to build
-            natively-rendered mobile apps for iOS and Android. It also can be used to develop applications for Web. The
-            framework lets you create an application for various platforms by using the same codebase. React Native also
-            allows you to implement code in OS-native languages.
+            A Command Line Interface (CLI) is a visual interface where programmers can run commands to develop apps. There are two popular ways to create a React Native app — you can use the Expo CLI or you can use the React Native CLI. 
           </aside>  
         </section>
 
@@ -179,7 +199,13 @@
               </ul>
             </div>
           </div>
-          <aside class="notes"></aside>
+          <aside class="notes">
+            Expo is a toolchain based on React Native that will help you set up applications quickly.
+You do not need an emulator or a Mac to run React Native apps with Expo. You can simply download the Expo client app for Andriod and IOS and then run the project on your phone.
+Once you run your app using the expo start or npm start command, the browser-based DevTools UI would open up with a QR code. Thereby, you can share this QR code and you can share your app live throughout development.
+Expo offers you the Expo SDK, which you can use for some local mobile functions, like MapView, ImagePicker, etc. However, if you use Expo CLI to develop applications, you can only use the Expo ecosystem. 
+There are some limitations with Expo as you can’t add native modules. Unlike in React React Native CLI, you can’t use native code libraries that use Objective-C/Java. The executable size is large which can hurt the overall downloads. Besides this, building in Expo requires you to wait for your turn in queue and there are times when you’re very late to the queue and the build might take up to 3-4 hours to complete. 
+          </aside>
         </section>
 
         <section class="bullets-and-picture-slide">
@@ -205,7 +231,14 @@
               </ul>
             </div>
           </div>
-          <aside class="notes"></aside>
+          <aside class="notes">
+            React Native CLI is a built-in feature that helps you take control over the management of the project locally. The strongest feature is that with React Native CLI, you can add native modules written in Java/Objective-C. So, If you want to write you own native module and integrate it with your React Native application then you can do it easily with React Native CLI.
+The good thing about React-Native CLI is that it gives you complete freedom to implement any third-party plugins you want with the liberty to customize any implementation.
+In React Native CLI, the building process happens entirely on your system. This means you don't have to wait in queue. You just build your application whenever you want.
+Initiating a project with React Native CLI can be time-consuming. 
+This is mainly because of the complicated device configurations. You need to set the environment variables and ensure you have the right required SDKs for your application to function.
+To build cross-platform mobile apps using the React Native CLI, you need both Andriod and IOS emulators. This means you need to have Andriod Studio and XCode to run your projects, which are available exclusively on the Mac. Sharing an app can be troublesome. This is because you need to build a whole APK or IPA file. 
+          </aside>
         </section>
 
         <section class="table-slide">
@@ -241,12 +274,18 @@
               </tr>
             </tbody>
           </table>
-          <aside class="notes"></aside>
+          <aside class="notes">
+            Well, as you can see, the selection of the CLI is dependent on the requirements and feature set that is to be implemented.
+Given a comparison of the cons and props of both frameworks, I would suggest screening through the requirements and choosing which one suits your application most.
+          </aside>
         </section>
 
         <section class="picture-slide">
           <h4 class="slide-name">Alternatives</h4>
-            <img src="assets/images/alternatives.png" alt="simple" />
+          <img src="assets/images/alternatives.png" alt="simple" />
+          <aside class="notes">
+            React Native is not the only one technology, that allow you to build mobile apps for both iOS and Android. You can also do it with Flutter and Ionic. 
+          </aside>
         </section>
 
         <section class="bullets-and-picture-slide">
@@ -271,7 +310,11 @@
               </ul>
             </div>
           </div>
-          <aside class="notes"></aside>
+          <aside class="notes">
+            Powered by Google, Flutter designs native-type applications on Android and iOS. Flutter was launched in 2017 and consists of widgets as its building blocks. It uses Dart, which is developed by Google as well. Dart is based on C/C++.
+Flutter advantages. Flutter ships with a comprehensive suite of built-in widgets. With these widgets, you can quickly create nice-looking UIs without doing too much manual styling. UI building components, Widgets, are rendered only when necessary that resembles a declarative approach applied in React. Flutter use Dart to develop high-quality applications for Android, iOS and the web. Dart supports both AOT(Ahead-of-time) and JIT(Just-in-time) compilation that improves app startup times and overall performance.
+Disadvantages of Flutter. 	Scarce ecosystem. Despite impressive support by Google and numerous helpful libraries for Flutter, the framework still lacks a rich set of ready-to-use solutions to cover most functionalities. Also, Flutter allows you to enjoy building Android apps fast and efficient. However, design features of some widgets for iOS may not be up to date, which is an issue from a time-efficiency perspective.
+          </aside>
         </section>
 
         <section class="bullets-and-picture-slide">
@@ -295,7 +338,13 @@
               </ul>
             </div>
           </div>
-          <aside class="notes"></aside>
+          <aside class="notes">
+            An open source SDK launched in 2013. It uses multiple technologies (including HTML5, CSS, and JS) to develop and run applications and access the Cordova wrapper to use native platform controllers. Ionic is a successor of Cordova, but with improved documentation and powerful command line interface. Another technology that influenced the framework is Angular. Hence, if you have a background of the mentioned tools, you’ll have no trouble with creating apps using Ionic.
+Advantages of Ionic.
+With Ionic, you do not have to spend much time working with native languages or other platform-specific issues. There is a plethora of native-styled UI components. As a result, the development cycle is shorter. The framework is easy-to-learn, and the bulk of engineers are familiar with the technologies under the Ionic’s hood. Fast prototyping with Ionic is possible due to the preset templates not to mention a variety of third-party starter kits.
+Disadvantages of Ionic.
+Performance is the price you have to pay for the advantages of hybrid app development. Performance issues are possible in case of numerous callbacks sent to the native code. Also, native UI look is what you should forget about when using Ionic. Your app will look the same regardless of the platform/device it runs on.
+          </aside>
         </section>
 
         <section class="several-icons-3-slide-with-description">
@@ -349,7 +398,27 @@
               <li>CocoaPods (iOS)</li>
             </ol>
           </div>
-          <aside class="notes"></aside>
+          <aside class="notes">
+            Let’s talk about how can you install and build your React Native app.
+So, what do we need? Let’s take a closer look on dependencies.
+You will need to install Node, Watchman, the React Native command line interface, a JDK, and Android Studio, Xcode (iOS), CocoaPods (iOS). (And some IDE that supports js, for example Visual Studio Code).
+
+The first three are common for both platform (android and iOS).
+
+NodeJS is a Javascript cross-platform runtime environment. React Native uses Node. js, to build your JavaScript code.
+Watchman is a tool by Facebook for watching changes in the filesystem. It is highly recommended you install it for better performance. React Native uses watchman to detect when you've made code changes and then automatically build and push the update to your device without you needing to manually refresh it.
+//TODO
+React Native command line interface
+
+Now, let’s see what we need for android
+
+JDK (Java Development Kit) is a cross-platformed software development environment. The JDK provides tools, such as the Java compiler, used by IDEs and SDKs for developing Java programs. 
+Android Studio is the official IDE for Android.
+
+And, when we talk about what we need for iOS, it’s 
+Xcode (iOS)  is the IDE for iOS
+And CocoaPods (iOS) witch is a dependency manager for Swift and Objective-C Cocoa projects. React Native uses Cocoapods to add iOS dependencies when you add new modules to your application.
+          </aside>
         </section>
 
         <section class="text-and-frame-slide">
@@ -431,13 +500,33 @@
               </code>
             </div>
 
-          <aside class="notes"></aside>
+          <aside class="notes">
+            •The "scripts" property of your package.json file supports a number of built-in scripts and their preset life cycle events as well as arbitrary scripts. These all can be executed by running npm run <script_name>.
+              Let's see what's inside the default scripts.
+              •npx react-native run-android is one way to run your app - you can also run it directly from within Android Studio.
+              •npx react-native run-ins command will automatically run your app on the iOS Simulator by default.
+              •npx react-native start – starts Metro Bundler
+              
+              Also you can add your own scripts, here is an example:
+              •"install:full": "rm -rf node_modules && npm install && rm -rf /tmp/metro-bundler-cache-* && cd ./ios && pod install"
+          </aside>
         </section>
 
         <section class="picture-slide">
           <h4 class="slide-name">Project structure recommendations</h4>
           <img src="assets/images/project_st_rec.png" alt="simple" />
-          <aside class="notes"></aside>
+          <aside class="notes">
+            React Native doesn't have opinions on how you put files into folders. That said there are a few common approaches popular in the ecosystem you may want to consider.
+* src: Contains all major project files.
+* api: This folder contains logic related to external API communications.
+•assets: This folder will store all the assets that we are using in react-native.
+•components: In the components folder, you can create multiple component files that are used to wrap the application components and determine their overall layout. You can also add reusable and UI components.
+•navigation: Your project base navigation goes here. You can create a stack navigator in it and export it to your application. 
+* screens: If you have multiple screens like auth screens: login, register and profile screens, product screens it can be saved here.
+•store: If you are using Redux, then there must be action and reducers files that can be put here.
+* styles: Here we place the explore feature’s components related styles.
+* utils: All the utils/helpers files go here that storing reusable methods and logic like validations, progress bar, date pickers, and according to your app requirements.
+          </aside>
         </section>
 
         <section class="topic-name-slide">
@@ -482,7 +571,23 @@
               </tr>
             </tbody>
           </table>
-          <aside class="notes"></aside>
+          <aside class="notes">
+            Components are the building blocks of any React Native application. Components are an abstraction layer on top of the underlying native platform. On an iOS device, a React Native component is ultimately rendered as a UIView. On Android, the same component would be rendered as an android.view.
+•View:
+The most fundamental component for building a UI, View is a container that supports layout with flexbox, style, some touch handling, and accessibility controls. View is designed to be nested inside other views and can have 0 to many children of any type.
+•Text:
+A React component for displaying text. Text supports nesting, styling, and touch handling. (Nested text example). The <Text> element is unique relative to layout: everything inside is no longer using the Flexbox layout but using text layout. This means that elements inside of a <Text> are no longer rectangles, but wrap when they see the end of the line.(Containers
+Example). Also, you need to know, that you must wrap all the text nodes inside of a <Text> component. You cannot have a text node directly under a <View>.
+•Image:
+A React component for displaying different types of images, including network images, static resources, temporary local images, and images from local disk, such as the camera roll. Image components has source prop. It is the image source (either a remote URL or a local file resource). This prop can also contain several remote URLs, specified together with their width and height and potentially with scale/other URI arguments. The native side will then choose the best uri to display based on the measured size of the image container
+
+•TextInput:
+A foundational component for inputting text into the app via a keyboard. Props provide configurability for several features, such as auto-correction, auto-capitalization, placeholder text, and different keyboard types, such as a numeric keypad. You can subscribe to the onChangeText events to read the user input. Other important props are the value and the placeholder. value: The value to show for the text input. TextInput is a controlled component, which means the native value will be forced to match this value prop if provided. Placeholder: 
+the string that will be rendered before text input has been entered. 
+•ScrollView:
+Component that wraps platform ScrollView while providing integration with touch locking "responder" system.
+Keep in mind that ScrollViews must have a bounded height in order to work, since they contain unbounded-height children into a bounded container (via a scroll interaction). In order to bound the height of a ScrollView, either set the height of the view directly (discouraged) or make sure all parent views have bounded height. 
+          </aside>
         </section>
 
         <section class="compare-slide">
@@ -503,7 +608,12 @@
             </ul>
           </div>
         </div>
-          <aside class="notes"></aside>
+          <aside class="notes">
+            React Native provides a suite of components for presenting lists of data. Generally, there are two methods of listing data in a React Native app: displaying the list with map and using the FlatList component.
+The map method technically gives you more flexibility to customize your list the way you want with the React Native ScrollView component but it loads all the items every time which can be expensive.
+FlatList is a React Native component that only loads items that are currently visible on the screen and it deletes items as they go off screen which is more optimal for large amounts of data. Furthermore, it provides scrolling features by default. You don’t need to use extra components like ScrollView to make list data scrollable. The FlatList component requires two props: data and renderItem. data is the source of information for the list. renderItem takes one item from the source and returns a formatted component to render.
+If you need section support, you can use SectionList.
+          </aside>
         </section>
 
         <section class="several-pictures-4-slide-with-description">
@@ -526,6 +636,20 @@
               <p>TouchableNativeFeedback</p>
             </div>
           </div>
+          <aside class="notes">
+            TouchableHighlight
+A wrapper for making views respond properly to touches. On press down, the opacity of the wrapped view is decreased, which allows the underlay color to show through, darkening or tinting the view. So, don’t forget to set underlayColor in props. UnderlayColor is the color of the underlay that will show through when the touch is active.
+
+TouchableOpacity
+A wrapper for making views respond properly to touches. On press down, the opacity of the wrapped view is decreased, dimming it. You can change the opacity in activeOpacity prop.
+
+TouchableWithoutFeedback
+The TouchableWithoutFeedback is used when the user wants to handle press but doesn't want to see any feedback.
+TouchableWithoutFeedback supports only one child. If you wish to have several child components, wrap them in a View. Importantly, TouchableWithoutFeedback works by cloning its child and applying responder props to it. It is therefore required that any intermediary components pass through those props to the underlying React Native component.
+
+TouchableNativeFeedback
+A wrapper for making views respond properly to touches (Android only). On Android this component uses native state drawable to display touch feedback.
+          </aside>
         </section>
 
         <section class="topic-name-slide">
@@ -548,7 +672,11 @@
 						</code>
 					  </pre>
           </div>
-          <aside class="notes"></aside>
+          <aside class="notes">
+            With React Native, you style your application using JavaScript. All of the core components accept a prop named style. There are multiple ways we can provide value to the style prop. React Native use React and it use JSX for layout. In JSX you can pass a constant value to props directly or pass javascript expression inside curly brackets. Style prop also accepts array of objects. Even though we can use plain JavaScript objects for style it is not a good practice. What we can do instead is to use the inbuilt StyleSheet API. A StyleSheet is an abstraction similar to CSS StyleSheets. The StyleSheet API has a lot of advantages over the normal object, like compile-time checks, performance improvements and better code auto-completion to name a few.
+The style names and values usually match how CSS works on the web, except names are written using camel casing, e.g. backgroundColor rather than background-color.
+If you want to use some features like media-queries or variables you should install React Native Extended StyleSheet.
+          </aside>
         </section>
 
         <section class="text-and-conding-slide">
@@ -575,13 +703,23 @@
 						</code>
 					  </pre>
           </div>
-          <aside class="notes"></aside>
+          <aside class="notes">
+            A StyleSheet is an abstraction similar to CSS StyleSheets.
+create
+Creates a StyleSheet style reference from the given object.
+compose
+Combines two styles such that style2 will override any styles in style1. If either style is falsy, the other one is returned without allocating an array.
+flatten
+Flattens an array of style objects, into one aggregated style object.
+          </aside>
         </section>
 
         <section class="picture-slide">
           <h4 class="slide-name">Flex</h4>
           <img src="assets/images/flex.png" alt="simple" />
-          <aside class="notes"></aside>
+          <aside class="notes">
+            flex will define how your items are going to “fill” over the available space along your main axis. Space will be divided according to each element's flex property.
+          </aside>
         </section>
 
         <section class="several-pictures-3-slide-with-description">
@@ -600,6 +738,11 @@
               <p>flexShrink</p>
             </div>
           </div>
+          <aside class="notes">
+            * flexBasis is an axis-independent way of providing the default size of an item along the main axis. Setting the flexBasis of a child is similar to setting the width of that child if its parent is a container with flexDirection: row or setting the height of a child if its parent is a container with flexDirection: column. The flexBasis of an item is the default size of that item, the size of the item before any flexGrow and flexShrink calculations are performed.
+* flexGrow describes how any space within a container should be distributed among its children along the main axis. After laying out its children, a container will distribute any remaining space according to the flex grow values specified by its children.flexGrow accepts any floating point value >= 0, with 0 being the default value. A container will distribute any remaining space among its children weighted by the children’s flexGrow values.
+* flexShrink describes how to shrink children along the main axis in the case in which the total size of the children overflows the size of the container on the main axis. flexShrink is very similar to flexGrow and can be thought of in the same way if any overflowing size is considered to be negative remaining space. These two properties also work well together by allowing children to grow and shrink as needed.flexShrink accepts any floating point value >= 0, with 0 being the default value (on the web, the default is 1). A container will shrink its children weighted by the children’s flexShrink values.
+          </aside>
         </section>
 
         <section class="several-pictures-4-slide-with-description">
@@ -622,6 +765,13 @@
               <p>column-reverse</p>
             </div>
           </div>
+          <aside class="notes">
+            flexDirection controls the direction in which the children of a node are laid out. This is also referred to as the main axis. The cross axis is the axis perpendicular to the main axis, or the axis which the wrapping lines are laid out in.
+* column (default value) Align children from top to bottom. If wrapping is enabled, then the next line will start to the right of the first item on the top of the container.
+* row Align children from left to right. If wrapping is enabled, then the next line will start under the first item on the left of the container.
+* column-reverse Align children from bottom to top. If wrapping is enabled, then the next line will start to the right of the first item on the bottom of the container.
+* row-reverse Align children from right to left. If wrapping is enabled, then the next line will start under the first item on the right of the container.
+          </aside>
         </section>
 
         <section class="several-pictures-3-slide-with-description">
@@ -640,6 +790,12 @@
               <p>flex-end</p>
             </div>
           </div>
+          <aside class="notes">
+            justifyContent describes how to align children within the main axis of their container. For example, you can use this property to center a child horizontally within a container with flexDirection set to row or vertically within a container with flexDirection set to column. 	
+•	flex-start(default value) Align children of a container to the start of the container's main axis.
+* flex-end Align children of a container to the end of the container's main axis.
+* center Align children of a container in the center of the container's main axis.
+          </aside>
         </section>
 
         <section class="several-pictures-3-slide-with-description">
@@ -658,6 +814,11 @@
               <p>space-evenly</p>
             </div>
           </div>
+          <aside class="notes">
+            * space-between Evenly space off children across the container's main axis, distributing the remaining space between the children.
+* space-around Evenly space off children across the container's main axis, distributing the remaining space around the children. Compared to space-between, using space-around will result in space being distributed to the beginning of the first child and end of the last child.
+* space-evenly Evenly distribute children within the alignment container along the main axis. The spacing between each pair of adjacent items, the main-start edge and the first item, and the main-end edge and the last item, are all exactly the same.
+          </aside>
         </section>
 
         <section class="several-pictures-3-slide-with-description">
@@ -679,6 +840,14 @@
               <p>flex-end</p>
             </div>
           </div>
+          <aside class="notes">
+            alignItems describes how to align children along the cross axis of their container. It is very similar to justifyContent but instead of applying to the main axis, alignItems applies to the cross axis.
+* stretch (default value) Stretch children of a container to match the height of the container's cross axis.
+* flex-start Align children of a container to the start of the container's cross axis.
+* flex-end Align children of a container to the end of the container's cross axis.
+* center Align children of a container in the center of the container's cross axis.
+* baseline Align children of a container along a common baseline. Individual children can be set to be the reference baseline for their parents.
+          </aside>
         </section>
 
         <section class="several-pictures-3-slide-with-description">
@@ -697,6 +866,12 @@
               <p>flex-end</p>
             </div>
           </div>
+          <aside class="notes">
+            alignContent defines the distribution of lines along the cross-axis. This only has effect when items are wrapped to multiple lines using flexWrap.
+* flex-start (default value) Align wrapped lines to the start of the container's cross axis.
+* flex-end Align wrapped lines to the end of the container's cross axis.
+* center Align wrapped lines in the center of the container's cross axis.
+          </aside>
         </section>
 
         <section class="several-pictures-3-slide-with-description">
@@ -715,6 +890,11 @@
               <p>space-around</p>
             </div>
           </div>
+          <aside class="notes">
+            * stretch (default value when using Yoga on the web) Stretch wrapped lines to match the height of the container's cross axis.
+            * space-between Evenly space wrapped lines across the container's cross axis, distributing the remaining space between the lines.
+* space-around Evenly space wrapped lines across the container's cross axis, distributing the remaining space around the lines. Compared to space-between, using space-around will result in space being distributed to the beginning of the first line and the end of the last line.
+          </aside>
         </section>
 
         <section class="several-pictures-4-slide-with-description">
@@ -737,6 +917,9 @@
               <p>center</p>
             </div>
           </div>
+          <aside class="notes">
+            alignSelf has the same options and effect as alignItems but instead of affecting the children within a container, you can apply this property to a single child to change its alignment within its parent. alignSelf overrides any option set by the parent with alignItems.
+          </aside>
         </section>
 
         <section class="several-pictures-2-slide-with-description">
@@ -751,6 +934,10 @@
               <p>nowrap</p>
             </div>
           </div>
+          <aside class="notes">
+            The flexWrap property is set on containers and it controls what happens when children overflow the size of the container along the main axis. By default, children are forced into a single line (which can shrink elements). If wrapping is allowed, items are wrapped into multiple lines along the main axis if needed.
+When wrapping lines, alignContent can be used to specify how the lines are placed in the container.
+          </aside>
         </section>
 
         <section class="text-and-conding-slide">
@@ -778,11 +965,34 @@
 						</code>
 					  </pre>
           </div>
-          <aside class="notes"></aside>
+          <aside class="notes">
+            Sometimes you may want to implement separate visual components for Android and iOS.
+* The Platform API allows us to conditionally apply different styles or properties in our component
+based on the device’s operating system.
+*  The OS attribute of the object returns either iOS or android depending on the user’s device. 
+•There is also a Platform.select method available, that given an object where keys can be one of 'ios' | 'android' | 'native' | 'default', returns the most fitting value for the platform you are currently running on.
+•The Platform module can also be used to detect the version of the Android Platform or system version of iOS
+•Platform-specific extensions
+•When your platform-specific code is more complex, you should consider splitting the code out into separate files. React Native will detect when a file has a .ios. or .android. extension and load the relevant platform file when required from other components.
+•You can also use the .native.js extension when a module needs to be shared between NodeJS/Web and React Native but it has no Android/iOS differences.
+          </aside>
         </section>
 
         <section class="topic-name-slide">
           <h4>Architecture</h4>
+        </section>
+
+        <section class="picture-slide-grouped">
+          <h4 class="slide-name">Old architecture</h4>
+            <div class="fragment" data-fragment-index="1">
+              <img src="assets/images/ao_1.png" alt="simple" />
+            </div>
+            <div class="fragment" data-fragment-index="2">
+              <img src="assets/images/ao_2.png" alt="simple" />
+            </div>
+          <aside class="notes">
+            when you look at the react native architecture you should imagine two different worlds — one is the native and another is the JavaScript. This two worlds communicate with each other via React Native bridge. React Native parses the bunch of commands coming from the React world into a JSON array, serializes it as a string, and then transfers it to the native world via that bridge. To maintain consistency across all platforms, React Native implements the actual layout by converting React-based display styles (eg, flex) to the relative position values where each element is to be structured and then finally passes it over the UI layer of the native world.
+          </aside>
         </section>
 
         <section class="picture-slide-grouped">
@@ -805,7 +1015,13 @@
             <div class="fragment" data-fragment-index="6">
               <img src="assets/images/arc_old_6.png" alt="simple" />
             </div>
-          <aside class="notes"></aside>
+          <aside class="notes">
+            Broadly speaking, the current React Native architecture is based on 3 major threads. 
+
+            * Main/Native/UI thread — where all the UI elements are rendered and native code is executed.
+            * JavaScript thread — this thread is responsible for executing and compiling all the JavaScript-related code.
+            * Layout thread/Shadow Thread —  is a background thread where the actual layout is calculated. It recasts the flexbox layout with the help of Facebook’s layout engine called Yoga.
+          </aside>
         </section>
 
         <section class="picture-slide-grouped">
@@ -819,7 +1035,14 @@
             <div class="fragment" data-fragment-index="3">
               <img src="assets/images/arc_new_3.png" alt="simple" />
             </div>
-          <aside class="notes"></aside>
+          <aside class="notes">
+            In new architecture we can see familiar threads: UI, JavaScript and Shadow.
+But, the React Native re-architecture will progressively see the deprecation of the bridge in favor of a new element called the JavaScript Interface (JSI). An enabler for Fabric and TurboModules.
+The JSI allows for a few exciting improvements, the JSC engine can now easily be swapped with other — potentially more performant.
+The second improvement is the foundation of this new architecture: "By using JSI, JavaScript can hold reference to C++ Host Objects and invoke methods on them. JavaScript and Native realms will be truly aware of each other."
+In other terms, JSI would allow for complete interoperability between all threads. With the concept of shared ownership, the JavaScript code could communicate with the native side directly from the JS thread, and there won’t be any need to serialize to JSON the messages to pass across, removing all congestion and asynchronous issues on the bridge.
+In addition to improving considerably the communication between the different threads, this new architecture also allows for direct control over our native modules. Meaning that we can use native modules when we need them, as opposed to loading them all once at startup. This results in massive performance improvements of startup times.
+          </aside>
         </section>
 
         <section class="topic-name-slide">
@@ -838,6 +1061,15 @@
               <p>For formatting</p>
             </div>
           </div>
+          <aside class="notes">
+            ESLint is a JavaScript linting utility that was first released in June 2013 and now is by far the number one linting utility.
+Linting is a type of static analysis that finds problematic patterns and code that doesn’t adhere to certain style guidelines.
+However, ESLint enables developers to discover problems with their code without actually executing their code.
+The primary reason ESLint was created was to allow developers to create their own linting rules. ESLint has built-in rules that make it useful from the start, but you can add rules specific to your project and whatever flavor of JavaScript you use.
+
+Prettier is an opinionated code formatter for JavaScript and other popular languages. Prettier enforces a consistent format by parsing code and reprinting it with its own rules that take the maximum line length into account, wrapping code when necessary.
+This rewriting process prevents developers from introducing any formatting mistakes.
+          </aside>
         </section>
 
         <section class="text-and-frame-slide">
@@ -862,7 +1094,10 @@
               </code>
             </div>
           </div>
-          <aside class="notes"></aside>
+          <aside class="notes">
+            Husky is a very popular (1 million downloads a month) npm package that allows custom scripts to be ran against your repository. Husky works with any project that uses a package.json file. It also works out of the box with SourceTree!
+Any time you try and commit, the hooks will run your lint command first. The hooks will not allow your commit to pass if the lint or tests are failing.
+          </aside>
         </section>        
 
         <section class="qa-slide">
