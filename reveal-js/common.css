@@ -154,10 +154,14 @@ img.with-border {
   justify-content: center;
   height: 100%;
 }
+.picture-slide-grouped > div {
+  position: absolute;
+}
 
 /* picture-slide */
 /* picture-with-description-slide */
 .picture-slide,
+.picture-slide-grouped,
 .picture-with-description-slide {
   display: flex !important;
   flex-direction: column;
@@ -170,7 +174,8 @@ img.with-border {
 .picture-with-description-slide > p {
   margin: auto !important;
 }
-.picture-slide > img {
+.picture-slide > img,
+.picture-slide-grouped > div > img {
   height: 80vh;
 }
 .picture-with-description-slide > img {
@@ -299,14 +304,24 @@ img.with-border {
 /* numbering-and-picture-slide */
 .numbering-and-picture-slide > div,
 .bullets-and-picture-slide > div,
+.compare-slide > div,
 .coding-and-picture-slide > div {
   display: flex !important;
 }
 .coding-and-picture-slide > div > div {
   min-width: 50%;
 }
+.compare-slide > div > div {
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+.several-icons-3-slide-with-description > div > * {
+  width: 33%;
+}
 .numbering-and-picture-slide > div > img,
 .bullets-and-picture-slide > div > img,
+.compare-slide > div > div > img,
 .coding-and-picture-slide > div > img {
   width: 50% !important;
   align-self: flex-start !important;
@@ -318,12 +333,14 @@ img.with-border {
 @media only screen and (max-width: 1000px) {
   .numbering-and-picture-slide > div > img,
   .bullets-and-picture-slide > div > img,
+  .compare-slide > div > div > img,
   .coding-and-picture-slide > div > img {
     margin: auto !important;
     max-height: 30vh;
   }
   .numbering-and-picture-slide > div,
   .bullets-and-picture-slide > div,
+  .compare-slide> div,
   .coding-and-picture-slide > div {
     flex-direction: column;
   }
@@ -361,11 +378,49 @@ img.with-border {
 /* several-pictures-3-slide */
 /* several-pictures-4-slide */
 .several-pictures-2-slide > div,
+.several-pictures-2-slide-with-description > div,
 .several-pictures-3-slide > div,
+.several-pictures-3-slide-with-description > div,
+.several-pictures-4-slide-with-description > div,
+.several-icons-3-slide-with-description > div,
 .several-pictures-4-slide > div {
   display: flex !important;
   height: 80vh;
   align-items: center;
+  justify-content: center;
+}
+.several-pictures-2-slide-with-description > div > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+.several-pictures-2-slide-with-description > div > div > img {
+  max-height: 60vh;
+}
+.several-pictures-4-slide-with-description > div > div > p,
+.several-pictures-3-slide-with-description > div > div > p {
+  text-align: center !important;
+      margin-bottom: 10px;
+      margin-top: 0px;
+}
+.several-icons-3-slide-with-description > div > div > p {
+  text-align: center !important;
+  font-size: 2rem !important;
+  font-weight: bold;
+  margin-top: 0px;
+}
+.several-pictures-4-slide-with-description > div > div > img,
+.several-pictures-3-slide-with-description > div > div > img {
+  margin: auto !important;
+}
+.several-icons-3-slide-with-description > div > div > img {
+  margin: auto !important;
+  height: 20vh;
+}
+.several-icons-3-slide-with-description > div {
+  align-items: start;
 }
 .several-pictures-4-slide div {
   width: 100%;
@@ -374,24 +429,52 @@ img.with-border {
 
 @media only screen and (max-width: 1000px) {
   .several-pictures-2-slide > div,
+  .several-pictures-2-slide-with-description > div,
   .several-pictures-3-slide > div,
+  .several-pictures-4-slide-with-description > div,
+  .several-pictures-3-slide-with-description > div,
+  .several-icons-3-slide-with-description > div,
   .several-pictures-4-slide > div {
     flex-direction: column;
   }
   .several-pictures-4-slide div {
     height: 38vh;
   }
+  .several-icons-3-slide-with-description > div > div > p {
+    font-size: 1.3rem !important;
+  }
   .several-pictures-2-slide > div > * {
+    max-height: 40vh;
+  }
+  .several-pictures-2-slide-with-description > div > * {
     max-height: 40vh;
   }
   .several-pictures-2-slide > div > * > * {
     max-height: 39vh;
   }
+  .several-pictures-2-slide-with-description > div > * > * {
+    max-height: 39vh;
+  }
   .several-pictures-3-slide > div > * {
     max-height: 26vh;
   }
+  .several-pictures-4-slide-with-description > div > *,
+  .several-pictures-3-slide-with-description > div > * {
+    max-height: 26vh;
+  }
+  .several-icons-3-slide-with-description > div > * {
+    max-height: 26vh;
+    width: 100%;
+  }
   .several-pictures-3-slide > div > * > * {
     max-height: 25vh;
+  }
+  .several-pictures-4-slide-with-description > div > * > *,
+  .several-pictures-3-slide-with-description > div > * > * {
+    max-height: 14vh;
+  }
+  .several-icons-3-slide-with-description > div > * > * {
+    max-height: 8vh;
   }
   .several-pictures-4-slide > div > * {
     max-height: 19vh;
