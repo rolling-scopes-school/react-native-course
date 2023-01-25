@@ -2,36 +2,504 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>react-native-course - name module</title>
-    <meta name="description" content="rolling-scopes-school/react-native-course - react module" />
+    <title>
+      rolling-scopes-school/react-native-course - unit-testing module
+    </title>
+    <meta
+      name="description"
+      content="rolling-scopes-school/react-native-course - name module"
+    />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../reveal-js/dist/reset.css" />
-    <link rel="stylesheet" href="../reveal-js/dist/reveal.css" />
-    <link rel="stylesheet" href="../reveal-js/dist/theme/white.css" id="theme" />
+    <link
+      rel="stylesheet"
+      href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/dist/reset.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/dist/reveal.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/dist/theme/white.css"
+      id="theme"
+    />
     <!-- Theme used for syntax highlighting of code -->
-    <link rel="stylesheet" href="../reveal-js/plugin/highlight/monokai.css" />
-    <link rel="stylesheet" href="../reveal-js/common.css" />
+    <link
+      rel="stylesheet"
+      href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/highlight/monokai.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/common.css"
+    />
+    <style class="jsStyle"></style>
   </head>
   <body>
     <div class="reveal">
-      <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
-        <section class="center">
-          <h2 class="custom-presentation-name"> Presentation​ Name </h3>
+        <!-- 0 slide -->
+        <section class="presentation-name-slide">
+          <h4>Unit tests</h4>
+        </section>
+        <!-- 1 slide -->
+        <section class="agenda-slide">
+          <h4 class="slide-name">AGENDA</h4>
+          <ul>
+            <li class="fragment">Testing in software development</li>
+            <li class="fragment">Testing Pyramid</li>
+            <li class="fragment">Unit tests</li>
+            <li class="fragment">TDD & BDD</li>
+            <li class="fragment">Testing statistic</li>
+            <li class="fragment">Testing libraries</li>
+            <li class="fragment">Jest as a testing framework</li>
+            <li class="fragment">Husky</li>
+          </ul>
+        </section>
+        <!-- 2 slide -->
+        <section class="bullets-slide">
+          <h4 class="slide-name">Testing role in Software Development​</h4>
+          <ul>
+            <li class="fragment">
+              Testing is about verifying that what was specified is what was
+              delivered.
+            </li>
+            <li class="fragment">
+              The testing is important since it discovers defects/bugs before
+              the delivery to the client, which guarantees the quality of the
+              software.​
+            </li>
+          </ul>
+        </section>
+        <!-- 3 slide -->
+        <section class="bullets-slide">
+          <h4 class="slide-name">Major benefits of software testing​</h4>
+          <ul>
+            <li class="fragment">Launch a flawless software application</li>
+            <li class="fragment">Prevent targeted malware attacks</li>
+            <li class="fragment">Improves the user experience</li>
+            <li class="fragment">Curtail maintain costs</li>
+            <li class="fragment">Improve time-to-market</li>
+            <li class="fragment">Enhance quality of apllication</li>
+            <li class="fragment">Boost competitiveness</li>
+          </ul>
+        </section>
+        <!-- 4 slide -->
+        <section class="bullets-slide">
+          <h4 class="slide-name">The scope of Testing​</h4>
+          <ul>
+            <li class="fragment">
+              The test scope defines what areas, features, and functionalities
+              of an application should be tested
+            </li>
+          </ul>
+        </section>
+        <!-- 5 slide -->
+        <section class="picture-slide">
+          <h4 class="slide-name">Testing Pyramid​​</h4>
+          <img src="assets/images/testing_pyramid.svg" alt="simple" />
+        </section>
+        <!-- 6 slide -->
+        <section class="bullets-slide">
+          <h4 class="slide-name">Benefits of unit tests​​</h4>
+          <ul>
+            <li class="fragment">Save development time</li>
+            <li class="fragment">Provide quick access to code documentation</li>
+            <li class="fragment">Contribute to code quality​</li>
+            <li class="fragment">Improve application architecture​</li>
+            <li class="fragment">Debug process​</li>
+            <li class="fragment">Reduce costs in long run</li>
+          </ul>
+        </section>
+        <!-- 7 slide -->
+        <section class="bullets-slide">
+          <h4 class="slide-name">Impacts of neglecting unit tests</h4>
+          <ul>
+            <li class="fragment">
+              The risks of simple mistakes leaking to the end user significantly
+              increase in the absence of unit tests.
+            </li>
+            <li class="fragment">
+              Skipping unit tests quickly turns fresh code into legacy code,
+              which is harder to maintain.
+            </li>
+          </ul>
+        </section>
+        <!-- 8 slide -->
+        <section class="table-slide">
+          <h4 class="slide-name">TDD VS BDD</h4>
+          <table class="fragment" data-fragment-index="2">
+            <thead>
+              <tr>
+                <th>TDD</th>
+                <th>BDD</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    TDD refers to the practice of writing a piece of code only
+                    if the automated test has failed
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    BDD is a process that promotes collaboration between
+                    developers, testers and customer service personnel during
+                    product development
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>Developers are the key participants in TDD</p>
+                </td>
+                <td>
+                  <p>Developers, customers and QAs are the key participants</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>Mainly concentrates on unit tests</p>
+                </td>
+                <td>
+                  <p>Mainly concentrates on system requirements</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>Point of inception is a test case</p>
+                </td>
+                <td>
+                  <p>Point of inception is a test scenario</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>TDD is a development practice</p>
+                </td>
+                <td>
+                  <p>BDD is a team methodology</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>Collaboration is limited to developers in TDD</p>
+                </td>
+                <td>
+                  <p>Collaboration is required by all stakeholders in BDD</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <!-- 9 slide -->
+        <section class="picture-slide">
+          <h4 class="slide-name">TDD is RED-GREEN-BLUE development​</h4>
+          <img src="assets/images/tdd.png" alt="simple" />
+        </section>
+        <!-- 10 slide -->
+        <section>
+          <!-- 10/0 slide -->
+          <section class="picture-slide">
+            <h4 class="slide-name">Testing statistic​</h4>
+            <img src="assets/images/statistic_1.png" alt="simple" />
+          </section>
+          <!-- 10/1 slide -->
+          <section class="picture-slide">
+            <h4 class="slide-name">
+              Testing statistic according to types & technologies
+            </h4>
+            <img src="assets/images/statistic_2.png" alt="simple" />
+          </section>
+        </section>
+        <!-- 11 slide -->
+        <section class="picture-with-description-slide">
+          <h4 class="slide-name">Writing testable code​​</h4>
+          <p class="font-size-2 align-center">
+            To make your app more testable, start by separating the view part of
+            your app from your business logic and app state.
+          </p>
+          <img src="assets/images/separate_logic_and_ui.png" alt="simple" />
+        </section>
+        <!-- 12 slide -->
+        <section>
+          <!-- 12/0 slide -->
+          <section class="picture-slide">
+            <h4 class="slide-name">Testing libraries</h4>
+            <img src="assets/images/libs.png" alt="simple" />
+          </section>
+          <!-- 12/1 slide -->
+          <section class="picture-slide">
+            <h4 class="slide-name">Frameworks comparison</h4>
+            <img src="assets/images/frameworks_comparison.png" alt="simple" />
+          </section>
+        </section>
+        <!-- 13 slide -->
+        <section class="bullets-slide">
+          <h4 class="slide-name">Why Jest?</h4>
+          <ul>
+            <li class="fragment">
+              Facebook developed the Jest unit testing framework.
+            </li>
+            <li class="fragment">
+              The default template of React Native ships with Jest testing
+              framework.
+            </li>
+          </ul>
+        </section>
+        <!-- 14 slide -->
+        <section class="text-and-conding-slide">
+          <h4 class="slide-name">How to set up Jest?</h4>
+          <p data-fragment-index="1">
+            After command ​'react-native init' The following configuration
+            should be automatically added to your package.json file:
+          </p>
+          <pre><code data-trim data-noescape data-line-numbers data-fragment-index="2">
+          {​​
+            "scripts": {​​
+              "test": "jest",​​
+            },​​
+            "jest": {​​
+              "preset": "react-native",​​
+            }​​
+          }
+        </code></pre>
+        </section>
+        <!-- 15 slide -->
+        <section class="text-and-conding-slide">
+          <h4 class="slide-name">jest.config.js and jest.setup.js files​</h4>
+          <p data-fragment-index="1">
+            A list of paths to modules that run some code to configure or set up
+            the testing environment. Each setupFile will be run once per test
+            file.​​​
+          </p>
+          <pre>
+          <code data-trim data-noescape data-line-numbers data-fragment-index="2">
+            module.exports = {
+              roots: ['&lt;rootDir>/src'],
+              collectCoverage: true,
+              coverageThreshold: { ... },
+              preset: 'react-native',
+              setupFiles: ['&lt;rootDir>jest.setup.js'],
+              setupFilesAfterEnv: ['&lt;rootDir>/src/globalMock.js'],
+            };
+          </code>
+        </pre>
+        </section>
+        <!-- 16 slide -->
+        <section class="text-and-conding-slide">
+          <h4 class="slide-name">Structuring Tests​</h4>
+          <pre>
+          <code data-trim data-noescape data-line-numbers>
+            beforeAll(() => {
+              // ...
+            });
+            afterAll(() => {
+              // ...
+            });
+            describe('Our component', () => {
+              beforeEach(() => {
+              // ...
+              });
+              it('should test this', () => {
+              // ...
+              });
+            });
+          </code>
+        </pre>
+        </section>
+        <!-- 17 slide -->
+        <section class="text-and-conding-slide">
+          <h4 class="slide-name">Expect​</h4>
+          <pre><code data-trim data-noescape data-line-numbers>
+        expect(value)​​
+        expect.anything()​​
+        expect.any(constructor)​​
+        .not​​
+        .toBe(value)​​
+        .toHaveBeenCalled()​​
+        .toBeLessThan(number | bigint)​​
+        .toBeNull()​​
+        .toContain(item)​​
+        .toEqual(value)​​
+        .toMatch(regexp | string)​​
+        .toMatchSnapshot(propertyMatchers?, hint?)​​
+        .toThrow(error?)​​
+      </code></pre>
+        </section>
+        <!-- 18 slide -->
+        <section>
+          <!-- 18/0 slide -->
+          <section class="bullets-slide">
+            <h4 class="slide-name">Mock & Stub​</h4>
+            <ul>
+              <li class="fragment">
+                Stub is for replacing a method with code that returns a
+                specified result: initialize -> exercise -> verify.
+              </li>
+              <li class="fragment">
+                Mock is a stub with an assertion that the method gets called:
+                initialize -> set expectations -> exercise -> verify.
+              </li>
+              <li class="fragment">Stubs don't fail your tests, mock can.</li>
+            </ul>
+          </section>
+          <!-- 18/1 slide -->
+          <section class="text-and-conding-slide">
+            <h4 class="slide-name">The Jest Object​</h4>
+            <ul>
+              <li class="fragment">
+                Usually app uses external dependencies and services.
+              </li>
+              <li class="fragment">
+                Mocking helps to replace some dependency of your code with your
+                own implementation to avoid network requests calling/returning
+                different data every time and etc.
+              </li>
+            </ul>
+            <pre
+              class="fragment"
+            ><code data-trim data-noescape data-line-numbers>
+          // Mock functions​​
+          jest.mock(moduleName, factory)​​
+          jest.unmock(moduleName)​​
+          jest.requireActual(moduleName)​​
+          jest.resetModules()​​
+          jest.isolateModules(fn)​​
+          // Mock modules​​
+          jest.fn(implementation?)​​
+          jest.spyOn(object, methodName)​​
+          jest.clearAllMocks()​​
+          jest.resetAllMocks()​​
+          jest.restoreAllMocks()​​
+        </code></pre>
+          </section>
+        </section>
+        <!-- 19 slide -->
+        <section class="text-and-conding-slide">
+          <h4 class="slide-name">Snapshots​​</h4>
+          <ul>
+            <li class="fragment">
+              Snapshot tests are used when you want to make sure your UI does
+              not change unexpectedly.
+            </li>
+            <li class="fragment">
+              The test will fail if the two snapshots do not match.
+            </li>
+            <li class="fragment">
+              However snapshots themselves do not ensure that your component
+              render logic is correct.
+            </li>
+            <li class="fragment">
+              Use small snapshots because large snapshots can quickly become
+              hard -> keep no-large-snapshots rule.
+            </li>
+          </ul>
+          <pre class="fragment"><code data-trim data-line-numbers>
+          it('should match snapshot', () => {
+            const {toJSON} = render(<mybutton title="title"></mybutton>);
+            expect(toJSON()).toMatchSnapshot();
+          });</code></pre>
+        </section>
+        <!-- 20 slide -->
+        <section>
+          <!-- 20/0 slide -->
+          <section class="bullets-slide">
+            <h4 class="slide-name">Test coverage​</h4>
+            <ul>
+              <li class="fragment">
+                With that being said it is generally accepted that 80% coverage
+                is a good goal to aim for.
+              </li>
+              <li class="fragment">
+                Trying to reach a higher coverage might turn out to be costly,
+                while not necessary producing enough benefit.​
+              </li>
+              <li class="fragment">
+                100% unit test coverage does not mean we had good tests, or even
+                that the tests are complete.
+              </li>
+              <li class="fragment">
+                The tests could be missing important data and only testing with
+                data that succeeds, failing to test data that causes failures.
+              </li>
+              <li class="fragment">
+                Merely executing the code without checking its functionality
+                still counts in the coverage metrics.
+              </li>
+            </ul>
+          </section>
+          <!-- 20/1 slide -->
+          <section class="picture-slide">
+            <h4 class="slide-name">Covarage report​</h4>
+            <img src="assets/images/coverage_1.png" alt="simple" />
+          </section>
+          <!-- 20/2 slide -->
+          <section class="picture-slide">
+            <h4 class="slide-name">
+              Covarage report in coverage/lcov-report/index.html​
+            </h4>
+            <img src="assets/images/coverage_2.png" alt="simple" />
+          </section>
+          <!-- 20/3 slide -->
+          <section class="picture-slide">
+            <h4 class="slide-name">Statement not covered​</h4>
+            <img src="assets/images/coverage_3.png" alt="simple" />
+          </section>
+        </section>
+        <!-- 21 slide -->
+        <section class="picture-slide">
+          <h4 class="slide-name">When tests fail​​</h4>
+          <img src="assets/images/failed_tests.png" alt="simple" />
+        </section>
+        <!-- 22 slide -->
+        <section class="text-and-conding-slide">
+          <h4 class="slide-name">Husky</h4>
+          <p data-fragment-index="1">
+            Husky improves your commits and more. You can use it to lint your
+            commit messages, run tests, lint code, etc... when you commit or
+            push. Husky supports all Git hooks.
+          </p>
+          <pre><code data-trim data-noescape data-line-numbers data-fragment-index="2">
+    "husky": {​​
+      "hooks": {​​
+        "pre-commit": "YOUR_COMMAND",​​
+        "pre-push": "YOUR_COMMAND"​​
+      }​​
+    }​​
+  </code></pre>
+        </section>
+        <!-- 23 slide -->
+        <section class="qa-slide">
+          <h4>QA</h4>
         </section>
       </div>
     </div>
-    <script src="../reveal-js/dist/reveal.js"></script>
-    <script src="../reveal-js/plugin/zoom/zoom.js"></script>
-    <script src="../reveal-js/plugin/notes/notes.js"></script>
-    <script src="../reveal-js/plugin/search/search.js"></script>
-    <script src="../reveal-js/plugin/markdown/markdown.js"></script>
-    <script src="../reveal-js/plugin/highlight/highlight.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/dist/reveal.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/zoom/zoom.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/notes/notes.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/search/search.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/markdown/markdown.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/highlight/highlight.js"></script>
     <script>
       var url = new URL(window.location.href);
-      var showNotes = true; // TODO Uncomment before merging!!! url.searchParams.has("showNotes");
+      var showNotes = url.searchParams.has("showNotes");
+
+      if (showNotes) {
+        var head = document.getElementsByTagName("HEAD")[0];
+        var link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        link.href =
+          "https://rolling-scopes-school.github.io/react-native-course/reveal-js/speaker-notes-mobile.css";
+        head.appendChild(link);
+      }
 
       Reveal.initialize({
         disableLayout: true,
@@ -39,6 +507,7 @@
         progress: true,
         center: false,
         hash: true,
+        autoPlayMedia: true,
         showNotes,
         plugins: [
           RevealZoom,
@@ -48,14 +517,6 @@
           RevealHighlight,
         ],
       });
-
-      document.getElementById("jsStyle").innerHTML = `
-          <style>
-          img, video, iframe {
-              height: ${window.innerHeight * 0.8}px !important;
-              width: ${window.innerWidth * 0.8}px !important;
-          }
-          </style>`;
     </script>
   </body>
 </html>
