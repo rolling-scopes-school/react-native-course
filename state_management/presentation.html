@@ -80,20 +80,100 @@
           <aside class="notes"></aside>
         </section>
 
-        <!-- TODO: Props Drilling -->
+        <!-- React useState -->
         <section class="text-slide">
-          <h4 class="slide-name">TODO: Props Drilling</h4>
+          <h4 class="slide-name">React useState</h4>
+          <div>
+            <div>
+              <img src="assets/images/training-app-logo.png" alt="training app logo" />
+            </div>
+          </div>
+          <aside class="notes">
+            Consider you have made a react app to manage your trainings at home.
+          </aside>
+        </section>
+
+        <!-- React useState -->
+        <section class="text-slide">
+          <h4 class="slide-name">React useState</h4>
           <p>
-            https://www.geeksforgeeks.org/what-is-prop-drilling-and-how-to-avoid-it/
-            <br />
-            explaing what it is
-            <br />
-            provide example
-            <br />
-            proc/cons
-            <br />
+            <pre>
+              &lt;Training&gt;
+
+                state = useState
+              
+                &lt;TrainingProgressTable state /&gt;
+
+              &lt;/Training&gt;
+            </pre>
           </p>
-          <aside class="notes"></aside>
+          <aside class="notes">
+            Since all its code is written in a single file and it consists of only two components you don't really need any state management library. The state is being kept by the useState hook inside the main component.
+          </aside>
+        </section>
+
+        <!-- React useState -->
+        <section class="text-slide">
+          <h4 class="slide-name">React useState</h4>
+          <p>
+              
+            <ul>
+              App features:
+              <li>
+                list of exercises
+              </li>
+              <li>
+                a timer between each approach and between each exercise to take a rest
+              </li>
+              <li>
+                feature to track the number of completed approaches for each exercise
+              </li>
+              <li>
+                an integrated stopwatch
+              </li>
+              <li>
+                an ability to save the duration of each exercise somewhere
+              </li>
+            </ul>
+          </p>
+          <aside class="notes">
+            The app was written really fast so after some time it becomes hard to support. You want to add some new features like running a timer for some exercises and keep the duration of each exercise somewhere.
+          </aside>
+        </section>
+
+        <!-- Props Drilling -->
+        <section class="text-slide">
+          <h4 class="slide-name">Props Drilling</h4>
+          <p>
+            <pre>
+
+              &lt;Training&gt;
+                state = useState
+                &lt;TrainingReader state onStateUpdate /&gt;
+                &lt;TrainingProgressTable state onStateUpdate /&gt;  
+              &lt;/Training&gt;
+              
+              &lt;TrainingProgressTable state onStateUpdate&gt;  
+                &lt;ExerciseStopwatch exercise onStateUpdate /&gt;
+                &lt;TrainingSender state /&gt;
+                &lt;TrainingTimer state /&gt;
+              &lt;TrainingProgressTable /&gt;
+              
+              &lt;TrainingSender state&gt;
+                &lt;SomethingElse state&gt;
+              &lt;TrainingSender /&gt;
+              
+              &lt;SomethingElse state&gt;
+                &lt;Whatever state /&gt;
+              &lt;SomethingElse /&gt;
+              
+
+
+            </pre>
+          </p>
+          <aside class="notes">
+            So you break it up into several components. The app is growing and the number of components is increasing. After some time you need to pass the props through several components that are nested one into the other. It is called props drilling.
+          </aside>
         </section>
 
         <!-- TODO: Context -->
