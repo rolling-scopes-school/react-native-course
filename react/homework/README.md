@@ -1,7 +1,7 @@
 # React homework
 
 1. Develop **react** application.
-1. The homework should be done in one **codesandbox**.
+1. The homework should be done in one **[codesandbox](https://codesandbox.io)**.
 1. Application **should contains** cards, filter functionality, "details" modal and "add" modal.
 1. The usage of **Redux or any other solutions for state management** is **prohibited**.
 1. The usage of any **libraries with components or form libraries is prohibited**.
