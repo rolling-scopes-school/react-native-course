@@ -629,6 +629,7 @@ img.with-border {
   display: flex;
   flex-direction: column;
   align-self: center;
+  padding: 0 20px;
 }
 .pros-cons-section > p {
   font-weight: bold;
