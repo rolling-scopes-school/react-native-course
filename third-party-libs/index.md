@@ -9,5 +9,5 @@
    1. IOS
 1. Adding icons
 1. Adding custom fonts
-1. Google Maps integration
-1. Stripe integration
+1. Async-storage
+1. Webview
