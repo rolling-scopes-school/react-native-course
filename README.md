@@ -6,16 +6,17 @@
 
 # Materials (WIP)
 
+- [Javascript](javascript/index.md)
+- [Typescript](typescript/index.md)
 - [React](/react/README.md)
 - [State management](/state_management/index.md)
 - [React Native Fundamentals](/react_native_fundamentals/index.md)
+- [Debugging](/debugging/README.md)
 - [Navigation](navigation/index.md)
 - [Third-party-libs](third-party-libs/index.md)
 - [Security](security/index.md)
 - [Animations](animations/index.md)
 - [Optimisation](optimisation/index.md)
-- [Javascript](javascript/index.md)
-- [Typescript](typescript/index.md)
 - [Unit tests](unit-testing/index.md)
 
 # Contributors
