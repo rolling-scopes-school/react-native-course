@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>
+      rolling-scopes-school/react-native-course - deployment and publishing module
+    </title>
+    <meta
+      name="description"
+      content="rolling-scopes-school/react-native-course - deployment and publishing module"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/dist/reset.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/dist/reveal.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/dist/theme/white.css"
+      id="theme"
+    />
+    <!-- Theme used for syntax highlighting of code -->
+    <link
+      rel="stylesheet"
+      href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/highlight/monokai.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/common.css"
+    />
+    <style class="jsStyle"></style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- 0 slide -->
+        <section class="presentation-name-slide">
+          <h4>Deployment and publishing</h4>
+        </section>
+        <!-- 1 slide -->
+        <section class="agenda-slide">
+          <h4 class="slide-name">AGENDA</h4>
+          <ul>
+            <li class="fragment">APK & AAB files in Android</li>
+            <li class="fragment">Debug & release modes in Android</li>
+            <li class="fragment">Generating apk/aab files using cli and Android Studio</li>
+            <li class="fragment">...adding</li>
+          </ul>
+        </section>
+        <!-- 2 slide -->
+        <section class="bullets-slide">
+            <h4 class="slide-name">APK & AAB files</h4>
+            <ul>
+              <li class="fragment">APK is the Android packaging format that users can install directly on their devices</li>
+              <li class="fragment">AAB is a publishing format that developers provide to Google</li>
+              <li class="fragment">The key benefits of an AAB file are that it reduces the size of the software and allows developers to customize it</li>
+            </ul>
+            <aside class="notes">
+                The distinction between APK and AAB files is found in resources. Everything except programming code, 
+                such as images, language files, and audio, is the resource in an application. 
+                While installing an app from the Play Store, Google will deploy an APK customized from AAB with the required resources.
+
+                In an ideal situation, according to the user’s location, screen density, and processor type, 
+                developers have to create and upload multiple APKs to the Play Store to make the app compatible with every device. 
+                Most developers create a Universal APK that includes all of the resources (language packs, codes, and more) 
+                even if you don’t need most of them on that specific device to avoid creating multiple APKs. 
+                This results in a bulky APK with a larger app size, which takes longer to install and consumes more bandwidth.
+
+                Developers submit the AAB file including compiled codes, resources, language packs, 
+                and the private app signing key to Google. 
+                Google can now generate and offer optimized APKs to consumers based on the configuration of their device. 
+                It will help both developers and users because the size of AAB files will be lowered, 
+                and consumers will be able to download apps that are less in size, 
+                which will install faster and consume less data on low-end devices.
+            </aside>
+        </section>
+        <!-- 3 slide -->
+        <section class="picture-slide">
+            <h4 class="slide-name"> Android App Bundle​</h4>
+            <img src="assets/images/aab_format-2x.png" alt="simple" />
+            <aside class="notes">
+                An Android App Bundle is a file (with the .aab file extension) that you upload to Google Play.
+                App bundles are signed binaries that organize your app’s code and resources into modules, 
+                as illustrated in picture. 
+                Code and resources for each module are organized similarly 
+                to what you would find in an APK—and that makes sense because each of these modules may be generated as separate APKs. 
+                Google Play then uses the app bundle to generate the various APKs that are served to users, 
+                such as the base APK, feature APKs, configuration APKs, and (for devices that do not support split APKs) multi-APKs. 
+                The directories that are colored in blue—such as the drawable/, values/, 
+                and lib/ directories—represent code and resources that Google Play uses to create configuration APKs for each module.
+            </aside>
+          </section>
+        <!-- the last slide -->
+        <section class="qa-slide">
+          <h4>QA</h4>
+        </section>
+      </div>
+    </div>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/dist/reveal.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/zoom/zoom.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/notes/notes.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/search/search.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/markdown/markdown.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/highlight/highlight.js"></script>
+    <script>
+      var url = new URL(window.location.href);
+      var showNotes = url.searchParams.has("showNotes");
+
+      if (showNotes) {
+        var head = document.getElementsByTagName("HEAD")[0];
+        var link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        link.href =
+          "https://rolling-scopes-school.github.io/react-native-course/reveal-js/speaker-notes-mobile.css";
+        head.appendChild(link);
+      }
+
+      Reveal.initialize({
+        disableLayout: true,
+        controls: true,
+        progress: true,
+        center: false,
+        hash: true,
+        autoPlayMedia: true,
+        showNotes,
+        plugins: [
+          RevealZoom,
+          RevealNotes,
+          RevealSearch,
+          RevealMarkdown,
+          RevealHighlight,
+        ],
+      });
+    </script>
+  </body>
+</html>
