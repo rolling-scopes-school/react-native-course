@@ -2,36 +2,1216 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>react-native-course - name module</title>
+    <title>react-native-course - Navigation module</title>
     <meta name="description" content="rolling-scopes-school/react-native-course - react module" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../reveal-js/dist/reset.css" />
-    <link rel="stylesheet" href="../reveal-js/dist/reveal.css" />
-    <link rel="stylesheet" href="../reveal-js/dist/theme/white.css" id="theme" />
+    <link rel="stylesheet" href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/dist/reset.css" />
+    <link rel="stylesheet" href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/dist/reveal.css" />
+    <link rel="stylesheet" href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/dist/theme/white.css" id="theme" />
     <!-- Theme used for syntax highlighting of code -->
-    <link rel="stylesheet" href="../reveal-js/plugin/highlight/monokai.css" />
-    <link rel="stylesheet" href="../reveal-js/common.css" />
+    <link rel="stylesheet" href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/highlight/monokai.css" />
+    <link rel="stylesheet" href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/common.css" />
+    <style class="jsStyle"></style>
   </head>
   <body>
     <div class="reveal">
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
-        <section class="center">
-          <h2 class="custom-presentation-name"> Presentation​ Name </h3>
+        <!-- 0 slide -->
+        <section class="presentation-name-slide">
+          <h4>Navigation</h4>
+
+          <aside class="notes">
+            Navigation is an important part of mobile development
+          </aside>
+        </section>
+        <!-- 1 slide -->
+        <section class="agenda-slide">
+          <h4 class="slide-name">Agenda</h4>
+          <ul>
+            <li class="fragment">What is navigation?</li>
+            <li class="fragment">Navigation patterns</li>
+            <li class="fragment">Navigation libraries. React Navigation</li>
+            <li class="fragment">Navigation types</li>
+            <li class="fragment">
+              Moving between screens
+              <ul>
+                <li>navigation lifecycle</li>
+                <li>navigation events</li>
+                <li>hooks</li>
+              </ul>
+            </li>
+            <li class="fragment">
+              Navigation options
+              <ul>
+                <li>specifying options for screens</li>
+                <li>updating screen options</li>
+                <li>header bar</li>
+              </ul>
+            </li>
+            <li class="fragment">Deep linking</li>
+          </ul>
+
+          <aside class="notes">
+            On this slide you can see today’s agenda.
+            <br /><br />
+            We will start by talking about <strong>what navigation is</strong>.
+            <br /><br />
+            Next…
+          </aside>
+        </section>
+        <!-- 2 slide -->
+        <section class="picture-slide">
+          <h4 class="slide-name">Introduction</h4>
+          <img src="assets/images/intro.gif" alt="intro">
+
+          <aside class="notes">
+            Mobile apps are rarely made up of a single screen.
+            <br />
+            Therefore, оne of the important parts of creating applications is the ability to navigate between screens.
+            <br />
+            With a navigation system, a user can access any part of an application.
+            <br />
+            It also allows us to structure and separate the way data is handled in the application.
+            <br /><br />
+            Navigation should be developed in a way that provides the best user experience.
+            <br />
+            It has to make users intuitive interactions work well with the app’s functionality.
+            <br />
+            If users stop and think “how can I reach this or that function” it means that navigation is bad.
+            <br />
+            If navigation is bad, then users won’t like your app.
+            <br /><br />
+            But establishing good navigation is a challenge on mobile due to the limitations of the small screen.
+            <br />
+            Different navigation patterns have been devised to solve this challenge in different ways.
+            <br />
+            Let's look at the basic patterns for mobile navigation.
+          </aside>
+        </section>
+        <!-- 3 slide includes vertical slides -->
+        <section>
+          <!-- 3.0 slide -->
+          <section class="topic-name-slide">
+            <h4>Navigation patterns</h4>
+          </section>
+          <!-- 3.1 slide -->
+          <section class="bullets-and-picture-slide">
+            <h4 class="slide-name">Bottom navigation</h4>
+            <div>
+              <img src="assets/images/bottom_navigation.gif" alt="bottom navigation" />
+              <div class="pros-cons-section">
+                <p class="big">
+                  Pros:
+                </p>
+                <ul>
+                  <li>
+                    easily communicates the current location
+                  </li>
+                  <li>
+                    direct access to specific section
+                  </li>
+                  <li>
+                    easier to reach with the thumb when the device is held in one hand
+                  </li>
+                </ul>
+                <p class="big">
+                  Cons:
+                </p>
+                <ul>
+                  <li>
+                    the navigation options are limited
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <aside class="notes">
+              A bottom app bar displays navigation and key actions at the bottom of mobile screen.
+              <br /><br />
+              It usually contains relatively few destinations, and those destinations are of similar importance and require direct access from anywhere in the app.
+            </aside>
+          </section>
+          <!-- 3.2 slide -->
+          <section class="bullets-and-picture-slide">
+            <h4 class="slide-name">Top navigation</h4>
+            <div>
+              <div>
+                <img src="assets/images/top_navigation_1.png" alt="top navigation" />
+                <img src="assets/images/top_navigation_2.png" alt="top navigation" />
+              </div>
+              <div class="pros-cons-section">
+                <p class="big">
+                  Pros:
+                </p>
+                <ul>
+                  <li>
+                    easily communicates the current location
+                  </li>
+                  <li>
+                    direct access to specific sections
+                  </li>
+                </ul>
+                <p class="big">
+                  Cons:
+                </p>
+                <ul>
+                  <li>
+                    the navigation options are limited
+                  </li>
+                  <li>
+                    difficult to reach with a finger when the device is held in one hand
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <aside class="notes">
+              The other side of the same coin as bottom navigation.
+              <br />
+              This also consists of a navigation bar, only located at the top of the screen.
+              <br />
+              It still offers most of the benefits from bottom navigation, minus the ease of use while holding mobile devices.
+              <br />
+              The top app bar displays information and actions relating to the current screen.
+            </aside>
+          </section>
+          <!-- 3.3 slide -->
+          <section class="bullets-and-picture-slide">
+            <h4 class="slide-name">Hamburger menu</h4>
+            <div>
+              <img src="assets/images/hamburger_menu.gif" alt="hamburger menu" />
+              <div class="pros-cons-section">
+                <p class="big">
+                  Pros:
+                </p>
+                <ul>
+                  <li>
+                    large number of navigation options
+                  </li>
+                  <li>
+                    clean design
+                  </li>
+                </ul>
+                <p class="big">
+                  Cons:
+                </p>
+                <ul>
+                  <li>
+                    less discoverable
+                  </li>
+                  <li>
+                    the hamburger icon hides context
+                  </li>
+                  <li>
+                    extra action is required to move to the target destination
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <aside class="notes">
+              The hamburger menu (or side drawer) is one of the most popular mobile navigation patterns.
+              <br /><br />
+              The drawer panel allows you to hide the navigation beyond the left edge of the screen and reveal it only upon a user’s action.
+              <br /><br />
+              The main advantage of the navigation menu is that it can accommodate a fairly large number of navigation options in a tiny space.
+              <br /><br />
+              The hamburger menu allows the designer to free up screen real estate by shifting options off screen into a side menu.
+              <br /><br />
+              This pattern can be particularly useful if you want the user to focus on the main content.
+              <br /><br />
+              The disadvantages of using this pattern include the following.
+              <br /><br />
+              - Less discoverable. What’s out of sight is out of mind. When navigation is hidden, users are less likely to use it. While this type of navigation is becoming standard and many mobile users are familiar with it, many people still simply don’t think to open it.
+              <br /><br />
+              - The hamburger icon hides context. The hamburger menu doesn't communicate the current location at a glance: surfacing information about the current location is harder because it's only visible when the person clicks on the hamburger icon.
+              <br /><br />
+              - Reaching a particular page usually takes at least two taps (one tap on the menu icon and another on the target option).
+            </aside>
+          </section>
+          <!-- 3.4 slide -->
+          <section class="bullets-and-picture-slide">
+            <h4 class="slide-name">floating action button</h4>
+            <div>
+              <img src="assets/images/floating_action_button.gif" alt="floating action button" />
+              <div class="pros-cons-section">
+                <p class="big">
+                  Pros:
+                </p>
+                <ul>
+                  <li>
+                    it’s a signpost of what’s important
+                  </li>
+                  <li>
+                    takes up little screen space
+                  </li>
+                </ul>
+                <p class="big">
+                  Cons:
+                </p>
+                <ul>
+                  <li>
+                    can distract users from content
+                  </li>
+                  <li>
+                    can block content
+                  </li>
+                  <li>
+                    icon-only navigation
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <aside class="notes">
+              A floating action button (FAB) performs the primary, or most common, action on a screen.
+              <br />
+              It appears in front of all screen content, typically as a circular shape with an icon in its center.
+              <br /><br />
+              It’s a good way to prioritize the most important action you want users to take.
+              <br />
+              It takes up little screen space. Compared to the tab bar, it doesn’t take up an entire row.
+              <br /><br />
+              There are also cons of using FAB.
+              <br /><br />
+              - A floating action button can distract users from content.
+              <br /><br />
+              - It can block content.
+              <br /><br />
+              - It is also icon-only navigation. The problem is that icons are sometimes hard to understand because they’re so open to interpretation.
+            </aside>
+          </section>
+          <!-- 3.5 slide -->
+          <section class="bullets-and-picture-slide">
+            <h4 class="slide-name">gesture-based navigation</h4>
+            <div>
+              <img src="assets/images/gesture-base_navigation.png" alt="gesture-base navigation" />
+              <div class="pros-cons-section">
+                <p class="big">
+                  Pros:
+                </p>
+                <ul>
+                  <li>
+                    make interfaces more minimal and save screen space for valuable content
+                  </li>
+                  <li>
+                    UI is more natural
+                  </li>
+                </ul>
+                <p class="big">
+                  Cons:
+                </p>
+                <ul>
+                  <li>
+                    navigation is invisible
+                  </li>
+                  <li>
+                    user effort increases
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <aside class="notes">
+              Gesture-based navigation enables users to quickly swipe in their desired direction to navigate through an app or perform a particular action.
+              <br />
+              Using gestural navigation helps to create a journey between different scenes within an app and gestures include touching and dragging, both horizontally and vertically, as well as zooming in and out. It’s highly immersive and interactive, creating a dynamic experience.
+              <br /><br />
+              The great thing about this pattern is that it’s relatively simple to grasp for even the most inexperienced user as the gestures are often intuitive and only require a little experimentation to get right.
+              <br /><br />
+              But if the navigation is cluttered, then without proper visual hints and cues, users can become confused about how to interact with the app.
+              <br />
+              This will increase the effort of the user.
+            </aside>
+          </section>
+          <!-- 3.6 slide -->
+          <section class="bullets-and-picture-slide">
+            <h4 class="slide-name">3D touch</h4>
+            <div>
+              <img src="assets/images/3d_touch.jpg" alt="3d touch" />
+              <div class="pros-cons-section">
+                <p class="big">
+                  Pros:
+                </p>
+                <ul>
+                  <li>
+                    save users a lot of time by skipping several taps within an app
+                  </li>
+                  <li>
+                    enables quick, lightweight interaction
+                  </li>
+                </ul>
+                <p class="big">
+                  Cons:
+                </p>
+                <ul>
+                  <li>
+                    users have to remember which apps have quick actions
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <aside class="notes">
+              3D Touch is a feature, which triggers a small submenu you can use to run specific commands.
+              All you have to do is to press hard on an app icon.
+              <br /><br />
+              It was first introduced by Apple. Later, a similar feature appeared on android called "App Shortcuts" and allows you to have an experience similar to "3D Touch".
+              <br /><br />
+              It’s a way to create a navigation shortcut, showing the key actions for the selected app.
+              Another common use for this mobile navigation is the preview of content.
+              <br /><br />
+              Some popular apps that support 3D Touch include Amazon, Chrome, Gmail, Google Maps, Instagram, Netflix, Twitter, Uber, WhatsApp, YouTube, etc.
+            </aside>
+          </section>
+        </section>
+        <!-- 4 slide -->
+        <section class="slide-with-text-and-logos">
+          <h4 class="slide-name">Navigation libraries</h4>
+          <div>
+            <div>
+              <p><b>React Navigation: </b>well documented, actual, driven by community, written in JS, supports Expo</p>
+              <p><b>React Native Navigation: </b>native, actual, has good documentation, doesn't support Expo</p>
+              <p><b>React-native-router-flux: </b>based on React Navigation</p>
+              <p><b>React Router Native: </b>easy to use if familiar with ReactJS and react-router-dom</p>
+            </div>
+            <div class="logos">
+              <img src="assets/images/logo_react_native_navigation.png" alt="logo" />
+              <img src="assets/images/logo_react_navigation.svg" alt="logo" />
+              <img src="assets/images/logo_react_router_native.svg" alt="logo" />
+            </div>
+            <p>* Expo is a platform to build React Native apps</p>
+          </div>
+
+          <aside class="notes">
+            In React Native, we have the option of setting up navigation by creating our own native modules or by building our own JavaScript-based implementation.
+            There are also a number of community-supported libraries that we can use for either of these approaches.
+            <br /><br />
+            Some of them you can see on the slide.
+            <br />
+            - <strong>React navigation </strong>is widely used, well documented. It delivers out-of-the-box, pre-styling navigators such as Stack Navigator, Bottom Tab… You can also customize or extend any part of React Navigation to fit your needs.
+            <br />
+            - <strong>React Native Navigation </strong>provided by Wix engineering. This is a popular alternative to React Navigation and may be a better fit for you if you are trying to integrate React Native into an existing large native app. This library doesn’t support Expo (expo is an open-source platform for making universal native apps that run on Android, iOS, and the web, it provides you with a list of tools that simplify the creation and testing of RN app).
+            <br />
+            - <strong>react-native-router-flux </strong>- this library is based on React Navigation but provides you with a different API to interact with it.
+            <br />
+            - <strong>React Router Native </strong>- this library is super easy to use if you are a web developer or an ex web developer and familiar with both ReactJS and react-router-dom. Includes everything from react-router and adds a few APIs that are specific to React Native, including &lt;NativeRouter&gt; and a native version of &lt;Link&gt;
+            <br /><br />
+            <strong>The most popular and the most frequently used on real projects are the first two.
+              They are also recommended by react-native team.
+            </strong>
+          </aside>
+        </section>
+        <!-- 5 slide -->
+          <section class="centred-text-and-bottom-picture-slide">
+          <h4 class="slide-name">React navigation</h4>
+          <div>
+            <p>routing and navigation for Expo and React Native apps</p>
+            <p>completely customizable</p>
+            <p>components built for iOS and Android</p>
+            <p>hooks</p>
+            <p>docs <a href="https://reactnavigation.org/" target="_blank">https://reactnavigation.org/</a></p>
+            <img src="assets/images/logo_react_navigation.svg" alt="simple" />
+          </div>
+
+          <aside class="notes">
+            React Navigation is a result of a collaboration between developers from Facebook, Expo and the React community.
+            <br /><br />
+            On the slide you can see some facts about this library…
+            <br /><br />
+            React Navigation is written in JavaScript and does not directly use the native navigation APIs on iOS and Android.
+            <br />
+            Rather, it recreates some subset of those APIs.
+            <br />
+            This allows for integration of third-party JS plugins, maximum customization, and easier debugging, with no need to learn Objective-C, Swift, Java, Kotlin, etc.
+            <br />
+            Components built for iOS and Android. This means a platform-specific look-and-feel with smooth animations and gestures.
+            <br />
+            RN provides hooks. Hooks are great for stateful logic and code organization.
+          </aside>
+        </section>
+        <!-- 6 slide -->
+        <section class="picture-slide">
+          <h4 class="slide-name">Built-in navigators</h4>
+          <img src="assets/images/built-in_navigators.png" alt="built-in_navigators">
+
+          <aside class="notes">
+            React Navigation comes with three built-in navigators: StackNavigator, TabNavigator, and DrawerNavigator.
+            <br /><br />
+            The first one <strong>StackNavigator</strong> includes or holds screens in stack format, which means when a new screen is viewed, it is positioned on top of the existing one.
+            <br /><br />
+            The <strong>TabNavigator</strong> permits a user to use different screens by simply using the tab that one can use either at the top or bottom of the screen.
+            <br /><br />
+            <strong>DrawerNavigator</strong> is a type of navigation hint that offers users options and points to different screens. By default, it is hidden when not in use, but it appears when user swipes a finger from the edge of the screen or when user touches at the top of drawer icon added at app bar.
+            <br /><br />
+            We'll explore each in more detail below with an example, and then look at how to combine them through nesting.
+          </aside>
+        </section>
+        <!-- 7 slide includes vertical slides -->
+        <section>
+          <!-- 7.0 slide -->
+          <section class="topic-name-slide">
+            <h4>Installation</h4>
+          </section>
+          <!-- 7.1 slide -->
+          <section class="text-and-frame-slide">
+            <h4 class="slide-name">Installation</h4>
+            <div>
+              <p>required navigation package</p>
+              <div class="frame">
+                <code class="js" data-trim data-line-numbers>
+                  <b>npm install </b>@react-native/native @react-navigation/native-stack @react-navigation/bottom-tabs @react-navigation/drawer
+                </code>
+              </div>
+
+              <p>dependencies</p>
+              <div class="frame">
+                <code class="js" data-trim data-line-numbers>
+                  <b>npm install </b>react-native-screens react-native-safe-area-context react-native-gesture-handler react-native-reanimated
+                </code>
+              </div>
+
+              <p>complete the linking for IOS</p>
+              <div class="frame">
+                <code class="js" data-trim data-line-numbers>
+                  npx pod-install ios
+                </code>
+              </div>
+            </div>
+
+            <aside class="notes">
+              React Navigation is made up of some core utilities and those are then used by navigators to create the navigation structure in your app.
+              <br /><br />
+              The first step is to install the <b>@react-navigation/native</b> package.
+              <br /><br />
+              Each navigator in React Navigation lives in its own library.
+              <br />
+              - To use the native stack navigator, we need to install <b>@react-navigation/native-stack</b>
+              <br />
+              - To use the bottom tabs navigator, we need to install <b>@react-navigation/bottom-tabs</b>
+              <br />
+              - To use the drawer navigator, we need to install <b>@react-navigation/drawer</b>
+              <br /><br />
+              You also need to install and configure the dependencies used by most navigators.
+              <br />
+              The libraries you need to install are <b>react-native-screens</b> and <b>react-native-safe-area-context.</b>
+              If you already have these libraries installed and at the latest version, you are done here.
+              <br /><br />
+              For drawer navigator you also need to install <b>react-native-gesture-handler</b> and <b>react-native-reanimated.</b>
+              <br /><br />
+              If you're on a Mac and developing for iOS, you need to install the pods (via Cocoapods) to complete the linking.
+            </aside>
+          </section>
+          <!-- 7.2 slide -->
+          <section class="text-and-conding-slide">
+            <h4 class="slide-name">Installation</h4>
+            <div class="center-align">
+              <p>
+                edit file <b>MainActivity.java</b> located in
+                <br />
+                <em>android/app/src/main/java/&lt;your package name&gt;/MainActivity.java</em>
+              </p>
+              <p>
+                add an import statement at the top of this file
+              </p>
+              <pre data-id="code-animation">
+                <code class="kotlin" data-trim data-line-numbers>
+                import android.os.Bundle;
+                </code>
+              </pre>
+              <p>
+                add the following code to the body of <b>MainActivity</b> class:
+              </p>
+              <pre data-id="code-animation">
+                <code class="kotlin" data-trim data-line-numbers>
+                @Override
+                protected void onCreate(Bundle savedInstanceState) {
+                  super.onCreate(null);
+                }
+                </code>
+              </pre>
+            </div>
+
+            <aside class="notes">
+              <b>react-native-screens</b> package requires one additional configuration step to properly work on Android devices.
+              <br /><br />
+              Edit <em>MainActivity.java</em> file which is located in <em>android/app/src/main/java/&lt;your package name&gt;/MainActivity.java</em>
+              <br /><br />
+              Add the following code to the body of <em>MainActivity</em> class.
+            </aside>
+          </section>
+          <!-- 7.3 slide -->
+          <section class="text-and-conding-slide">
+            <h4 class="slide-name">Installation</h4>
+            <div class="center-align">
+              <pre data-id="code-animation">
+                <code class="js" data-trim data-line-numbers>
+                  import * as React from 'react'
+                  import { NavigationContainer } from '@react-navigation/native'
+
+                  export default function App() {
+                    return(
+                      &lt;NavigationContainer&gt;
+                        {/* Rest of your app code */}
+                      &lt;/NavigationContainer&gt;
+                    )
+                  }
+                </code>
+              </pre>
+            </div>
+
+            <aside class="notes">
+              Now, we need to wrap the whole app in NavigationContainer. Usually you'd do this in your entry file, such as index.js or App.js
+              <br /><br />
+              NavigationContainer is a component which manages our navigation tree and contains the navigation state.
+              <br /><br />
+              This component must wrap all navigators structure
+            </aside>
+          </section>
+        </section>
+        <!-- 8 slide includes vertical slides -->
+        <section>
+          <!-- 8.0 slide -->
+          <section class="topic-name-slide">
+            <h4>Navigation types</h4>
+          </section>
+          <!-- 8.1 slide -->
+          <section class="coding-and-picture-slide">
+            <h4 class="slide-name">Stack navigator</h4>
+            <div>
+              <pre data-id="code-animation">
+                <code class="js" data-trim data-line-numbers>
+                  import { createNativeStackNavigator } from ’@react-navigation/native-stack‘
+
+                  const Stack = createNativeStackNavigator()
+
+                  function App() {
+                    return (
+                      &lt;NavigationContainer&gt;
+                        &lt;Stack.Navigator initialRouteName=“Home”&gt;
+                          &lt;Stack.Screen name=“Home” component={HomeScreen} /&gt;
+                          &lt;Stack.Screen name=“About” component={AboutScreen} /&gt;
+                        &lt;/Stack.Navigator&gt;
+                      &lt;/NavigationContainer&gt;
+                    )
+                  }
+                </code>
+              </pre>
+              <img src="assets/images/stack_navigator.gif" alt="stack navigator">
+            </div>
+
+            <aside class="notes">
+              Stack navigation provides a way for react-native apps to transition between screens by using a stack, which means the screens are stacked on each other.
+              <br /><br />
+              For example, if you navigate from <b>“Home”</b> screen to <b>”About”</b> screen, the <b>”About”</b> screen is stacked on top of the <b>”Home”</b>  screen, and if you navigate back, the <b>”About”</b>  screen is then popped off the stack.
+              <br /><br />
+              <strong>createNativeStackNavigator</strong> is a function that returns an object containing 2 properties: <strong>Screen</strong> and <strong>Navigator</strong>.
+              <br /><br />
+              Both of them are React components used for configuring the navigator.
+              <br /><br />
+              The <strong>Navigator</strong> should contain <strong>Screen</strong> elements as its children to define the configuration for routes.
+              <br /><br />
+              Each <strong>Stack.Screen</strong> component takes a <strong>name</strong> prop which refers to the name of the route and <strong>component</strong> prop which specifies the component to render for the route.
+              <br />
+              These are the 2 required props.
+              <br /><br />
+              To specify what the initial route in a stack is, provide an <strong>initialRouteName</strong> as the prop for the navigator.
+            </aside>
+          </section>
+          <!-- 8.2 slide -->
+          <section class="coding-and-picture-slide">
+            <h4 class="slide-name">Tab navigator</h4>
+            <div>
+              <pre data-id="code-animation">
+                <code class="js" data-trim data-line-numbers>
+                  import { createBottomTabNavigator } from ’@react-navigation/bottom-tabs‘
+
+                  const Tab = createBottomTabNavigator()
+
+                  function App() {
+                    return(
+                      &lt;NavigationContainer&gt;
+                        &lt;Tab.Navigator&gt;
+                          &lt;Tab.Screen name=“Home” component={HomeStackNavigator} /&gt;
+                          &lt;Tab.Screen name=“Contact” component={ContactScreen} /&gt;
+                        &lt;/Tab.Navigator&gt;
+                      &lt;/NavigationContainer&gt;
+                    )
+                  }
+                </code>
+              </pre>
+              <img src="assets/images/tab_navigator.gif" alt="tab navigator">
+            </div>
+
+            <aside class="notes">
+              Tab navigation is a navigation that is tabbed at either the bottom or top of a screen and can be used to switch between different screens.
+              <br /><br />
+              The following example demonstrates how to construct a Bottom Tabs navigator.
+              <br /><br />
+              Tab navigation can take in either the screen as a component or a Stack as the component.
+              <br /><br />
+              Rendering a navigator inside another navigator's screen is called nesting navigators
+            </aside>
+          </section>
+          <!-- 8.3 slide -->
+          <section class="coding-and-picture-slide">
+            <h4 class="slide-name">Drawer navigator</h4>
+            <div>
+              <pre data-id="code-animation">
+                <code class="js" data-trim data-line-numbers>
+                  import { createDrawerNavigator } from ’@react-navigation/drawer‘
+
+                  const Drawer = createDrawerNavigator()
+
+                  function App() {
+                    return(
+                      &lt;NavigationContainer&gt;
+                        &lt;Drawer.Navigator&gt;
+                          &lt;Drawer.Screen name=“Home” component={TabNavigator} /&gt;
+                          &lt;Drawer.Screen name=“Contact” component={ContactScreen} /&gt;
+                        &lt;/Drawer.Navigator&gt;
+                      &lt;/NavigationContainer&gt;
+                    )
+                  }
+                </code>
+              </pre>
+              <img src="assets/images/drawer_navigator.gif" alt="drawer navigator">
+            </div>
+
+            <aside class="notes">
+              Drawer navigation is a slide-out and slide-in drawer that contains links to various screens.
+              <br /><br />
+              The Drawer navigation opens when a menu icon is clicked or when a user swipes their finger from the left or right edge of the app.
+              <br /><br />
+              Stack navigators can be nested within these types of navigators to expand on the content within it.
+            </aside>
+          </section>
+          <!-- 8.4 slide -->
+          <section class="centered-text-and-picture-slide">
+            <h4 class="slide-name">Nesting navigators</h4>
+            <div>
+              <div>
+                <p>deeply nested view hierarchy can be the cause memory and performance issues in lower end devices</p>
+                <p>nesting same type of navigators might lead to a confusing UX</p>
+                <p>code becomes difficult to follow when navigating to nested screens</p>
+              </div>
+              <img src="assets/images/nesting_navigators.png" alt="nesting navigators">
+            </div>
+
+            <aside class="notes">
+              Nesting navigators means rendering a navigator inside a screen of another navigator.
+              <br /><br />
+              In the example on the slide, the Home component contains a tab navigator. The Home component is also used for the Home screen in your stack navigator inside the App component. So here, a tab navigator is nested inside a stack navigator.
+              <br /><br />
+              Developers of “React Navigation” library recommend to reduce nesting navigators to minimal.
+              Try to achieve the behavior you want with as little nesting as possible.
+              <br /><br />
+              Nesting has many downsides:
+              <br />
+              - It results in deeply nested view hierarchy which can cause memory and performance issues in lower end devices
+              <br />
+              - Nesting same type of navigators (e.g. tabs inside tabs, drawer inside drawer etc.) might lead to a confusing UX
+              <br />
+              - With excessive nesting, code becomes difficult to follow when navigating to nested screens, configuring deep link etc.
+              <br /><br />
+              Think of nesting navigators as a way to achieve the UI you want rather than a way to organize your code.
+              <br /><br />
+              If you want to create separate group of screens for organization, instead of using separate navigators, you can use the Group component.
+            </aside>
+          </section>
+        </section>
+        <!-- 9 slide -->
+        <section class="picture-slide">
+          <h4>LET'S TAKE A LOOK AT THE CODE</h4>
+          <img src="assets/images/simpson.png" alt="code">
+
+          <aside class="notes">
+            <strong>*MOVE TO CODE EDITOR*</strong>
+            <br /><br />
+            Show &lt;NavigationContainer&gt; in App.js
+            <br /><br />
+            Show stack navigator in src/navigation/RootStackNavigator
+            <br /><b>or</b><br />
+            src/navigation/ProgrammesStackNavigator
+            <br /><b>or</b><br />
+            src/navigation/MyLearningStackNavigator
+            <br /><br />
+            Show tab navigator in src/navigation/BottomTabNavigator
+            <br /><br />
+            Show drawer navigator in src/navigation/DrawerNavigator
+            <br /><br />
+            Show nesting navigator in src/navigation/RootStackNavigator
+            <br /><b>or</b><br />
+            src/navigation/BottomTabNavigator
+            <br /><b>or</b><br />
+            src/navigation/DrawerNavigator
+            <br /><br />
+            Show project structure/recommendations
+          </aside>
+        </section>
+        <!-- 10 slide -->
+        <section class="text-and-frame-slide">
+          <h4 class="slide-name">Moving between screens</h4>
+          <div>
+            <div class="fragment" data-fragment-index="1">
+              <p>navigating to a new screen</p>
+              <div class="frame">
+                <code class="js">navigation.navigate(‘RouteName’)</code>
+              </div>
+            </div>
+            <div class="fragment" data-fragment-index="2">
+              <p>navigate to a route multiple times</p>
+              <div class="frame">
+                <code class="js">navigation.push(‘RouteName’)</code>
+              </div>
+            </div>
+            <div class="fragment" data-fragment-index="3">
+              <p>going back</p>
+              <div class="frame">
+                <div><code class="js">navigation.goBack()</code></div>
+                <div><code class="js">navigation.popToTop()</code></div>
+                <div><code class="js">navigation.navigate(‘RouteName’)</code></div>
+              </div>
+            </div>
+            <div class="fragment" data-fragment-index="4">
+              <p>toggle drawer</p>
+              <div class="frame">
+                <div><code class="js">navigation.openDrawer()</code></div>
+                <div><code class="js">navigation.closeDrawer()</code></div>
+                <div><code class="js">navigation.toggleDrawer()</code></div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="notes">
+            <b>1</b>
+            <br />
+            <strong>navigation.navigate('RouteName')</strong> pushes a new route to the native stack navigator if it's not already in the stack, otherwise it jumps to that screen.
+            <br /><br />
+            <b>2</b>
+            <br />
+            We can call <strong>navigation.push('RouteName')</strong> as many times as we like and it will continue pushing routes.
+            <br /><br />
+            <b>3</b>
+            <br />
+            The header bar will automatically show a back button, but you can programmatically go back by calling <strong>navigation.goBack()</strong>.
+            On Android, the hardware back button just works as expected.
+            <br />
+            You can go back to an existing screen in the stack with <strong>navigation.navigate('RouteName’)</strong>, and you can go back to the first screen in the stack with <strong>navigation.popToTop()</strong>.
+            <br />
+            The <strong>navigation</strong> prop is available to all screen components (components defined as screens in route configuration and rendered by React Navigation as a route).
+            <br /><br />
+            <b>4</b>
+            <br />
+            To open and close drawer, use the following helpers:
+            <br />
+            <strong>navigation.openDrawer();
+              <br />
+              navigation.closeDrawer();
+              <br />
+              navigation.toggleDrawer();</strong>
+            <br /><br />
+
+            <strong>*MOVE TO CODE EDITOR*</strong>
+            <br /><br />
+            show how to navigate in src/screens/MyLearning & src/navigation/HomeStackNavigator
+            <br /><br />
+            show custom header buttons and navigation.toggleDrawer() in src/navigation/HomeStackNavigator
+            <br /><br />
+            show nesting navigation in src/screens/Home
+          </aside>
+        </section>
+        <!-- 11 slide -->
+        <section class="text-and-frame-slide">
+          <h4 class="slide-name">Passing parameters to routes</h4>
+          <div>
+            <div class="fragment" data-fragment-index="1">
+              <p>pass params</p>
+              <div class="frame">
+                <code class="js">navigation.navigate(’RouteName’, { paramName: ’value’ })</code>
+              </div>
+            </div>
+            <div class="fragment" data-fragment-index="2">
+              <p>read the params in screen component</p>
+              <div class="frame">
+                <code class="js">route.params</code>
+              </div>
+            </div>
+            <div class="fragment" data-fragment-index="3">
+              <p>updating params</p>
+              <div class="frame">
+                <code class="js">navigation.setParams</code>
+              </div>
+            </div>
+            <div class="fragment" data-fragment-index="4">
+              <p>pass initial params</p>
+              <div class="frame">
+                <code class="js">
+                  &ltStack.Screen
+                  name=“Details”
+                  component={DetailsScreen}
+                  initialParams={{ id: 2 }}
+                  /&gt
+                </code>
+              </div>
+            </div>
+          </div>
+
+          <aside class="notes">
+            <strong>navigate</strong> and <strong>push</strong> accept an optional second argument to let you pass parameters to the route you are navigating to.
+            <br /><br />
+            <b>1</b>
+            <br />
+            For example: <strong>navigation.navigate('RouteName', { paramName: 'value’ })</strong>
+            <br /><br />
+            <b>2</b>
+            <br />
+            You can read the params through <strong>route.params</strong> inside a screen
+            <br /><br />
+            <b>3</b>
+            <br />
+            You can update the screen's params with <strong>navigation.setParams</strong>
+            <br /><br />
+            <b>4</b>
+            <br />
+            Initial params can be passed via the <strong>initialParams</strong> prop on Screen.
+            <br />
+            Params should contain the minimal data required to show a screen, nothing more
+            <br /><br />
+
+            <strong>*MOVE TO CODE EDITOR*</strong>
+            <br /><br />
+            show how to pass params in src/screens/Programmes
+            <br /><br />
+            show how to read the params in screen component in src/screens/ProgrammeDetails
+          </aside>
+        </section>
+        <!-- 12 slide includes vertical slides -->
+        <section>
+          <!-- 12.0 slide -->
+          <section class="topic-name-slide">
+            <h4>Navigation lifecycle</h4>
+
+            <aside class="notes">
+              We looked at types of navigation and how to move between screens.
+              <br /><br />
+              An important question in this context is: what happens with some screen when we navigate away from it to other screen, or when we come back to it?
+              <br /><br />
+              How does a route find out that a user is leaving it or coming back to it?
+            </aside>
+          </section>
+          <!-- 12.1 slide -->
+          <section class="picture-slide">
+            <h4 class="slide-name">Navigation lifecycle</h4>
+            <img src="assets/images/navigation_lifecycle_1.png" alt="navigation lifecycle">
+
+            <aside class="notes">
+              Consider a stack navigator with screens A and B.
+              <br /><br />
+              After navigating to A, its componentDidMount is called.
+              <br /><br />
+              When pushing B, its componentDidMount is also called, but A remains mounted on the stack and its componentWillUnmount is therefore not called.
+              <br /><br />
+              When going back from B to A, componentWillUnmount of B is called, but componentDidMount of A is not because A remained mounted the whole time.
+            </aside>
+          </section>
+          <!-- 12.2 slide -->
+          <section class="picture-slide">
+            <h4 class="slide-name">Navigation lifecycle</h4>
+            <img src="assets/images/navigation_lifecycle_2.png" alt="navigation lifecycle">
+
+            <aside class="notes">
+              Consider a tab navigator with two tabs – tab ”One” and tab “Two”, where each tab is a stack navigator of two screens - A and B for the first tab, and C and D for the second.
+              <br /><br />
+              We start on the Screen A and navigate to Screen B. Then we use the tab bar to switch to the Screen C and navigate to Screen D.
+              <br /><br />
+              After this sequence of operations is done, all 4 of the screens are mounted!
+              <br /><br />
+              If you use the tab bar to switch back to the Screen A, you'll notice you'll be presented with the Screen B - the navigation state of the Screen A has been preserved!
+              <br /><br />
+              Now that we understand how React lifecycle methods work in React Navigation, let's answer the question we asked at the beginning: "How do we find out that a user is leaving it or coming back to it?”
+            </aside>
+          </section>
+        </section>
+        <!-- 13 slide -->
+        <section class="text-and-conding-slide">
+          <h4 class="slide-name">Navigation events</h4>
+          <div class="center-align center-text">
+            <p class="big">
+              core events:
+              <code class="js background-colored-gray-1">focus</code>,
+              <code class="js background-colored-gray-1">blur</code>,
+              <code class="js background-colored-gray-1">state</code>,
+              <code class="js background-colored-gray-1">beforeRemove</code>
+            </p>
+            <br />
+            <p class="big">
+              stack navigator events:
+              <code class="js background-colored-gray-1">transitionStart</code>,
+              <code class="js background-colored-gray-1">transitionEnd</code>,
+            </p>
+            <br />
+            <p class="big">
+              tab navigator events:
+              <code class="js background-colored-gray-1">tabPress</code>,
+              etc.
+            </p>
+            <br />
+            <pre data-id="code-animation">
+              <code class="js" data-trim data-line-numbers>
+                const unsubscribe = navigation.addListener(‘focus’, (e) => {
+                  // Screen was focused
+                  // Do something
+                })
+              </code>
+            </pre>
+          </div>
+
+          <aside class="notes">
+            You can listen to various events emitted by React Navigation to get notified of certain events, and in some cases, override the default action.
+            <br />
+            There are few core events such as <strong>focus</strong>, <strong>blur</strong> etc. that works for every navigator, as well as navigator specific events that work for only for certain navigators.
+            <br /><br />
+            Core events
+            <br />
+            <strong>focus</strong> - this event is emitted when the screen comes into focus.
+            <br />
+            <strong>blur</strong> - this event is emitted when the screen goes out of focus.
+            <br />
+            <strong>state</strong> - this event is emitted when the navigator's state changes. This event receives the navigator's state in the event data (event.data.state).
+            <br />
+            <strong>beforeRemove</strong> - this event is emitted when the user is leaving the screen, there's a chance to prevent the user from leaving.
+            <br /><br />
+            Stack navigator events
+            <br />
+            <strong>transitionStart</strong> - this event is fired when the transition animation starts for the current screen.
+            <br />
+            <strong>transitionEnd</strong> - this event is fired when the transition animation ends for the current screen.
+            <br /><br />
+            Tab navigator events
+            <br />
+            <strong>tabPress</strong> - this event is fired when the user presses the tab button for the current screen in the tab bar.
+            <br /><br />
+            You can listen to events with the following API: <strong>navigation.addListener</strong>
+            <br /><br />
+            Inside a screen, you can add listeners on the <strong>navigation</strong> prop with the <strong>addListener</strong> method. The <strong>addListener</strong> method takes 2 arguments: type of the event, and a callback to be called on the event. It returns a function that can be called to unsubscribe from the event. Normally, you'd add an event listener in React.useEffect for function components.
+            <br /><br />
+            <strong>* MOVE TO CODE EDITOR *</strong>
+            <br /><br />
+            Show how to use listener in src/screens/MyLearning
+          </aside>
+        </section>
+        <!-- 14 slide -->
+        <section class="centred-column-text-slide">
+          <h4 class="slide-name">Hooks</h4>
+          <div>
+            <p class="big">useNavigation</p>
+            <p class="big">useRoute</p>
+            <p class="big">useNavigationState</p>
+            <p class="big">useFocusEffect</p>
+            <p class="big">useIsFocused</p>
+            <p class="big">useScrollToTop</p>
+            <p class="big">useTheme, etc.</p>
+          </div>
+
+          <aside class="notes">
+            There are hooks in React Navigation.
+            <br />
+            They make it easier to work with navigators within functional components, as well as put less (or no) reliance on HOCs.
+            <br /><br />
+            <strong>useNavigation</strong> is a hook which gives access to navigation object. It's useful when you cannot pass the navigation prop into the component directly, or don't want to pass it in case of a deeply nested child.
+            <br /><br />
+            <strong>useRoute</strong> is a hook which gives access to route object. It's useful when you cannot pass the route prop into the component directly, or don't want to pass it in case of a deeply nested child.
+            <br /><br />
+            <strong>useNavigationState</strong> is a hook which gives access to the navigation state of the navigator which contains the screen. It's useful in rare cases where you want to render something based on the navigation state.
+            <br /><br />
+            <strong>useFocusEffect</strong> triggered when the screen in question is focused. This can replace an event listener setup
+            <br /><br />
+            <strong>useIsFocused</strong> simply checks whether the current screen is focused and returns either true or false
+            <br /><br />
+            <strong>useScrollToTop</strong>, etc
+            <br /><br />
+            <strong>*MOVE TO CODE EDITOR*</strong>
+            <br />
+            Show hook in src/screens/Programmes
+          </aside>
+        </section>
+        <!-- 15 slide -->
+        <section class="text-and-conding-slide">
+          <h4 class="slide-name">Navigation options</h4>
+          <div class="center-align center-text">
+            <p class="big">
+              <code class="js background-colored-gray-1">options</code>
+              prop on <b>Screen</b> or
+              <code class="js background-colored-gray-1">screenOptions</code>
+              prop on <b>Group</b> and <b>Navigator</b>
+            </p>
+            <br />
+            <p class="big">
+              <code class="js background-colored-gray-1">navigation.setOptions</code>
+              method
+            </p>
+            <br />
+            <pre data-id="code-animation">
+              <code class="js" data-trim data-line-numbers>
+                &ltStack.Navigator screenOptions={{headerTitleStyle: {color: ’red’} }}&gt
+                  &ltStack.Screen name=“Home” component={HomeScreen} options={{title: ’Overview’}} /&gt
+                  &ltStack.Group
+                      screenOptions={({ navigation }) => ({
+                        presentation: 'modal’,
+                        headerLeft: () => &ltCancelButton onPress={navigation.goBack} /&gt
+                      })}&gt
+                    &ltStack.Screen name=“Settings” component={Settings} /&gt
+                    &ltStack.Screen name=“Share” component={Share} /&gt
+                  &lt/Stack.Group&gt
+                &lt/Stack.Navigator&gt
+              </code>
+            </pre>
+          </div>
+
+          <aside class="notes">
+            Each screen can configure various aspects about how it gets presented in the navigator that renders it by specifying certain options,
+            <br /><br />
+            for example, the header title in stack navigator, tab bar icon in bottom tab navigator etc.
+            <br />
+            Different navigators support different set of options.
+            <br /><br />
+            There are several ways of specifying options for screens:
+            <br /><br />
+            <strong>options prop on Screen</strong>
+            <br />
+            you can pass a prop named options to the Screen component to configure a screen, where you can specify an object with different options for that screen
+            <br /><br />
+            <strong>screenOptions prop on Group</strong>
+            <br />
+            you can pass a prop named screenOptions to the Group component to configure screens inside the group, where you can specify an object with different options. The options specified in screenOptions apply to all the screens in the group.
+            <br /><br />
+            <strong>screenOptions prop on the Navigator</strong>
+            <br />
+            The same you can do for Navigator component
+            <br /><br />
+            You can also pass a function to options and screenOptions.
+            <br />
+            The function will receive the <strong>navigation</strong> prop and the <strong>route</strong> prop for that screen.
+            <br />
+            This can be useful if you want to perform navigation in your options or, in case of Group component and Navigator component, to configure options for all the screens in one place based on the route.
+            <br /><br />
+            <strong>* MOVE TO CODE EDITOR *</strong>
+            <br /><br />
+            Show any or all file in src/navigation (tab option, drawer option, stack option)
+          </aside>
+        </section>
+        <!-- 16 slide -->
+        <section class="two-columns-of-pictures-with-description">
+          <h4 class="slide-name">Header bar</h4>
+          <div>
+            <div>
+              <p>default header</p>
+              <img src="assets/images/header_bar_1.png" alt="header bar">
+            </div>
+            <div>
+              <p>header with right element</p>
+              <img src="assets/images/header_bar_2.png" alt="header bar">
+            </div>
+            <div>
+              <p>header with buttons</p>
+              <img src="assets/images/header_bar_3.png" alt="header bar">
+            </div>
+            <div>
+              <p>header with custom title component and right buttons (ios)</p>
+              <img src="assets/images/header_bar_4_ios.png" alt="header bar">
+            </div>
+            <div>
+              <p>header with custom title component and right buttons (android)</p>
+              <img src="assets/images/header_bar_5_android.png" alt="header bar">
+            </div>
+          </div>
+
+          <aside class="notes">
+            Let's talk about header bar.
+            <br />
+            Very often on projects we need to set the header in the navigation.
+            <br />
+            Sometimes it's enough to use just the default one (with a title and a back button), but sometimes you need to make a custom one.
+            <br />
+            For example, you may want to render an image in place of the title, or make the title into a button.
+            <br />
+            In these cases you can completely override the component used for the title and provide your own.
+            <br /><br />
+            You can customize the header inside the options prop of your screen components.
+            <br /><br />
+            <strong>*MOVE TO CODE EDITOR*</strong>
+            <br /><br />
+            - Show custom header in src/navigation/HomeStackNavigator
+            <br />
+            - Show title styles
+          </aside>
+        </section>
+        <!-- 17 slide -->
+        <section class="centred-text-and-bottom-picture-slide">
+          <h4 class="slide-name">Deep linking overview</h4>
+          <div>
+            <p>
+              <b>Deep linking</b> uses a URI to navigate to specific location within a mobile app rather simply launching the app
+              <br />
+              <b>Deferred deep linking</b> allows user to deep link to content even if the app isn't already installed
+            </p>
+            <p>
+              There is Linking API in React Native providing a general interface to interact with both incoming and outgoing app links.
+              <br>
+              Usually you register a custom URI scheme for your app to react to incoming links like <em>myApp://somepage</em>
+            </p>
+            <img src="assets/images/deep_linking.png" alt="deep linking" />
+          </div>
+
+          <aside class="notes">
+            Deep Linking is a technique in which a given URL or resource is used to open a specific page or screen on mobile.
+            <br />
+            This particular screen may reside under a series of hierarchical pages, hence the term "deep" in deep linking.
+            It can be a product, an article, secure content behind a paywall, or a login screen.
+            <br /><br />
+            A standard or <b>traditional deep link</b> is one that directs users to a specific part of your app or relevant content, if the user already has the mobile app installed.
+            <br /><br />
+            There is another type of deep link - <b>deferred deep link</b>. It works the same as a standard deep link if your users already have the mobile app installed.
+            But if they don’t have the app installed, it instead takes them to the right app store and asks them to download the app to view the content.
+            <br /><br />
+            As developers, you usually have to handle these flows (sometimes it can be really hard)
+            <br /><br />
+            There are two ways to handle Deep Linking in a React Native app.
+            <br />
+            <strong>- Without navigation:</strong> by invoking React Native's core library via JavaScript and directly calling <b>Linking</b>. You can learn more about this in React Native's official documentation
+            <br />
+            <strong>- With navigation:</strong> by configuring React Navigation library
+          </aside>
+        </section>
+        <!-- 18 slide -->
+        <section class="qa-slide">
+          <h4>QA</h4>
         </section>
       </div>
     </div>
-    <script src="../reveal-js/dist/reveal.js"></script>
-    <script src="../reveal-js/plugin/zoom/zoom.js"></script>
-    <script src="../reveal-js/plugin/notes/notes.js"></script>
-    <script src="../reveal-js/plugin/search/search.js"></script>
-    <script src="../reveal-js/plugin/markdown/markdown.js"></script>
-    <script src="../reveal-js/plugin/highlight/highlight.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/dist/reveal.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/zoom/zoom.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/notes/notes.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/search/search.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/markdown/markdown.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/highlight/highlight.js"></script>
     <script>
       var url = new URL(window.location.href);
-      var showNotes = true; // TODO Uncomment before merging!!! url.searchParams.has("showNotes");
+      var showNotes = url.searchParams.has("showNotes");
+
+      if (showNotes) {
+        var head = document.getElementsByTagName("HEAD")[0];
+        var link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        link.href =
+                "https://rolling-scopes-school.github.io/react-native-course/reveal-js/speaker-notes-mobile.css";
+        head.appendChild(link);
+      }
 
       Reveal.initialize({
         disableLayout: true,
@@ -39,6 +1219,7 @@
         progress: true,
         center: false,
         hash: true,
+        autoPlayMedia: true,
         showNotes,
         plugins: [
           RevealZoom,
@@ -48,14 +1229,6 @@
           RevealHighlight,
         ],
       });
-
-      document.getElementById("jsStyle").innerHTML = `
-          <style>
-          img, video, iframe {
-              height: ${window.innerHeight * 0.8}px !important;
-              width: ${window.innerWidth * 0.8}px !important;
-          }
-          </style>`;
     </script>
   </body>
 </html>
