@@ -452,7 +452,7 @@ Given a comparison of the cons and props of both frameworks, I would suggest scr
             </div>
 
           <aside class="notes">
-            •The <strong>”scripts”</strong> property of your package.json file supports a number of built-in scripts and their preset life cycle events as well as arbitrary scripts. These all can be executed by running <strong>npm run \x3Cscript_name></strong>.<br>Let`s see what`s inside the default scripts.<br>•<strong>npx react-native run-android</strong> is one way to run your app - you can also run it directly from within Android Studio.<br>•<strong>npx react-native run-ios</strong> command will automatically run your app on the iOS Simulator by default.<br>•<strong>npx react-native start</strong> – starts Metro Bundler<br>Also you can add your own scripts, here is an example:<br>•<strong>”install:full”</strong>: "rm -rf node_modules && npm install && rm -rf /tmp/metro-bundler-cache-* && cd ./ios && pod install”<br>
+            •The <strong>”scripts”</strong> property of your package.json file supports a number of built-in scripts and their preset life cycle events as well as arbitrary scripts. These all can be executed by running <strong>npm run {script_name}</strong>.<br>Let`s see what`s inside the default scripts.<br>•<strong>npx react-native run-android</strong> is one way to run your app - you can also run it directly from within Android Studio.<br>•<strong>npx react-native run-ios</strong> command will automatically run your app on the iOS Simulator by default.<br>•<strong>npx react-native start</strong> – starts Metro Bundler<br>Also you can add your own scripts, here is an example:<br>•<strong>”install:full”</strong>: "rm -rf node_modules && npm install && rm -rf /tmp/metro-bundler-cache-* && cd ./ios && pod install”<br>
           </aside>
         </section>
 
@@ -497,12 +497,12 @@ Given a comparison of the cons and props of both frameworks, I would suggest scr
               <tr>
                 <td>&lt;TextInput&gt;</td>
                 <td>&lt;input type="text"&gt;</td>
-                <td>A generic scrolling container</td>
+                <td>Allows the user to enter text</td>
               </tr>
               <tr>
                 <td>&lt;ScrollView&gt;</td>
                 <td>&lt;div&gt;</td>
-                <td>Allows the user to enter text</td>
+                <td>A generic scrolling container</td>
               </tr>
             </tbody>
           </table>
@@ -523,7 +523,7 @@ Given a comparison of the cons and props of both frameworks, I would suggest scr
         </section>
 
         <section class="compare-slide">
-          <h4 class="slide-name">Using List Views</h4>
+          <h4 class="slide-name">Flatlist vs map</h4>
           <div>
           <div>
             <img src="assets/images/flat-list.gif" alt="simple" />
@@ -854,8 +854,16 @@ Given a comparison of the cons and props of both frameworks, I would suggest scr
 					  </pre>
           </div>
           <aside class="notes">
-            Sometimes you may want to implement separate visual components for Android and iOS.<br>* <strong>The Platform API</strong> allows us to conditionally apply different styles or properties in our component based on the device’s operating system.<br>*  The OS attribute of the object returns either iOS or android depending on the user’s device. <br>•There is also a Platform.select method available, that given an object where keys can be one of `ios` | `android` | `native` | `default`, returns the most fitting value for the platform you are currently running on.<br>•The Platform module can also be used to detect the version of the Android Platform or system version of iOS<br>•<strong>Platform-specific extensions</strong><br>•When your platform-specific code is more complex, you should consider splitting the code out into separate files. React Native will detect when a file has a .ios. or .android. extension and load the relevant platform file when required from other components.<br>•You can also use the .native.js extension when a module needs to be shared between NodeJS/Web and React Native but it has no Android/iOS differences.<br>
+            Sometimes you may want to implement separate visual components for Android and iOS.<br>* <strong>The Platform API</strong> allows us to conditionally apply different styles or properties in our component based on the device’s operating system.<br>*  The OS attribute of the object returns either iOS or android depending on the user’s device. <br>•There is also a Platform.select method available, that given an object where keys can be one of `ios` | `android` | `native` | `default`, returns the most fitting value for the platform you are currently running on.<br>•The Platform module can also be used to detect the version of the Android Platform or system version of iOS<br>
           </aside>
+        </section>
+
+        <section class="picture-slide">
+          <h4 class="slide-name">Platform Specific extensions</h4>
+          <img src="assets/images/extensions.png" alt="simple" />
+          <aside class="notes">
+            <strong>Platform-specific extensions</strong><br>•When your platform-specific code is more complex, you should consider splitting the code out into separate files. React Native will detect when a file has a .ios. or .android. extension and load the relevant platform file when required from other components.<br>•You can also use the .native.js extension when a module needs to be shared between NodeJS/Web and React Native but it has no Android/iOS differences.<br>
+          </aside>  
         </section>
 
         <section class="topic-name-slide">
