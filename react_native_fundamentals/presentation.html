@@ -368,7 +368,9 @@ Given a comparison of the cons and props of both frameworks, I would suggest scr
             </ol>
           </div>
           <aside class="notes">
-            Let’s talk about how can you install and build your React Native app.<br>So, what do we need? Let’s take a closer look on dependencies.<br>You will need to install Node, Watchman, the React Native command line interface, a JDK, and Android Studio, Xcode (iOS), CocoaPods (iOS). (And some IDE that supports js, for example Visual Studio Code).<br>The first three are common for both platform (android and iOS).<br><strong>NodeJS is a Javascript</strong> cross-platform <strong>runtime environment</strong>. React Native uses Node. js, <strong>to build your JavaScript code.</strong><br><strong>Watchman</strong> is a tool by Facebook for watching changes in the filesystem. It is highly recommended you install it for better performance. React Native uses watchman <strong>to detect when you`ve made code changes and then automatically build and push the update to your device without you needing to manually refresh it</strong>.<br>TODO React Native command line interface<br>Now, let’s see what we need for android<br><strong>JDK</strong> (Java Development Kit) is a cross-platformed software development environment. <strong>The JDK provides tools, such as the Java compiler, used by IDEs and SDKs for developing Java programs.</strong><br><strong>Android Studio is the official IDE for Android.</strong><br>And, when we talk about what we need for iOS, it’s <br><strong>Xcode</strong> (iOS)  is the IDE for iOS<br>And <strong>CocoaPods</strong> (iOS) witch is a dependency manager for Swift and Objective-C Cocoa projects. <strong>React Native uses Cocoapods to add iOS dependencies when you add new modules to your application.</strong><br>
+            Let’s talk about how can you install and build your React Native app.<br>So, what do we need? Let’s take a closer look on dependencies.<br>You will need to install Node, Watchman, the React Native command line interface, a JDK, and Android Studio, Xcode (iOS), CocoaPods (iOS). (And some IDE that supports js, for example Visual Studio Code).<br>The first three are common for both platform (android and iOS).<br><strong>NodeJS is a Javascript</strong> cross-platform <strong>runtime environment</strong>. React Native uses Node. js, <strong>to build your JavaScript code.</strong><br><strong>Watchman</strong> is a tool by Facebook for watching changes in the filesystem. It is highly recommended you install it for better performance. React Native uses watchman <strong>to detect when you`ve made code changes and then automatically build and push the update to your device without you needing to manually refresh it</strong>.<br>
+            <string>React Native command line interface(CLI)</string> - is a built-in feature that helps you take control over the management of the project locally. Documentation says that, rather than install and manage a specific version of the CLI globally, it is better to access the current version at runtime using npx.<br>
+            <br>Now, let’s see what we need for android<br><strong>JDK</strong> (Java Development Kit) is a cross-platformed software development environment. <strong>The JDK provides tools, such as the Java compiler, used by IDEs and SDKs for developing Java programs.</strong><br><strong>Android Studio is the official IDE for Android.</strong><br>And, when we talk about what we need for iOS, it’s <br><strong>Xcode</strong> (iOS)  is the IDE for iOS<br>And <strong>CocoaPods</strong> (iOS) witch is a dependency manager for Swift and Objective-C Cocoa projects. <strong>React Native uses Cocoapods to add iOS dependencies when you add new modules to your application.</strong><br>
           </aside>
         </section>
 
@@ -460,7 +462,18 @@ Given a comparison of the cons and props of both frameworks, I would suggest scr
           <h4 class="slide-name">Project structure recommendations</h4>
           <img src="assets/images/project_st_rec.png" alt="simple" />
           <aside class="notes">
-            React Native doesn`t have opinions on how you put files into folders. That said there are a few common approaches popular in the ecosystem you may want to consider.<br><strong>* src</strong>: Contains all major project files.<br><strong>* api</strong>: This folder contains logic related to external API communications.<br><strong>•assets</strong>: This folder will store all the assets that we are using in react-native.<br><strong>•components</strong>: In the components folder, you can create multiple component files that are used to wrap the application components and determine their overall layout. You can also add reusable and UI components.<br><strong>•navigation</strong>: Your project base navigation goes here. You can create a stack navigator in it and export it to your application. <br><strong>* screens</strong>: If you have multiple screens like auth screens: login, register and profile screens, product screens it can be saved here.<br><strong>•store</strong>: If you are using Redux, then there must be action and reducers files that can be put here.<br><strong>* styles</strong>: Here we place the explore feature’s components related styles.<br><strong>* utils</strong>: All the utils/helpers files go here that storing reusable methods and logic like validations, progress bar, date pickers, and according to your app requirements.<br>
+            React Native doesn`t have opinions on how you put files into folders. That said there are a few common approaches popular in the ecosystem you may want to consider.<br>
+            <strong>* src</strong>: Contains all major project files.<br>
+            <strong>* api</strong>: This folder contains logic related to external API communications.<br>
+            <strong>* assets</strong>: This folder will store all the assets that we are using in react-native.
+            If you have assets of different types, you should store them in their respective folders. For example, if you have images and fonts, it's better to put them in folders named "images" and "fonts".
+            <br>
+            <strong>* components</strong>: In the components folder, you can create multiple component files that are used to wrap the application components and determine their overall layout. You can also add reusable and UI components.<br>
+            <strong>* navigation</strong>: Your project base navigation goes here. You can create a stack navigator in it and export it to your application. <br>
+            <strong>* screens</strong>: If you have multiple screens like auth screens: login, register and profile screens, product screens it can be saved here.<br>
+            <strong>* store</strong>: If you are using Redux, then there must be action and reducers files that can be put here.<br>
+            <strong>* styles</strong>: Here we place the explore feature’s components related styles.<br>
+            <strong>* utils</strong>: All the utils/helpers files go here that storing reusable methods and logic like validations, progress bar, date pickers, and according to your app requirements.<br>
           </aside>
         </section>
 
@@ -528,6 +541,7 @@ Given a comparison of the cons and props of both frameworks, I would suggest scr
           <div>
             <img src="assets/images/flat-list.gif" alt="simple" />
             <ul>
+              <strong>FlatList</strong>
               <li>long lists of data</li>
               <li>renders items lazily</li>
             </ul>
@@ -535,6 +549,7 @@ Given a comparison of the cons and props of both frameworks, I would suggest scr
           <div>
             <img src="assets/images/scroll-view.gif" alt="simple" />
             <ul>
+              <strong>ScrollView and map</strong>
               <li>small number of things of a limited size</li>
               <li>renders all its child components at once</li>
             </ul>
@@ -549,12 +564,12 @@ Given a comparison of the cons and props of both frameworks, I would suggest scr
           <h4 class="slide-name">Touchables</h4>
           <div>
             <div class="fragment" data-fragment-index="1">
-              <img src="assets/images/TouchableOpacity.gif" alt="simple" height="350px" width="240px" />
-              <p>TouchableOpacity</p>
-            </div>
-            <div class="fragment" data-fragment-index="2">
               <img src="assets/images/TouchableHighlight.gif" alt="simple" height="350px" width="240px"  />
               <p>TouchableHighlight</p>
+            </div>
+            <div class="fragment" data-fragment-index="2">
+              <img src="assets/images/TouchableOpacity.gif" alt="simple" height="350px" width="240px" />
+              <p>TouchableOpacity</p>
             </div>
             <div class="fragment" data-fragment-index="3">
               <img src="assets/images/TouchableWithoutFeedback.gif" alt="simple" height="350px" width="240px"  />
@@ -566,7 +581,10 @@ Given a comparison of the cons and props of both frameworks, I would suggest scr
             </div>
           </div>
           <aside class="notes">
-            <strong>TouchableHighlight</strong><br>A wrapper for making views respond properly to touches. On press down, the opacity of the wrapped view is decreased, which allows the underlay color to show through, darkening or tinting the view. So, don’t forget to set underlayColor in props. <strong>UnderlayColor</strong> is the color of the underlay that will show through when the touch is active.<br><strong>TouchableOpacity</strong><br>A wrapper for making views respond properly to touches. On press down, the opacity of the wrapped view is decreased, dimming it. You can change the opacity in <strong>activeOpacity</strong> prop.<br><strong>TouchableWithoutFeedback</strong><br>The TouchableWithoutFeedback is used when the user wants to handle press but doesn`t want to see any feedback.TouchableWithoutFeedback supports only one child. If you wish to have several child components, wrap them in a View. Importantly, TouchableWithoutFeedback works by cloning its child and applying responder props to it. It is therefore required that any intermediary components pass through those props to the underlying React Native component.<br><strong>TouchableNativeFeedback</strong><br>A wrapper for making views respond properly to touches (Android only). On Android this component uses native state drawable to display touch feedback.<br>
+            <strong>TouchableHighlight</strong><br>A wrapper for making views respond properly to touches. On press down, the opacity of the wrapped view is decreased, which allows the underlay color to show through, darkening or tinting the view. So, don’t forget to set underlayColor in props. <strong>UnderlayColor</strong> is the color of the underlay that will show through when the touch is active.<br>
+            <strong>TouchableOpacity</strong><br>A wrapper for making views respond properly to touches. On press down, the opacity of the wrapped view is decreased, dimming it. You can change the opacity in <strong>activeOpacity</strong> prop.<br>
+            <strong>TouchableWithoutFeedback</strong><br>The TouchableWithoutFeedback is used when the user wants to handle press but doesn`t want to see any feedback.TouchableWithoutFeedback supports only one child. If you wish to have several child components, wrap them in a View. Importantly, TouchableWithoutFeedback works by cloning its child and applying responder props to it. It is therefore required that any intermediary components pass through those props to the underlying React Native component.<br>
+            <strong>TouchableNativeFeedback</strong><br>A wrapper for making views respond properly to touches (Android only). On Android this component uses native state drawable to display touch feedback.<br>
           </aside>
         </section>
 
