@@ -5,6 +5,7 @@
 - debug with chrome browser
 - react-native-debugger
 - VSCode plugin
+- Flipper
 
 ## Presentation
 
