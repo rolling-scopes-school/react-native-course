@@ -2,6 +2,11 @@
   .reveal {
     max-height: 50vh !important;
   }
+
+  .reveal .controls {
+    bottom: 32px;
+  }
+
   .speaker-notes {
     max-height: calc(50vh - 15px) !important;
     overflow-y: scroll !important;
