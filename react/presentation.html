@@ -3307,6 +3307,255 @@ class Welcome extends React.Component {
           </section>
         </section>
 
+        <!-- USE-REDUCER EXAMPLE -->
+        <section>
+          <section class="numbering-and-picture-slide">
+            <h4 class="slide-name">useReducer example</h4>
+            <div>
+              <img
+                src="assets/images/use_reducer_example.png"
+                alt="use_reducer_example"
+              />
+              <ol>
+                <li><strong>use-reducer-component.js</strong> file</li>
+              </ol>
+            </div>
+            <aside class="notes">
+              Let's make an example of useReducer hook.
+              <br /><br />
+              We will create
+              <strong>use-reducer-component.js</strong> in the hooks folder
+              <br /><br />
+              Now we ready to start coding our useReducer hook example
+            </aside>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">useReducer example</h4>
+            <p>use-reducer-component.js</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers>
+                import React, { useReducer } from "react";
+
+                const initialTodos = [
+                  {
+                    id: 1,
+                    title: "Todo 1",
+                    complete: false
+                  },
+                  {
+                    id: 2,
+                    title: "Todo 2",
+                    complete: false
+                  }
+                ];
+
+                export const UseReducerComponent = () => {
+                  return (
+                    &lt;>
+                      {initialTodos.map((todo) => (
+                        &lt;div key={todo.id}>
+                          &lt;label>
+                            &lt;input
+                              type="checkbox"
+                              checked={todo.complete}
+                              onChange={() => {}}
+                            />
+                            {todo.title}
+                          &lt;/label>
+                        &lt;/div>
+                      ))}
+                    &lt;/>
+                  );
+                };
+
+					    </code>
+            </pre>
+            <aside class="notes">
+              Let's create a UseReducerComponent component, it will show array
+              of todo-s with ability to check them.
+            </aside>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">useReducer example</h4>
+            <p>use-reducer-component.js</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="1,16-26,29-33,37,43">
+                import React, { useReducer } from "react";
+
+                const initialTodos = [
+                  {
+                    id: 1,
+                    title: "Todo 1",
+                    complete: false
+                  },
+                  {
+                    id: 2,
+                    title: "Todo 2",
+                    complete: false
+                  }
+                ];
+
+                const reducer = (state, action) => {
+                  console.log({ action });
+                  switch (action.type) {
+                    case "COMPLETE":
+                      return state.map((todo) =>
+                        todo.id !== action.id ? todo : { ...todo, complete: !todo.complete }
+                      );
+                    default:
+                      return state;
+                  }
+                };
+
+                export const UseReducerComponent = () => {
+                  const [todos, dispatch] = useReducer(reducer, initialTodos);
+
+                  const handleComplete = (todo) => {
+                    dispatch({ type: "COMPLETE", id: todo.id });
+                  };
+
+                  return (
+                    &lt;>
+                      {todos.map((todo) => (
+                        &lt;div key={todo.id}>
+                          &lt;label>
+                            &lt;input
+                              type="checkbox"
+                              checked={todo.complete}
+                              onChange={() => handleComplete(todo)}
+                            />
+                            {todo.title}
+                          &lt;/label>
+                        &lt;/div>
+                      ))}
+                    &lt;/>
+                  );
+                };
+					    </code>
+            </pre>
+            <aside class="notes">
+              Now let's try add useReducer hook to our component.
+              <br /><br />
+              Let's start with dispatch function. The dispatch function returned
+              by useReducer lets us update the state to a different value and
+              trigger a re-render. We need to pass the action name and id as an
+              arguments to the dispatch function.
+              <br /><br />
+              React will set the next state to the result of calling the reducer
+              function you've provided with the current state and the action
+              you've passed to dispatch.
+              <br /><br />
+              Next thing is reducer function. The reducer function specifies how
+              the state gets updated. It must be pure, should take the state and
+              action as arguments, and should return the next state. State and
+              action can be of any types.
+            </aside>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">useReducer example</h4>
+            <p>index.js</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="7,16">
+                import { UseStateComponent } from "./use-state-component";
+                import { UseEffectComponent } from "./use-effect-component";
+                import { UseCallbackComponent } from "./use-callback-component";
+                import { UseContextComponent } from "./use-context-component";
+                import { UseMemoComponent } from "./use-memo-component";
+                import { UseRefComponent } from "./use-ref-component";
+                import { UseReducerComponent } from "./use-ref-component";
+
+                export {
+                  UseStateComponent,
+                  UseEffectComponent,
+                  UseCallbackComponent,
+                  UseContextComponent,
+                  UseMemoComponent,
+                  UseRefComponent,
+                  UseReducerComponent
+                };
+					    </code>
+            </pre>
+            <aside class="notes">
+              Let's the following code to the index.js file
+            </aside>
+          </section>
+          <section class="code-example-slide">
+            <h4 class="slide-name">useReducer example</h4>
+            <p>App.js</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="16,44">
+                import "./styles.css";
+
+                import { ClassCounter, FunctionalCounter } from "./components-and-props";
+                import { 
+                  MountingComponent, 
+                  UpdatingComponent, 
+                  UnmountingComponent 
+                } from "./lifecycle";
+                import {
+                  UseStateComponent,
+                  UseEffectComponent,
+                  UseCallbackComponent,
+                  UseContextComponent,
+                  UseMemoComponent,
+                  UseRefComponent,
+                  UseReducerComponent
+                } from "./hooks";
+
+                const blockStyle = { "border-style": "dotted" };
+
+                export default function App() {
+                  return (
+                    &lt;div className="App">
+                      &lt;div style={blockStyle}>
+                        <h1>Functional and class componets</h1>
+                        &lt;ClassCounter name={"Class Counter"} />
+                        &lt;FunctionalCounter name={"Functional Counter"} />
+                      &lt;/div>
+                      <br /> <br />
+                      &lt;div style={blockStyle}>
+                        <h1>Lifecycle examples</h1>
+                        &lt;MountingComponent name={"FirstName"} />
+                        &lt;UpdatingComponent />
+                        &lt;UnmountingComponent />
+                      &lt;/div>
+                      &lt;div style={blockStyle}>
+                        <h1>Hooks</h1>
+                        &lt;UseStateComponent />
+                        &lt;UseEffectComponent />
+                        &lt;UseCallbackComponent />
+                        &lt;UseContextComponent />
+                        &lt;UseMemoComponent />
+                        &lt;UseRefComponent />
+                        &lt;UseReducerComponent />
+                      &lt;/div>
+                    &lt;/div>
+                  );
+                }              
+					    </code>
+            </pre>
+            <aside class="notes">
+              And the last thing we need to do is add our new component to
+              App.js.
+            </aside>
+          </section>
+          <section class="video-slide">
+            <h4 class="slide-name">useReducer example</h4>
+            <div>
+              <video controls>
+                <source
+                  src="assets/videos/use_reducer_example.mp4"
+                  type="video/mp4"
+                />
+              </video>
+            </div>
+            <aside class="notes">
+              As you can see our component works fine. <br /><br />
+              It successfully change the state using reducer function.
+            </aside>
+          </section>
+        </section>
+
         <!-- CUSTOM HOOK EXAMPLE -->
         <section>
           <section class="numbering-and-picture-slide">
