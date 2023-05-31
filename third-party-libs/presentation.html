@@ -43,6 +43,460 @@
       <div class="slides">
         <section class="presentation-name-slide">
           <h4>3d-party libs</h4>
+
+          <aside class="notes">
+            React Native is an open source project and has many additional
+            libraries that can be included in the project.
+            <br /><br />
+            In scope of this topic, we will consider a couple of them, as well
+            as the most common questions that arise during development, for
+            example, connecting additional fonts.
+          </aside>
+        </section>
+
+        <!-- agenda -->
+        <section class="agenda-slide">
+          <h4 class="slide-name">Agenda</h4>
+          <ul>
+            <li class="fragment">Finding Libraries</li>
+            <li class="fragment">Advantages of Third-Party Libraries</li>
+            <li class="fragment">Disadvantages of Third-Party Libraries</li>
+            <li class="fragment">Determining library compatibility</li>
+            <li class="fragment">
+              Linking Native Code
+              <ul>
+                <li>iOS</li>
+                <li>Android</li>
+              </ul>
+            </li>
+            <li class="fragment">Icons</li>
+            <li class="fragment">Fonts</li>
+            <li class="fragment">Async-storage</li>
+            <li class="fragment">Webview</li>
+          </ul>
+
+          <aside class="notes">
+            On this slide you can see today's agenda.
+            <br /><br />
+            We will start with..
+            <br /><br />
+            Next…
+            <br /><br />
+            And the last one ..
+          </aside>
+        </section>
+
+        <!-- Finding Libraries -->
+        <section class="picture-with-description-slide">
+          <h4 class="slide-name">Finding Libraries</h4>
+          <img
+            src="assets/svg/react-native-directory.svg"
+            alt="react-native-directory"
+          />
+          <p>
+            <a href="https://reactnative.directory/">React Native Directory</a>
+          </p>
+
+          <aside class="notes">
+            <strong>React Native Directory</strong> is a searchable database of
+            libraries built specifically for React Native. This is the first
+            place to look for a library for your React Native app. <br /><br />
+            React Native Directory allows you to filter by
+            <strong> platform compatibility</strong> , such as iOS, Android,
+            Web, and Windows. If the library you would like to use is not
+            currently listed there, refer to the README for the library to learn
+            more. <br /><br />
+            Usually libraries
+            <strong> built specifically for other platforms</strong> will not
+            work with React Native. Examples include react-select which is built
+            for the web and specifically targets react-dom, and rimraf which is
+            built for Node.js and interacts with your computer file system.
+            Other libraries like lodash
+            <strong> use only JavaScript language</strong> features and work in
+            any environment. <br /><br />
+            <br /><br />
+            Developers can easily filter the best library using attributes like 
+            directory <strong>score</strong>, <strong>last update</strong>, total 
+            <strong>download count</strong>, <strong>star count</strong>, 
+            <strong>fork count</strong>, <strong>issue count</strong>, 
+            recommended library tag, and operating system support (Android, iOS, and others).
+            <br /><br />
+            Few questions that can help you to choose right library:
+            <br />
+            1. How is it going to solve my problem? The easy or hard way of problem-solving compared with other similar libraries.
+            <br />
+            2. Will it be actively maintained by the creators and contributors?
+            <br />
+            3. Are the creators and contributors are helping the users to tackle the issues?
+            <br />
+            4. How many people are using it?
+            <br />
+            5. Is the size of the library high?
+            <br />
+            6. How is the documentation?
+          </aside>
+        </section>
+
+
+        <!-- Advantages of Third-Party Libraries -->
+        <section class="bullets-slide">
+          <h4 class="slide-name">Advantages of Third-Party Libraries</h4>
+          <ul>
+            <li class="fragment">Save Time</li>
+            <li class="fragment">Use Pre-Tested Code</li>
+            <li class="fragment">Use Modular Code</li>
+          </ul>
+          <aside class="notes">
+            <strong>Save Time</strong><br/>
+            The most important benefit of using third-party libraries is that it saves 
+            you time as you do not need to develop the functionality that the library 
+            provides. Instead, you can focus on the core business logic of your app: 
+            the features that really matter. Sure, you'll still need to spend some time 
+            reading the library's documentation and understanding how to integrate it, 
+            but typically this is just a fraction of the time that would be required to 
+            develop and test its functionality from scratch.
+            <br/><br/>
+
+            <strong>Use Pre-Tested Code</strong><br/>
+            A popular library will have been used in multiple environments and use cases.
+            <br/><br/>
+
+            <strong>Use Modular Code</strong><br/>
+            The library's code is naturally kept separate from the 
+            rest of your application code, and communication takes place across 
+            well-defined boundaries (the library's API).
+            If instead, you opt to develop a feature yourself, it might be hard to 
+            decouple it from the app's code. 
+            <br/><br/>
+          </aside>
+        </section>
+
+        <!-- Disadvantages of Third-Party Libraries -->
+        <section class="bullets-slide">
+          <h4 class="slide-name">Disadvantages of Third-Party Libraries</h4>
+          <ul>
+            <li class="fragment">Dependency</li>
+            <li class="fragment">Lack of Support</li>
+            <li class="fragment">Overuse</li>
+            <li class="fragment">Security Issues</li>
+          </ul>
+          <aside class="notes">
+            <strong>Dependency</strong><br/>
+            If at some point, you are forced to switch libraries, your code might 
+            have to undergo significant changes in order to adapt it to the new library.
+            <br/><br/>
+
+            <strong>Lack of Support</strong><br/>
+            Another possible risk is that a library could be abandoned by its author.
+            If that does not happen, the library may not perform optimally (or at all) on newer devices.
+            <br/><br/>
+
+            <strong>Overuse</strong><br/>
+            An excess number of libraries will bloat your app by increasing its size and memory consumption. 
+            In turn, this will detrimentally affect the performance of your app.
+            <br/><br/>
+
+            <strong>Security Issues</strong><br/>
+            The use of third-party libraries might raise some security concerns as 
+            vulnerabilities in open source libraries are increasingly targets 
+            for hackers.
+            <br/><br/>
+          </aside>
+        </section>
+
+        <!-- Determining library compatibility -->
+        <section class="text-and-conding-slide">
+          <h4 class="slide-name">Determining library compatibility</h4>
+          <div class="center-align center-text">
+            <p>npm install &lt;library-name>@&lt;version-number></p>
+            <pre data-id="code-animation">
+						<code data-trim data-line-numbers>
+							npm install @react-native-community/netinfo@^2.0.0
+						</code>
+					</pre>
+          </div>
+
+          <aside class="notes">
+            The latest version of a library is typically compatible with the
+            latest version of React Native.
+            <br /><br />If you are using an older version, you should refer to
+            the README to know which version of the library you should install.
+            <br /><br />
+            You can install a particular version of the library by running npm
+            install library-name and specify version-number, for example: npm
+            install @react-native-community/netinfo@^2.0.0.
+          </aside>
+        </section>
+
+        <!-- Linking Native Code on iOS -->
+        <section class="coding-and-logos-slide">
+          <h4 class="slide-name">Linking Native Code on iOS</h4>
+          <div>
+            <div class="logos">
+              <img src="assets/images/ios.jpeg" alt="ios" />
+              <img src="assets/images/cocoapods.png" alt="cocoapods" />
+            </div>
+            <div>
+              <div>
+                <pre data-id="code-animation">
+                <code data-trim data-line-numbers>
+                  npx pod-install
+                  npx react-native run-ios
+                </code>
+              </pre>
+              </div>
+            </div>
+          </div>
+         
+          <aside class="notes">
+            React Native uses CocoaPods to manage iOS project dependencies and
+            most React Native libraries follow this same convention. If a
+            library you are using does not, then please refer to their README
+            for additional instruction. In most cases, the following
+            instructions will apply.
+            <br /><br />
+            Run pod install in our ios directory in order to link it to our
+            native iOS project. A shortcut for doing this without switching to
+            the ios directory is to run npx pod-install.
+            <br /><br />
+            Once this is complete, re-build the app binary to start using your
+            new library
+          </aside>
+        </section>
+
+        <!-- Linking Native Code on Android -->
+        <section class="coding-and-logos-slide">
+          <h4 class="slide-name">Linking Native Code on Android</h4>
+          <div>
+            <div class="logos">
+              <img src="assets/images/android.png" alt="android" />
+              <img src="assets/images/gradle.png" alt="gradle" />
+            </div>
+            <div>
+              <div>
+                <pre data-id="code-animation">
+                <code data-trim data-line-numbers>
+                  npx react-native run-android
+                </code>
+              </pre>
+              </div>
+            </div>
+          </div>
+         
+          <aside class="notes">
+            React Native uses Gradle to manage Android project dependencies.
+            After you install a library with native dependencies, you will need
+            to re-build the app binary to use your new library:
+            <br />
+            npx react-native run-android
+          </aside>
+        </section>
+
+        <!-- react-native-vector-icons -->
+        <section class="picture-with-description-slide">
+          <h4 class="slide-name">react-native-vector-icons</h4>
+          <img src="assets/images/rn-vector-icons.png" alt="rn-vector-icons" />
+          <p>
+            <a href="https://github.com/oblador/react-native-vector-icons"
+              >react-native-vector-icons</a
+            >
+          </p>
+
+          <aside class="notes">
+            <strong>react-native-vector-icons</strong> is really popular library
+            for managing icons in react-native apps. <br /><br />
+            Perfect for buttons, logos and nav/tab bars. Easy to extend, style
+            and integrate into your project.
+            <br /><br />
+            Please read github readme file to find steps how to install and use
+            it.
+          </aside>
+        </section>
+
+        <!-- Adding custom fonts  -->
+        <section>
+          <section class="code-example-slide">
+            <h4 class="slide-name">Adding custom fonts</h4>
+
+            <pre data-id="code-animation">
+              <code data-trim data-line-numbers>
+                mkdir src/assets/fonts
+              </code>
+            </pre>
+
+            <pre data-id="code-animation">
+              <code data-trim data-line-numbers>
+                touch react-native.config.js
+              </code>
+            </pre>
+
+            <pre data-id="code-animation">
+              <code class="js" data-trim data-line-numbers>
+                module.exports = {
+                  assets: ['./src/assets/fonts/'],
+                };
+              </code>
+            </pre>
+
+            <pre data-id="code-animation">
+              <code data-trim data-line-numbers>
+                npx react-native-asset
+              </code>
+            </pre>
+
+            <aside class="notes">
+              Very often, customers want to have their own font and for
+              developers this is not a problem at all!
+              <br /><br />
+              Create a fonts folder & copy your fonts into this folder
+              <br />
+              <br />
+              Create react-native.config.js file in the root of your project
+              <br />
+              <br />
+              Add following code in react-native.config.js file
+              <br />
+              <br />
+              Last, Run following command to link fonts to your project: npx
+              react-native-asset
+            </aside>
+          </section>
+
+          <section class="code-example-slide">
+            <h4 class="slide-name">Adding custom fonts</h4>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="7-10,19-22">
+                import {SafeAreaView, StyleSheet, Text} from 'react-native';
+                import React from 'react';
+
+                const App = () => {
+                  return (
+                    &lt;SafeAreaView style={styles.container}>
+                      &lt;Text style={styles.Italic}>Italic&lt;/Text>
+                      &lt;Text style={styles.Bold}>Bold&lt;/Text>
+                      &lt;Text style={styles.Regular}>Regular&lt;/Text>
+                      &lt;Text style={styles.Light}>Light&lt;/Text>
+                    &lt;SafeAreaView>
+                  );
+                };
+
+                export default App;
+
+                const styles = StyleSheet.create({
+                  container: {padding: 10},  
+                  Bold: {fontSize: 30, fontFamily: 'Nunito-Bold'},
+                  Light: {fontSize: 30, fontFamily: 'Nunito-Light'},
+                  Regular: {fontSize: 30, fontFamily: 'Nunito-Regular'},
+                  Italic: {fontSize: 30, fontFamily: 'Nunito-Italic'},
+                });
+					    </code>
+            </pre>
+            <aside class="notes">
+              Now open App.tsx file and use your custom font family
+            </aside>
+          </section>
+        </section>
+
+        <!-- async-storage -->
+        <section class="picture-with-description-slide">
+          <h4 class="slide-name">async-storage</h4>
+          <img src="assets/images/async-storage.png" alt="async-storage" />
+          <p>
+            <a href="https://react-native-async-storage.github.io/async-storage"
+              >async-storage</a
+            >
+          </p>
+
+          <aside class="notes">
+            AsyncStorage is an unencrypted, asynchronous, persistent, key-value
+            storage system that is global to the app. It should be used instead
+            of LocalStorage.
+            <br /><br />
+            It is recommended that you use an abstraction on top of AsyncStorage
+            instead of AsyncStorage directly for anything more than light usage
+            since it operates globally.
+            <br /><br />
+            On iOS, AsyncStorage is backed by native code that stores small
+            values in a serialized dictionary and larger values in separate
+            files. On Android, AsyncStorage will use either RocksDB or SQLite
+            based on what is available.
+            <br /><br />
+            The AsyncStorage JavaScript code is a facade that provides a clear
+            JavaScript API, real Error objects, and non-multi functions. Each
+            method in the API returns a Promise object.
+          </aside>
+        </section>
+
+
+        <!-- webbview  -->
+        <section>
+          <section class="code-example-slide">
+            <h4 class="slide-name">webview</h4>
+
+            <pre data-id="code-animation">
+              <code data-trim data-line-numbers>
+                yarn add react-native-webview
+              </code>
+            </pre>
+
+            <pre data-id="code-animation">
+              <code class="js" data-trim data-line-numbers>
+                import React from 'react';
+                import { WebView } from 'react-native-webview';
+
+                const App = () => {
+                    return &lt;WebView source={{ uri: "https://reactnative.dev/" }} />;
+                };
+
+                export default App;
+              </code>
+            </pre>
+
+            <aside class="notes">
+              React Native WebView is a modern, well-supported, and
+              cross-platform WebView for React Native.
+              <br /><br />
+              The simplest way to embed a WebView into your React Native
+              application is to provide a URL as a source to your WebView
+              component
+            </aside>
+          </section>
+
+          <section class="code-example-slide">
+            <h4 class="slide-name">webview</h4>
+
+            <pre data-id="code-animation">
+              <code class="js" data-trim data-line-numbers>
+                import React from 'react';
+                import { WebView } from 'react-native-webview';
+
+                const App = () => {
+                    const customHTML = `&lt;h1 style="font-size:80px; padding-top: 550px; text-align: center;" >This is simple html</h1>`;
+                    return &lt;WebView source={{html: customHTML}} />;
+                };
+
+                export default App;
+              </code>
+            </pre>
+
+            <aside class="notes">
+              <strong>Writing the basic inline HTML</strong>
+              <br/><br/>
+              Another common way to provide your WebView with a source is to write some inline HTML code. Let’s start with a very simple example here
+            </aside>
+          </section>
+
+          <section class="text-slide">
+            <h4 class="slide-name">webview</h4>
+            <p class="text-center-align">
+              <a class="text-center-align" href="https://github.com/react-native-webview/react-native-webview/blob/master/docs/Guide.md#react-native-webview-guide">
+                Additional examples - React Native WebView Guide
+              </a>
+            </p>
+            <aside class="notes">
+              On this slide you can find a link with additional examples of using this library.
+            </aside>
+          </section>
         </section>
 
         <section class="qa-slide">
