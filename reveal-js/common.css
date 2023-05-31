@@ -274,7 +274,7 @@ img.with-border {
   display: flex !important;
   flex-direction: column;
 }
-.video-slide iframe {
+.video-slide video {
   width: 55vw;
   height: 75vh;
 }

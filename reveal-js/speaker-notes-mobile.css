@@ -117,7 +117,7 @@
   .video-slide > div {
     height: 45vh;
   }
-  .video-slide iframe {
+  .video-slide video {
     height: 40vh;
     width: 50%;
   }
