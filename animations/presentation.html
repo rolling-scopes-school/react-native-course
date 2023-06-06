@@ -167,14 +167,242 @@
             and cons.
           </aside>
         </section>
+        <section class="stack-preset">
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">Animation with plain JavaScript</h4>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers>
+                import React, { useState } from 'react';
+                import { Button, SafeAreaView, View } from 'react-native';
+                import { styles } from './screens.styles';
+
+                export const PlainJsScreen: React.FC = () => {
+                  return (
+                    &lt;SafeAreaView style={styles.wrapper}&gt;
+                      &lt;View style={styles.screenContainer}&gt;
+                        &lt;View style={styles.ball} /&gt;
+                        &lt;View style={styles.button}&gt;
+                          &lt;Button title="Animate!" /&gt;
+                        &lt;/View&gt;
+                        &lt;View style={styles.button}&gt;
+                          &lt;Button title="Reset" /&gt;
+                        &lt;/View&gt;
+                      &lt;/View&gt;
+                    &lt;/SafeAreaView&gt;
+                  );
+                };
+              </code>
+            </pre>
+            <aside class="notes">
+              If you’re familiar with front-end web development, the first idea
+              that may come to mind is animate objects using JavaScript. With
+              React it can be done easily using state and object properties.
+              Let’s animate an object to go up from its initial position using
+              the transform property. Here's a basic screen with "Ball" object
+              that we're going to animate and two buttons: Animate and Reset. As
+              you can see they do nothing yet.
+            </aside>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">Animation with plain JavaScript</h4>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="6-12">
+                import React, { useState } from 'react';
+                import { Button, SafeAreaView, View } from 'react-native';
+                import { styles } from './screens.styles';
+
+                export const PlainJsScreen: React.FC = () => {
+                  const [translation, setTranslation] = useState(0);
+
+                  const onAnimatePress = () => {
+                    for (let i = -100; i < 0; i++) {
+                      setTimeout(() => setTranslation(i), 10 * -i);
+                    }
+                  };
+
+                  return (
+                    &lt;SafeAreaView style={styles.wrapper}&gt;
+                      &lt;View style={styles.screenContainer}&gt;
+                        &lt;View
+                          style={[
+                            styles.ball,
+                            {
+                              transform: [{ translateY: translation }],
+                            },
+                          ]}
+                        /&gt;
+                        &lt;View style={styles.button}&gt;
+                          &lt;Button title="Animate!" onPress={onAnimatePress} /&gt;
+                        &lt;/View&gt;
+                        &lt;View style={styles.button}&gt;
+                          &lt;Button title="Reset" onPress={() => setTranslation(0)} /&gt;
+                        &lt;/View&gt;
+                      &lt;/View&gt;
+                    &lt;/SafeAreaView&gt;
+                  );
+                };
+              </code>
+            </pre>
+            <aside class="notes">
+              Next we need to add state for our translation value and animation
+              function that will change this value over time.
+            </aside>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">Animation with plain JavaScript</h4>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="5-10">
+                  return (
+                    &lt;SafeAreaView style={styles.wrapper}&gt;
+                      &lt;View style={styles.screenContainer}&gt;
+                        &lt;View
+                          style={[
+                            styles.ball,
+                            {
+                              transform: [{ translateY: translation }],
+                            },
+                          ]}
+                        /&gt;
+                        &lt;View style={styles.button}&gt;
+                          &lt;Button title="Animate!" onPress={onAnimatePress} /&gt;
+                        &lt;/View&gt;
+                        &lt;View style={styles.button}&gt;
+                          &lt;Button title="Reset" onPress={() => setTranslation(0)} /&gt;
+                        &lt;/View&gt;
+                      &lt;/View&gt;
+                    &lt;/SafeAreaView&gt;
+                  );
+                };
+              </code>
+            </pre>
+            <aside class="notes">
+              Next we need to add state for our translation value and animation
+              function that will change this value over time.
+            </aside>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">Animation with plain JavaScript</h4>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="12-17">
+                  return (
+                    &lt;SafeAreaView style={styles.wrapper}&gt;
+                      &lt;View style={styles.screenContainer}&gt;
+                        &lt;View
+                          style={[
+                            styles.ball,
+                            {
+                              transform: [{ translateY: translation }],
+                            },
+                          ]}
+                        /&gt;
+                        &lt;View style={styles.button}&gt;
+                          &lt;Button title="Animate!" onPress={onAnimatePress} /&gt;
+                        &lt;/View&gt;
+                        &lt;View style={styles.button}&gt;
+                          &lt;Button title="Reset" onPress={() => setTranslation(0)} /&gt;
+                        &lt;/View&gt;
+                      &lt;/View&gt;
+                    &lt;/SafeAreaView&gt;
+                  );
+                };
+              </code>
+            </pre>
+            <aside class="notes">
+              Finally, let's set our function as onPress handler for our
+              buttons.
+            </aside>
+          </section>
+          <section class="picture-slide">
+            <h4 class="slide-name">Animation with plain JavaScript</h4>
+            <img
+              src="assets/images/plain_js_animation.gif"
+              alt="Animation with plain JS"
+            />
+            <aside class="notes">
+              The result is far from perfection and you can achieve a much
+              smoother animation with requestAnimationFrame. Also we can animate
+              other ball properties, for instance color and size.
+            </aside>
+          </section>
+          <section class="text-and-picture-slide">
+            <h4 class="slide-name">Animation with plain JavaScript</h4>
+            <div>
+              <img
+                src="assets/images/requestAnimationFrame.gif"
+                alt="Animation with requestAnimationFrame"
+                width="800"
+              />
+              <ul>
+                <li>
+                  <a
+                    href="https://github.com/DenisKhatsuk/react-native-animations/tree/develop/src/screens/PlainJsScreen"
+                  >
+                    Code of the requestAnimationFrame example
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame"
+                  >
+                    Documentation on requestAnimationFrame
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <aside class="notes">
+              This approach however has downsides. You can tell the most obvious
+              one right away: even simple animations require a lot of coding
+              that is pretty complex at first glance. But even more important is
+              performance - animation related code will be executed in JS (main)
+              thread. This means it will be calculated and executed along with
+              your other JS code, which can lead to frames drop, animation being
+              stuck and slowing down your app in general.
+            </aside>
+          </section>
+          <section class="text-and-picture-slide">
+            <h4 class="slide-name">Animation with plain JavaScript</h4>
+            <div>
+              <img
+                src="assets/images/plain_js_loaded.gif"
+                alt="Animation with plain JS and loaded JS thread"
+                width="800"
+              />
+              <ol>
+                <li class="fragment">Unnecessary code complexity</li>
+                <li class="fragment">
+                  Low performance and animation interruptions
+                </li>
+                <li class="fragment">
+                  setState being used.
+                  <a
+                    href="https://legacy.reactjs.org/docs/state-and-lifecycle.html#state-updates-may-be-asynchronous"
+                    >Link to docs</a
+                  >
+                </li>
+              </ol>
+            </div>
+            <aside class="notes">
+              If we load our JS thread, you can see how animation is delayed
+              before JS thread is available again. Spot the moment we press the
+              button and JS thread frames drop due to a heavy calculation - our
+              animation won't start until it's free again. Another big issue is
+              that we use state to animate our object position, but state may be
+              asynchronous: React may batch multiple setState() calls into a
+              single update for performance. So we can’t expect the state will
+              be updated on every step as we programmed it and we won’t get the
+              smooth animation.
+            </aside>
+          </section>
+        </section>
+        </section>
       </div>
     </div>
-    <script src="../reveal-js/dist/reveal.js"></script>
-    <script src="../reveal-js/plugin/zoom/zoom.js"></script>
-    <script src="../reveal-js/plugin/notes/notes.js"></script>
-    <script src="../reveal-js/plugin/search/search.js"></script>
-    <script src="../reveal-js/plugin/markdown/markdown.js"></script>
-    <script src="../reveal-js/plugin/highlight/highlight.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/dist/reveal.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/zoom/zoom.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/notes/notes.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/search/search.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/markdown/markdown.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/highlight/highlight.js"></script>
     <script>
       var url = new URL(window.location.href);
       var showNotes = url.searchParams.has("showNotes");
