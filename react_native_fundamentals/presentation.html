@@ -31,7 +31,7 @@
       rel="stylesheet"
       href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/highlight/monokai.css"
     />
-    <!-- 
+<!--     
       USE THIS IN YOUR PRESENTATION
       href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/common.css" 
     -->
@@ -44,6 +44,9 @@
       <div class="slides">
         <section class="presentation-name-slide">
           <h4>React Native Fundamentals</h4>
+          <aside class="notes">
+            <strong>"React Native Fundamentals"</strong> is presentation that covers the essential concepts and principles of React Native app development. This presentation provides an overview of the fundamental components, styling techniques, architecture of React Native and code quality tools.
+          </aside> 
         </section>
 
         <section class="agenda-slide">
@@ -57,17 +60,26 @@
             <li class="fragment">Architecture</li>
             <li class="fragment">Code Quality Tools</li>
           </ul>
+          <aside class="notes">
+            <strong>1. Introduction:</strong> This section provides an introduction to the topic by covering an overview of iOS and Android platforms, an explanation of React Native as a framework for cross-platform development and a mention of alternative options.<br>
+            <strong>2. Environment setup:</strong> This part focuses on the necessary steps to set up the development environment for React Native. <br>
+            <strong>3. Project structure overview:</strong>  This section provides an overview of the project's structure, including the organization of files and folders. <br>
+            <strong>4. Components:</strong> This section covers the core components in React Native, explaining their purpose and usage.<br>
+            <strong>5. Styles:</strong> This section is dedicated to discussing styling in React Native. It covers the use of the StyleSheet API for defining and managing styles in a React Native app.<br>
+            <strong>6. Architecture:</strong> This section delves into the old and new architectural approaches in React Native, highlighting key concepts.<br>
+            <strong>7. Code Quality Tools:</strong> This section focuses on code quality tools used in React Native development. It may discuss the use of ESLint and Prettier for code formatting and consistency and mention Husky as a tool for integrating pre-commit hooks. <br>
+          </aside>  
         </section>
         
-        <section class="topic-name-slide">
+        <!-- <section class="topic-name-slide">
           <h4>Introduction</h4>
-        </section>
+        </section> -->
 
         <section class="picture-slide">
           <h4 class="slide-name">What is React Native</h4>
           <img src="assets/images/intro.png" alt="simple" />
           <aside class="notes">
-            React Native is a popular <strong>JavaScript-based mobile app framework</strong> that allows you to build natively-rendered mobile apps for iOS and Android. It also can be used to develop applications for Web. The framework lets you create an application for various platforms by using the same codebase. React Native also allows you to implement code in OS-native languages.<br>
+            React Native is a popular <strong>JavaScript-based mobile app framework</strong> that allows you to build natively-rendered mobile apps for iOS and Android. It also can be used to develop applications for Web. The framework lets you create an application for various platforms by using the same codebase. React Native also allows you to implement code in OS-native languages: Swift and Objective-C for iOS, and Java and Kotlin for Android.<br>
           </aside>  
         </section>
 
@@ -90,7 +102,7 @@
             </ul>
           </div>
           <aside class="notes">
-            Google’s Android operating system is a mobile-based open-source platform. Nowadays, most smartphones, tablets, televisions, and other devices run on android. Android is open source and hence the source code is available for all developers. In totality it is called the Android <strong>SDK</strong>(also known as the software development kit). <strong>SDK</strong> is a set of software tools and programs used by developers to create applications for specific platforms.<br>Android apps can be written using <strong>Kotlin, Java</strong>, and <strong>C++</strong> languages. The Android SDK tools compile your code along with any data and resource files into an <strong>APK</strong> or an <strong>Android App Bundle.</strong><br>An <strong>Android package</strong>, which is an archive file with an <strong>.apk</strong> suffix, contains the contents of an Android app that are required at runtime and it is the file that Android-powered devices use to install the app.<br>An <strong>Android App Bundle</strong>, which is an archive file with an <strong>.aab</strong> suffix, contains the contents of an Android app project including some additional metadata that is not required at runtime.<br>The easiest way to get started with developing Android applications is to download the Android Studio application suite. <strong>Android Studio is the official IDE for Android</strong>. It is a software suite that was built by Google and has all the tools built in to build a high-quality Android app. You can run your app on an actual physical device or emulator. The Android <strong>Emulator</strong> simulates Android devices on your computer so that you can test your application on a variety of devices and Android API levels without needing to have each physical device.<br>
+            Google's Android operating system is an open-source platform widely used in smartphones, tablets, televisions, and other devices. It provides developers with the Android <strong>SDK</strong> (Software Development Kit), which includes a set of tools and programs for creating applications. Android apps can be written using languages such as <strong>Kotlin, Java, and C++</strong>. Developers use the Android SDK tools to compile code, data, and resource files into either an <strong>APK (Android Package) or an Android App Bundle</strong>. An APK is an archive file with a <strong>.apk</strong> suffix that contains the necessary app contents for installation on Android-powered devices. An Android App Bundle, with a <strong>.aab</strong> suffix, contains project contents and additional metadata not required at runtime. To start developing Android apps, the recommended option is to download <strong>Android Studio</strong>, the official IDE for Android. This suite of software tools, created by Google, facilitates the development of high-quality Android apps. Android Studio allows you to run your app on physical devices or an <strong>Android Emulator</strong>, which simulates various Android devices and API levels for testing purposes.<br>
           </aside>
         </section>
 
@@ -274,7 +286,7 @@ Given a comparison of the cons and props of both frameworks, I would suggest scr
               <ul>
                 <li>UI building components, Widgets</li>
                 <li>Dart support</li>
-                <li>Perfomance</li>
+                <li>Performance</li>
               </ul>
               <p class="big">
                 Cons:
@@ -286,7 +298,7 @@ Given a comparison of the cons and props of both frameworks, I would suggest scr
             </div>
           </div>
           <aside class="notes">
-            Powered by Google, Flutter designs native-type applications on Android and iOS. Flutter was launched in 2017 and consists of widgets as its building blocks. It uses Dart, which is developed by Google as well. Dart is based on C/C++.<br><strong>Flutter advantages.</strong> Flutter ships with a <strong>comprehensive suite</strong> of built-in widgets. With these widgets, you can quickly create nice-looking UIs without doing too much manual styling. UI building components, Widgets, are rendered only when necessary that resembles a declarative approach applied in React. <strong>Flutter</strong> use Dart to develop high-quality applications for Android, iOS and the web. Dart supports both AOT(Ahead-of-time) and JIT(Just-in-time) compilation that improves app startup times and overall performance.<br><strong>Disadvantages of Flutter.</strong> \tScarce ecosystem. Despite impressive support by Google and numerous helpful libraries for Flutter, the framework still lacks a rich set of ready-to-use solutions to cover most functionalities. Also, Flutter allows you to enjoy building Android apps fast and efficient. However, design features of some widgets for iOS may not be up to date, which is an issue from a time-efficiency perspective.<br>
+            Powered by Google, Flutter designs native-type applications on Android and iOS. Flutter was launched in 2017 and consists of widgets as its building blocks. It uses Dart, which is developed by Google as well. Dart is based on C/C++.<br><strong>Flutter advantages.</strong> Flutter ships with a <strong>comprehensive suite</strong> of built-in widgets. With these widgets, you can quickly create nice-looking UIs without doing too much manual styling. Widgets are rendered only when necessary which resembles a declarative approach applied in React. <strong>Flutter</strong> uses Dart to develop high-quality applications for Android, iOS and the web. Dart supports both AOT(Ahead-of-time) and JIT(Just-in-time) compilation that improves app startup times and overall performance. Also, Flutter allows you to enjoy building Android apps fast and efficient.<br><strong>Disadvantages of Flutter.</strong> Scarce ecosystem. Despite impressive support by Google and numerous helpful libraries for Flutter, the framework still lacks a rich set of ready-to-use solutions to cover most functionalities. However, design features of some widgets for iOS may not be up to date, which is an issue from a time-efficiency perspective.<br>
           </aside>
         </section>
 
@@ -312,7 +324,9 @@ Given a comparison of the cons and props of both frameworks, I would suggest scr
             </div>
           </div>
           <aside class="notes">
-            An open source SDK launched in 2013. It uses multiple technologies (including HTML5, CSS, and JS) to develop and run applications and access the <strong>Cordova wrapper</strong> to use native platform controllers. Ionic is a successor of Cordova, but with improved documentation and powerful command line interface. Another technology that influenced the framework is Angular. Hence, if you have a background of the mentioned tools, you’ll have no trouble with creating apps using Ionic.<br><strong>Advantages of Ionic.</strong><br>With Ionic, you do not have to spend much time working with native languages or other platform-specific issues. There is a plethora of native-styled UI components. As a result, the development cycle is shorter. The framework is easy-to-learn, and the bulk of engineers are familiar with the technologies under the Ionic’s hood. Fast prototyping with Ionic is possible due to the preset templates not to mention a variety of third-party starter kits.<br><strong>Disadvantages of Ionic.</strong><br>Performance is the price you have to pay for the advantages of hybrid app development. Performance issues are possible in case of numerous callbacks sent to the native code. Also, native UI look is what you should forget about when using Ionic. Your app will look the same regardless of the platform/device it runs on.<br>
+            <strong>Ionic</strong> is an open-source SDK launched in 2013, using technologies like HTML5, CSS, and JS to develop and run applications. It leverages the <strong>Cordova</strong> wrapper to access native platform controls. Ionic, an improved successor to Cordova, offers better documentation and a powerful command-line interface. The framework is influenced by Angular, making it familiar to those with a background in these tools.<br>
+            <strong>Its advantages</strong> include a shorter development cycle, thanks to native-styled UI components, ease of learning, and fast prototyping with preset templates and third-party starter kits.<br>
+            However, there are <strong>performance trade-offs and limitations</strong> in achieving a native UI look across different platforms/devices when using Ionic for hybrid app development.<br>
           </aside>
         </section>
 
@@ -347,11 +361,14 @@ Given a comparison of the cons and props of both frameworks, I would suggest scr
               </ul>
             </div>
           </div>
+          <aside class="notes">
+            React Native utilizes JavaScript and provides close-to-native performance with its native components. Ionic, on the other hand, uses HTML5, CSS, and JS, but offers lower performance compared to React Native and relies on web UI components. Flutter utilizes Dart, delivers better performance and employs its own proprietary widgets for UI development.
+          </aside>
         </section>
 
-        <section class="topic-name-slide">
+        <!-- <section class="topic-name-slide">
           <h4>Environment setup</h4>
-        </section>
+        </section> -->
 
         <section class="numbering-and-picture-slide">
           <h4 class="slide-name">Environment setup</h4>
@@ -403,9 +420,9 @@ Given a comparison of the cons and props of both frameworks, I would suggest scr
           <aside class="notes"></aside>
         </section>
 
-        <section class="topic-name-slide">
+        <!-- <section class="topic-name-slide">
           <h4>Project structure overview</h4>
-        </section>
+        </section> -->
 
         <section class="bullets-and-picture-slide">
           <h4 class="slide-name">Default structure</h4>
@@ -477,9 +494,9 @@ Given a comparison of the cons and props of both frameworks, I would suggest scr
           </aside>
         </section>
 
-        <section class="topic-name-slide">
+        <!-- <section class="topic-name-slide">
           <h4>Core Components</h4>
-        </section>
+        </section> -->
 
         <section class="table-slide">
           <h4 class="slide-name">Core Components</h4>
@@ -541,7 +558,7 @@ Given a comparison of the cons and props of both frameworks, I would suggest scr
           <div>
             <img src="assets/images/flat-list.gif" alt="simple" />
             <ul>
-              <strong>FlatList</strong>
+              <p>FlatList</p>
               <li>long lists of data</li>
               <li>renders items lazily</li>
             </ul>
@@ -549,7 +566,7 @@ Given a comparison of the cons and props of both frameworks, I would suggest scr
           <div>
             <img src="assets/images/scroll-view.gif" alt="simple" />
             <ul>
-              <strong>ScrollView and map</strong>
+              <p>ScrollView and map</p>
               <li>small number of things of a limited size</li>
               <li>renders all its child components at once</li>
             </ul>
@@ -588,9 +605,51 @@ Given a comparison of the cons and props of both frameworks, I would suggest scr
           </aside>
         </section>
 
-        <section class="topic-name-slide">
-          <h4>Styles</h4>
+        <section class="picture-slide">
+          <h4 class="slide-name">Pressable</h4>
+          <img src="assets/images/pressable.png" alt="simple" />
+          <aside class="notes">
+            <strong>Pressable</strong> was introduced as a new core React Native component in 0.63. It’s a core component that detects different steps of press interactions on any of its children components. The Pressable component is flexible and lets app developers use any feedback animations they wish.<br>
+            How it works?<br>
+            On an element wrapped by Pressable:<br>
+            - <strong>onPressIn</strong> is called when a press is activated.<br>
+            - <strong>onPressOut</strong> is called when the press gesture is deactivated.<br>
+            It also supports <strong>onLongPress</strong>. Will be called if the time after onPressIn lasts longer than 500 milliseconds.<br>
+          </aside>
         </section>
+
+        <section class="table-slide">
+          <h4 class="slide-name">Touchable vs. Pressable</h4>
+          <table class="fragment" data-fragment-index="2">
+            <thead>
+              <tr>
+                <th>Touchable</th>
+                <th>Pressable</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Comes with inbuilt feedback animations</td>
+                <td>Doesn’t offer any inbuilt feedback animations</td>
+              </tr>
+              <tr>
+                <td>Effect customization is limited</td>
+                <td>Very flexible and customizable </td>
+              </tr>
+              <tr>
+                <td>Suitable for implementing interactive elements that require simple feedback effects</td>
+                <td>Suitable for implementing interactive elements that require unique effects and animations</td>
+              </tr>
+            </tbody>
+          </table>
+          <aside class="notes">
+            So, in a nutshell, if you need to use components more quickly and don't require specific customization, you can use Touchable. In all other cases, you should use Pressable.<br>
+          </aside>
+        </section>
+
+        <!-- <section class="topic-name-slide">
+          <h4>Styles</h4>
+        </section> -->
 
         <section class="text-and-conding-slide">
           <h4 class="slide-name">Styles</h4>
@@ -884,9 +943,9 @@ Given a comparison of the cons and props of both frameworks, I would suggest scr
           </aside>  
         </section>
 
-        <section class="topic-name-slide">
+        <!-- <section class="topic-name-slide">
           <h4>Architecture</h4>
-        </section>
+        </section> -->
 
         <section class="picture-slide-grouped">
           <h4 class="slide-name">Old architecture</h4>
@@ -942,9 +1001,9 @@ Given a comparison of the cons and props of both frameworks, I would suggest scr
           </aside>
         </section>
 
-        <section class="topic-name-slide">
+        <!-- <section class="topic-name-slide">
           <h4>Code Quality Tools</h4>
-        </section>
+        </section> -->
 
         <section class="several-pictures-2-slide-with-description">
           <h4 class="slide-name">ESLint & Prettier </h4>
