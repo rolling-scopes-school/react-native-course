@@ -44,6 +44,360 @@
         <!-- 1-ST SLIDE -->
         <section class="presentation-name-slide">
           <h4>Debugging</h4>
+          <aside class="notes">
+            Are you struggling to debug your react native app?
+            <br /><br />
+            Don't worry, we're got you covered!
+            <br /><br />
+            Today we'll discuss top debugging tools that can help you easily
+            identify and fix errors in your apps.
+          </aside>
+        </section>
+
+        <!-- agenda -->
+        <section class="agenda-slide">
+          <h4 class="slide-name">Agenda</h4>
+          <ul>
+            <li class="fragment">LogBox</li>
+            <li class="fragment">console.log</li>
+            <li class="fragment">Debug with chrome browser</li>
+            <li class="fragment">react-native-debugger</li>
+            <li class="fragment">VSCode plugin</li>
+            <li class="fragment">Flipper</li>
+          </ul>
+
+          <aside class="notes"></aside>
+        </section>
+
+        <!-- LogBox -->
+        <section>
+          <section class="picture-slide">
+            <h4 class="slide-name">LogBox</h4>
+            <img src="assets/images/logbox.png" alt="simple" />
+            <aside class="notes">
+              LogBox is a completely redesigned redbox, yellowbox, and logging
+              experience in React Native.
+              <br /><br />
+              LogBox APIs includes replacement of YellowBox:
+              <br /><br />
+              LogBox.ignoreLogs(): This function replaces
+              YellowBox.ignoreLogs([]) as a way to silence any logs that match
+              the given strings or regexes.
+              <br /><br />
+              LogBox.ignoreAllLogs(): This function replaces
+              console.disableYellowBox as a way to turn off error or warning
+              notifications. Note: this only disables notifications, uncaught
+              errors will still open a full screen LogBox.
+              <br /><br />
+              Errors and warnings in development builds are displayed in LogBox
+              inside your app.
+              <br /><br />
+              LogBox is automatically disabled in release (production) builds.
+            </aside>
+          </section>
+
+          <!-- Additional Meterials: React Native Redbox -->
+          <section class="video-text-slide">
+            <h4 class="slide-name">Additional Meterials</h4>
+            <div>
+              <div>
+                <a
+                  href="https://www.youtube.com/watch?v=Y8brBH5O-bQ&t"
+                  target="_blank"
+                  >React Native Redbox</a
+                >
+                <iframe
+                  src="https://www.youtube.com/embed/Y8brBH5O-bQ?t=156"
+                  title="YouTube video player"
+                  allowfullscreen
+                >
+                </iframe>
+              </div>
+              <div>
+                <p>This video will cover many important features such as:</p>
+                <p>
+                  - RedBox
+                  <br />
+                  - YellowBox
+                  <br />
+                  - LogBox
+                </p>
+              </div>
+            </div>
+            <aside class="notes"></aside>
+          </section>
+
+          <!-- Additional Meterials: React Native Redbox -->
+          <section class="video-text-slide">
+            <h4 class="slide-name">Additional Meterials</h4>
+            <div>
+              <div>
+                <a
+                  href="https://www.youtube.com/watch?v=HmXNv5uQaq0"
+                  target="_blank"
+                  >How to hide error in react native</a
+                >
+                <iframe
+                  src="https://www.youtube.com/embed/HmXNv5uQaq0"
+                  title="YouTube video player"
+                  allowfullscreen
+                >
+                </iframe>
+              </div>
+              <div>
+                <p>
+                  This video will show you how to hide error in react native
+                  using Logbox
+                </p>
+              </div>
+            </div>
+            <aside class="notes"></aside>
+          </section>
+        </section>
+
+        <!-- console.log -->
+        <section class="topic-name-slide">
+          <h4>console.log</h4>
+          <aside class="notes">
+            You can use console.log statements to debug your code.
+            <br />
+            <br />
+            The console output will be displayed in the react native metro
+            server or in the additional debug tools.
+            <br />
+            <br />
+            You can easily see what's going on and identify any issues.
+          </aside>
+        </section>
+
+        <!-- Debug with Chrome browser -->
+        <section>
+          <section class="picture-slide">
+            <h4 class="slide-name">Debug with Chrome browser</h4>
+            <img src="assets/images/chrome.png" alt="simple" />
+            <aside class="notes">
+              You can debug your React Native App in Google Chrome browser
+              without any extra plugin or tools.
+              <br /><br />
+              The default and basic debugger of react native is the
+              browser-devtools. No installation or special configuration is
+              needed, simply open the debug menu of the phone you are working on
+              and choose the debug option.
+            </aside>
+          </section>
+
+          <!-- Additional Meterials: Debug with Chrome browser -->
+          <section class="video-text-slide">
+            <h4 class="slide-name">Additional Meterials</h4>
+            <div>
+              <div>
+                <a
+                  href="https://www.youtube.com/watch?v=Tzk7VP7ACAQ"
+                  target="_blank"
+                  >debugger-ui</a
+                >
+                <iframe
+                  src="https://www.youtube.com/embed/Tzk7VP7ACAQ"
+                  title="YouTube video player"
+                  allowfullscreen
+                >
+                </iframe>
+              </div>
+              <div>
+                <p>Basic usage of chrome debugger</p>
+              </div>
+            </div>
+            <aside class="notes"></aside>
+          </section>
+
+          <!-- Debug with Chrome browser 2 ( + network and inspection) -->
+          <section class="video-text-slide">
+            <h4 class="slide-name">Additional Meterials</h4>
+            <div>
+              <div>
+                <a
+                  href="https://www.youtube.com/watch?v=zOmQPGo0Jlw"
+                  target="_blank"
+                  >debugger-ui</a
+                >
+                <iframe
+                  src="https://www.youtube.com/embed/zOmQPGo0Jlw"
+                  title="YouTube video player"
+                  allowfullscreen
+                >
+                </iframe>
+              </div>
+              <div>
+                <p>Debug with chrome browser</p>
+                <p>Inspect Element</p>
+                <p>Networking tab</p>
+              </div>
+            </div>
+            <aside class="notes"></aside>
+          </section>
+        </section>
+
+        <!-- react-native-debugger -->
+        <section>
+          <section class="picture-slide">
+            <h4 class="slide-name">react-native-debugger tool</h4>
+            <img
+              src="assets/images/react-native-debugger-tool.png"
+              alt="react-native-debugger-tool"
+            />
+            <aside class="notes">
+              React native debugger is a tool that provides advanced debugging
+              features for React native apps.
+              <br /><br />
+              You can easily inspect and edit components in your app with react
+              native debugger. This allows you to see the structure of your
+              components and the props that are passed to them.
+              <br /><br />
+              Please watch that video to understand how it can help you in
+              debugging.
+            </aside>
+          </section>
+
+          <section class="video-text-slide">
+            <h4 class="slide-name">Additional Meterials</h4>
+            <div>
+              <div>
+                <a
+                  href="https://www.youtube.com/watch?v=JY279kbJ0KM"
+                  target="_blank"
+                  >React Native Debugger</a
+                >
+                <iframe
+                  src="https://www.youtube.com/embed/JY279kbJ0KM"
+                  title="YouTube video player"
+                  allowfullscreen
+                >
+                </iframe>
+              </div>
+              <div>
+                <p>
+                  Quick overview of how to use React Native Debugger with Create
+                  React Native App.
+                </p>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <!-- react-native-tools VSCode extension -->
+        <section>
+          <section class="picture-slide">
+            <h4 class="slide-name">Debugging in VS Code</h4>
+            <img
+              src="assets/images/vs-code-extension.png"
+              alt="vs-code-extension"
+            />
+            <aside class="notes">
+              A fairly convenient solution for debugging without leaving your
+              favorite code editor.
+              <br /><br />
+              Just install the desired platig, set breakpoints and enjoy.
+            </aside>
+          </section>
+
+          <section class="video-text-slide">
+            <h4 class="slide-name">Additional Meterials</h4>
+            <div>
+              <div>
+                <a
+                  href="https://www.youtube.com/watch?v=UE66n7HOIAg"
+                  target="_blank"
+                  >Debugging in VS Code</a
+                >
+                <iframe
+                  src="https://www.youtube.com/embed/UE66n7HOIAg"
+                  title="YouTube video player"
+                  allowfullscreen
+                >
+                </iframe>
+              </div>
+              <div>
+                <p>
+                  This video will show you how to how debug code and see the
+                  value of variables as you run. Using breakpoint, keep the
+                  execution of the code in the desired line and be able to
+                  follow the process of executing the codes line by line.
+                </p>
+              </div>
+            </div>
+            <aside class="notes"></aside>
+          </section>
+        </section>
+
+        <!-- Flipper -->
+        <section>
+          <section class="picture-slide">
+            <h4 class="slide-name">Flipper</h4>
+            <img src="assets/images/flipper.png" alt="flipper" />
+            <aside class="notes">
+              Flipper is Facebooks internal, extensible mobile devtool platform,
+              used by the mobile devs that work on the Facebook, WhatsApp,
+              Instagram and many more apps.
+              <br /><br />
+              Recently the React Native and Flipper team have been working hard
+              to add first class support for React Native as well. This means
+              that monitoring network traffic and performance, using the React
+              Devtools, inspecting device and application logs or even debugging
+              JavaScript can now can now be conveniently done using one coherent
+              tool.
+              <br /><br />
+              And best of all: Flipper is extensible, so let's build our own
+              plugin while at it!
+            </aside>
+          </section>
+
+          <section class="video-text-slide">
+            <h4 class="slide-name">Additional Meterials</h4>
+            <div>
+              <div>
+                <a
+                  href="https://www.youtube.com/watch?v=D2zjvKPNltU"
+                  target="_blank"
+                  >Flipper - All you need to know</a
+                >
+                <iframe
+                  src="https://www.youtube.com/embed/D2zjvKPNltU"
+                  title="YouTube video player"
+                  allowfullscreen
+                >
+                </iframe>
+              </div>
+              <div>
+                <p>This video will show you few examples how to use Flipper.</p>
+              </div>
+            </div>
+            <aside class="notes"></aside>
+          </section>
+
+          <section class="video-text-slide">
+            <h4 class="slide-name">Additional Meterials</h4>
+            <div>
+              <div>
+                <a
+                  href="https://www.youtube.com/watch?v=bI1VEXVzNXs"
+                  target="_blank"
+                  >Flipper: The Extensible DevTool Platform for React Native</a
+                >
+                <iframe
+                  src="https://www.youtube.com/embed/bI1VEXVzNXs"
+                  title="YouTube video player"
+                  allowfullscreen
+                >
+                </iframe>
+              </div>
+              <div>
+                <p>
+                  This video will show how Flipper works and few new examples.
+                </p>
+              </div>
+            </div>
+            <aside class="notes"></aside>
+          </section>
         </section>
 
         <!-- QA -->
