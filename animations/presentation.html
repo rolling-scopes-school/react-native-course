@@ -167,6 +167,7 @@
             and cons.
           </aside>
         </section>
+        <!-- JavaScript animation -->
         <section class="stack-preset">
           <section data-auto-animate class="code-example-slide">
             <h4 class="slide-name">Animation with plain JavaScript</h4>
@@ -390,10 +391,50 @@
               asynchronous: React may batch multiple setState() calls into a
               single update for performance. So we can’t expect the state will
               be updated on every step as we programmed it and we won’t get the
-              smooth animation.
+              smooth animation. So how we can solve all that issues? Let's check 
+              what solutions React Native offers.
             </aside>
           </section>
         </section>
+        <!-- End: JavaScript animation -->
+        <!-- React Native APIs -->
+        <section class="several-pictures-2-slide">
+          <h4 class="slide-name">React Native APIs</h4>
+          <div>
+            <div>
+              <ol>
+                <li class="fragment" data-fragment-index="1">
+                  Animated API <a href="https://reactnative.dev/docs/animated">Documentation</a>
+              
+                </li>
+                <li class="fragment" data-fragment-index="2">
+                  LayoutAnimation API <a href="https://reactnative.dev/docs/layoutanimation">Documentation</a>
+                </li>
+              </ol>
+            </div>
+            <div class="fragment" data-fragment-index="3">
+              <img
+                src="assets/images/rn_api_choice.png"
+                alt="react native animation choices"
+              />
+            </div>
+          </div>
+          <aside class="notes">
+            In terms of built-in solutions, React Native provides two complementary APIs
+            that solve different animation cases. When you need to animate a specific screen 
+            element with precise control over all animation stages Animated API is the way to 
+            go. On the other hand, situations when we need to animate screen elements between 
+            layout changes are much more common. For instance, you'd like to show and hide selected
+            input fields depending on the form mode. Or perhaps you'd like to smoothly hide a bottom
+            sheet on close button press. LayoutAnimation API is perfect for that. It requires small
+            amount of code and provides nice results out of the box.
+            Let's dive deeper into the Animated API to see how it works and how we can use it.
+          </aside>
+        </section>
+        <!-- End: React Native APIs -->
+        <!-- Animated API animation -->
+       
+        <!-- End: Animated API animation -->
         </section>
       </div>
     </div>
