@@ -12,9 +12,3 @@
 ## Presentation
 
 [link](https://rolling-scopes-school.github.io/react-native-course/security/presentation.html)
-
-https://reactnative.dev/docs/security
-https://medium.com/simform-engineering/security-aspects-to-consider-for-a-react-native-application-95556f0e4244
-https://semaphoreci.com/blog/securing-react-native
-https://www.cossacklabs.com/blog/react-native-libraries-security/
-https://jscrambler.com/blog/securing-react-native-applications
