@@ -433,7 +433,194 @@
         </section>
         <!-- End: React Native APIs -->
         <!-- Animated API animation -->
-       
+       <section class="stack-preset">
+          <section class="text-slide">
+            <h4 class="slide-name">Animated API. Let's start</h4>
+            <div>
+              <h6 class="fragment" data-fragment-index="1">What:</h6>
+              <span class="fragment" data-fragment-index="2"> Animate our component's position</span>
+            </div>
+            <br>
+            <div>
+              <h6 class="fragment" data-fragment-index="3">How:</h6>
+              <span class="fragment" data-fragment-index="4"> Using 'transform' property animation</span>
+            </div>
+            <br>
+            <div>
+              <h6 class="fragment" data-fragment-index="5">What we need:</h6>
+              <ol class="fragment" data-fragment-index="6"> 
+                <li>A value</li>
+                <li>A function that changes our value</li>
+                <li>A way to link our component style to the changing value</li>
+              </ol>
+            </div>
+            <aside class="notes">
+              Animated library is a built-in solution provided with react native out of the box. 
+              It's about connecting inputs and outputs with some configurable transforms in between.
+              No worries if it sounds complex now as we'll explore this API step by step.
+              Let’s see how it actually  works.
+              The first animation we’re going to reproduce is the position animation via ‘transform’ property. 
+              In general we need three things:
+              A value to animate
+              A function that animates our value
+              A way to link our component style to the animated value
+              Let’s check these items one by one. 
+            </aside>
+          </section>
+          <section class="text-and-conding-slide">
+            <h4 class="slide-name">Animated API. Value and animation methods</h4>
+            <div>
+              <img
+                src="assets/images/value_doc.png"
+                alt="Animated Value documentation tip"
+                width="825"
+                class="fragment" data-fragment-index="1"
+              />
+            </div>
+            <pre class="fragment" data-fragment-index="2">
+                <code data-trim>
+                  import { Animated } from 'react-native';
+                </code>
+              </pre>
+            <pre class="fragment" data-fragment-index="3">
+              <code data-trim>
+                const translation = useRef(new Animated.Value(0)).current;
+              </code>
+            </pre>
+            <pre class="fragment" data-fragment-index="4">
+              <code data-trim data-line-numbers>
+                Animated.timing(translation, {
+                  toValue: -100,
+                  duration: 1000,
+                }).start();
+              </code>
+            </pre>
+            <aside class="notes">
+              Firstly we need the value that changes gradually over time. Animated has a special Value 
+              class for that. To make things work we need to create this class instance in our component. 
+              As stated in documentation we shouldn’t modify the animated value directly, instead we can 
+              use the useRef hook to create the Value class instance once on component render.
+              Now when we have an animated value, we need a way to animate it. Animated provides a set of 
+              methods we can use and timing() fits our needs perfectly here. It animates a value in time.
+              Timing method expects two parameters: value to animate and the config object. Via configuration 
+              object we can set to what value the animation will go and animation duration. It has other props 
+              that we’ll discuss later.
+            </aside>
+          </section>
+          <section class="text-and-conding-slide">
+            <h4 class="slide-name">Animated API. Animated components</h4>
+            <pre class="fragment" data-fragment-index="1">
+                <code data-trim>
+                  &lt;Animated.View
+                    style={[
+                      styles.ball,
+                      {
+                        transform: [{ translateY: translation }],
+                      },
+                    ]}
+                    /&gt;
+                  &lt;/Animated.View&gt;
+                </code>
+              </pre>
+            <h6 class="fragment" data-fragment-index="2">
+              Animated components:
+            </h6>
+            <div class="fragment" data-fragment-index="3">
+              <ul>
+                <li>View</li>
+                <li>Text</li>
+                <li>ScrollView</li>
+                <li>FlatList</li>
+                <li>SectionList</li>
+                <li>Image</li>
+              </ul>
+            </div>
+            <aside class="notes">
+              We’re almost done. Regular RN components won’t work with the animated value in their styles, so 
+              Animated has its own versions of some components. In our case we need Animated.View. Inline 
+              styling is a no-no, so it's here only for explanation purposes.
+              Other possible Animated components are FlatList, Image, ScrollView, SectionList and Text. 
+            </aside>
+          </section>
+          <section class="text-slide">
+            <h4 class="slide-name">Animated API. timing method</h4>
+            <h6>
+              timing() method options:
+            </h6>
+            <div>
+              <ul>
+                <li class="fragment" data-fragment-index="1">duration</li>
+                <li class="fragment" data-fragment-index="2">easing</li>
+                <li class="fragment" data-fragment-index="3">delay</li>
+                <li class="fragment" data-fragment-index="4">isInteraction</li>
+                <li class="fragment" data-fragment-index="5">useNativeDriver</li>
+              </ul>
+            </div>
+            <aside class="notes">
+              Now everything works and we already have much smoother animation. So it’s time to check what other 
+              options are available for our timing method. Till now we used toValue and duration. As per 
+              documentation, the full list is:
+                - duration: Length of animation (milliseconds). Default 500. 
+                - easing: Easing function to define curve. Default is Easing.inOut(Easing.ease). 
+                - delay: Start the animation after delay (milliseconds). Default 0. 
+                - isInteraction: Whether or not this animation creates an "interaction handle" on the 
+                  InteractionManager. Default true. 
+                - useNativeDriver: Uses the native driver when true. Default false.
+              I’d like to discuss two new options from this list: easing and useNativeDriver.
+            </aside>
+          </section>
+          <section class="text-and-conding-slide">
+            <h4 class="slide-name">Animated API. Easing</h4>
+            <div>
+              <p class="fragment" data-fragment-index="1">
+                Easing allows you to specify the function that defines how animated parameter will 
+                change over time.
+              </p>
+              <p class="fragment" data-fragment-index="2">
+                <a href="https://easings.net/">Easing Functions</a>
+              </p>
+            </div>
+            <pre class="fragment" data-fragment-index="3">
+              <code data-trim>
+                import { Animated, Easing } from 'react-native';
+              </code>
+            </pre>
+            <pre class="fragment" data-fragment-index="4">
+              <code data-trim data-line-numbers>
+                Animated.timing(translation, {
+                  toValue: -100,
+                  duration: 1000,
+                  easing: Easing.bounce,
+                }).start();
+              </code>
+            </pre>
+            <div>
+              <p class="fragment" data-fragment-index="5">
+                <a href="https://reactnative.dev/docs/easing#methods">Easing Methods</a>
+              </p>
+            </div>
+            <pre class="fragment" data-fragment-index="6">
+              <code data-trim data-line-numbers>
+                Animated.timing(translation, {
+                  toValue: -100,
+                  duration: 1000,
+                  easing: Easing.out(Easing.bounce),
+                }).start();
+              </code>
+            </pre>
+            <aside class="notes">
+              Easing allows you to specify the function that defines how animated parameter will change 
+              over time. This can help to achieve more natural looking motion - in real life objects almost 
+              never move at the linear speed. The default easing in timing method is ‘ease in out’ - when 
+              animation starts a bit slower, then runs at a regular speed and slows down before the end. 
+              Feel free to check other easing function examples at https://easings.net/.
+              At this point you may wonder how to implement other easing functions to apply them in your 
+              animation. RN provides Easing module for that.
+              Available methods can be found in RN docs: https://reactnative.dev/docs/easing#methods. 
+              Some of them require additional parameters.
+            </aside>
+          </section>
+        </section>
         <!-- End: Animated API animation -->
         </section>
       </div>
