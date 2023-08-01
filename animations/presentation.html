@@ -620,6 +620,281 @@
               Some of them require additional parameters.
             </aside>
           </section>
+          <section class="text-and-conding-slide">
+            <h4 class="slide-name">Animated API. useNativeDriver</h4>
+            <div>
+              <p class="fragment" data-fragment-index="1">
+                useNativeDriver when set to 'true' sends all the animation data processing to the UI thread (native side).
+              </p>
+            </div>
+            <pre class="fragment" data-fragment-index="2">
+              <code data-trim data-line-numbers>
+                Animated.timing(translation, {
+                  toValue: -200,
+                  duration: 1500,
+                  useNativeDriver: true,
+                }).start();
+              </code>
+            </pre>
+            <h6 class="fragment" data-fragment-index="3">
+              <span style="text-transform: none;">useNativeDriver</span> features to be aware of:
+            </h6>
+            <div class="fragment" data-fragment-index="4">
+              <ul>
+                <li>Animated values are only compatible with one driver.</li>
+                <li>Not all Animated features are supported with native driver.</li>
+              </ul>
+            </div>
+            <div>
+              <p class="fragment" data-fragment-index="5">
+                If you use native driver while animating the value, every animation on this value further 
+                should use the native driver too.
+              </p>
+              <p class="fragment" data-fragment-index="6">
+                You can only animate non-layout properties (transform, opacity) - position and flexbox 
+                properties won’t work.
+              </p>
+            </div>
+            <aside class="notes">
+              Now it’s time to discuss the useNativeDriver prop. By setting this prop to ‘true’ we can 
+              send all the animation data to native side, so our animation runs in the UI thread and the 
+              JS thread can’t affect the animation anymore.
+              When using the native driver we should be aware of its two features:
+              - Animated values are only compatible with one driver. 
+                This means if you use native driver 
+                while animating the value, every animation on this value further should use the native driver 
+                too. So you can’t run one animation on ‘translation’ value from our example using the native 
+                driver and then fire another one that doesn’t use it.
+
+              - Not all Animated features are supported with native driver. 
+                You can only animate non-layout properties (transform, opacity) - position and flexbox properties 
+                won’t work.
+            </aside>
+          </section>
+          <section class="text-and-conding-slide">
+            <h4 class="slide-name">Animated API. Composition</h4>
+            <h6 class="fragment" data-fragment-index="1">
+              Composition functions:
+            </h6>
+            <div class="fragment" data-fragment-index="2">
+              <ul>
+                <li>Animated.delay(). Starts an animation after a given delay.</li>
+                <li>Animated.parallel(). Starts a number of animations at the same time.</li>
+                <li>
+                  Animated.sequence(). Starts the animations in order, waiting for each to 
+                  complete before starting the next. 
+                </li>
+                <li>Animated.stagger(). Starts animations in order and in parallel, but with successive delays.</li>
+              </ul>
+            </div>
+            <aside class="notes">
+              Okay, now when we get this sorted, let’s discuss animation composition. Animated provides four 
+              helpers for that:
+              - Animated.delay() starts an animation after a given delay.
+              - Animated.parallel() starts a number of animations at the same time.
+              - Animated.sequence() starts the animations in order, waiting for each to complete before 
+                starting the next. 
+              - Animated.stagger() starts animations in order and in parallel, but with successive delays.
+              Animated.delay is pretty straight forward, so let's skip it for now as we're going to see it in use
+              later and start with parallel method.
+            </aside>
+          </section>
+          <section class="text-and-conding-slide">
+            <h4 class="slide-name">Animated API. Composition. Parallel</h4>
+            <div>
+              <p class="fragment" data-fragment-index="1">
+                To launch animations in parallel we simply need to wrap them with Animated.parallel([]).
+              </p>
+            </div>
+            <pre class="fragment" data-fragment-index="2">
+              <code data-trim data-line-numbers>
+                Animated.parallel([
+                  Animated.timing(nativeTranslation, {
+                    toValue: -200,
+                    duration: 1500,
+                    useNativeDriver: true,
+                  }),
+                  Animated.timing(translation, {
+                    toValue: -200,
+                    duration: 1500,
+                    useNativeDriver: false,
+                  }),
+                  Animated.timing(size, {
+                    toValue: 50,
+                    duration: 1500,
+                    useNativeDriver: false,
+                  }),
+                ]).start();
+              </code>
+            </pre>
+            <div>
+              <p class="fragment" data-fragment-index="3">
+                If one animation is stopped or interrupted, all other animations in parallel are also stopped:
+              </p>
+            </div>
+            <pre class="fragment" data-fragment-index="4">
+              <code data-trim data-line-numbers>
+                const onStopPress = () => {
+                  Animated.timing(translation, {
+                    toValue: -100,
+                    useNativeDriver: false,
+                  }).stop();
+                };
+              </code>
+            </pre>
+          </section>
+          <section class="text-and-conding-slide">
+            <h4 class="slide-name">Animated API. Composition. Sequence</h4>
+            <div>
+              <p class="fragment" data-fragment-index="1">
+                Sequence launches the provided animations one after another:
+              </p>
+            </div>
+            <pre class="fragment" data-fragment-index="2">
+              <code data-trim data-line-numbers>
+                Animated.sequence([
+                  Animated.timing(nativeTranslation, {
+                    toValue: -200,
+                    duration: 1500,
+                    useNativeDriver: true,
+                  }),
+                  Animated.timing(translation, {
+                    toValue: -200,
+                    duration: 1500,
+                    useNativeDriver: false,
+                  }),
+                  Animated.timing(size, {
+                    toValue: 50,
+                    duration: 1500,
+                    useNativeDriver: false,
+                  }),
+                ]).start();
+              </code>
+            </pre>
+            <div>
+              <p class="fragment" data-fragment-index="3">
+                If the current running animation is stopped, no following animations will be started.
+              </p>
+            </div>
+          </section>
+          <section class="text-and-conding-slide">
+            <h4 class="slide-name">Animated API. Composition. Stagger</h4>
+            <div>
+              <p class="fragment" data-fragment-index="1">
+                Stagger is very similar, but it allows you to additionally specify the delay between animations:
+              </p>
+            </div>
+            <pre class="fragment" data-fragment-index="2">
+              <code data-trim data-line-numbers>
+                Animated.stagger(2000, [
+                  Animated.timing(nativeTranslation, {
+                    toValue: -200,
+                    duration: 1500,
+                    useNativeDriver: true,
+                  }),
+                  Animated.timing(translation, {
+                    toValue: -200,
+                    duration: 1500,
+                    useNativeDriver: false,
+                  }),
+                  Animated.timing(size, {
+                    toValue: 50,
+                    duration: 1500,
+                    useNativeDriver: false,
+                  }),
+                ]).start();
+              </code>
+            </pre>
+            <div>
+              <p class="fragment" data-fragment-index="3">
+                Array of animations may run in parallel (overlap) if you specify duration values that are 
+                longer than delay between animations.
+              </p>
+            </div>
+          </section>
+          <section class="text-and-conding-slide">
+            <h4 class="slide-name">Animated API. Composition. Delay</h4>
+            <div>
+              <p class="fragment" data-fragment-index="1">
+                Animated.delay() is meant to be used in Stagger or Sequence to put delays between animations:
+              </p>
+            </div>
+            <pre class="fragment" data-fragment-index="2">
+              <code data-trim data-line-numbers>
+                Animated.sequence([
+                  Animated.timing(nativeTranslation, {
+                    toValue: -200,
+                    duration: 1500,
+                    useNativeDriver: true,
+                  }),
+                  Animated.delay(2000),
+                  Animated.timing(translation, {
+                    toValue: -200,
+                    duration: 1500,
+                    useNativeDriver: false,
+                  }),
+                ]).start();
+              </code>
+            </pre>
+            <div>
+              <p class="fragment" data-fragment-index="3">
+                You can pass delay to animation config as an option with the same result:
+              </p>
+            </div>
+            <pre class="fragment" data-fragment-index="4">
+              <code data-trim data-line-numbers>
+                Animated.sequence([
+                  Animated.timing(nativeTranslation, {
+                    toValue: -200,
+                    duration: 1500,
+                    useNativeDriver: true,
+                  }),
+                  Animated.timing(translation, {
+                    toValue: -200,
+                    delay: 2000,
+                    duration: 1500,
+                    useNativeDriver: false,
+                  }),
+                ]).start();
+              </code>
+            </pre>
+            <aside class="notes">
+              While you can use both options to set the delay, in case of sequence/stagger explicit
+              Animated.delay() may be more visible and easy to read on quick sight. Something to consider,
+              but the preferred way is a matter of taste at the end of the day.
+            </aside>
+          </section>
+          <section class="text-and-conding-slide">
+            <h4 class="slide-name">Animated API. Composition. Combination</h4>
+            <div>
+              <p class="fragment" data-fragment-index="1">
+                Not only Animated.delay() can be used in combination with other methods:
+              </p>
+            </div>
+            <pre class="fragment" data-fragment-index="2">
+              <code data-trim data-line-numbers>
+                Animated.sequence([
+                  Animated.timing(nativeTranslation, {
+                    toValue: -200,
+                    duration: 1500,
+                    useNativeDriver: true,
+                  }),
+                  Animated.parallel([
+                    Animated.timing(translation, {
+                      toValue: -200,
+                      duration: 1500,
+                      useNativeDriver: false,
+                    }),
+                    Animated.timing(size, {
+                      toValue: 50,
+                      duration: 1500,
+                      useNativeDriver: false,
+                    }),
+                  ]),
+                ]).start();
+              </code>
+            </pre>
+          </section>
         </section>
         <!-- End: Animated API animation -->
         </section>
