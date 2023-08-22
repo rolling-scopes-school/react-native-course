@@ -895,6 +895,64 @@
               </code>
             </pre>
           </section>
+          <section class="video-text-slide">
+            <h4 class="slide-name">Animated API. Spring</h4>
+            <div>
+              <p class="fragment" data-fragment-index="1">
+                Spring() is a method that animates a value according to a spring based model.
+              </p>
+              <div class="fragment" data-fragment-index="2">
+                <video width="640" height="480" controls muted>
+                  <source src="assets/videos/Oscillatory_motion_acceleration.ogv" type="video/ogg">
+                  <a href="https://en.wikipedia.org/wiki/File:Oscillatory_motion_acceleration.ogv">Spring demo on Wikipedia</a>
+                </video>
+              </div>
+            </div>
+            <aside class="notes">
+              Till now we’ve used the timing() method for all our animations. Another commonly used method is spring(). 
+              This method animates a value according to a spring based model.
+            </aside>
+          </section>
+          <section class="video-text-slide">
+            <h4 class="slide-name">Animated API. Spring</h4>
+            <div>
+              <div>
+                <p class="fragment" data-fragment-index="1">
+                  In case of spring we don’t specify the animation duration directly. 
+                  Instead we have a config object where we can set speed::
+                </p>
+                <pre class="fragment" data-fragment-index="2">
+                  <code data-trim data-line-numbers>
+                    Animated.spring(nativeTranslation, {
+                      toValue: -100,
+                      useNativeDriver: true,
+                      speed: 12,
+                      bounciness: 30,
+                    }).start();
+                  </code>
+                </pre>
+                <p class="fragment" data-fragment-index="4">
+                  With spring() use either speed/bounciness or friction/tension pair of settings to control your animation.
+                </p>
+                <p class="fragment" data-fragment-index="5">
+                  <a href="https://reactnative.dev/docs/animated#spring">Docs for spring configuration</a>
+                </p>
+              </div>
+              <div class="fragment" data-fragment-index="3">
+                <video width="640" muted loop>
+                  <source src="assets/videos/SpringAnimation.mov">
+                  Spring animation demo video
+                </video>
+              </div>
+            </div>
+            <aside class="notes">
+              Please notice that you can use either speed/bounciness or friction/tension settings to control your animation. 
+              If you try to specify speed and tension at the same time, you’ll get an error. Other available options are 
+              listed in RN docs: https://reactnative.dev/docs/animated#spring
+              We’ve just successfully animated the  numeric transform value. But what if I’d like to animate color? 
+              That’s where interpolation enters the scene.
+            </aside>
+          </section>
         </section>
         <!-- End: Animated API animation -->
         </section>
