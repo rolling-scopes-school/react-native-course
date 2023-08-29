@@ -919,7 +919,7 @@
               <div>
                 <p class="fragment" data-fragment-index="1">
                   In case of spring we don’t specify the animation duration directly. 
-                  Instead we have a config object where we can set speed::
+                  Instead we have a config object where we can set speed:
                 </p>
                 <pre class="fragment" data-fragment-index="2">
                   <code data-trim data-line-numbers>
@@ -951,6 +951,264 @@
               listed in RN docs: https://reactnative.dev/docs/animated#spring
               We’ve just successfully animated the  numeric transform value. But what if I’d like to animate color? 
               That’s where interpolation enters the scene.
+            </aside>
+          </section>
+          <section class="video-text-slide">
+            <h4 class="slide-name">Animated API. Interpolation</h4>
+            <div>
+              <div>
+                <p class="fragment" data-fragment-index="1">
+                  "Interpolation - a type of estimation, a method of constructing (finding) new data points based on the 
+                  range of a discrete set of known data points".
+                </p>
+                <div class="fragment" data-fragment-index="2">
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td class="fragment" data-fragment-index="2">0</td>
+                        <td class="fragment" data-fragment-index="3">0.3</td>
+                        <td  class="fragment" data-fragment-index="4">0.5</td>
+                        <td class="fragment" data-fragment-index="2">1</td>
+                      </tr>
+                      <tr>
+                        <td class="fragment" data-fragment-index="2">0</td>
+                        <td class="fragment" data-fragment-index="3">30</td>
+                        <td  class="fragment" data-fragment-index="4">50</td>
+                        <td class="fragment" data-fragment-index="2">100</td>
+                      </tr>
+                      <tr>
+                        <td class="fragment" data-fragment-index="2">0</td>
+                        <td class="fragment" data-fragment-index="3">-60</td>
+                        <td  class="fragment" data-fragment-index="4">-100</td>
+                        <td class="fragment" data-fragment-index="2">-200</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div>
+                <pre class="fragment" data-fragment-index="5">
+                  <code data-trim data-line-numbers>
+                    const animatedValue = useRef(new Animated.Value(0)).current;
+
+                    Animated.timing(animatedValue, {
+                      toValue: 1,
+                      duration: 1500,
+                      useNativeDriver: false,
+                    }).start();
+                  </code>
+                </pre>
+                <pre class="fragment" data-fragment-index="6">
+                  <code data-trim data-line-numbers>
+                    const translate = animatedValue.interpolate({
+                        inputRange: [0, 1],
+                        outputRange: [0, -200],
+                    });
+                    const size = animatedValue.interpolate({
+                        inputRange: [0, 1],
+                        outputRange: [100, 50],
+                    });
+                  </code>
+                </pre>
+                <pre class="fragment" data-fragment-index="7">
+                  <code data-trim data-line-numbers>
+                    &lt;Animated.View
+                      style={[
+                        {
+                          transform: [{ translateY: translate }],
+                        },
+                        {
+                          width: size,
+                          height: size,
+                        },
+                      ]} /&gt;
+                  </code>
+                </pre>
+              </div>
+            </div>
+            <aside class="notes">
+              We’ve just successfully animated the numeric transform value. But what if I’d like to animate color? 
+              That’s where interpolation enters the scene. Animated API provides you with the option to map your animated 
+              value range to the output range of your choice. To understand how this works, let’s first understand what 
+              interpolation is in general. Wikipedia defines interpolation as ‘a type of estimation, a method of constructing 
+              (finding) new data points based on the range of a discrete set of known data points.’ Here’s a basic example of 
+              that: We have a value that changes gradually over time from 0 to 1. But we want to change another value from 0 
+              to 100 with the same speed. You can say that we have two ranges [0 - 1] and [0 - 100]. From that point it is 
+              pretty obvious how one range connects to another. 0,3 from the first range will link to 30 from the second, 0.5 
+              to 50 and so on. This is valid for linear interpolation and it works the same way for other cases. For instance 
+              we can have a negative range [0, -200] and we can interpolate to this range from our initial one: 0.5 will 
+              be -100 and so on and so forth. Or a range that starts with non zero value [50, 100]: 0.5 will interpolate to 75. 
+              In our example we can have a single animated value interpolated to multiple values we use to animate our objects.
+              We now have a single animated value that controls size and translation animations.
+            </aside>
+          </section>
+          <section class="video-text-slide">
+            <h4 class="slide-name">Animated API. Interpolation</h4>
+            <div>
+            <div>
+            <p class="fragment" data-fragment-index="1">
+              Animating the color with interpolation:
+            </p>
+            <pre class="fragment" data-fragment-index="1">
+              <code data-trim data-line-numbers>
+                &lt;Animated.View
+                  style={[
+                    {
+                      backgroundColor: animatedValue.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: [‘red’, ‘blue’],
+                      }),
+                    }
+                ]} /&gt;
+              </code>
+            </pre>
+            <p class="fragment" data-fragment-index="2">
+              Using multiple range segments in interpolation:
+            </p>
+            <pre class="fragment" data-fragment-index="2">
+              <code data-trim data-line-numbers>
+                value.interpolate({
+                  inputRange: [-300, -100, 0, 100, 101],
+                  outputRange: [300, 0, 1, 0, 0]
+                });
+              </code>
+            </pre>
+            </div>
+            <div>
+            <table class="fragment" data-fragment-index="2">
+              <thead>
+                <tr>
+                  <th>Input</th>
+                  <th>Output</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>-300</td>
+                  <td>300</td>
+                </tr>
+                <tr>
+                  <td>-200</td>
+                  <td>150</td>
+                </tr>
+                <tr>
+                  <td>-100</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>-50</td>
+                  <td>0.5</td>
+                </tr>
+                <tr>
+                  <td>0</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                   <td>50</td>
+                  <td>0.5</td>
+                </tr>
+                <tr>
+                  <td>100</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                   <td>101</td>
+                  <td>0</td>
+                </tr>
+                </div>
+                </div>
+                
+              </tbody>
+            </table>
+              
+            <aside class="notes">
+              Interpolation can be used not only for integer values ranges, but for strings as well and we can use it 
+              to interpolate our animated value to colors range.
+              And you can instantly spot the advantage of interpolation in Animated API before native JS animation - we 
+              don’t need to specify all intermediate colors in range as Animated will cover this for us. Please notice that 
+              you can set multiple range segments, not only start and end points.
+            </aside>
+          </section>
+          
+          <section class="text-and-conding-slide">
+            <h4 class="slide-name">Animated API. Interpolation. Easing</h4>
+            <div>
+              <p class="fragment" data-fragment-index="1">
+                You can specify easing function for interpolation:
+              </p>
+            </div>
+            <pre class="fragment" data-fragment-index="2">
+              <code data-trim data-line-numbers>
+                &lt;Animated.View
+                  style={[
+                    {
+                      backgroundColor: animatedValue.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: [‘red’, ‘blue’],
+                      easing: Easing.cubic,
+                      }),
+                    }
+                ]} /&gt;
+              </code>
+            </pre>
+            <aside class="notes">
+              As I mentioned previously, interpolation uses linear dependency between ranges by default. But you can 
+              specify easing function if you wish to change that.
+            </aside>
+          </section>
+
+          <section class="text-and-conding-slide">
+            <h4 class="slide-name">Animated API. Interpolation. Extrapolation</h4>
+            <div>
+              <p class="fragment" data-fragment-index="1">
+                In mathematics, extrapolation is a type of estimation, beyond the original observation range. Let’s say we 
+                want to start changing size only when my animated value reaches 0.5. 
+              </p>
+            </div>
+            <pre class="fragment" data-fragment-index="2">
+              <code data-trim data-line-numbers>
+                &lt;Animated.View
+                  style={[
+                    {
+                      backgroundColor: animatedValue.interpolate({
+                      inputRange: [0.5, 1],
+                      outputRange: [100, 50],
+                      }),
+                    }
+                ]} /&gt;
+              </code>
+            </pre>
+            <p class="fragment" data-fragment-index="3">
+              React Native will try to extrapolate and guess what output value should be when the input is 0. In the 
+              example above it will be 150. But that’s not what we want:
+            </p>
+            <pre class="fragment" data-fragment-index="3">
+              <code data-trim data-line-numbers>
+                &lt;Animated.View
+                  style={[
+                    {
+                      backgroundColor: animatedValue.interpolate({
+                        inputRange: [0.5, 1],
+                        outputRange: [100, 50],
+                        extrapolateLeft: 'clamp',
+                      }),
+                    }
+                ]} /&gt;
+              </code>
+            </pre>
+            <p class="fragment" data-fragment-index="4">
+              Apart <strong>'extrapolateLeft'</strong> we can use <strong>'extrapolateRight'</strong> or 
+              <strong>'extrapolate'</strong> to set both.
+            </p>
+            <aside class="notes">
+              Last option to discuss in interpolation is extrapolation. In mathematics, extrapolation is a type of 
+              estimation, beyond the original observation range. Here’s an example of when we may need it. Let’s say 
+              we want to start changing size only when my animated value reaches 0.5. If we put the code like that: 
+              [first code block]
+              RN will try to extrapolate and guess what output value should be when the input is 0. In the example 
+              above it will be 150. But that’s not what we want. To prevent such behavior we can set the extrapolateLeft 
+              prop to be ‘clamp’ (by default it’s ‘extend’).
+              If the same is required for the right range border we can use extrapolateRight and to set both - extrapolate.
             </aside>
           </section>
         </section>
