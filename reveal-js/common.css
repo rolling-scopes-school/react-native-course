@@ -316,6 +316,11 @@ img.with-border {
   display: flex;
   align-items: center;
 }
+.compare-slide > div > div > ul > p {
+  font-size: 2rem !important;
+  font-weight: bold;
+  margin-top: 0px;
+}
 .several-icons-3-slide-with-description > div > * {
   width: 33%;
 }
@@ -481,6 +486,11 @@ img.with-border {
   }
   .several-pictures-4-slide > div > * > * {
     max-height: 18vh;
+  }
+  .compare-slide > div > div > ul > p {
+    font-size: 1.2rem !important;
+    font-weight: bold;
+    margin-top: 0px;
   }
 }
 
