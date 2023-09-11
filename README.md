@@ -6,7 +6,7 @@
 
 # Materials (WIP)
 
-- [Javascript](javascript/index.md)
+- [Javascript (ToDo](javascript/index.md)
 - [Typescript](typescript/index.md)
 - [React](/react/README.md)
 - [State management](/state_management/index.md)
