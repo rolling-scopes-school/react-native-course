@@ -12,7 +12,7 @@
 - [React Native Fundamentals](/react_native_fundamentals/index.md)
 - [Debugging](/debugging/README.md)
 - [Navigation](navigation/index.md)
-- [Third-party-libs](third-party-libs/index.md)
+- [Third-party-libs](third-party-libs/README.md)
 - [Security](security/README.md)
 - [Animations](animations/index.md)
 - [Optimisation](optimisation/index.md)
