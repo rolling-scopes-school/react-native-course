@@ -6,7 +6,6 @@
 
 # Materials (WIP)
 
-- [Javascript (ToDo](javascript/index.md)
 - [Typescript](typescript/index.md)
 - [React](/react/README.md)
 - [State management](/state_management/index.md)
@@ -14,7 +13,7 @@
 - [Debugging](/debugging/README.md)
 - [Navigation](navigation/index.md)
 - [Third-party-libs](third-party-libs/index.md)
-- [Security](security/index.md)
+- [Security](security/README.md)
 - [Animations](animations/index.md)
 - [Optimisation](optimisation/index.md)
 - [Unit tests](unit-testing/index.md)
