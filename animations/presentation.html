@@ -1346,8 +1346,130 @@
               As you can see I used the linear preset here. Other available options are “easeInEaseOut” and “spring”. 
               Not much, but remember that LA is all about simplicity. Besides, there’s an option for custom animation 
               config if you’d like to have more control over the process. In our case, you may already see a point of
-              improvement: we may adjust the animation speed on different stages to avoid different elements visible 
+              improvement: we may adjust the animation speed on different stages to avoid form elements visible 
               overlap during the transitions.
+            </aside>
+          </section>
+          <section class="video-text-slide">
+            <h4 class="slide-name">LayoutAnimation API. Custom config</h4>
+            <div>
+              <div>
+                <p>
+                  <span>
+                  LayoutAnimation.configureNext accepts the config object as its first parameter with the following 
+                  fields: 
+                  <br>
+                  <br>
+                  <strong>• duration</strong> in milliseconds 
+                  <br>
+                  <strong>• create</strong>, optional config for animating in new views
+                  <br>
+                  <strong>• update</strong>, optional config for animating views that have been updated
+                  <br>
+                  <strong>• delete</strong>, optional config for animating views as they are removed
+                  <br>
+                  <br>
+                  </span>
+                  <span class="fragment" data-fragment-index="1">
+                  And every optional config supports:
+                  <br>
+                  <br>
+                  <strong>• type</strong>, the 
+                    <a href="https://reactnative.dev/docs/layoutanimation#types">animation type</a> to use
+                    <br>
+                  <strong>• property</strong>, the layout property to animate <br>(optional, but recommended for 
+                  create and delete) <br> - supported props are opacity, scaleX, scaleY and scaleXY.
+                  <br>
+                  <strong>• springDamping</strong>, optional config for animating views that have been updated
+                   <br>
+                  <strong>• initialVelocity</strong>, optional config for animating views as they are removed
+                   <br>
+                  <strong>• delay</strong>, optional config for animating views as they are removed
+                   <br>
+                  <strong>• duration</strong>, optional config for animating views as they are removed
+                   <br>
+                   </span>
+                </p>
+              </div>
+              <div>
+                <pre class="fragment" data-fragment-index="2">
+                  <code data-trim data-line-numbers>
+                    const customLayoutAnimation = {
+                      duration: 400,
+                      update: {
+                        type: LayoutAnimation.Types.linear,
+                        property: LayoutAnimation.Properties.opacity,
+                      },
+                    };
+                  </code>
+                </pre>
+                <pre class="fragment" data-fragment-index="3">
+                  <code data-trim data-line-numbers>
+                      const onStateSwitch = (newState: AUTH_SCREEN_STATE) => {
+                        LayoutAnimation.configureNext(customLayoutAnimation);
+                        setScreenState(newState);
+                      };
+                  </code>
+                </pre>
+              </div>
+            </div>
+            <aside class="notes">
+              [LISTS APPEAR]
+              Sounds a bit overwhelming, but don’t worry as it’s fairly simple. We can start with custom layout 
+              animation config as easy as this:
+              [FIRST CODE SNIPPET] 
+              And we need to provide it to LayoutAnimation.configureNext method the same way we did earlier with 
+              predefined presets:
+              [SECOND CODE SNIPPET] 
+              Here we specify the animation duration and how the update phase should be done. Now I can control 
+              the animation duration and its update phase.
+            </aside>
+          </section>
+          <section class="video-text-slide">
+            <h4 class="slide-name">LayoutAnimation API. Custom config</h4>
+            <div>
+              <div class="fragment" data-fragment-index="1">
+                <pre>
+                  <code data-trim data-line-numbers>
+                    const customLayoutAnimation = {
+                      duration: 400,
+                      create: {
+                        duration: 700,
+                        type: LayoutAnimation.Types.linear,
+                        property: LayoutAnimation.Properties.opacity,
+                      },
+                      update: {
+                        type: LayoutAnimation.Types.linear,
+                        property: LayoutAnimation.Properties.opacity,
+                      },
+                      delete: {
+                        duration: 100,
+                        type: LayoutAnimation.Types.linear,
+                        property: LayoutAnimation.Properties.opacity,
+                      },
+                    };
+                  </code>
+                </pre>
+              </div>
+              <div class="fragment" data-fragment-index="2">
+                <video width="640" muted loop>
+                  <source src="assets/videos/LayoutAnimation_custom.mov">
+                  LayoutAnimation demo video
+                </video>
+              </div>
+            </div>
+            <aside class="notes">
+              But then I’m not happy with the way my inputs appear and disappear immediately. So I need to add 
+              the delete and create configs to my custom object:
+              [CODE SNIPPET] 
+              Now I have full control over all three phases. So I set the create animation to be slower than update 
+              one (my inputs appear slower and buttons have time to slide down), while the delete one is set to be 
+              faster as I don’t want my buttons to overlap with inputs when I go from Register view to the initial one:
+              [VIDEO] 
+              Feel free to experiment with custom animation config to adjust your animation for some specific use case.
+              As you can see, despite being a simple and easy to learn tool, LayoutAnimation API provides you with 
+              options on precise animation control if you decide that default config doesn’t work that well for you. 
+              We get a lot for such a small coding effort and I think it’s an awesome tool to have in your dev arsenal.
             </aside>
           </section>
         </section>
