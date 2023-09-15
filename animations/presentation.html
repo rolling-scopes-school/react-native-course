@@ -28,12 +28,12 @@
     <div class="reveal">
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
-        <!-- 0 slide -->
         <section class="presentation-name-slide">
           <h4>Animations in React Native</h4>
 
           <aside class="notes">
-            Navigation is an important part of mobile development
+            Today's topic is Animations in React Native as they are a very important part of a great user 
+            experience.
           </aside>
         </section>
         <section class="agenda-slide">
@@ -97,25 +97,22 @@
           <h4 class="slide-name">Animations in mobile applications</h4>
           <div>
             <div class="fragment" data-fragment-index="1">
-              <img
-                src="assets/images/Animation_ex1.gif"
-                height="500"
-                alt="Example of animation"
-              />
+              <video height="640" muted loop>
+                <source src="assets/videos/LayoutAnimation_custom.mov">
+                LayoutAnimation demo video
+              </video>
             </div>
             <div class="fragment" data-fragment-index="2">
-              <img
-                src="assets/images/Animation_ex2.gif"
-                height="500"
-                alt="Example of animation"
-              />
+              <video height="640" muted loop>
+                <source src="assets/videos/PlainJS.mov">
+                Vanilla JS demo video
+              </video>
             </div>
             <div class="fragment" data-fragment-index="3">
-              <img
-                src="assets/images/Animation_ex1.gif"
-                height="500"
-                alt="Example of animation"
-              />
+              <video height="640" muted loop>
+                <source src="assets/videos/Animated.mov">
+                Animated API demo video
+              </video>
             </div>
           </div>
           <aside class="notes">
@@ -169,6 +166,13 @@
         </section>
         <!-- JavaScript animation -->
         <section class="stack-preset">
+          <section class="topic-name-slide">
+            <h4>Animation with plain JavaScript</h4>
+  
+            <aside class="notes">
+              Let's try to animate things with Plain JS approach.
+            </aside>
+          </section>
           <section data-auto-animate class="code-example-slide">
             <h4 class="slide-name">Animation with plain JavaScript</h4>
             <pre data-id="code-animation">
@@ -315,10 +319,10 @@
           </section>
           <section class="picture-slide">
             <h4 class="slide-name">Animation with plain JavaScript</h4>
-            <img
-              src="assets/images/plain_js_animation.gif"
-              alt="Animation with plain JS"
-            />
+            <video height="600" muted loop>
+                <source src="assets/videos/PlainJS.mov">
+                Animation with plain JS
+              </video>
             <aside class="notes">
               The result is far from perfection and you can achieve a much
               smoother animation with requestAnimationFrame. Also we can animate
@@ -328,11 +332,10 @@
           <section class="text-and-picture-slide">
             <h4 class="slide-name">Animation with plain JavaScript</h4>
             <div>
-              <img
-                src="assets/images/requestAnimationFrame.gif"
-                alt="Animation with requestAnimationFrame"
-                width="800"
-              />
+              <video width="640" height="600" muted loop>
+                <source src="assets/videos/RequestAnimationFrame.mov">
+                RequestAnimationFrame demo video
+              </video>
               <ul>
                 <li>
                   <a
@@ -363,11 +366,10 @@
           <section class="text-and-picture-slide">
             <h4 class="slide-name">Animation with plain JavaScript</h4>
             <div>
-              <img
-                src="assets/images/plain_js_loaded.gif"
-                alt="Animation with plain JS and loaded JS thread"
-                width="800"
-              />
+              <video width="640" height="600" muted loop>
+                <source src="assets/videos/PlainJSLoaded.mov">
+                Animation with plain JS and loaded JS thread
+              </video>
               <ol>
                 <li class="fragment">Unnecessary code complexity</li>
                 <li class="fragment">
@@ -434,6 +436,13 @@
         <!-- End: React Native APIs -->
         <!-- Animated API animation -->
        <section class="stack-preset">
+          <section class="topic-name-slide">
+            <h4>Animation with Animated API</h4>
+
+            <aside class="notes">
+              It's time to dive in to the Animated API.
+            </aside>
+          </section>
           <section class="text-slide">
             <h4 class="slide-name">Animated API. Let's start</h4>
             <div>
@@ -1215,16 +1224,21 @@
         <!-- End: Animated API animation -->
         <!-- LayoutAnimation API animation -->
         <section class="stack-preset">
+          <section class="topic-name-slide">
+            <h4>Animation with LayoutAnimation API</h4>
+
+            <aside class="notes">
+              Another powerful tool provided by React Native is LayoutAnimation.
+            </aside>
+          </section>
           <section class="video-text-slide">
             <h4 class="slide-name">LayoutAnimation API</h4>
             <div>
               <div>
-                <img
-                src="assets/images/Animation_ex1.gif"
-                height="500"
-                width="500"
-                alt="Example of animation"
-                />
+                <video width="640" muted loop>
+                  <source src="assets/videos/LayoutAnimation_custom.mov">
+                  LayoutAnimation demo video
+                </video>
               </div>
               <div>
                 <h5>
@@ -1474,6 +1488,31 @@
           </section>
         </section>
         <!-- End: LayoutAnimation API animation -->
+        <!-- Reanimated animation -->
+        <section class="stack-preset">
+          <section class="topic-name-slide">
+            <h4>Animation with Reanimated</h4>
+
+            <aside class="notes">
+              TODO
+            </aside>
+          </section>
+        </section>
+        <!-- End: Reanimated animation -->
+        <!-- Animation with third-party libraries-->
+        <section class="stack-preset">
+          <section class="topic-name-slide">
+            <h4>Animation with third-party libraries</h4>
+
+            <aside class="notes">
+              TODO
+            </aside>
+          </section>
+        </section>
+        <!-- End: Animation with third-party libraries -->
+        <section class="qa-slide">
+          <h4>QA</h4>
+        </section>
         </section>
       </div>
     </div>
