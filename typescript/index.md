@@ -14,3 +14,7 @@
 - - Interface
 - - Generic
 - Usage in RN project
+
+## Presentation
+
+[link](https://rolling-scopes-school.github.io/react-native-course/typescript/presentation.html)

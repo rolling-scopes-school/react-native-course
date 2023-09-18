@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>rolling-scopes-school/react-native-course - Security</title>
+    <meta
+      name="description"
+      content="rolling-scopes-school/react-native-course - Security"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/dist/reset.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/dist/reveal.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/dist/theme/white.css"
+      id="theme"
+    />
+    <!-- Theme used for syntax highlighting of code -->
+    <link
+      rel="stylesheet"
+      href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/highlight/monokai.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/common.css"
+    />
+    <style class="jsStyle"></style>
+  </head>
+  <body>
+    <div class="reveal">
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <!-- 1-ST SLIDE -->
+        <section class="presentation-name-slide">
+          <h4>Security</h4>
+
+          <aside class="notes"></aside>
+        </section>
+
+        <!-- AGENDA -->
+        <section class="agenda-slide">
+          <h4 class="slide-name">agenda</h4>
+          <ul>
+            <li class="fragment">Storing Sensitive Information</li>
+            <li class="fragment">
+              Selection of Local Storage for data persistence
+            </li>
+            <li class="fragment">Deep Linking</li>
+            <li class="fragment">Android Specific Security Concerns</li>
+            <li class="fragment">IOS Specific Security Concerns</li>
+            <li class="fragment">SSL Encryption & SSL Pinning</li>
+          </ul>
+
+          <aside class="notes">
+            On this slide you can see today's agenda.
+            <br /><br />
+            We will start with..
+            <br /><br />
+            Next…
+            <br /><br />
+            And the last one ..
+          </aside>
+        </section>
+
+        <!-- IMPORTANCE -->
+        <section class="picture-slide">
+          <h4 class="slide-name">Importance</h4>
+          <img src="assets/images/importance.png" alt="importance" />
+          <aside class="notes">
+            Creating a mobile app is not only about navigation and animations
+            (however important they are).
+            <strong>One of the main concerns</strong> when developing a mobile
+            app is <strong>data security</strong>. Especially when it comes to
+            the data which are very sensitive and any security breach can lead
+            to irreversible damage.
+
+            <br /><br />
+            Almost all the app contains <strong>critical information</strong> of
+            the users, so app security is the optimum element, especially while
+            dealing with
+            <strong>
+              passcodes, touch ids, account names, credit card information
+            </strong>
+            and more. Many of the businesses opt to hire software development
+            companies to make sure that they develop highly functional and
+            feature rich apps. But they often overlook the fact that how secure
+            their app is. <br /><br />
+            React native, like all JavaScript-based frameworks, is vulnerable to
+            security threats. An analysis from a react native protection
+            standpoint needs to take into consideration for the different parts
+            of the framework as well as the connection between them.
+            <br /><br />
+            The likelihood of being the victim of a malicious attack or security
+            vulnerability is
+            <strong>inversely proportional to the effort</strong> you are
+            willing to make to protect your application from any such
+            possibility.
+          </aside>
+        </section>
+
+        <!-- Sensitive Info -->
+        <section>
+          <section class="bullets-slide">
+            <h4 class="slide-name">Sensitive Info</h4>
+            <ul>
+              <li>Endpoints of APIs</li>
+              <li>Third party authentication integration</li>
+              <li>
+                Services of open platforms like firebase, google to implement
+                features like notification, messaging, analytics in your
+                application
+              </li>
+            </ul>
+            <aside class="notes">
+              There are few cases where you need to define sensitive information
+              in your code as mentioned below:
+              <br /><br />
+              - endpoints of APIs
+              <br /><br />
+              - You often require some third party authentication integration,
+              In that case you need to define an
+              <strong> application secret</strong> which is created on a third
+              party platform like Facebook, google in your application to access
+              their services. <br /><br />
+              - Often you require to use some services of open platforms like
+              firebase, google to implement features like notification,
+              messaging, analytics in your application. Here also you need to
+              <strong> define the secret</strong> of an application created on
+              open platform in your application to access their services.
+            </aside>
+          </section>
+          <!-- Sensitive Info -->
+          <section class="picture-slide">
+            <h4 class="slide-name">Sensitive Info</h4>
+            <img src="assets/images/sensetive-info.jpg" alt="sensetive-info" />
+            <aside class="notes">
+              Never <strong>store sensitive API keys in your app code</strong>.
+              Anything included in your code could be accessed in plain text by
+              anyone <strong>inspecting the app bundle</strong>. Tools like
+              react-native-dotenv and react-native-config are great for adding
+              environment-specific variables like API endpoints, but they should
+              not be confused with server-side environment variables, which can
+              often contain <strong>secrets and API keys</strong>. <br /><br />
+            </aside>
+          </section>
+          <!-- Saving data -->
+          <section class="picture-slide">
+            <h4 class="slide-name">Saving data</h4>
+            <img src="assets/images/sensetive-data-2.jpeg" alt="importance" />
+            <aside class="notes">
+              For persisted user data, choose the right type of storage based on
+              its sensitivity. As your app is used, you'll
+              <strong>often find the need to save data</strong> on the device,
+              whether to support your app being used offline, cut down on
+              network requests or save your user's access token between sessions
+              so they wouldn't have to re-authenticate each time they use the
+              app. <br /><br />
+              Persisted vs unpersisted —
+              <strong>persisted data is written to the device's disk</strong>,
+              which lets the data be read by your app across application
+              launches without having to do another network request to fetch it
+              or asking the user to re-enter it. But this also can make that
+              data more vulnerable to being accessed by attackers.
+              <strong>Unpersisted data is never written</strong> to disk—so
+              there's no data to access! <br /><br />
+            </aside>
+          </section>
+          <!-- Async Storage -->
+          <section class="table-slide">
+            <h4 class="slide-name">Async Storage</h4>
+            <p class="fragment" data-fragment-index="1">
+              Async Storage is a community-maintained module for React Native
+              that provides an asynchronous, unencrypted, key-value store. Async
+              Storage is not shared between apps: every app has its own sandbox
+              environment and has no access to data from other apps.
+            </p>
+            <table class="fragment" data-fragment-index="2">
+              <thead>
+                <tr>
+                  <th>DO USE ASYNC STORAGE WHEN...</th>
+                  <th>DON'T USE ASYNC STORAGE FOR...</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Persisting non-sensitive data across app runs</td>
+                  <td>Token storage</td>
+                </tr>
+                <tr>
+                  <td>Persisting Redux state</td>
+                  <td>Secrets</td>
+                </tr>
+                <tr>
+                  <td>Persisting GraphQL state</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Storing global app-wide variables</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+            <aside class="notes">
+              Let's look into security issues while dealing with local storage
+              <br />
+              Async Storage is an
+              <strong>asynchronous unencrypted key-value store</strong>. Async
+              Storage uses an unencrypted approach, it can make your data more
+              vulnerable to being accessed by attackers. We can save information
+              like
+              <strong
+                >non-sensitive data, redux state, Graph-QL state or global
+                application level</strong
+              >
+              variables in Async Storage.
+              <br /><br />
+              But for sensitive information like
+              <strong>tokens and secrets we need to choose another way</strong>.
+              <br /><br />
+            </aside>
+          </section>
+          <!-- Secure Storage iOS -->
+          <section class="picture-slide">
+            <h4 class="slide-name">Secure Storage - iOS</h4>
+            <img src="assets/images/ios-keychain.png" alt="ios-keychain" />
+            <aside class="notes">
+              React Native does not come bundled with any way of storing
+              sensitive data. However, there are pre-existing solutions for
+              Android and iOS platforms.
+              <br /><br />
+              iOS - Keychain Services
+              <br /><br />
+              Keychain Services allows you to securely store small chunks of
+              sensitive info for the user. This is an ideal place to store
+              <strong>
+                certificates, tokens, passwords, and any other sensitive
+                information</strong
+              >
+              that doesn't belong in Async Storage. <br /><br />
+            </aside>
+          </section>
+          <!-- Secure Storage Android -->
+          <section class="picture-slide">
+            <h4 class="slide-name">Secure Storage - Android</h4>
+            <img
+              src="assets/images/android-sensetive-info.png"
+              alt="android-sensetive-info"
+            />
+            <aside class="notes">
+              Android - Secure Shared Preferences
+              <br /><br />
+              Shared Preferences is the Android equivalent for a persistent
+              key-value data store. Data in
+              <strong> Shared Preferences is not encrypted</strong>
+              by default, but
+              <strong
+                >Encrypted Shared Preferences wraps the Shared
+                Preferences</strong
+              >
+              class for Android, and automatically encrypts keys and values.
+              <br /><br />
+              <br /><br />
+              Android - Keystore
+              <br /><br />
+              The Android Keystore system lets you store
+              <strong>cryptographic keys</strong> in a container to make it more
+              difficult to extract from the device. <br /><br />
+            </aside>
+          </section>
+          <!-- Secure Storage Solutions -->
+          <section class="bullets-slide">
+            <h4 class="slide-name">Secure Storage - Solutions</h4>
+            <ul>
+              <li>react-native-encrypted-storage</li>
+              <li>react-native-keychain</li>
+              <li>react-native-sensitive-info</li>
+            </ul>
+            <aside class="notes">
+              react-native-encrypted-storage - uses Keychain on iOS and
+              EncryptedSharedPreferences on Android.
+              <br /><br />
+              react-native-keychain
+              <br /><br />
+              react-native-sensitive-info - secure for iOS, but uses Android
+              Shared Preferences for Android (which is not secure by default).
+              There is however a branch that uses Android Keystore.
+              <br /><br />
+            </aside>
+          </section>
+        </section>
+
+        <!-- Deep linking -->
+        <section>
+          <section class="picture-slide">
+            <h4 class="slide-name">Deep linking</h4>
+            <img src="assets/images/deep-linking.png" alt="importance" />
+            <aside class="notes">
+              Mobile apps have a unique vulnerability that is non-existent in
+              the web: deep linking.
+              <br /><br />
+              Deep linking is a <strong>way of sending data</strong> directly to
+              a native application from an outside source. <br /><br />
+              A deep link looks like app:// where app is your app scheme and
+              anything following the // could be used internally to handle the
+              request.
+              <br /><br />
+              For example, if you were building an ecommerce app, you could use
+              app://products/1 to deep link to your app and open the product
+              detail page for a product with id 1. You can think of these kind
+              of like URLs on the web, but with one crucial distinction:
+              <br /><br />
+              <strong>Deep links are not secure</strong> and you should never
+              send any sensitive information in them. <br /><br />
+              <br /><br />
+              The reason deep links are not secure is because
+              <strong
+                >there is no centralized method of registering URL
+                schemes</strong
+              >. As an application developer, you can use almost any url scheme
+              you choose by configuring it in Xcode for iOS or adding an intent
+              on Android. <br /><br />
+              There is nothing stopping a malicious application from hijacking
+              your deep link by also registering to the same scheme and then
+              obtaining access to the data your link contains. Sending something
+              like app://products/1 is not harmful, but sending tokens is a
+              security concern.
+              <br /><br />
+              <br /><br />
+            </aside>
+          </section>
+          <section class="picture-slide">
+            <h4 class="slide-name">Deep linking - solution</h4>
+            <img src="assets/images/universal-link.png" alt="universal-link" />
+            <aside class="notes">
+              Apple introduced Universal Links in iOS 9 as a solution to the
+              lack of graceful fallback functionality in custom URI scheme deep
+              links. Universal Links are
+              <strong
+                >standard web links that point to both a web page and a piece of
+                content inside an app </strong
+              >.
+
+              <br /><br />
+              When a Universal Link is opened, iOS checks to see if any
+              installed app is registered for that domain. If so, the app is
+              <strong>launched immediately</strong> without ever loading the web
+              page. If not, the web URL (which can be a simple redirect to the
+              App Store) <strong>is loaded in Safari</strong>.
+
+              <br /><br />
+              Setting up a universal link (HTTP or HTTPS) login interface, and
+              musing a random identifier to authenticate the received login
+              token locally,
+              <strong
+                >prevents hijacking and malicious login token replaying</strong
+              >.
+            </aside>
+          </section>
+        </section>
+
+        <!-- Android Specific Security Concerns -->
+        <section class="picture-slide">
+          <h4 class="slide-name">Android Specific Security Concerns</h4>
+          <img src="assets/images/ofuscated_code.png" alt="ofuscated_code" />
+          <aside class="notes">
+            Here we will discuss about how to protect our APK or app bundle
+            placed over play store from reverse engineering attacks.
+            <br /><br />
+            Hackers can easily access our Codebase by doing
+            <strong>reverse engineering with APK or app bundle file</strong>. To
+            avoid it we can add <strong>Pro Guard rules</strong>. <br /><br />
+            Pro Guard rules are like a security shield for any android
+            application. Basically, it <strong>obfuscates</strong> your code. So
+            if someone reverse engineer it, its not readable and saves you from
+            engineering attacks. There is also another benefit of using Pro
+            Guard is that it reduces APK size by removing unused code and
+            resources. If your project contain any third party library then you
+            can add the Pro Guard rules of that library in your rules file.
+            <br /><br />
+            To enable Pro Guard rule we have to enable the minifyEnabled
+            property in app/build.gradle file.
+            <br /><br />
+          </aside>
+        </section>
+
+        <!-- iOS Specific Security Concerns -->
+        <section class="picture-slide">
+          <h4 class="slide-name">iOS Specific Security Concerns</h4>
+          <img src="assets/images/plist.png" alt="plist" />
+          <aside class="notes">
+            You can restrict insecure domains by configuring some policies
+            within your Info.plist file.
+            <br /><br />
+            From iOS 9.0 Apple has introduced one dictionary called the
+            <strong> NSAppTransportSecurity</strong> which you can find inside
+            info.plist file. Inside NSAppTransportSecurity there is one key
+            <strong> NSAllowArbitraryLoads</strong> which is set to NO as
+            default that means you have agreed with security benefits. In some
+            scenarios when you are working with localhost or with HTTP domain if
+            required then you have to make it YES otherwise you can't make
+            network request with those insecure domains. <br /><br />
+            <br /><br />
+            There are chances that
+            <strong>your app might get rejected</strong> while uploading it to
+            <strong>apple store</strong> because you set NSAllowArbitraryLoads
+            value as YES. To overcome that you can use NSExceptionDomains by
+            providing a list of domains inside that. Application will consider
+            like you have agreed to all over security benefits excepts the
+            domain those domains which you have mentioned in NSExceptionDomains
+            (although you have set NSAllowArbitraryLoads value as YES).
+          </aside>
+        </section>
+
+        <section>
+          <!-- Network Security -->
+          <section class="picture-slide">
+            <h4 class="slide-name">Network Security - SSL encryption</h4>
+            <img src="assets/images/ssl_encr.png" alt="ssl_encr" />
+            <aside class="notes">
+              Your APIs should always use SSL encryption. SSL encryption
+              protects against the requested data being read in plain text
+              between when it leaves the server and before it reaches the
+              client. You'll know the endpoint is secure, because it starts with
+              https:// instead of http://.
+              <br /><br />
+            </aside>
+          </section>
+          <!-- man-in-the-middle attack -->
+          <section class="video-text-slide">
+            <h4 class="slide-name">Man-in-the-middle attacks</h4>
+            <div>
+              <div>
+                <a
+                  href=" https://www.youtube.com/watch?v=83LOa-dYi_A"
+                  target="_blank"
+                >
+                  Man-in-the-middle attacks</a
+                >
+                <iframe
+                  src="https://www.youtube.com/embed/83LOa-dYi_A"
+                  title="YouTube video player"
+                  allowfullscreen
+                >
+                </iframe>
+              </div>
+              <div>
+                <p>
+                  Not every website is what it seems -- sometimes a man in the
+                  middle intercepts your communications and steals sensitive
+                  data. Man-in-the-middle attacks are a form of cyber attack in
+                  which a fake website tricks a user into providing personal
+                  information that a hacker then uses on the real website.
+                </p>
+              </div>
+            </div>
+            <aside class="notes"></aside>
+          </section>
+          <!-- SSL Pinning -->
+          <section class="picture-slide">
+            <h4 class="slide-name">SSL Pinning</h4>
+            <img src="assets/images/SSL_Pinning.png" alt="SSL_Pinning" />
+            <aside class="notes">
+              Using https endpoints could still leave your data vulnerable to
+              interception. With https, the client will only trust the server if
+              it can provide a <strong>valid certificate</strong> that is
+              <strong>signed</strong> by a trusted Certificate Authority that is
+              pre-installed on the client. An attacker could take advantage of
+              this by installing a malicious root CA certificate to the user's
+              device, so the client would trust all certificates that are signed
+              by the attacker. Thus, relying on certificates alone could still
+              leave you vulnerable to a man-in-the-middle attack. <br /><br />
+              <br /><br />
+              SSL pinning is a technique that can be used on the client side to
+              avoid this attack. It works by
+              <strong
+                >embedding (or pinning) a list of trusted certificates</strong
+              >
+              to the client during development, so that only the requests signed
+              with one of the trusted certificates will be accepted, and any
+              self-signed certificates will not be. <br /><br />
+              <br /><br />
+              Note:
+              <br /><br />
+              When using SSL pinning, you should be mindful of certificate
+              expiry. Certificates expire every 1-2 years and when one does,
+              it'll need to be updated in the app as well as on the server. As
+              soon as the certificate on the server has been updated, any apps
+              with the old certificate embedded in them will cease to work.
+              <br /><br />
+              To implement SSL Pinning in React Native you can refer to
+              react-native-ssl-pinning.
+            </aside>
+          </section>
+        </section>
+
+        <!-- JS-related vulnerabilities -->
+        <section class="picture-slide">
+          <h4 class="slide-name">JS-related vulnerabilities</h4>
+          <img src="assets/images/xss.png" alt="xss" />
+          <aside class="notes">
+            As React Native apps are using JavaScript, the security analysis of
+            RN apps includes a search for typical JS-related vulnerabilities,
+            like XSS attacks.
+            <br /><br />
+            Generally, the attack surface is pretty wide for pure JavaScript
+            applications. It narrows down for ReactJS, and it narrows down even
+            more for React Native.
+            <br /><br />
+            For example, React Native source code doesn't use HTML elements
+            ,Typical browser-based XSS vectors (ex. based on href attribute)
+            which are relevant to ReactJS. It makes sense because React Native
+            apps are not browser-based, they only run JavaScript code.
+            <br /><br />
+            Even though React Native apps are associated with an adequate level
+            of protection against XSS(Cross-site scripting) attacks, developers
+            can use potentially dangerous API in JavaScript code, like the
+            eval() function, which can steal all the data from local storage
+            (Async Storage) by exploiting eval-based injection.
+            <br /><br />
+            Linters and static code analysers can detect usage of dangerous
+            functions like eval(), and notify developers.
+          </aside>
+        </section>
+
+        <!-- QA -->
+        <section class="qa-slide">
+          <h4>QA</h4>
+          <aside class="notes">
+            There is no bulletproof way to handle security, but with conscious
+            effort and diligence, it is possible to significantly reduce the
+            likelihood of a security breach in your application. Invest in
+            security proportional to the sensitivity of the data stored in your
+            application, the number of users, and the damage a hacker could do
+            when gaining access to their account. And remember: it’s
+            significantly harder to access information that was never requested
+            in the first place.
+          </aside>
+        </section>
+      </div>
+    </div>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/dist/reveal.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/zoom/zoom.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/notes/notes.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/search/search.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/markdown/markdown.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/highlight/highlight.js"></script>
+    <script>
+      var url = new URL(window.location.href);
+      var showNotes = url.searchParams.has("showNotes");
+
+      if (showNotes) {
+        var head = document.getElementsByTagName("HEAD")[0];
+        var link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        link.href =
+          "https://rolling-scopes-school.github.io/react-native-course/reveal-js/speaker-notes-mobile.css";
+        head.appendChild(link);
+      }
+
+      Reveal.initialize({
+        disableLayout: true,
+        controls: true,
+        progress: true,
+        center: false,
+        hash: true,
+        autoPlayMedia: true,
+        showNotes,
+        plugins: [
+          RevealZoom,
+          RevealNotes,
+          RevealSearch,
+          RevealMarkdown,
+          RevealHighlight,
+        ],
+      });
+    </script>
+  </body>
+</html>

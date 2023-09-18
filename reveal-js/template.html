@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>rolling-scopes-school/react-native-course - React module</title>
+    <meta
+      name="description"
+      content="rolling-scopes-school/react-native-course - name module"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/dist/reset.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/dist/reveal.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/dist/theme/white.css"
+      id="theme"
+    />
+    <!-- Theme used for syntax highlighting of code -->
+    <link
+      rel="stylesheet"
+      href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/highlight/monokai.css"
+    />
+    <!--
+      USE THIS IN YOUR PRESENTATION
+      href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/common.css"
+    -->
+    <link rel="stylesheet" href="./common.css" />
+    <style class="jsStyle"></style>
+  </head>
+  <body>
+    <div class="reveal">
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section class="presentation-name-slide">
+          <h4>Presentation Name</h4>
+        </section>
+
+        <section>
+          <h4>NOTES</h4>
+
+          <aside class="notes">
+            <strong>Nulla facilisi</strong>
+            Etiam dui turpis, accumsan et neque eget, mollis consectetur ipsum.
+            Etiam mollis arcu elit, et condimentum dolor accumsan nec.
+            <br /><br />
+            <strong>Nulla facilisi</strong>
+            Etiam dui turpis, accumsan <strong>et neque eget</strong>, mollis
+            consectetur ipsum. Etiam mollis arcu elit, et condimentum dolor
+            accumsan nec. <br /><br />
+            <strong>Nulla facilisi</strong>
+            Etiam dui turpis, accumsan et neque eget, mollis consectetur ipsum.
+            Etiam mollis arcu elit, et condimentum dolor accumsan nec.
+            <br /><br />
+            <strong>Nulla facilisi</strong>
+            Etiam dui turpis, accumsan <strong>et neque eget</strong>, mollis
+            consectetur ipsum. Etiam mollis arcu elit, et condimentum dolor
+            accumsan nec. <br /><br />
+            <strong>Nulla facilisi</strong>
+            Etiam dui turpis, accumsan et neque eget, mollis consectetur ipsum.
+            Etiam mollis arcu elit, et condimentum dolor accumsan nec.
+            <br /><br />
+            <strong>Nulla facilisi</strong>
+            Etiam dui turpis, accumsan <strong>et neque eget</strong>, mollis
+            consectetur ipsum. Etiam mollis arcu elit, et condimentum dolor
+            accumsan nec. <br /><br />
+            <strong>Nulla facilisi</strong>
+            Etiam dui turpis, accumsan et neque eget, mollis consectetur ipsum.
+            Etiam mollis arcu elit, et condimentum dolor accumsan nec.
+            <br /><br />
+            <strong>Nulla facilisi</strong>
+            Etiam dui turpis, accumsan <strong>et neque eget</strong>, mollis
+            consectetur ipsum. Etiam mollis arcu elit, et condimentum dolor
+            accumsan nec.
+          </aside>
+        </section>
+
+        <section class="agenda-slide">
+          <h4 class="slide-name">agenda (max 7 items)</h4>
+          <ul>
+            <li class="fragment">Lorem ipsum dolor sit amet</li>
+            <li class="fragment">
+              Ut massa leo, sollicitudin quis
+              <ul>
+                <li>Lorem ipsum dolor sit amet</li>
+                <li>Ut massa leo, sollicitudin quis</li>
+              </ul>
+            </li>
+            <li class="fragment">Proin ut est pretium, ultrices</li>
+            <li class="fragment">Nulla facilisi</li>
+            <li class="fragment">Aenean sagittis, purus nec tincidunt</li>
+            <li class="fragment">Maecenas metus sem, congue eget</li>
+            <li class="fragment">Nunc sed justo dolor</li>
+          </ul>
+
+          <aside class="notes">
+            to remove animation -> remove class="fragment"
+          </aside>
+        </section>
+
+        <section class="topic-name-slide">
+          <h4>Topic name slide</h4>
+        </section>
+
+        <section class="picture-slide">
+          <h4 class="slide-name">slide with picture</h4>
+          <img src="assets/images/image.png" alt="simple" />
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="picture-with-description-slide">
+          <h4 class="slide-name">slide with picture and description</h4>
+          <img src="assets/images/image.png" alt="simple" />
+          <p>One-row text about this picture</p>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="text-and-picture-slide">
+          <h4 class="slide-name">slide with text and picture</h4>
+          <div>
+            <img src="assets/images/image.png" alt="simple" />
+            <p>
+              Etiam dui turpis, accumsan et neque eget, mollis consectetur
+              ipsum. Etiam mollis arcu elit, et condimentum dolor accumsan nec.
+              Morbi ac velit ut quam condimentum interdum. Curabitur eu felis
+              suscipit mauris fringilla iaculis a a ante. Curabitur ac pretium
+              neque. Proin ante felis, sollicitudin et convallis quis, dignissim
+              in felis. Duis ultrices, ex quis commodo euismod, purus ex
+              suscipit tortor, at ornare tortor tellus eu enim. Etiam dui
+              turpis, accumsan et neque eget, mollis consectetur ipsum. Etiam
+              mollis arcu elit, et condimentum dolor accumsan nec. Morbi ac
+              velit ut quam condimentum interdum. Curabitur eu felis suscipit
+              mauris fringilla iaculis a a ante. Curabitur ac pretium neque.
+              Proin ante felis, sollicitudin et convallis quis, dignissim in
+              felis. Duis ultrices, ex quis commodo euismod, purus ex suscipit
+              tortor, at ornare tortor tellus eu enim. Etiam dui turpis,
+              accumsan et neque eget, mollis consectetur ipsum. Etiam mollis
+              arcu elit, et condimentum dolor accumsan nec.
+            </p>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="centered-text-and-picture-slide">
+          <h4 class="slide-name">slide with centered text and picture</h4>
+          <div>
+            <img src="assets/images/image.png" alt="simple" />
+            <div>
+              <p>
+                Etiam dui turpis, accumsan et neque eget, mollis consectetur
+                ipsum.
+              </p>
+              <p>
+                Etiam dui turpis, accumsan et neque eget, mollis consectetur
+                ipsum.
+              </p>
+              <p>
+                Etiam dui turpis, accumsan et neque eget, mollis consectetur
+                ipsum.
+              </p>
+            </div>
+          </div>
+
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="centred-text-and-bottom-picture-slide">
+          <h4 class="slide-name">
+            slide with centered text and picture at the bottom
+          </h4>
+          <div>
+            <p>
+              Etiam dui turpis, accumsan et neque eget, mollis consectetur
+              ipsum.
+            </p>
+            <p>
+              Etiam dui turpis, accumsan et neque eget, mollis consectetur
+              ipsum.
+            </p>
+            <p>
+              Etiam dui turpis, accumsan et neque eget, mollis consectetur
+              ipsum.
+            </p>
+            <img src="assets/images/image.png" alt="simple" />
+          </div>
+
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="slide-with-text-and-logos">
+          <h4 class="slide-name">slide with text and logos</h4>
+          <div>
+            <div>
+              <p>
+                Etiam dui turpis, accumsan et neque eget, mollis consectetur
+                ipsum.
+              </p>
+              <p>
+                Mauris enim nisl, sollicitudin porttitor nisl et, suscipit
+                mattis tellus.
+              </p>
+              <p>Vivamus turpis odio, pulvinar et mollis ut</p>
+            </div>
+            <div class="logos">
+              <img src="assets/images/image.png" alt="logo" />
+              <img src="assets/images/image.png" alt="logo" />
+              <img src="assets/images/image.png" alt="logo" />
+            </div>
+          </div>
+
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="text-slide">
+          <h4 class="slide-name">slide with text</h4>
+          <p>
+            Etiam dui turpis, accumsan et neque eget, mollis consectetur ipsum.
+            Etiam mollis arcu elit, et condimentum dolor accumsan nec. Morbi ac
+            velit ut quam condimentum interdum. Curabitur eu felis suscipit
+            mauris fringilla iaculis a a ante. Curabitur ac pretium neque. Proin
+            ante felis, sollicitudin et convallis quis, dignissim in felis. Duis
+            ultrices, ex quis commodo euismod, purus ex suscipit tortor, at
+            ornare tortor tellus eu enim. In egestas, mi ut porta blandit, dolor
+            lectus aliquam nunc, dignissim tristique augue turpis rhoncus
+            tortor. Aenean sagittis, purus nec tincidunt viverra, augue augue
+            maximus mi, in sodales metus arcu sed leo.
+          </p>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="text-slide">
+          <h4 class="slide-name">slide with text 2</h4>
+          <p class="text-center-align">
+            Etiam dui turpis, accumsan et neque eget, mollis consectetur ipsum.
+          </p>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="centred-column-text-slide">
+          <h4 class="slide-name">slide with centred column text</h4>
+          <div>
+            <p>
+              Etiam dui turpis, accumsan et neque eget, mollis consectetur
+              ipsum.
+            </p>
+            <p>
+              Etiam dui turpis, accumsan et neque eget, mollis consectetur
+              ipsum.
+            </p>
+            <p>
+              Etiam dui turpis, accumsan et neque eget, mollis consectetur
+              ipsum.
+            </p>
+            <p>
+              Etiam dui turpis, accumsan et neque eget, mollis consectetur
+              ipsum.
+            </p>
+            <p>
+              Etiam dui turpis, accumsan et neque eget, mollis consectetur
+              ipsum.
+            </p>
+          </div>
+
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="text-and-frame-slide">
+          <h4 class="slide-name">slide with text and frame</h4>
+          <div>
+            <p>required package</p>
+            <div class="frame">
+              <code class="js" data-trim data-line-numbers>
+                <b>npm install </b>some-package
+              </code>
+            </div>
+
+            <p>dependencies</p>
+            <div class="frame">
+              <code class="js" data-trim data-line-numbers>
+                <b>npm install </b>some-package
+              </code>
+            </div>
+          </div>
+
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="text-and-conding-slide">
+          <h4 class="slide-name">SLIDE WITH TEXT AND CODING</h4>
+          <p class="fragment" data-fragment-index="1">
+            Etiam dui turpis, accumsan et neque eget, mollis consectetur ipsum.
+            Etiam mollis arcu elit, et condimentum dolor accumsan nec. Morbi ac
+            velit ut quam condimentum interdum. Curabitur eu felis suscipit
+            mauris fringilla iaculis a a ante. Curabitur ac pretium neque. Proin
+            ante felis, sollicitudin et convallis quis, dignissim in felis. Duis
+            ultrices, ex quis commodo euismod, purus ex suscipit tortor, at
+            ornare tortor tellus eu enim.
+          </p>
+          <pre class="fragment" data-fragment-index="2">
+              <code data-trim data-line-numbers>
+                function isPalindrome(s, i) {
+                  return (
+                    (i = i || 0) < 0 ||
+                    i >= s.length >> 1 ||
+                    (s[i] == s[s.length - 1 - i] && isPalindrome(s, ++i))
+                  );
+                }
+              </code>
+            </pre>
+          <pre class="fragment" data-fragment-index="3">
+            <code data-trim data-line-numbers>
+              const element = <h1>Hello, {name}</h1>;
+            </code>
+          </pre>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="text-and-conding-slide">
+          <h4 class="slide-name">slide with text and coding 2</h4>
+          <div>
+            <p>1 Fusce efficitur placerat bibendum</p>
+            <pre data-id="code-animation">
+						<code class="js" data-trim data-line-numbers>
+							const element = <h1>Hello, {name}</h1>;
+						</code>
+					</pre>
+          </div>
+          <div>
+            <p>
+              2 Mauris enim nisl, sollicitudin porttitor nisl et, suscipit
+              mattis tellus.
+            </p>
+            <pre data-id="code-animation">
+						<code class="js" data-trim data-line-numbers>
+							const element = <h1>Hello, {name}</h1>;
+						</code>
+					</pre>
+          </div>
+          <div>
+            <p>3 Vivamus turpis odio, pulvinar et mollis ut</p>
+            <pre data-id="code-animation">
+						<code class="js" data-trim data-line-numbers>
+							const element = <h1>Hello, {name}</h1>;
+						</code>
+					</pre>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="text-and-conding-slide">
+          <h4 class="slide-name">slide with text and coding 3</h4>
+          <div class="center-align">
+            <p>1 Fusce efficitur placerat bibendum</p>
+            <pre data-id="code-animation">
+						<code class="js" data-trim data-line-numbers>
+							const element = <h1>Hello, {name}</h1>;
+						</code>
+					</pre>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="text-and-conding-slide">
+          <h4 class="slide-name">slide with text and coding 4</h4>
+          <div class="center-align center-text">
+            <p>1 Fusce efficitur placerat bibendum</p>
+            <pre data-id="code-animation">
+						<code class="js" data-trim data-line-numbers>
+							const element = <h1>Hello, {name}</h1>;
+						</code>
+					</pre>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="bullets-slide">
+          <h4 class="slide-name">slide with bullets</h4>
+          <ul>
+            <li class="fragment">Lorem ipsum dolor sit amet</li>
+            <li class="fragment">Ut massa leo, sollicitudin quis</li>
+            <li class="fragment">Proin ut est pretium, ultrices</li>
+            <li class="fragment">Nulla facilisi</li>
+            <li class="fragment">Aenean sagittis, purus nec tincidunt</li>
+            <li class="fragment">Maecenas metus sem, congue eget</li>
+            <li class="fragment">Nunc sed justo dolor</li>
+          </ul>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="numbering-slide">
+          <h4 class="slide-name">slide with numbering</h4>
+          <ol>
+            <li class="fragment">Lorem ipsum dolor sit amet</li>
+            <li class="fragment">Ut massa leo, sollicitudin quis</li>
+            <li class="fragment">Proin ut est pretium, ultrices</li>
+            <li class="fragment">Nulla facilisi</li>
+            <li class="fragment">Aenean sagittis, purus nec tincidunt</li>
+            <li class="fragment">Maecenas metus sem, congue eget</li>
+            <li class="fragment">Nunc sed justo dolor</li>
+          </ol>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="numbering-and-picture-slide">
+          <h4 class="slide-name">slide with numbering and picture</h4>
+          <div>
+            <img src="assets/images/image.png" alt="simple" />
+            <ol>
+              <li>Lorem ipsum dolor sit amet</li>
+              <li>Ut massa leo, sollicitudin quis</li>
+              <li>Proin ut est pretium, ultrices</li>
+              <li>Nulla facilisi</li>
+              <li>Maecenas metus sem, congue eget</li>
+              <li>Nunc sed justo dolor</li>
+            </ol>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="bullets-and-picture-slide">
+          <h4 class="slide-name">slide with bullets and picture</h4>
+          <div>
+            <img src="assets/images/image.png" alt="simple" />
+            <ul>
+              <li>Lorem ipsum dolor sit amet</li>
+              <li>Ut massa leo, sollicitudin quis</li>
+              <li>Proin ut est pretium, ultrices</li>
+              <li>Nulla facilisi</li>
+              <li>Maecenas metus sem, congue eget</li>
+              <li>Nunc sed justo dolor</li>
+            </ul>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="bullets-and-picture-slide">
+          <h4 class="slide-name">slide with picture and pros/cons section</h4>
+          <div>
+            <img src="assets/images/image.png" alt="simple" />
+            <div class="pros-cons-section">
+              <p class="big">Pros:</p>
+              <ul>
+                <li>Lorem ipsum dolor sit amet</li>
+                <li>Ut massa leo, sollicitudin quis</li>
+                <li>Proin ut est pretium, ultrices</li>
+              </ul>
+              <p class="big">Cons:</p>
+              <ul>
+                <li>Nulla facilisi</li>
+                <li>Maecenas metus sem, congue eget</li>
+                <li>Nunc sed justo dolor</li>
+              </ul>
+            </div>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="coding-and-picture-slide">
+          <h4 class="slide-name">slide with coding and picture</h4>
+          <div>
+            <img src="assets/images/image.png" alt="simple" />
+            <div>
+              <div>
+                <p>1 Fusce efficitur placerat bibendum</p>
+                <pre data-id="code-animation">
+                <code class="js" data-trim data-line-numbers>
+                  const element = <h1>Hello, {name}</h1>;
+                </code>
+              </pre>
+              </div>
+              <div>
+                <p>
+                  2 Mauris enim nisl, sollicitudin porttitor nisl et, suscipit
+                  mattis tellus.
+                </p>
+                <pre data-id="code-animation">
+                <code class="js" data-trim data-line-numbers>
+                  const element = <h1>Hello, {name}</h1>;
+                </code>
+              </pre>
+              </div>
+            </div>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="coding-and-logos-slide">
+          <h4 class="slide-name">slide with coding and logos</h4>
+          <div>
+            <div class="logos">
+              <img src="assets/images/image.png" alt="simple" />
+              <img src="assets/images/image.png" alt="simple" />
+            </div>
+            <div>
+              <div>
+                <p>1 Fusce efficitur placerat bibendum</p>
+                <pre data-id="code-animation">
+                <code class="js" data-trim data-line-numbers>
+                  const element = <h1>Hello, {name}</h1>;
+                </code>
+              </pre>
+              </div>
+            </div>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="video-text-slide">
+          <h4 class="slide-name">vide and text</h4>
+          <div>
+            <div>
+              <a href="https://www.youtube.com" target="_blank"> Video title</a>
+              <iframe
+                src="https://www.youtube.com/embed/hQAHSlTtcmY"
+                title="YouTube video player"
+                allowfullscreen
+              >
+              </iframe>
+            </div>
+            <div>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                massa leo, sollicitudin quis urna in, porta faucibus leo.
+                Vestibulum facilisis rutrum tellus, eget interdum magna
+                imperdiet at. Suspendisse at porttitor ex. Proin ut est pretium,
+                ultrices nisi in, iaculis enim. Pellentesque eu consequat dolor.
+                Morbi et lorem eleifend, porta nunc ac, interdum libero. Nulla
+                facilisi.
+              </p>
+              <p>
+                - Lorem ipsum dolor sit amet
+                <br />
+                - Lorem ipsum dolor sit amet
+                <br />
+                - Lorem ipsum dolor sit amet
+                <br />
+                - Lorem ipsum dolor sit amet
+                <br />
+                - Lorem ipsum dolor sit amet
+                <br />
+                - Lorem ipsum dolor sit amet
+                <br />
+                - Lorem ipsum dolor sit amet
+                <br />
+              </p>
+            </div>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="several-pictures-2-slide">
+          <h4 class="slide-name">several pictures 2</h4>
+          <div>
+            <div class="fragment" data-fragment-index="1">
+              <img src="assets/images/image.png" alt="simple" />
+            </div>
+            <div class="fragment" data-fragment-index="2">
+              <img src="assets/images/image.png" alt="simple" />
+            </div>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="several-pictures-3-slide">
+          <h4 class="slide-name">several pictures 3</h4>
+          <div>
+            <div class="fragment" data-fragment-index="1">
+              <img src="assets/images/image.png" alt="simple" />
+            </div>
+            <div class="fragment" data-fragment-index="2">
+              <img src="assets/images/image.png" alt="simple" />
+            </div>
+            <div class="fragment" data-fragment-index="3">
+              <img src="assets/images/image.png" alt="simple" />
+            </div>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="several-pictures-2-slide-with-description">
+          <h4 class="slide-name">several pictures 2 (with description)</h4>
+          <div>
+            <div class="fragment" data-fragment-index="1">
+              <img src="assets/images/image.png" alt="simple" />
+              <p>Text</p>
+            </div>
+            <div class="fragment" data-fragment-index="2">
+              <img src="assets/images/image.png" alt="simple" />
+              <p>Text</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="several-pictures-3-slide-with-description">
+          <h4 class="slide-name">several pictures 3 (with description)</h4>
+          <div>
+            <div class="fragment" data-fragment-index="1">
+              <img src="assets/images/image.png" alt="simple" />
+              <p>Text</p>
+            </div>
+            <div class="fragment" data-fragment-index="2">
+              <img src="assets/images/image.png" alt="simple" />
+              <p>Text</p>
+            </div>
+            <div class="fragment" data-fragment-index="3">
+              <img src="assets/images/image.png" alt="simple" />
+              <p>Text</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="several-pictures-4-slide-with-description">
+          <h4 class="slide-name">several pictures 4 (with description)</h4>
+          <div>
+            <div class="fragment" data-fragment-index="1">
+              <img
+                src="assets/images/image.png"
+                alt="simple"
+                height="350px"
+                width="240px"
+              />
+              <p>Text</p>
+            </div>
+            <div class="fragment" data-fragment-index="2">
+              <img
+                src="assets/images/image.png"
+                alt="simple"
+                height="350px"
+                width="240px"
+              />
+              <p>Text</p>
+            </div>
+            <div class="fragment" data-fragment-index="3">
+              <img
+                src="assets/images/image.png"
+                alt="simple"
+                height="350px"
+                width="240px"
+              />
+              <p>Text</p>
+            </div>
+            <div class="fragment" data-fragment-index="4">
+              <img
+                src="assets/images/image.png"
+                alt="simple"
+                height="350px"
+                width="240px"
+              />
+              <p>Text</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="several-icons-3-slide-with-description">
+          <h4 class="slide-name">Summary</h4>
+          <div>
+            <div class="fragment" data-fragment-index="1">
+              <img src="assets/images/image.png" alt="simple" />
+              <p>Text</p>
+              <ul>
+                <li>Text</li>
+                <li>Text</li>
+                <li>Text</li>
+              </ul>
+            </div>
+            <div class="fragment" data-fragment-index="2">
+              <img src="assets/images/image.png" alt="simple" />
+              <p>Text</p>
+              <ul>
+                <li>Text</li>
+                <li>Text</li>
+                <li>Text</li>
+              </ul>
+            </div>
+            <div class="fragment" data-fragment-index="3">
+              <img src="assets/images/image.png" alt="simple" />
+              <p>Text</p>
+              <ul>
+                <li>Text</li>
+                <li>Text</li>
+                <li>Text</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="several-pictures-4-slide">
+          <h4 class="slide-name">several pictures 4</h4>
+          <div>
+            <div class="fragment" data-fragment-index="1">
+              <img src="assets/images/image.png" alt="simple" />
+            </div>
+            <div class="fragment" data-fragment-index="2">
+              <img src="assets/images/image.png" alt="simple" />
+            </div>
+          </div>
+          <div>
+            <div class="fragment" data-fragment-index="3">
+              <img src="assets/images/image.png" alt="simple" />
+            </div>
+            <div class="fragment" data-fragment-index="4">
+              <img src="assets/images/image.png" alt="simple" />
+            </div>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="two-columns-of-pictures-with-description">
+          <h4 class="slide-name">two columns of pictures with description</h4>
+          <div>
+            <div>
+              <p>description 1</p>
+              <img src="assets/images/image.png" alt="simple" />
+            </div>
+            <div>
+              <p>description 2</p>
+              <img src="assets/images/image.png" alt="simple" />
+            </div>
+            <div>
+              <p>description 3</p>
+              <img src="assets/images/image.png" alt="simple" />
+            </div>
+            <div>
+              <p>description 4</p>
+              <img src="assets/images/image.png" alt="simple" />
+            </div>
+            <div>
+              <p>description 5</p>
+              <img src="assets/images/image.png" alt="simple" />
+            </div>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <section class="text-and-conding-slide">
+            <h4 class="slide-name">text + coding + video</h4>
+            <p class="fragment" data-fragment-index="1">
+              Etiam dui turpis, accumsan et neque eget, mollis consectetur
+              ipsum. Etiam mollis arcu elit, et condimentum dolor accumsan nec.
+              Morbi ac velit ut quam condimentum interdum. Curabitur eu felis
+              suscipit mauris fringilla iaculis a a ante. Curabitur ac pretium
+              neque. Proin ante felis, sollicitudin et convallis quis, dignissim
+              in felis. Duis ultrices, ex quis commodo euismod, purus ex
+              suscipit tortor, at ornare tortor tellus eu enim.
+            </p>
+            <pre class="fragment" data-fragment-index="2">
+                <code data-trim data-line-numbers>
+                  function isPalindrome(s, i) {
+                    return (
+                      (i = i || 0) < 0 ||
+                      i >= s.length >> 1 ||
+                      (s[i] == s[s.length - 1 - i] && isPalindrome(s, ++i))
+                    );
+                  }
+                </code>
+              </pre>
+            <aside class="notes"></aside>
+          </section>
+          <section class="video-slide">
+            <h4 class="slide-name">text + coding + video</h4>
+            <div class="fragment">
+              <video controls>
+                <source src="assets/videos/video.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <aside class="notes"></aside>
+          </section>
+        </section>
+
+        <section>
+          <section class="numbering-and-picture-slide">
+            <h4 class="slide-name">code example - preparation</h4>
+            <div>
+              <img src="assets/images/image.png" alt="image" />
+              <ol>
+                <li>
+                  Create folder <strong>folder</strong> inside your
+                  <strong>folder</strong> folder
+                </li>
+                <li>
+                  Create <strong>file.js</strong> inside
+                  <strong>folder</strong> folder
+                </li>
+                <li>Start coding your first file</li>
+              </ol>
+            </div>
+            <aside class="notes"></aside>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">code example - FILE.JS</h4>
+            <p>Let's create something</p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers>
+              import React, { useState } from 'react';
+
+              function Example() {
+                const [count, setCount] = useState(0);
+
+                return (
+                  ...
+                );
+              }
+					    </code>
+            </pre>
+            <aside class="notes"></aside>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">code example - some method</h4>
+            <p>
+              And now let's add code to the SOME method that will DO something.
+            </p>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="6-12">
+                import React, { useState } from 'react';
+
+                function Example() {
+                  const [count, setCount] = useState(0);
+
+                  return (
+                    <div>
+                      <p>You clicked {count} times</p>
+                      &lt;button onClick={() => setCount(count + 1)}>
+                        Click me
+                      &lt;/button>
+                    </div>
+                  );
+                }
+					    </code>
+            </pre>
+            <aside class="notes"></aside>
+          </section>
+          <section class="picture-slide">
+            <h4 class="slide-name">code example - result</h4>
+            <img
+              src="assets/images/image.png"
+              class="with-border"
+              alt="image"
+            />
+            <aside class="notes"></aside>
+          </section>
+        </section>
+
+        <section class="table-slide">
+          <h4 class="slide-name">slide with table</h4>
+          <p class="fragment" data-fragment-index="1">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut massa
+            leo, sollicitudin quis urna in, porta faucibus leo. Vestibulum
+            facilisis rutrum tellus, eget interdum magna imperdiet at.
+            Suspendisse at porttitor ex. Proin ut est pretium, ultrices nisi in,
+            iaculis enim. Pellentesque eu consequat dolor. Morbi et lorem
+            eleifend, porta nunc ac, interdum libero. Nulla facilisi. Quisque
+            gravida commodo neque, quis cursus tellus condimentum ac. Aenean dui
+            sem, vulputate nec ex et, faucibus ullamcorper sapien.
+          </p>
+          <table class="fragment" data-fragment-index="2">
+            <thead>
+              <tr>
+                <th>REACT NATIVE UI COMPONENT</th>
+                <th>WEB ANALOG</th>
+                <th>DESCRIPTION</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>&lt;View&gt;</td>
+                <td>A non-scrolling &lt;div&gt;</td>
+                <td>Container</td>
+              </tr>
+              <tr>
+                <td>&lt;Text&gt;</td>
+                <td>&lt;p&gt;</td>
+                <td>Displays, styles, and nests strings of text</td>
+              </tr>
+              <tr>
+                <td>&lt;Image&gt;</td>
+                <td>&lt;img&gt;</td>
+                <td>Displays different types of images</td>
+              </tr>
+            </tbody>
+          </table>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="compare-slide">
+          <h4 class="slide-name">Simple compare</h4>
+          <div>
+            <div>
+              <img src="assets/images/image.png" alt="simple" />
+              <ul>
+                <li>1 point</li>
+                <li>2 point</li>
+              </ul>
+            </div>
+            <div>
+              <img src="assets/images/image.png" alt="simple" />
+              <ul>
+                <li>1 point</li>
+                <li>2 point</li>
+              </ul>
+            </div>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="qa-slide">
+          <h4>QA</h4>
+        </section>
+      </div>
+    </div>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/dist/reveal.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/zoom/zoom.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/notes/notes.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/search/search.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/markdown/markdown.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/highlight/highlight.js"></script>
+    <script>
+      var url = new URL(window.location.href);
+      var showNotes = url.searchParams.has("showNotes");
+
+      if (showNotes) {
+        var head = document.getElementsByTagName("HEAD")[0];
+        var link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        // USE THIS IN YOUR PRESENTATION
+        // link.href = "https://rolling-scopes-school.github.io/react-native-course/reveal-js/speaker-notes-mobile.css";
+        link.href = "./speaker-notes-mobile.css";
+        head.appendChild(link);
+      }
+
+      Reveal.initialize({
+        disableLayout: true,
+        controls: true,
+        progress: true,
+        center: false,
+        hash: true,
+        autoPlayMedia: true,
+        showNotes,
+        plugins: [
+          RevealZoom,
+          RevealNotes,
+          RevealSearch,
+          RevealMarkdown,
+          RevealHighlight,
+        ],
+      });
+    </script>
+  </body>
+</html>

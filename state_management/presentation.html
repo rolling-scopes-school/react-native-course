@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>
+      rolling-scopes-school/react-native-course - State management module
+    </title>
+    <meta
+      name="description"
+      content="rolling-scopes-school/react-native-course - State management module"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <link
+      rel="stylesheet"
+      href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/dist/reset.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/dist/reveal.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/dist/theme/white.css"
+      id="theme"
+    />
+    <!-- Theme used for syntax highlighting of code -->
+    <link
+      rel="stylesheet"
+      href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/highlight/monokai.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/common.css"
+    />
+    <style class="jsStyle"></style>
+  </head>
+  <body>
+    <div class="reveal">
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section class="presentation-name-slide">
+          <h4>State Management</h4>
+        </section>
+
+        <!-- Agenda -->
+        <section class="agenda-slide">
+          <h4 class="slide-name">Agenda</h4>
+          <ul>
+            <li class="fragment">What is state management</li>
+            <li class="fragment">Props Drilling</li>
+            <li class="fragment">Undirectional Data Flow</li>
+            <li class="fragment">Flux</li>
+            <li class="fragment">
+              Redux
+              <ul>
+                <li>Core Concepts</li>
+                <li>Three Principles</li>
+                <li>Redux Toolkit</li>
+              </ul>
+            </li>
+          </ul>
+          <aside class="notes"></aside>
+        </section>
+
+        <!-- What is state management -->
+        <section class="text-slide">
+          <h4 class="slide-name">What is state management</h4>
+          <p>
+            As your application grows, it helps to be more intentional about how
+            your state is organized and how the data flows between your
+            components. Redundant or duplicate state is a common source of bugs.
+            <br />
+            State management is simply a way to organize communication and
+            sharing of data across components.
+          </p>
+          <aside class="notes"></aside>
+        </section>
+
+        <!-- React useState -->
+        <section class="text-slide">
+          <h4 class="slide-name">React useState</h4>
+          <div>
+            <div>
+              <img src="assets/images/training-app-logo.png" alt="training app logo" />
+            </div>
+          </div>
+          <aside class="notes">
+            Consider you have made a react app to manage your trainings at home.
+          </aside>
+        </section>
+
+        <!-- React useState -->
+        <section class="text-slide">
+          <h4 class="slide-name">React useState</h4>
+          <p>
+            <pre>
+              <code class="hljs" data-trim data-line-numbers="2">
+                const Training = () => {
+                  const [training, setTraining] = useState();
+                  ...
+                  return &lt;TrainingProgressTable training /&gt;
+                }
+              </code>
+            </pre>
+          </p>
+          <aside class="notes">
+            Since all its code is written in a single file and it consists of only two components you don't really need any state management library. The state is being kept by the useState hook inside the main component.
+          </aside>
+        </section>
+
+        <!-- React useState -->
+        <section class="text-slide">
+          <h4 class="slide-name">React useState</h4>
+          <p>
+              
+            <ul>
+              App features:
+              <li>
+                list of exercises
+              </li>
+              <li>
+                a timer between each approach and between each exercise to take a rest
+              </li>
+              <li>
+                feature to track the number of completed approaches for each exercise
+              </li>
+              <li>
+                an integrated stopwatch
+              </li>
+              <li>
+                an ability to save the duration of each exercise somewhere
+              </li>
+            </ul>
+          </p>
+          <aside class="notes">
+            The app was written really fast so after some time it becomes hard to support. You want to add some new features like running a timer for some exercises and keep the duration of each exercise somewhere.
+          </aside>
+        </section>
+
+        <!-- Props Drilling -->
+        <section data-auto-animate class="code-example-slide">
+          <h4 class="slide-name">Props Drilling</h4>
+          <p>
+
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="2,9,10,12,14,15,18,19,22,23">
+                const App = () => {
+                  const [training, setTraining] = useState([]);
+                  // more code
+                  // ...
+
+                  return (
+                    &lt;div>
+                      &lt;Training>
+                        &lt;TrainingReader training={training} onStateUpdate />
+                        &lt;TrainingProgressTable training={training} onStateUpdate />
+                      &lt;/Training>
+                      &lt;TrainingProgressTable training={training} onStateUpdate>
+                        &lt;ExerciseStopwatch exercise onStateUpdate />
+                        &lt;TrainingSender training={training} />
+                        &lt;TrainingTimer training={training} />
+                      &lt;/TrainingProgressTable>
+              
+                      &lt;TrainingSender training={training}>
+                        &lt;SomethingElse training={training}>
+                      &lt;TrainingSender />
+              
+                      &lt;SomethingElse2 training={training}>
+                        &lt;Whatever training={training} />
+                      &lt;SomethingElse2 />
+                    &lt;/div>
+                  );
+                }
+              </code>
+            </pre>
+
+          </p>
+          <aside class="notes">
+            So you break it up into several components. The app is growing and the number of components is increasing. After some time you need to pass the props through several components that are nested one into the other. It is called props drilling.
+          </aside>
+        </section>
+
+        <!-- TODO: Context -->
+        <section class="text-slide">
+          <h4 class="slide-name">TODO: Context</h4>
+          <p>
+            explaing one more time how context can help to solve Props Drilling
+            <br />
+            provide example
+            <br />
+            proc/cons
+            <br />
+          </p>
+          <aside class="notes"></aside>
+        </section>
+
+        <!-- TODO: Unidirectional Data Flow -->
+        <section class="text-slide">
+          <h4 class="slide-name">TODO: Unidirectional Data Flow</h4>
+          <p>explain what it is</p>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="text-slide">
+          <h4 class="slide-name">MVC</h4>
+          <p>explain what it is</p>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="text-slide">
+          <h4 class="slide-name">MVP</h4>
+          <p>explain what it is</p>
+          <aside class="notes"></aside>
+        </section>
+
+        <section class="text-slide">
+          <h4 class="slide-name">MVVM</h4>
+          <p>explain what it is</p>
+          <aside class="notes"></aside>
+        </section>
+
+        <!-- Design History. Flux.​ -->
+        <section class="picture-slide">
+          <h4 class="slide-name">Design History. Flux.</h4>
+          <img src="assets/images/Flux.png" alt="Flux" />
+          <aside class="notes"></aside>
+        </section>
+
+        <!-- VIDEO: Flux VS MVC-->
+        <section class="video-text-slide">
+          <h4 class="slide-name">Flux VS MVC</h4>
+          <div>
+            <div>
+              <a href="https://www.youtube.com" target="_blank">Flux VS MVC</a>
+              <iframe
+                src="https://www.youtube.com/embed/nYkdrAPrdcw"
+                title="YouTube video player"
+                allowfullscreen
+              >
+              </iframe>
+            </div>
+            <div>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                massa leo, sollicitudin quis urna in, porta faucibus leo.
+                Vestibulum facilisis rutrum tellus, eget interdum magna
+                imperdiet at. Suspendisse at porttitor ex. Proin ut est pretium,
+                ultrices nisi in, iaculis enim. Pellentesque eu consequat dolor.
+                Morbi et lorem eleifend, porta nunc ac, interdum libero. Nulla
+                facilisi.
+              </p>
+              <p>
+                - Lorem ipsum dolor sit amet
+                <br />
+                - Lorem ipsum dolor sit amet
+                <br />
+                - Lorem ipsum dolor sit amet
+                <br />
+                - Lorem ipsum dolor sit amet
+                <br />
+                - Lorem ipsum dolor sit amet
+                <br />
+                - Lorem ipsum dolor sit amet
+                <br />
+                - Lorem ipsum dolor sit amet
+                <br />
+              </p>
+            </div>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <!-- What is it Redux?​ -->
+        <section class="centered-text-and-picture-slide">
+          <h4 class="slide-name">What is it Redux?</h4>
+          <div>
+            <img src="assets/images/Redux.png" alt="Redux" />
+            <div>
+              <p>Redux is a state container for js application.</p>
+              <p>
+                It can be used in pair with React or any other view library.
+              </p>
+            </div>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <!-- History of Redux​ -->
+        <section class="text-slide">
+          <h4 class="slide-name">History of Redux</h4>
+          <p>
+            Redux was created by Dan Abramov and Andrew Clark in 2015. Abramov
+            began writing the first Redux implementation while preparing for a
+            conference talk at React Europe on hot reloading. Abramov remarks,
+            "I was trying to make a proof of concept of Flux where I could
+            change the logic. And it would let me time travel. And it would let
+            me reapply the future actions on the code change.
+          </p>
+          <aside class="notes"></aside>
+        </section>
+
+        <!-- Redux Data Flow​ -->
+        <section class="picture-slide">
+          <h4 class="slide-name">Redux Data Flow​</h4>
+          <img src="assets/images/Redux_data_flow.png" alt="Redux_data_flow" />
+          <aside class="notes"></aside>
+        </section>
+
+        <!-- Three Principles -->
+        <section class="numbering-slide">
+          <h4 class="slide-name">Three Principles</h4>
+          <ol>
+            <li class="fragment">Single Source of Truth</li>
+            <li class="fragment">State is read-only</li>
+            <li class="fragment">Changes are made with pure functions</li>
+          </ol>
+          <aside class="notes">
+            1. The global state of your application is stored in an object tree
+            within a single store.
+            <br /><br />
+            2. The only way to change the state is to emit an action, an object
+            describing what happened.
+            <br /><br />
+            3. To specify how the state tree is transformed by actions, you
+            write pure reducers.
+          </aside>
+        </section>
+
+        <!-- todo: Redux code example -->
+        <section class="text-slide">
+          <h4 class="slide-name">todo: Redux code example</h4>
+          <p>todo</p>
+          <aside class="notes"></aside>
+        </section>
+
+        <!-- todo: Redux thunk -->
+        <section class="text-slide">
+          <h4 class="slide-name">todo: Redux thunk</h4>
+          <p>todo</p>
+          <aside class="notes"></aside>
+        </section>
+
+        <!-- todo: Redux toolkit -->
+        <section class="text-slide">
+          <h4 class="slide-name">todo: Redux toolkit</h4>
+          <p>todo</p>
+          <aside class="notes"></aside>
+        </section>
+
+        <!-- todo: Mobx​ -->
+        <section class="text-slide">
+          <h4 class="slide-name">todo: mobx</h4>
+          <p>todo</p>
+          <aside class="notes"></aside>
+        </section>
+
+        <!-- Mobx VS Redux​ -->
+        <section class="text-slide">
+          <h4 class="slide-name">todo: mobx</h4>
+          <p>todo</p>
+          <aside class="notes"></aside>
+        </section>
+
+        <!-- QA -->
+        <section class="qa-slide">
+          <h4>QA</h4>
+        </section>
+      </div>
+    </div>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/dist/reveal.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/zoom/zoom.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/notes/notes.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/search/search.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/markdown/markdown.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/highlight/highlight.js"></script>
+    <script>
+      var url = new URL(window.location.href);
+      var showNotes = url.searchParams.has("showNotes");
+
+      if (showNotes) {
+        var head = document.getElementsByTagName("HEAD")[0];
+        var link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        link.href =
+          "https://rolling-scopes-school.github.io/react-native-course/reveal-js/speaker-notes-mobile.css";
+        head.appendChild(link);
+      }
+
+      Reveal.initialize({
+        disableLayout: true,
+        controls: true,
+        progress: true,
+        center: false,
+        hash: true,
+        autoPlayMedia: true,
+        showNotes,
+        plugins: [
+          RevealZoom,
+          RevealNotes,
+          RevealSearch,
+          RevealMarkdown,
+          RevealHighlight,
+        ],
+      });
+    </script>
+  </body>
+</html>

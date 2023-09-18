@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>react-native-course - Animations module</title>
+    <meta
+      name="description"
+      content="rolling-scopes-school/react-native-course - react module"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../reveal-js/dist/reset.css" />
+    <link rel="stylesheet" href="../reveal-js/dist/reveal.css" />
+    <link
+      rel="stylesheet"
+      href="../reveal-js/dist/theme/white.css"
+      id="theme"
+    />
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../reveal-js/plugin/highlight/monokai.css" />
+    <link rel="stylesheet" href="../reveal-js/common.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section class="presentation-name-slide">
+          <h4>Animations in React Native</h4>
+
+          <aside class="notes">
+            Today's topic is Animations in React Native as they are a very important part of a great user 
+            experience.
+          </aside>
+        </section>
+        <section class="agenda-slide">
+          <h4 class="slide-name">Agenda</h4>
+          <ul>
+            <li class="fragment">What is animation?</li>
+            <li class="fragment">
+              How animation can be done in React Native. A brief overview.
+            </li>
+            <li class="fragment">Animated API</li>
+            <li class="fragment">LayoutAnimation API</li>
+            <li class="fragment">Reanimated</li>
+            <li class="fragment">Third-party solutions for animations</li>
+            <li class="fragment">Conclusion and QA session</li>
+          </ul>
+          <aside class="notes">
+            On this slide you can see today’s agenda.
+            <br /><br />
+            We will start by talking about what animation is in general and how
+            it can be done in React Native.
+            <br /><br />
+            Here we'll try animating with translation prop directly in JS thread
+            and talk about why it is not a good idea. What React Native provides
+            in terms of animation (Animated and LayoutAnimations APIs) and what
+            are community provided solutions (Reanimated, Lottie, Rive to name a
+            few)
+            <br /><br />
+            Next we'll dive into Animated API by checking code examples and
+            discussing its limitations.
+            <br /><br />
+            LayoutAnimation is our next stop after which we'll take a closer
+            look on Reanimated - the most popular and complex third-party
+            solution for animation in React Native. What's the reasoning behind
+            this library? What are the benefits over Animated and
+            LayoutAnimation APIs? Of course there will be a coding section with
+            hands on experience here.
+            <br /><br />
+            Last but not least, we'll try some other third party solutions for
+            some really complex animations, like Lottie and more recent Rive
+            libraries.
+            <br /><br />
+            At the end of all that, we'll have plenty time for QA and some
+            conclusions. Buckle up and let's get started!
+          </aside>
+        </section>
+        <!-- 1 slide -->
+        <section class="picture-slide">
+          <h4 class="slide-name">What is animation?</h4>
+          <img
+            src="assets/images/intro.gif"
+            width="400"
+            alt="intro animation"
+          />
+          <aside class="notes">
+            As stated in Wikipedia “Animation is a method by which still figures
+            are manipulated to appear as moving images.”
+          </aside>
+        </section>
+        <!-- 2 slide -->
+        <section class="several-pictures-3-slide">
+          <h4 class="slide-name">Animations in mobile applications</h4>
+          <div>
+            <div class="fragment" data-fragment-index="1">
+              <video height="640" muted loop>
+                <source src="assets/videos/LayoutAnimation_custom.mov">
+                LayoutAnimation demo video
+              </video>
+            </div>
+            <div class="fragment" data-fragment-index="2">
+              <video height="640" muted loop>
+                <source src="assets/videos/PlainJS.mov">
+                Vanilla JS demo video
+              </video>
+            </div>
+            <div class="fragment" data-fragment-index="3">
+              <video height="640" muted loop>
+                <source src="assets/videos/Animated.mov">
+                Animated API demo video
+              </video>
+            </div>
+          </div>
+          <aside class="notes">
+            In terms of mobile applications it is basically smoothly taking an
+            object from one state to another. Animations allow you to convey
+            physically believable motion in your interface. This way we can keep
+            application users engaged and it can help to improve user experience
+            on the whole.
+          </aside>
+        </section>
+        <section class="several-pictures-2-slide">
+          <h4 class="slide-name">How animation can be done in React Native</h4>
+          <div>
+            <div>
+              <ol>
+                <li class="fragment" data-fragment-index="1">JavaScript</li>
+                <li class="fragment" data-fragment-index="2">
+                  React Native APIs:
+                  <ul class="fragment" data-fragment-index="3">
+                    <li>Animated API</li>
+                    <li>LayoutAnimation API</li>
+                  </ul>
+                </li>
+                <li class="fragment" data-fragment-index="4">
+                  Third-party solutions:
+                  <ul class="fragment" data-fragment-index="5">
+                    <li>Reanimated</li>
+                    <li>Lottie</li>
+                    <li>Rive and others</li>
+                  </ul>
+                </li>
+              </ol>
+            </div>
+            <div class="fragment" data-fragment-index="6">
+              <img
+                src="assets/images/threads.png"
+                alt="animation threads"
+                width="60%"
+              />
+            </div>
+          </div>
+          <aside class="notes">
+            There are different ways we can animated objects in RN. It can be
+            done by simply using object properties changed in time via timeouts.
+            Or we can use platform built-in APIs to animate things. Lastly we
+            can go for third-party solutions to make things work. On top of that
+            we should be aware that animation can run in either JS thread or UI
+            thread. Let’s explore the mentioned options and discuss their pros
+            and cons.
+          </aside>
+        </section>
+        <!-- JavaScript animation -->
+        <section class="stack-preset">
+          <section class="topic-name-slide">
+            <h4>Animation with plain JavaScript</h4>
+  
+            <aside class="notes">
+              Let's try to animate things with Plain JS approach.
+            </aside>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">Animation with plain JavaScript</h4>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers>
+                import React, { useState } from 'react';
+                import { Button, SafeAreaView, View } from 'react-native';
+                import { styles } from './screens.styles';
+
+                export const PlainJsScreen: React.FC = () => {
+                  return (
+                    &lt;SafeAreaView style={styles.wrapper}&gt;
+                      &lt;View style={styles.screenContainer}&gt;
+                        &lt;View style={styles.ball} /&gt;
+                        &lt;View style={styles.button}&gt;
+                          &lt;Button title="Animate!" /&gt;
+                        &lt;/View&gt;
+                        &lt;View style={styles.button}&gt;
+                          &lt;Button title="Reset" /&gt;
+                        &lt;/View&gt;
+                      &lt;/View&gt;
+                    &lt;/SafeAreaView&gt;
+                  );
+                };
+              </code>
+            </pre>
+            <aside class="notes">
+              If you’re familiar with front-end web development, the first idea
+              that may come to mind is animate objects using JavaScript. With
+              React it can be done easily using state and object properties.
+              Let’s animate an object to go up from its initial position using
+              the transform property. Here's a basic screen with "Ball" object
+              that we're going to animate and two buttons: Animate and Reset. As
+              you can see they do nothing yet.
+            </aside>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">Animation with plain JavaScript</h4>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="6-12">
+                import React, { useState } from 'react';
+                import { Button, SafeAreaView, View } from 'react-native';
+                import { styles } from './screens.styles';
+
+                export const PlainJsScreen: React.FC = () => {
+                  const [translation, setTranslation] = useState(0);
+
+                  const onAnimatePress = () => {
+                    for (let i = -100; i < 0; i++) {
+                      setTimeout(() => setTranslation(i), 10 * -i);
+                    }
+                  };
+
+                  return (
+                    &lt;SafeAreaView style={styles.wrapper}&gt;
+                      &lt;View style={styles.screenContainer}&gt;
+                        &lt;View
+                          style={[
+                            styles.ball,
+                            {
+                              transform: [{ translateY: translation }],
+                            },
+                          ]}
+                        /&gt;
+                        &lt;View style={styles.button}&gt;
+                          &lt;Button title="Animate!" onPress={onAnimatePress} /&gt;
+                        &lt;/View&gt;
+                        &lt;View style={styles.button}&gt;
+                          &lt;Button title="Reset" onPress={() => setTranslation(0)} /&gt;
+                        &lt;/View&gt;
+                      &lt;/View&gt;
+                    &lt;/SafeAreaView&gt;
+                  );
+                };
+              </code>
+            </pre>
+            <aside class="notes">
+              Next we need to add state for our translation value and animation
+              function that will change this value over time.
+            </aside>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">Animation with plain JavaScript</h4>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="5-10">
+                  return (
+                    &lt;SafeAreaView style={styles.wrapper}&gt;
+                      &lt;View style={styles.screenContainer}&gt;
+                        &lt;View
+                          style={[
+                            styles.ball,
+                            {
+                              transform: [{ translateY: translation }],
+                            },
+                          ]}
+                        /&gt;
+                        &lt;View style={styles.button}&gt;
+                          &lt;Button title="Animate!" onPress={onAnimatePress} /&gt;
+                        &lt;/View&gt;
+                        &lt;View style={styles.button}&gt;
+                          &lt;Button title="Reset" onPress={() => setTranslation(0)} /&gt;
+                        &lt;/View&gt;
+                      &lt;/View&gt;
+                    &lt;/SafeAreaView&gt;
+                  );
+                };
+              </code>
+            </pre>
+            <aside class="notes">
+              Next we need to add state for our translation value and animation
+              function that will change this value over time.
+            </aside>
+          </section>
+          <section data-auto-animate class="code-example-slide">
+            <h4 class="slide-name">Animation with plain JavaScript</h4>
+            <pre data-id="code-animation">
+              <code class="hljs" data-trim data-line-numbers="12-17">
+                  return (
+                    &lt;SafeAreaView style={styles.wrapper}&gt;
+                      &lt;View style={styles.screenContainer}&gt;
+                        &lt;View
+                          style={[
+                            styles.ball,
+                            {
+                              transform: [{ translateY: translation }],
+                            },
+                          ]}
+                        /&gt;
+                        &lt;View style={styles.button}&gt;
+                          &lt;Button title="Animate!" onPress={onAnimatePress} /&gt;
+                        &lt;/View&gt;
+                        &lt;View style={styles.button}&gt;
+                          &lt;Button title="Reset" onPress={() => setTranslation(0)} /&gt;
+                        &lt;/View&gt;
+                      &lt;/View&gt;
+                    &lt;/SafeAreaView&gt;
+                  );
+                };
+              </code>
+            </pre>
+            <aside class="notes">
+              Finally, let's set our function as onPress handler for our
+              buttons.
+            </aside>
+          </section>
+          <section class="picture-slide">
+            <h4 class="slide-name">Animation with plain JavaScript</h4>
+            <video height="600" muted loop>
+                <source src="assets/videos/PlainJS.mov">
+                Animation with plain JS
+              </video>
+            <aside class="notes">
+              The result is far from perfection and you can achieve a much
+              smoother animation with requestAnimationFrame. Also we can animate
+              other ball properties, for instance color and size.
+            </aside>
+          </section>
+          <section class="text-and-picture-slide">
+            <h4 class="slide-name">Animation with plain JavaScript</h4>
+            <div>
+              <video width="640" height="600" muted loop>
+                <source src="assets/videos/RequestAnimationFrame.mov">
+                RequestAnimationFrame demo video
+              </video>
+              <ul>
+                <li>
+                  <a
+                    href="https://github.com/DenisKhatsuk/react-native-animations/tree/develop/src/screens/PlainJsScreen"
+                  >
+                    Code of the requestAnimationFrame example
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame"
+                  >
+                    Documentation on requestAnimationFrame
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <aside class="notes">
+              This approach however has downsides. You can tell the most obvious
+              one right away: even simple animations require a lot of coding
+              that is pretty complex at first glance. But even more important is
+              performance - animation related code will be executed in JS (main)
+              thread. This means it will be calculated and executed along with
+              your other JS code, which can lead to frames drop, animation being
+              stuck and slowing down your app in general.
+            </aside>
+          </section>
+          <section class="text-and-picture-slide">
+            <h4 class="slide-name">Animation with plain JavaScript</h4>
+            <div>
+              <video width="640" height="600" muted loop>
+                <source src="assets/videos/PlainJSLoaded.mov">
+                Animation with plain JS and loaded JS thread
+              </video>
+              <ol>
+                <li class="fragment">Unnecessary code complexity</li>
+                <li class="fragment">
+                  Low performance and animation interruptions
+                </li>
+                <li class="fragment">
+                  setState being used.
+                  <a
+                    href="https://legacy.reactjs.org/docs/state-and-lifecycle.html#state-updates-may-be-asynchronous"
+                    >Link to docs</a
+                  >
+                </li>
+              </ol>
+            </div>
+            <aside class="notes">
+              If we load our JS thread, you can see how animation is delayed
+              before JS thread is available again. Spot the moment we press the
+              button and JS thread frames drop due to a heavy calculation - our
+              animation won't start until it's free again. Another big issue is
+              that we use state to animate our object position, but state may be
+              asynchronous: React may batch multiple setState() calls into a
+              single update for performance. So we can’t expect the state will
+              be updated on every step as we programmed it and we won’t get the
+              smooth animation. So how we can solve all that issues? Let's check 
+              what solutions React Native offers.
+            </aside>
+          </section>
+        </section>
+        <!-- End: JavaScript animation -->
+        <!-- React Native APIs -->
+        <section class="several-pictures-2-slide">
+          <h4 class="slide-name">React Native APIs</h4>
+          <div>
+            <div>
+              <ol>
+                <li class="fragment" data-fragment-index="1">
+                  Animated API <a href="https://reactnative.dev/docs/animated">Documentation</a>
+              
+                </li>
+                <li class="fragment" data-fragment-index="2">
+                  LayoutAnimation API <a href="https://reactnative.dev/docs/layoutanimation">Documentation</a>
+                </li>
+              </ol>
+            </div>
+            <div class="fragment" data-fragment-index="3">
+              <img
+                src="assets/images/rn_api_choice.png"
+                alt="react native animation choices"
+              />
+            </div>
+          </div>
+          <aside class="notes">
+            In terms of built-in solutions, React Native provides two complementary APIs
+            that solve different animation cases. When you need to animate a specific screen 
+            element with precise control over all animation stages Animated API is the way to 
+            go. On the other hand, situations when we need to animate screen elements between 
+            layout changes are much more common. For instance, you'd like to show and hide selected
+            input fields depending on the form mode. Or perhaps you'd like to smoothly hide a bottom
+            sheet on close button press. LayoutAnimation API is perfect for that. It requires small
+            amount of code and provides nice results out of the box.
+            Let's dive deeper into the Animated API to see how it works and how we can use it.
+          </aside>
+        </section>
+        <!-- End: React Native APIs -->
+        <!-- Animated API animation -->
+       <section class="stack-preset">
+          <section class="topic-name-slide">
+            <h4>Animation with Animated API</h4>
+
+            <aside class="notes">
+              It's time to dive in to the Animated API.
+            </aside>
+          </section>
+          <section class="text-slide">
+            <h4 class="slide-name">Animated API. Let's start</h4>
+            <div>
+              <h6 class="fragment" data-fragment-index="1">What:</h6>
+              <span class="fragment" data-fragment-index="2"> Animate our component's position</span>
+            </div>
+            <br>
+            <div>
+              <h6 class="fragment" data-fragment-index="3">How:</h6>
+              <span class="fragment" data-fragment-index="4"> Using 'transform' property animation</span>
+            </div>
+            <br>
+            <div>
+              <h6 class="fragment" data-fragment-index="5">What we need:</h6>
+              <ol class="fragment" data-fragment-index="6"> 
+                <li>A value</li>
+                <li>A function that changes our value</li>
+                <li>A way to link our component style to the changing value</li>
+              </ol>
+            </div>
+            <aside class="notes">
+              Animated library is a built-in solution provided with react native out of the box. 
+              It's about connecting inputs and outputs with some configurable transforms in between.
+              No worries if it sounds complex now as we'll explore this API step by step.
+              Let’s see how it actually  works.
+              The first animation we’re going to reproduce is the position animation via ‘transform’ property. 
+              In general we need three things:
+              A value to animate
+              A function that animates our value
+              A way to link our component style to the animated value
+              Let’s check these items one by one. 
+            </aside>
+          </section>
+          <section class="text-and-conding-slide">
+            <h4 class="slide-name">Animated API. Value and animation methods</h4>
+            <div>
+              <img
+                src="assets/images/value_doc.png"
+                alt="Animated Value documentation tip"
+                width="825"
+                class="fragment" data-fragment-index="1"
+              />
+            </div>
+            <pre class="fragment" data-fragment-index="2">
+                <code data-trim>
+                  import { Animated } from 'react-native';
+                </code>
+              </pre>
+            <pre class="fragment" data-fragment-index="3">
+              <code data-trim>
+                const translation = useRef(new Animated.Value(0)).current;
+              </code>
+            </pre>
+            <pre class="fragment" data-fragment-index="4">
+              <code data-trim data-line-numbers>
+                Animated.timing(translation, {
+                  toValue: -100,
+                  duration: 1000,
+                }).start();
+              </code>
+            </pre>
+            <aside class="notes">
+              Firstly we need the value that changes gradually over time. Animated has a special Value 
+              class for that. To make things work we need to create this class instance in our component. 
+              As stated in documentation we shouldn’t modify the animated value directly, instead we can 
+              use the useRef hook to create the Value class instance once on component render.
+              Now when we have an animated value, we need a way to animate it. Animated provides a set of 
+              methods we can use and timing() fits our needs perfectly here. It animates a value in time.
+              Timing method expects two parameters: value to animate and the config object. Via configuration 
+              object we can set to what value the animation will go and animation duration. It has other props 
+              that we’ll discuss later.
+            </aside>
+          </section>
+          <section class="text-and-conding-slide">
+            <h4 class="slide-name">Animated API. Animated components</h4>
+            <pre class="fragment" data-fragment-index="1">
+                <code data-trim>
+                  &lt;Animated.View
+                    style={[
+                      styles.ball,
+                      {
+                        transform: [{ translateY: translation }],
+                      },
+                    ]}
+                    /&gt;
+                  &lt;/Animated.View&gt;
+                </code>
+              </pre>
+            <h6 class="fragment" data-fragment-index="2">
+              Animated components:
+            </h6>
+            <div class="fragment" data-fragment-index="3">
+              <ul>
+                <li>View</li>
+                <li>Text</li>
+                <li>ScrollView</li>
+                <li>FlatList</li>
+                <li>SectionList</li>
+                <li>Image</li>
+              </ul>
+            </div>
+            <aside class="notes">
+              We’re almost done. Regular RN components won’t work with the animated value in their styles, so 
+              Animated has its own versions of some components. In our case we need Animated.View. Inline 
+              styling is a no-no, so it's here only for explanation purposes.
+              Other possible Animated components are FlatList, Image, ScrollView, SectionList and Text. 
+            </aside>
+          </section>
+          <section class="text-slide">
+            <h4 class="slide-name">Animated API. timing method</h4>
+            <h6>
+              timing() method options:
+            </h6>
+            <div>
+              <ul>
+                <li class="fragment" data-fragment-index="1">duration</li>
+                <li class="fragment" data-fragment-index="2">easing</li>
+                <li class="fragment" data-fragment-index="3">delay</li>
+                <li class="fragment" data-fragment-index="4">isInteraction</li>
+                <li class="fragment" data-fragment-index="5">useNativeDriver</li>
+              </ul>
+            </div>
+            <aside class="notes">
+              Now everything works and we already have much smoother animation. So it’s time to check what other 
+              options are available for our timing method. Till now we used toValue and duration. As per 
+              documentation, the full list is:
+                - duration: Length of animation (milliseconds). Default 500. 
+                - easing: Easing function to define curve. Default is Easing.inOut(Easing.ease). 
+                - delay: Start the animation after delay (milliseconds). Default 0. 
+                - isInteraction: Whether or not this animation creates an "interaction handle" on the 
+                  InteractionManager. Default true. 
+                - useNativeDriver: Uses the native driver when true. Default false.
+              I’d like to discuss two new options from this list: easing and useNativeDriver.
+            </aside>
+          </section>
+          <section class="text-and-conding-slide">
+            <h4 class="slide-name">Animated API. Easing</h4>
+            <div>
+              <p class="fragment" data-fragment-index="1">
+                Easing allows you to specify the function that defines how animated parameter will 
+                change over time.
+              </p>
+              <p class="fragment" data-fragment-index="2">
+                <a href="https://easings.net/">Easing Functions</a>
+              </p>
+            </div>
+            <pre class="fragment" data-fragment-index="3">
+              <code data-trim>
+                import { Animated, Easing } from 'react-native';
+              </code>
+            </pre>
+            <pre class="fragment" data-fragment-index="4">
+              <code data-trim data-line-numbers>
+                Animated.timing(translation, {
+                  toValue: -100,
+                  duration: 1000,
+                  easing: Easing.bounce,
+                }).start();
+              </code>
+            </pre>
+            <div>
+              <p class="fragment" data-fragment-index="5">
+                <a href="https://reactnative.dev/docs/easing#methods">Easing Methods</a>
+              </p>
+            </div>
+            <pre class="fragment" data-fragment-index="6">
+              <code data-trim data-line-numbers>
+                Animated.timing(translation, {
+                  toValue: -100,
+                  duration: 1000,
+                  easing: Easing.out(Easing.bounce),
+                }).start();
+              </code>
+            </pre>
+            <aside class="notes">
+              Easing allows you to specify the function that defines how animated parameter will change 
+              over time. This can help to achieve more natural looking motion - in real life objects almost 
+              never move at the linear speed. The default easing in timing method is ‘ease in out’ - when 
+              animation starts a bit slower, then runs at a regular speed and slows down before the end. 
+              Feel free to check other easing function examples at https://easings.net/.
+              At this point you may wonder how to implement other easing functions to apply them in your 
+              animation. RN provides Easing module for that.
+              Available methods can be found in RN docs: https://reactnative.dev/docs/easing#methods. 
+              Some of them require additional parameters.
+            </aside>
+          </section>
+          <section class="text-and-conding-slide">
+            <h4 class="slide-name">Animated API. useNativeDriver</h4>
+            <div>
+              <p class="fragment" data-fragment-index="1">
+                useNativeDriver when set to 'true' sends all the animation data processing to the UI thread (native side).
+              </p>
+            </div>
+            <pre class="fragment" data-fragment-index="2">
+              <code data-trim data-line-numbers>
+                Animated.timing(translation, {
+                  toValue: -200,
+                  duration: 1500,
+                  useNativeDriver: true,
+                }).start();
+              </code>
+            </pre>
+            <h6 class="fragment" data-fragment-index="3">
+              <span style="text-transform: none;">useNativeDriver</span> features to be aware of:
+            </h6>
+            <div class="fragment" data-fragment-index="4">
+              <ul>
+                <li>Animated values are only compatible with one driver.</li>
+                <li>Not all Animated features are supported with native driver.</li>
+              </ul>
+            </div>
+            <div>
+              <p class="fragment" data-fragment-index="5">
+                If you use native driver while animating the value, every animation on this value further 
+                should use the native driver too.
+              </p>
+              <p class="fragment" data-fragment-index="6">
+                You can only animate non-layout properties (transform, opacity) - position and flexbox 
+                properties won’t work.
+              </p>
+            </div>
+            <aside class="notes">
+              Now it’s time to discuss the useNativeDriver prop. By setting this prop to ‘true’ we can 
+              send all the animation data to native side, so our animation runs in the UI thread and the 
+              JS thread can’t affect the animation anymore.
+              When using the native driver we should be aware of its two features:
+              - Animated values are only compatible with one driver. 
+                This means if you use native driver 
+                while animating the value, every animation on this value further should use the native driver 
+                too. So you can’t run one animation on ‘translation’ value from our example using the native 
+                driver and then fire another one that doesn’t use it.
+
+              - Not all Animated features are supported with native driver. 
+                You can only animate non-layout properties (transform, opacity) - position and flexbox properties 
+                won’t work.
+            </aside>
+          </section>
+          <section class="text-and-conding-slide">
+            <h4 class="slide-name">Animated API. Composition</h4>
+            <h6 class="fragment" data-fragment-index="1">
+              Composition functions:
+            </h6>
+            <div class="fragment" data-fragment-index="2">
+              <ul>
+                <li>Animated.delay(). Starts an animation after a given delay.</li>
+                <li>Animated.parallel(). Starts a number of animations at the same time.</li>
+                <li>
+                  Animated.sequence(). Starts the animations in order, waiting for each to 
+                  complete before starting the next. 
+                </li>
+                <li>Animated.stagger(). Starts animations in order and in parallel, but with successive delays.</li>
+              </ul>
+            </div>
+            <aside class="notes">
+              Okay, now when we get this sorted, let’s discuss animation composition. Animated provides four 
+              helpers for that:
+              - Animated.delay() starts an animation after a given delay.
+              - Animated.parallel() starts a number of animations at the same time.
+              - Animated.sequence() starts the animations in order, waiting for each to complete before 
+                starting the next. 
+              - Animated.stagger() starts animations in order and in parallel, but with successive delays.
+              Animated.delay is pretty straight forward, so let's skip it for now as we're going to see it in use
+              later and start with parallel method.
+            </aside>
+          </section>
+          <section class="text-and-conding-slide">
+            <h4 class="slide-name">Animated API. Composition. Parallel</h4>
+            <div>
+              <p class="fragment" data-fragment-index="1">
+                To launch animations in parallel we simply need to wrap them with Animated.parallel([]).
+              </p>
+            </div>
+            <pre class="fragment" data-fragment-index="2">
+              <code data-trim data-line-numbers>
+                Animated.parallel([
+                  Animated.timing(nativeTranslation, {
+                    toValue: -200,
+                    duration: 1500,
+                    useNativeDriver: true,
+                  }),
+                  Animated.timing(translation, {
+                    toValue: -200,
+                    duration: 1500,
+                    useNativeDriver: false,
+                  }),
+                  Animated.timing(size, {
+                    toValue: 50,
+                    duration: 1500,
+                    useNativeDriver: false,
+                  }),
+                ]).start();
+              </code>
+            </pre>
+            <div>
+              <p class="fragment" data-fragment-index="3">
+                If one animation is stopped or interrupted, all other animations in parallel are also stopped:
+              </p>
+            </div>
+            <pre class="fragment" data-fragment-index="4">
+              <code data-trim data-line-numbers>
+                const onStopPress = () => {
+                  Animated.timing(translation, {
+                    toValue: -100,
+                    useNativeDriver: false,
+                  }).stop();
+                };
+              </code>
+            </pre>
+          </section>
+          <section class="text-and-conding-slide">
+            <h4 class="slide-name">Animated API. Composition. Sequence</h4>
+            <div>
+              <p class="fragment" data-fragment-index="1">
+                Sequence launches the provided animations one after another:
+              </p>
+            </div>
+            <pre class="fragment" data-fragment-index="2">
+              <code data-trim data-line-numbers>
+                Animated.sequence([
+                  Animated.timing(nativeTranslation, {
+                    toValue: -200,
+                    duration: 1500,
+                    useNativeDriver: true,
+                  }),
+                  Animated.timing(translation, {
+                    toValue: -200,
+                    duration: 1500,
+                    useNativeDriver: false,
+                  }),
+                  Animated.timing(size, {
+                    toValue: 50,
+                    duration: 1500,
+                    useNativeDriver: false,
+                  }),
+                ]).start();
+              </code>
+            </pre>
+            <div>
+              <p class="fragment" data-fragment-index="3">
+                If the current running animation is stopped, no following animations will be started.
+              </p>
+            </div>
+          </section>
+          <section class="text-and-conding-slide">
+            <h4 class="slide-name">Animated API. Composition. Stagger</h4>
+            <div>
+              <p class="fragment" data-fragment-index="1">
+                Stagger is very similar, but it allows you to additionally specify the delay between animations:
+              </p>
+            </div>
+            <pre class="fragment" data-fragment-index="2">
+              <code data-trim data-line-numbers>
+                Animated.stagger(2000, [
+                  Animated.timing(nativeTranslation, {
+                    toValue: -200,
+                    duration: 1500,
+                    useNativeDriver: true,
+                  }),
+                  Animated.timing(translation, {
+                    toValue: -200,
+                    duration: 1500,
+                    useNativeDriver: false,
+                  }),
+                  Animated.timing(size, {
+                    toValue: 50,
+                    duration: 1500,
+                    useNativeDriver: false,
+                  }),
+                ]).start();
+              </code>
+            </pre>
+            <div>
+              <p class="fragment" data-fragment-index="3">
+                Array of animations may run in parallel (overlap) if you specify duration values that are 
+                longer than delay between animations.
+              </p>
+            </div>
+          </section>
+          <section class="text-and-conding-slide">
+            <h4 class="slide-name">Animated API. Composition. Delay</h4>
+            <div>
+              <p class="fragment" data-fragment-index="1">
+                Animated.delay() is meant to be used in Stagger or Sequence to put delays between animations:
+              </p>
+            </div>
+            <pre class="fragment" data-fragment-index="2">
+              <code data-trim data-line-numbers>
+                Animated.sequence([
+                  Animated.timing(nativeTranslation, {
+                    toValue: -200,
+                    duration: 1500,
+                    useNativeDriver: true,
+                  }),
+                  Animated.delay(2000),
+                  Animated.timing(translation, {
+                    toValue: -200,
+                    duration: 1500,
+                    useNativeDriver: false,
+                  }),
+                ]).start();
+              </code>
+            </pre>
+            <div>
+              <p class="fragment" data-fragment-index="3">
+                You can pass delay to animation config as an option with the same result:
+              </p>
+            </div>
+            <pre class="fragment" data-fragment-index="4">
+              <code data-trim data-line-numbers>
+                Animated.sequence([
+                  Animated.timing(nativeTranslation, {
+                    toValue: -200,
+                    duration: 1500,
+                    useNativeDriver: true,
+                  }),
+                  Animated.timing(translation, {
+                    toValue: -200,
+                    delay: 2000,
+                    duration: 1500,
+                    useNativeDriver: false,
+                  }),
+                ]).start();
+              </code>
+            </pre>
+            <aside class="notes">
+              While you can use both options to set the delay, in case of sequence/stagger explicit
+              Animated.delay() may be more visible and easy to read on quick sight. Something to consider,
+              but the preferred way is a matter of taste at the end of the day.
+            </aside>
+          </section>
+          <section class="text-and-conding-slide">
+            <h4 class="slide-name">Animated API. Composition. Combination</h4>
+            <div>
+              <p class="fragment" data-fragment-index="1">
+                Not only Animated.delay() can be used in combination with other methods:
+              </p>
+            </div>
+            <pre class="fragment" data-fragment-index="2">
+              <code data-trim data-line-numbers>
+                Animated.sequence([
+                  Animated.timing(nativeTranslation, {
+                    toValue: -200,
+                    duration: 1500,
+                    useNativeDriver: true,
+                  }),
+                  Animated.parallel([
+                    Animated.timing(translation, {
+                      toValue: -200,
+                      duration: 1500,
+                      useNativeDriver: false,
+                    }),
+                    Animated.timing(size, {
+                      toValue: 50,
+                      duration: 1500,
+                      useNativeDriver: false,
+                    }),
+                  ]),
+                ]).start();
+              </code>
+            </pre>
+          </section>
+          <section class="video-text-slide">
+            <h4 class="slide-name">Animated API. Spring</h4>
+            <div>
+              <p class="fragment" data-fragment-index="1">
+                Spring() is a method that animates a value according to a spring based model.
+              </p>
+              <div class="fragment" data-fragment-index="2">
+                <video width="640" height="480" controls muted>
+                  <source src="assets/videos/Oscillatory_motion_acceleration.ogv" type="video/ogg">
+                  <a href="https://en.wikipedia.org/wiki/File:Oscillatory_motion_acceleration.ogv">Spring demo on Wikipedia</a>
+                </video>
+              </div>
+            </div>
+            <aside class="notes">
+              Till now we’ve used the timing() method for all our animations. Another commonly used method is spring(). 
+              This method animates a value according to a spring based model.
+            </aside>
+          </section>
+          <section class="video-text-slide">
+            <h4 class="slide-name">Animated API. Spring</h4>
+            <div>
+              <div>
+                <p class="fragment" data-fragment-index="1">
+                  In case of spring we don’t specify the animation duration directly. 
+                  Instead we have a config object where we can set speed:
+                </p>
+                <pre class="fragment" data-fragment-index="2">
+                  <code data-trim data-line-numbers>
+                    Animated.spring(nativeTranslation, {
+                      toValue: -100,
+                      useNativeDriver: true,
+                      speed: 12,
+                      bounciness: 30,
+                    }).start();
+                  </code>
+                </pre>
+                <p class="fragment" data-fragment-index="4">
+                  With spring() use either speed/bounciness or friction/tension pair of settings to control your animation.
+                </p>
+                <p class="fragment" data-fragment-index="5">
+                  <a href="https://reactnative.dev/docs/animated#spring">Docs for spring configuration</a>
+                </p>
+              </div>
+              <div class="fragment" data-fragment-index="3">
+                <video width="640" muted loop>
+                  <source src="assets/videos/SpringAnimation.mov">
+                  Spring animation demo video
+                </video>
+              </div>
+            </div>
+            <aside class="notes">
+              Please notice that you can use either speed/bounciness or friction/tension settings to control your animation. 
+              If you try to specify speed and tension at the same time, you’ll get an error. Other available options are 
+              listed in RN docs: https://reactnative.dev/docs/animated#spring
+              We’ve just successfully animated the  numeric transform value. But what if I’d like to animate color? 
+              That’s where interpolation enters the scene.
+            </aside>
+          </section>
+          <section class="video-text-slide">
+            <h4 class="slide-name">Animated API. Interpolation</h4>
+            <div>
+              <div>
+                <p class="fragment" data-fragment-index="1">
+                  "Interpolation - a type of estimation, a method of constructing (finding) new data points based on the 
+                  range of a discrete set of known data points".
+                </p>
+                <div class="fragment" data-fragment-index="2">
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td class="fragment" data-fragment-index="2">0</td>
+                        <td class="fragment" data-fragment-index="3">0.3</td>
+                        <td  class="fragment" data-fragment-index="4">0.5</td>
+                        <td class="fragment" data-fragment-index="2">1</td>
+                      </tr>
+                      <tr>
+                        <td class="fragment" data-fragment-index="2">0</td>
+                        <td class="fragment" data-fragment-index="3">30</td>
+                        <td  class="fragment" data-fragment-index="4">50</td>
+                        <td class="fragment" data-fragment-index="2">100</td>
+                      </tr>
+                      <tr>
+                        <td class="fragment" data-fragment-index="2">0</td>
+                        <td class="fragment" data-fragment-index="3">-60</td>
+                        <td  class="fragment" data-fragment-index="4">-100</td>
+                        <td class="fragment" data-fragment-index="2">-200</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div>
+                <pre class="fragment" data-fragment-index="5">
+                  <code data-trim data-line-numbers>
+                    const animatedValue = useRef(new Animated.Value(0)).current;
+
+                    Animated.timing(animatedValue, {
+                      toValue: 1,
+                      duration: 1500,
+                      useNativeDriver: false,
+                    }).start();
+                  </code>
+                </pre>
+                <pre class="fragment" data-fragment-index="6">
+                  <code data-trim data-line-numbers>
+                    const translate = animatedValue.interpolate({
+                        inputRange: [0, 1],
+                        outputRange: [0, -200],
+                    });
+                    const size = animatedValue.interpolate({
+                        inputRange: [0, 1],
+                        outputRange: [100, 50],
+                    });
+                  </code>
+                </pre>
+                <pre class="fragment" data-fragment-index="7">
+                  <code data-trim data-line-numbers>
+                    &lt;Animated.View
+                      style={[
+                        {
+                          transform: [{ translateY: translate }],
+                        },
+                        {
+                          width: size,
+                          height: size,
+                        },
+                      ]} /&gt;
+                  </code>
+                </pre>
+              </div>
+            </div>
+            <aside class="notes">
+              We’ve just successfully animated the numeric transform value. But what if I’d like to animate color? 
+              That’s where interpolation enters the scene. Animated API provides you with the option to map your animated 
+              value range to the output range of your choice. To understand how this works, let’s first understand what 
+              interpolation is in general. Wikipedia defines interpolation as ‘a type of estimation, a method of constructing 
+              (finding) new data points based on the range of a discrete set of known data points.’ Here’s a basic example of 
+              that: We have a value that changes gradually over time from 0 to 1. But we want to change another value from 0 
+              to 100 with the same speed. You can say that we have two ranges [0 - 1] and [0 - 100]. From that point it is 
+              pretty obvious how one range connects to another. 0,3 from the first range will link to 30 from the second, 0.5 
+              to 50 and so on. This is valid for linear interpolation and it works the same way for other cases. For instance 
+              we can have a negative range [0, -200] and we can interpolate to this range from our initial one: 0.5 will 
+              be -100 and so on and so forth. Or a range that starts with non zero value [50, 100]: 0.5 will interpolate to 75. 
+              In our example we can have a single animated value interpolated to multiple values we use to animate our objects.
+              We now have a single animated value that controls size and translation animations.
+            </aside>
+          </section>
+          <section class="video-text-slide">
+            <h4 class="slide-name">Animated API. Interpolation</h4>
+            <div>
+            <div>
+            <p class="fragment" data-fragment-index="1">
+              Animating the color with interpolation:
+            </p>
+            <pre class="fragment" data-fragment-index="1">
+              <code data-trim data-line-numbers>
+                &lt;Animated.View
+                  style={[
+                    {
+                      backgroundColor: animatedValue.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: [‘red’, ‘blue’],
+                      }),
+                    }
+                ]} /&gt;
+              </code>
+            </pre>
+            <p class="fragment" data-fragment-index="2">
+              Using multiple range segments in interpolation:
+            </p>
+            <pre class="fragment" data-fragment-index="2">
+              <code data-trim data-line-numbers>
+                value.interpolate({
+                  inputRange: [-300, -100, 0, 100, 101],
+                  outputRange: [300, 0, 1, 0, 0]
+                });
+              </code>
+            </pre>
+            </div>
+            <div>
+            <table class="fragment" data-fragment-index="2">
+              <thead>
+                <tr>
+                  <th>Input</th>
+                  <th>Output</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>-300</td>
+                  <td>300</td>
+                </tr>
+                <tr>
+                  <td>-200</td>
+                  <td>150</td>
+                </tr>
+                <tr>
+                  <td>-100</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>-50</td>
+                  <td>0.5</td>
+                </tr>
+                <tr>
+                  <td>0</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                   <td>50</td>
+                  <td>0.5</td>
+                </tr>
+                <tr>
+                  <td>100</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                   <td>101</td>
+                  <td>0</td>
+                </tr>
+                </div>
+                </div>
+                
+              </tbody>
+            </table>
+              
+            <aside class="notes">
+              Interpolation can be used not only for integer values ranges, but for strings as well and we can use it 
+              to interpolate our animated value to colors range.
+              And you can instantly spot the advantage of interpolation in Animated API before native JS animation - we 
+              don’t need to specify all intermediate colors in range as Animated will cover this for us. Please notice that 
+              you can set multiple range segments, not only start and end points.
+            </aside>
+          </section>
+          
+          <section class="text-and-conding-slide">
+            <h4 class="slide-name">Animated API. Interpolation. Easing</h4>
+            <div>
+              <p class="fragment" data-fragment-index="1">
+                You can specify easing function for interpolation:
+              </p>
+            </div>
+            <pre class="fragment" data-fragment-index="2">
+              <code data-trim data-line-numbers>
+                &lt;Animated.View
+                  style={[
+                    {
+                      backgroundColor: animatedValue.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: [‘red’, ‘blue’],
+                      easing: Easing.cubic,
+                      }),
+                    }
+                ]} /&gt;
+              </code>
+            </pre>
+            <aside class="notes">
+              As I mentioned previously, interpolation uses linear dependency between ranges by default. But you can 
+              specify easing function if you wish to change that.
+            </aside>
+          </section>
+
+          <section class="text-and-conding-slide">
+            <h4 class="slide-name">Animated API. Interpolation. Extrapolation</h4>
+            <div>
+              <p class="fragment" data-fragment-index="1">
+                In mathematics, extrapolation is a type of estimation, beyond the original observation range. Let’s say we 
+                want to start changing size only when my animated value reaches 0.5. 
+              </p>
+            </div>
+            <pre class="fragment" data-fragment-index="2">
+              <code data-trim data-line-numbers>
+                &lt;Animated.View
+                  style={[
+                    {
+                      backgroundColor: animatedValue.interpolate({
+                      inputRange: [0.5, 1],
+                      outputRange: [100, 50],
+                      }),
+                    }
+                ]} /&gt;
+              </code>
+            </pre>
+            <p class="fragment" data-fragment-index="3">
+              React Native will try to extrapolate and guess what output value should be when the input is 0. In the 
+              example above it will be 150. But that’s not what we want:
+            </p>
+            <pre class="fragment" data-fragment-index="3">
+              <code data-trim data-line-numbers>
+                &lt;Animated.View
+                  style={[
+                    {
+                      backgroundColor: animatedValue.interpolate({
+                        inputRange: [0.5, 1],
+                        outputRange: [100, 50],
+                        extrapolateLeft: 'clamp',
+                      }),
+                    }
+                ]} /&gt;
+              </code>
+            </pre>
+            <p class="fragment" data-fragment-index="4">
+              Apart <strong>'extrapolateLeft'</strong> we can use <strong>'extrapolateRight'</strong> or 
+              <strong>'extrapolate'</strong> to set both.
+            </p>
+            <aside class="notes">
+              Last option to discuss in interpolation is extrapolation. In mathematics, extrapolation is a type of 
+              estimation, beyond the original observation range. Here’s an example of when we may need it. Let’s say 
+              we want to start changing size only when my animated value reaches 0.5. If we put the code like that: 
+              [first code block]
+              RN will try to extrapolate and guess what output value should be when the input is 0. In the example 
+              above it will be 150. But that’s not what we want. To prevent such behavior we can set the extrapolateLeft 
+              prop to be ‘clamp’ (by default it’s ‘extend’).
+              If the same is required for the right range border we can use extrapolateRight and to set both - extrapolate.
+            </aside>
+          </section>
+        </section>
+        <!-- End: Animated API animation -->
+        <!-- LayoutAnimation API animation -->
+        <section class="stack-preset">
+          <section class="topic-name-slide">
+            <h4>Animation with LayoutAnimation API</h4>
+
+            <aside class="notes">
+              Another powerful tool provided by React Native is LayoutAnimation.
+            </aside>
+          </section>
+          <section class="video-text-slide">
+            <h4 class="slide-name">LayoutAnimation API</h4>
+            <div>
+              <div>
+                <video width="640" muted loop>
+                  <source src="assets/videos/LayoutAnimation_custom.mov">
+                  LayoutAnimation demo video
+                </video>
+              </div>
+              <div>
+                <h5>
+                  <a href="https://reactnative.dev/docs/layoutanimation">LayoutAnimation Documentation</a>
+                </h5>
+                  <h5 class="fragment" data-fragment-index="1">Pros:</h5>
+                  <ul class="fragment" data-fragment-index="1">
+                    <li class="fragment" data-fragment-index="1">
+                      Simplicity
+                    </li>
+                    <li class="fragment" data-fragment-index="1">
+                      Performance
+                    </li>
+                  </ul>
+                  <br>
+                  <h5 class="fragment" data-fragment-index="2">Cons:</h5>
+                  <ul>
+                    <li class="fragment" data-fragment-index="2">
+                      Limited control over animation properties
+                    </li>
+                  </ul>
+              </div>
+            </div>
+            <aside class="notes">
+              Okay, now when we sorted the Animated API, let’s imagine you need to animate multiple layout 
+              elements on your screen. Like adding a tile to the stack (animated list) or re-arranging screen 
+              elements depending on user selection.
+              Animated API is a very versatile tool, but why go the complex way when it’s non needed? Defining 
+              animation for each element can be a huge amount of work for something as simple as re-arranging 
+              screen elements. Luckily, RN provides an API for such cases! 
+              As you may have guessed already, the main advantage of LayoutAnimation API is its simplicity. This 
+              API is easy to set up and use while providing some level of control over animation properties, such 
+              as duration, easing function and animation type. Another great feature of this API is that we 
+              shouldn’t bother about the APIs performance - React Native team made these animations smooth and 
+              fluid, minimizing jank and stuttering, and providing a seamless user experience. Another point to 
+              using LayoutAnimation for our case.
+              Enough of the intro, let’s try it out! 
+            </aside>
+          </section>
+          <section class="video-text-slide">
+            <h4 class="slide-name">LayoutAnimation API</h4>
+            <div>
+              <div>
+                <video width="640" muted loop>
+                  <source src="assets/videos/LayoutAnimation_before.mov">
+                  LayoutAnimation demo video
+                </video>
+              </div>
+              <div>
+                <h5>Task:</h5>
+                <p>
+                  Animate a login screen that can show different inputs depending if you log in or register 
+                  for the first time
+                </p>
+                <p class="fragment" data-fragment-index="1">
+                  To make things work on Android the following code is required:
+                </p>
+                  <pre class="fragment" data-fragment-index="1">
+                    <code data-trim data-line-numbers>
+                      if (Platform.OS === 'android') {
+                        if (UIManager.setLayoutAnimationEnabledExperimental) {
+                          UIManager.setLayoutAnimationEnabledExperimental(true);
+                        }
+                      }
+                    </code>
+                  </pre>
+              </div>
+            </div>
+            <aside class="notes">
+              Let’s stick with the following example: we’d like to animate a login screen that can show different 
+              inputs depending if you log in or register for the first time.
+              The screen is very basic - it uses state to trigger some elements to be shown or hidden. And while it 
+              works, the transition between states looks bad - all changes happen instantly on new render. 
+              There’s one small step we should take before we can start using the LayoutAnimation API. On Android 
+              devices in order to make things work we need to add the following code to our App [CODE SNIPPET].
+              This code is global, so you need to add it only once to be able to use LayoutAnimation API throughout 
+              your application. Also, in some cases you don’t need to add it manually at all since some libraries 
+              use LayoutAnimation API as well, so this code is added from their end. For instance, Reanimated that 
+              we’ll touch a bit later. Anyhow, that’s it with the set up and we’re ready to animate.
+            </aside>
+          </section>
+          <section class="video-text-slide">
+            <h4 class="slide-name">LayoutAnimation API</h4>
+            <div>
+              <div>
+                <p>
+                  As stated in RN documentation, “A common way to use this API is to call it before updating the state”. 
+                  So let’s do it:
+                </p>
+                <pre class="fragment" data-fragment-index="2">
+                  <code data-trim data-line-numbers>
+                    const onStateSwitch = (newState: AUTH_SCREEN_STATE) => {
+                      LayoutAnimation.configureNext(LayoutAnimation.Presets.linear);
+                      setScreenState(newState);
+                    };
+                  </code>
+                </pre>
+                <p class="fragment" data-fragment-index="3">
+                  Don't forget to import the <strong>LayoutAnimation</strong> module from react native. After that 
+                  just configure next layout animation using the provided presets.
+                </p>
+                <p class="fragment" data-fragment-index="5">
+                  Apart from <strong>linear</strong> preset other available options are <strong>“easeInEaseOut”</strong> and 
+                  <strong>“spring”</strong>. If you need more control, <strong>custom config</strong> is the way to go.
+                </p>
+              </div>
+              <div class="fragment" data-fragment-index="4">
+                <video width="640" muted loop>
+                  <source src="assets/videos/LayoutAnimation_linear.mov">
+                  LayoutAnimation demo video
+                </video>
+              </div>
+            </div>
+            <aside class="notes">
+              As stated in RN documentation, “A common way to use this API is to call it before updating the state”. 
+              So let’s do it.
+              We should import the LayoutAnimation module from react native and just configure the next layout animation 
+              using the provided presets. One line of code and our changes are animated.
+              As you can see I used the linear preset here. Other available options are “easeInEaseOut” and “spring”. 
+              Not much, but remember that LA is all about simplicity. Besides, there’s an option for custom animation 
+              config if you’d like to have more control over the process. In our case, you may already see a point of
+              improvement: we may adjust the animation speed on different stages to avoid form elements visible 
+              overlap during the transitions.
+            </aside>
+          </section>
+          <section class="video-text-slide">
+            <h4 class="slide-name">LayoutAnimation API. Custom config</h4>
+            <div>
+              <div>
+                <p>
+                  <span>
+                  LayoutAnimation.configureNext accepts the config object as its first parameter with the following 
+                  fields: 
+                  <br>
+                  <br>
+                  <strong>• duration</strong> in milliseconds 
+                  <br>
+                  <strong>• create</strong>, optional config for animating in new views
+                  <br>
+                  <strong>• update</strong>, optional config for animating views that have been updated
+                  <br>
+                  <strong>• delete</strong>, optional config for animating views as they are removed
+                  <br>
+                  <br>
+                  </span>
+                  <span class="fragment" data-fragment-index="1">
+                  And every optional config supports:
+                  <br>
+                  <br>
+                  <strong>• type</strong>, the 
+                    <a href="https://reactnative.dev/docs/layoutanimation#types">animation type</a> to use
+                    <br>
+                  <strong>• property</strong>, the layout property to animate <br>(optional, but recommended for 
+                  create and delete) <br> - supported props are opacity, scaleX, scaleY and scaleXY.
+                  <br>
+                  <strong>• springDamping</strong>, optional config for animating views that have been updated
+                   <br>
+                  <strong>• initialVelocity</strong>, optional config for animating views as they are removed
+                   <br>
+                  <strong>• delay</strong>, optional config for animating views as they are removed
+                   <br>
+                  <strong>• duration</strong>, optional config for animating views as they are removed
+                   <br>
+                   </span>
+                </p>
+              </div>
+              <div>
+                <pre class="fragment" data-fragment-index="2">
+                  <code data-trim data-line-numbers>
+                    const customLayoutAnimation = {
+                      duration: 400,
+                      update: {
+                        type: LayoutAnimation.Types.linear,
+                        property: LayoutAnimation.Properties.opacity,
+                      },
+                    };
+                  </code>
+                </pre>
+                <pre class="fragment" data-fragment-index="3">
+                  <code data-trim data-line-numbers>
+                      const onStateSwitch = (newState: AUTH_SCREEN_STATE) => {
+                        LayoutAnimation.configureNext(customLayoutAnimation);
+                        setScreenState(newState);
+                      };
+                  </code>
+                </pre>
+              </div>
+            </div>
+            <aside class="notes">
+              [LISTS APPEAR]
+              Sounds a bit overwhelming, but don’t worry as it’s fairly simple. We can start with custom layout 
+              animation config as easy as this:
+              [FIRST CODE SNIPPET] 
+              And we need to provide it to LayoutAnimation.configureNext method the same way we did earlier with 
+              predefined presets:
+              [SECOND CODE SNIPPET] 
+              Here we specify the animation duration and how the update phase should be done. Now I can control 
+              the animation duration and its update phase.
+            </aside>
+          </section>
+          <section class="video-text-slide">
+            <h4 class="slide-name">LayoutAnimation API. Custom config</h4>
+            <div>
+              <div class="fragment" data-fragment-index="1">
+                <pre>
+                  <code data-trim data-line-numbers>
+                    const customLayoutAnimation = {
+                      duration: 400,
+                      create: {
+                        duration: 700,
+                        type: LayoutAnimation.Types.linear,
+                        property: LayoutAnimation.Properties.opacity,
+                      },
+                      update: {
+                        type: LayoutAnimation.Types.linear,
+                        property: LayoutAnimation.Properties.opacity,
+                      },
+                      delete: {
+                        duration: 100,
+                        type: LayoutAnimation.Types.linear,
+                        property: LayoutAnimation.Properties.opacity,
+                      },
+                    };
+                  </code>
+                </pre>
+              </div>
+              <div class="fragment" data-fragment-index="2">
+                <video width="640" muted loop>
+                  <source src="assets/videos/LayoutAnimation_custom.mov">
+                  LayoutAnimation demo video
+                </video>
+              </div>
+            </div>
+            <aside class="notes">
+              But then I’m not happy with the way my inputs appear and disappear immediately. So I need to add 
+              the delete and create configs to my custom object:
+              [CODE SNIPPET] 
+              Now I have full control over all three phases. So I set the create animation to be slower than update 
+              one (my inputs appear slower and buttons have time to slide down), while the delete one is set to be 
+              faster as I don’t want my buttons to overlap with inputs when I go from Register view to the initial one:
+              [VIDEO] 
+              Feel free to experiment with custom animation config to adjust your animation for some specific use case.
+              As you can see, despite being a simple and easy to learn tool, LayoutAnimation API provides you with 
+              options on precise animation control if you decide that default config doesn’t work that well for you. 
+              We get a lot for such a small coding effort and I think it’s an awesome tool to have in your dev arsenal.
+            </aside>
+          </section>
+        </section>
+        <!-- End: LayoutAnimation API animation -->
+        <!-- Reanimated animation -->
+        <section class="stack-preset">
+          <section class="topic-name-slide">
+            <h4>Animation with Reanimated</h4>
+
+            <aside class="notes">
+              TODO
+            </aside>
+          </section>
+        </section>
+        <!-- End: Reanimated animation -->
+        <!-- Animation with third-party libraries-->
+        <section class="stack-preset">
+          <section class="topic-name-slide">
+            <h4>Animation with third-party libraries</h4>
+
+            <aside class="notes">
+              TODO
+            </aside>
+          </section>
+        </section>
+        <!-- End: Animation with third-party libraries -->
+        <section class="qa-slide">
+          <h4>QA</h4>
+        </section>
+        </section>
+      </div>
+    </div>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/dist/reveal.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/zoom/zoom.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/notes/notes.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/search/search.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/markdown/markdown.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/highlight/highlight.js"></script>
+    <script>
+      var url = new URL(window.location.href);
+      var showNotes = url.searchParams.has("showNotes");
+
+      if (showNotes) {
+        var head = document.getElementsByTagName("HEAD")[0];
+        var link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        link.href =
+          "https://rolling-scopes-school.github.io/react-native-course/reveal-js/speaker-notes-mobile.css";
+        head.appendChild(link);
+      }
+
+      Reveal.initialize({
+        disableLayout: true,
+        controls: true,
+        progress: true,
+        center: false,
+        hash: true,
+        autoPlayMedia: true,
+        showNotes,
+        plugins: [
+          RevealZoom,
+          RevealNotes,
+          RevealSearch,
+          RevealMarkdown,
+          RevealHighlight,
+        ],
+      });
+    </script>
+  </body>
+</html>

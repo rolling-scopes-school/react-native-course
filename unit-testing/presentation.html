@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>
+      rolling-scopes-school/react-native-course - unit-testing module
+    </title>
+    <meta
+      name="description"
+      content="rolling-scopes-school/react-native-course - name module"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/dist/reset.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/dist/reveal.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/dist/theme/white.css"
+      id="theme"
+    />
+    <!-- Theme used for syntax highlighting of code -->
+    <link
+      rel="stylesheet"
+      href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/highlight/monokai.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://rolling-scopes-school.github.io/react-native-course/reveal-js/common.css"
+    />
+    <style class="jsStyle"></style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- 0 slide -->
+        <section class="presentation-name-slide">
+          <h4>Unit tests</h4>
+          <aside class="notes">
+            Main idea of this topic is get to know what testing is and what role it plays in software development.
+            <br /><br />
+            Also dive in unit testing, why developers have to write unit tests, have a look how to configure environment
+            for it and сonsider a few examples.
+          </aside>
+        </section>
+        <!-- 1 slide -->
+        <section class="agenda-slide">
+          <h4 class="slide-name">AGENDA</h4>
+          <ul>
+            <li class="fragment">Testing in software development</li>
+            <li class="fragment">Testing Pyramid</li>
+            <li class="fragment">Unit tests</li>
+            <li class="fragment">TDD & BDD</li>
+            <li class="fragment">Testing statistic</li>
+            <li class="fragment">Testing libraries</li>
+            <li class="fragment">Jest as a testing framework</li>
+            <li class="fragment">Husky</li>
+          </ul>
+          <aside class="notes">
+            On this slide you can see today's agenda.
+            <br /><br />
+            We will start with what is testing in software development, what role it plays, why it is important,
+            pros and cons.
+            <br /><br />
+            What testing pyramid is or how to group software tests into buckets of different granularity.
+            <br /><br />
+            Unit tests and its place in testing, pros and cons
+            <br /><br />
+            TDD and BDD as development techniques
+            <br /><br />
+            A few numbers or statistic in testing
+            <br /><br />
+            Most popular libs for testing
+            <br /><br />
+            Jest as one of the most popular testing framework in React Native world
+            <br /><br />
+            And the last one ... what Husky is and why it can help
+          </aside>
+        </section>
+        <!-- 2 slide -->
+        <section class="bullets-slide">
+          <h4 class="slide-name">Testing role in Software Development​</h4>
+          <ul>
+            <li class="fragment">
+              Testing is about verifying that what was specified is what was
+              delivered.
+            </li>
+            <li class="fragment">
+              The testing is important since it discovers defects/bugs before
+              the delivery to the client, which guarantees the quality of the
+              software, thereby determining that the project is finished or not.
+            </li>
+          </ul>
+          <aside class="notes">
+            There are two fundamental purposes of testing: verifying procurement specifications
+            and managing risk.
+            <br /><br />
+            First, testing is about verifying that what was specified is what was
+            delivered: it verifies that the product (system) meets the functional, performance,
+            design, and implementation requirements identified in the procurement specifications.
+            <br /><br />
+            Second, testing is about managing risk for both the acquiring agency and the system’s
+            vendor/developer/integrator. The testing program is used to identify when the work has
+            been “completed” so that the contract can be closed, the vendor paid, and the system
+            shifted by the agency into the warranty and maintenance phase of the project.
+          </aside>
+        </section>
+        <!-- 3 slide -->
+        <section class="bullets-slide">
+          <h4 class="slide-name">Major benefits of software testing​</h4>
+          <ul>
+            <li class="fragment">Launch a flawless software application</li>
+            <li class="fragment">Prevent targeted malware attacks</li>
+            <li class="fragment">Improves the user experience</li>
+            <li class="fragment">Curtail maintain costs</li>
+            <li class="fragment">Improve time-to-market</li>
+            <li class="fragment">Enhance quality of apllication</li>
+            <li class="fragment">Boost competitiveness</li>
+          </ul>
+          <aside class="notes">
+            1. Launching flawless software and applications would add value to your customers 
+            and attract them towards your brand.
+            <br /><br />
+            2. Security testing provides evidence that systems and information are safe and reliable, 
+            and that they do not accept unauthorized inputs.
+            <br /><br />
+            3. Only testers with experience can make sure that the software is designed in a way 
+            that allows users to follow a logical and intuitive path. 
+            Improved user experience also means that the software should be free of bugs and errors, 
+            which can be a source of frustration and inconvenience for users.
+            <br /><br />
+            4. The more errors and bugs you have in your software, the more expensive it will be to resolve. 
+            By investing in adequate testing and QA, you can keep your costs to a minimum.
+            <br /><br />
+            5. You can improve time-to-market by test automation.
+            <br /><br />
+            6. Testing discovers defects/bugs before the delivery to the client, which guarantees the quality of the software.
+            <br /><br />
+            7. Decreasing time-to-market and increasing quality of the app can boost competitiveness.
+          </aside>
+        </section>
+        <!-- 4 slide -->
+        <section class="bullets-slide">
+          <h4 class="slide-name">The scope of Testing​</h4>
+          <ul>
+            <li class="fragment">
+              The test scope defines what areas, features, and functionalities
+              of an application should be tested
+            </li>
+          </ul>
+          <aside class="notes">
+            The scope of a test defines what areas of a customer's product are supposed to get tested, 
+            what functionalities to focus on, what bug types the customer is interested in, 
+            and what areas or features should not be tested by any means.
+            <br /><br />
+            If something is in scope, please test it; if something is out of scope, it should not be tested. 
+            Understanding the scope of a test is crucial to be a successful tester on our platform. 
+          </aside>
+        </section>
+        <!-- 5 slide -->
+        <section class="picture-slide">
+          <h4 class="slide-name">Testing Pyramid​​</h4>
+          <img src="assets/images/testing_pyramid.svg" alt="simple" />
+          <aside class="notes">
+            The width of each pyramid layer refers to the number of tests of a particular type. 
+            The wider the layer, the larger the number of tests. 
+            The height of the layer is a measure of scope that a particular type of test checks. 
+            The higher the layer on the pyramid, the larger the test scope is, and the more complex 
+            and less stable the tests are.
+            <br /><br />
+            1) Unit tests are at the base of the Testing Pyramid because they take the least time and cost. 
+            They check the logic of a small function or class. If a unit test fails, it means there are problems with the code. 
+            Unit tests should run fast, generate stable results, and be modified quickly. 
+            To be fast and stable, they should be easy to understand.
+            <br /><br />
+            2) Integration tests validate the interaction of a piece of code with external components. 
+            For this reason, they run slower than unit tests.
+            <br /><br />
+            3) User Interface (UI) tests are at the top of the Testing Pyramid because they involve the largest scope and are the most complex.
+            UI tests take the longest to run as they replicate the way an actual user would interact with the app. 
+            UI tests check all the system layers from UI to databases and external services.
+          </aside>
+        </section>
+        <!-- 6 slide -->
+        <section class="bullets-slide">
+          <h4 class="slide-name">Benefits of unit tests​​</h4>
+          <ul>
+            <li class="fragment">Save development time</li>
+            <li class="fragment">Provide quick access to code documentation</li>
+            <li class="fragment">Contribute to code quality​</li>
+            <li class="fragment">Improve application architecture​</li>
+            <li class="fragment">Debug process​</li>
+            <li class="fragment">Reduce costs in long run</li>
+          </ul>
+          <aside class="notes">
+            It is relatively easy to start a project from scratch, 
+            but it’s much harder to maintain its growth as time goes by because the codebase becomes more and more difficult to maintain.
+            Unit tests enable your team to change, understand, and test an application easily over time.
+            <br /><br />
+            Unit tests help your team understand component functionality. 
+            Every piece of code expresses some business logic. 
+            That logic might be implemented in a complex way initially, or it might become more complex over time due to new requirements, bug-fixing, etc.
+            If it is necessary to change the code after some time, the only way to understand what the code is expressing is to read that code line-by-line.
+            <br /><br />
+            Unit tests improve the code’s design by compelling developers to create testable components. 
+            As a result, code becomes less coupled and easier to change. Experienced developers write code that is easy to test by design. 
+            They aim to cover each method and function with unit tests.
+          </aside>
+        </section>
+        <!-- 7 slide -->
+        <section class="bullets-slide">
+          <h4 class="slide-name">Impacts of neglecting unit tests</h4>
+          <ul>
+            <li class="fragment">
+              The risks of simple mistakes leaking to the end user significantly
+              increase in the absence of unit tests.
+            </li>
+            <li class="fragment">
+              Skipping unit tests quickly turns fresh code into legacy code,
+              which is harder to maintain.
+            </li>
+          </ul>
+          <aside class="notes">
+            Developers often neglect unit testing in the rush of biweekly sprints and other deadlines. 
+            But, if your team neglects unit testing up front, you risk having errors in the code, and it becomes legacy code quickly.
+            <br /><br />
+            Production failures and legacy code are two powerful arguments for having unit tests in every project, 
+            with exceptions being throwaway projects―proofs-of-concept (POCs) or 
+            conference demos―and projects with a very short timeline (less than three months).
+            <br /><br />
+            In other words, nearly ALL projects MUST have unit testing. 
+            If your team considers skipping unit tests, weigh these consequences―production failures and 
+            legacy code―carefully and write your code with maintainability in mind.
+          </aside>
+        </section>
+        <!-- 8 slide -->
+        <section class="table-slide">
+          <h4 class="slide-name">TDD VS BDD</h4>
+          <table class="fragment" data-fragment-index="2">
+            <thead>
+              <tr>
+                <th>TDD</th>
+                <th>BDD</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    TDD refers to the practice of writing a piece of code only
+                    if the automated test has failed
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    BDD is a process that promotes collaboration between
+                    developers, testers and customer service personnel during
+                    product development
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>Developers are the key participants in TDD</p>
+                </td>
+                <td>
+                  <p>Developers, customers and QAs are the key participants</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>Mainly concentrates on unit tests</p>
+                </td>
+                <td>
+                  <p>Mainly concentrates on system requirements</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>Point of inception is a test case</p>
+                </td>
+                <td>
+                  <p>Point of inception is a test scenario</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>Development practice</p>
+                </td>
+                <td>
+                  <p>Team methodology</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>Collaboration is limited to developers in TDD</p>
+                </td>
+                <td>
+                  <p>Collaboration is required by all stakeholders in BDD</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <aside class="notes">
+            TDD (Test Driven Development) is a development practice while BDD is a team methodology. 
+            In TDD, the developers write the tests while in BDD (Behavior Driven Development) the automated specifications are created by users or 
+            testers (with developers wiring them to the code under test.)
+            For small, co-located, developer-centric teams, TDD and BDD are effectively the same. 
+          </aside>
+        </section>
+        <!-- 9 slide -->
+        <section class="picture-slide">
+          <h4 class="slide-name">TDD is RED-GREEN-BLUE development​</h4>
+          <img src="assets/images/tdd.png" alt="simple" />
+          <aside class="notes">
+            TDD is a cyclic process from RED — GREEN — BLUE process.
+            <br /><br />
+            1) RED - It is a phase when developer create the blank function or implementation and create specific test for the code. 
+            The test used to examine our implementation.
+            <br /><br />
+            2) GREEN - It is a phase when developer success to implement the code and pass the test that created before. 
+            The test show that functionality of the code is already satisfied.
+            <br /><br />
+            3) REFACTOR - It is a phase where developer modified their code which is already passed the test. 
+            In refactor phase developer can change the variable name, sumarize their implementation, change algorithm but does not change the behavior.
+          </aside>
+        </section>
+        <!-- 10 slide -->
+        <section>
+          <!-- 10/0 slide -->
+          <section class="picture-slide">
+            <h4 class="slide-name">Testing statistic​</h4>
+            <img src="assets/images/statistic_1.png" alt="simple" />
+            <aside class="notes">
+              Statistic was taken from https://www.jetbrains.com/lp/devecosystem-2021/testing/
+              <br /><br />
+              It shows us importance of testing according to it-workers' opinion.
+              Also it proves testing pyramid (that unit tests are numerous in the software development)
+            </aside>
+          </section>
+          <!-- 10/1 slide -->
+          <section class="picture-slide">
+            <h4 class="slide-name">
+              Testing statistic according to types & technologies
+            </h4>
+            <img src="assets/images/statistic_2.png" alt="simple" />
+            <aside class="notes">
+              Statistic was taken from https://www.jetbrains.com/lp/devecosystem-2021/testing/
+              <br /><br />
+              According to this slide we can have a look what types of testing and 
+              what technologies are used on real projects.
+            </aside>
+          </section>
+        </section>
+        <!-- 11 slide -->
+        <section class="picture-with-description-slide">
+          <h4 class="slide-name">Writing testable code​​</h4>
+          <p class="font-size-2 align-center">
+            To make your app more testable, start by separating the view part of
+            your app from your business logic and app state.
+          </p>
+          <img src="assets/images/separate_logic_and_ui.png" alt="simple" />
+          <aside class="notes">
+            To make your app more testable, start by separating the view part of your app—your React components—from your business logic and app state 
+            (regardless of whether you use Redux, MobX or other solutions).
+            <br /><br />
+            This way, you can keep your business logic testing—which shouldn’t rely on your React components—independent of the components themselves, 
+            whose job is primarily rendering your app’s UI!
+            <br /><br />
+            Theoretically, you could go so far as to move all logic and data fetching out of your components. 
+            This way your components would be solely dedicated to rendering. Your state would be entirely independent of your components. 
+            Your app’s logic would work without any React components at all!
+          </aside>
+        </section>
+        <!-- 12 slide -->
+        <section>
+          <!-- 12/0 slide -->
+          <section class="picture-slide">
+            <h4 class="slide-name">Testing libraries</h4>
+            <img src="assets/images/libs.png" alt="simple" />
+            <aside class="notes">
+              1) The default template of React Native ships with Jest testing framework. 
+              It includes a preset that's tailored to this environment so you can get productive without tweaking the configuration and mocks straight away.
+              <br /><br />
+              2) Mocha is a feature-rich JavaScript test framework running on Node.js and in the browser, making asynchronous testing simple. 
+              Mocha tests run serially, allowing for flexible and accurate reporting, while mapping uncaught exceptions to the correct test cases. Hosted on GitHub.
+              <br /><br />
+              3) Jasmine is a behavior-driven development framework for testing JavaScript code. It does not depend on any other JavaScript frameworks. 
+              It does not require a DOM. And it has a clean, obvious syntax so that you can easily write tests.
+              <br /><br />
+              4) AVA is a test runner for Node.js with a concise API, detailed error output, embrace of new language features and 
+              process isolation that lets you develop with confidence.
+              <br /><br />
+              5) Vitest is often compared to Jest, another popular test framework. 
+              It is because it is built on top of Jest, making it a more modern and improved version. 
+              Also, it offers compatibility with most of the Jest API and ecosystem libraries, making it simple to migrate.
+            </aside>
+          </section>
+          <!-- 12/1 slide -->
+          <section class="picture-slide">
+            <h4 class="slide-name">Frameworks comparison</h4>
+            <img src="assets/images/frameworks_comparison.png" alt="simple" />
+            <aside class="notes">
+              Here’s a comparison table consisting of common characteristics of all of these frameworks, 
+              to help you figure out which is the best for your specific testing case.
+              <br /><br />
+              More information you can find here: https://raygun.com/blog/javascript-unit-testing-frameworks/
+            </aside>
+          </section>
+        </section>
+        <!-- 13 slide -->
+        <section class="picture-slide">
+          <h4 class="slide-name">Why Jest?</h4>
+          <img src="assets/images/jest_logo.png" alt="simple" />
+          <aside class="notes">
+            Facebook developed the Jest unit testing framework.
+            <br /><br />
+            This means that the default template of React Native ships with Jest testing framework.
+          </aside>
+        </section>
+        <!-- 14 slide -->
+        <section class="text-and-conding-slide">
+          <h4 class="slide-name">How to set up Jest?</h4>
+          <pre><code data-trim data-noescape data-line-numbers data-fragment-index="2">
+          {​​
+            "scripts": {​​
+              "test": "jest",​​
+            },​​
+            "jest": {​​
+              "preset": "react-native",​​
+            }​​
+          }
+        </code></pre>
+        <aside class="notes">
+          After command ​'react-native init' The following configuration should be automatically added to your package.json file
+        </aside>
+        </section>
+        <!-- 15 slide -->
+        <section class="text-and-conding-slide">
+          <h4 class="slide-name">Configuration file​</h4>
+          <pre>
+          <code data-trim data-noescape data-line-numbers data-fragment-index="2">
+            module.exports = {
+              roots: ['&lt;rootDir>/src'],
+              collectCoverage: true,
+              coverageThreshold: {
+                global: {
+                  branches: 80,
+                  functions: 80,
+                  lines: 80,
+                  statements: -10,
+                },
+              },
+              preset: 'react-native',
+              setupFiles: ['&lt;rootDir>jest.setup.js'],
+              setupFilesAfterEnv: ['&lt;rootDir>/src/globalMock.js'],
+            };
+          </code>
+        </pre>
+        <aside class="notes">
+          It is recommended to define the configuration in a dedicated JavaScript, TypeScript or JSON file. 
+          The file will be discovered automatically, if it is named jest.config.js|ts|mjs|cjs|json.
+          There are several configure fields here (not all of them):
+          <br /><br />
+          1) roots - A list of paths to directories that Jest should use to search for files in.
+          <br /><br />
+          2) collectCoverage - Indicates whether the coverage information should be collected while executing the test. 
+          Because this retrofits all executed files with coverage collection statements, it may significantly slow down your tests.
+          <br /><br />
+          3) coverageThreshold - This will be used to configure minimum threshold enforcement for coverage results.
+          <br /><br />
+          4) preset - A preset that is used as a base for Jest's configuration. 
+          A preset should point to an npm module that has a jest-preset.json, jest-preset.js, jest-preset.cjs or jest-preset.mjs file at the root.
+          <br /><br />
+          5) setupFiles - A list of paths to modules that run some code to configure or set up the testing environment. 
+          Each setupFile will be run once per test file. Since every test runs in its own environment, 
+          these scripts will be executed in the testing environment before executing setupFilesAfterEnv and before the test code itself.
+          <br /><br />
+          6) setupFilesAfterEnv - A list of paths to modules that run some code to configure or 
+          set up the testing framework before each test file in the suite is executed. 
+          Since setupFiles executes before the test framework is installed in the environment, 
+          this script file presents you the opportunity of running some code immediately after the test framework 
+          has been installed in the environment but before the test code itself.
+        </aside>
+        </section>
+        <!-- 16 slide -->
+        <section class="text-and-conding-slide">
+          <h4 class="slide-name">Structuring Tests​</h4>
+          <pre>
+          <code data-trim data-noescape data-line-numbers>
+            beforeAll(() => {
+              // ...
+            });
+            afterAll(() => {
+              // ...
+            });
+            describe('Our component', () => {
+              beforeEach(() => {
+              // ...
+              });
+              it('should test this', () => {
+              // ...
+              });
+            });
+          </code>
+        </pre>
+        <aside class="notes">
+          1) Describe(name, fn) creates a block that groups together several related tests.
+          <br /><br />
+          2) Basically, it is an alias for test , so they are functionally the same. All you need in a test file is the test/it method which runs a test.
+          <br /><br />
+          3) beforeAll(fn, timeout) - Runs a function before any of the tests in this file run. 
+          If the function returns a promise or is a generator, Jest waits for that promise to resolve before running tests.
+          <br /><br />
+          4) afterAll(fn, timeout) - Runs a function after all the tests in this file have completed. 
+          If the function returns a promise or is a generator, Jest waits for that promise to resolve before continuing.
+          <br /><br />
+          5) beforeEach(fn, timeout) - Runs a function before each of the tests in this file runs. 
+          If the function returns a promise or is a generator, Jest waits for that promise to resolve before running the test.
+        </aside>
+        </section>
+        <!-- 17 slide -->
+        <section class="text-and-conding-slide">
+          <h4 class="slide-name">Expect​</h4>
+          <pre><code data-trim data-noescape data-line-numbers>
+        expect(value)​​
+        expect.anything()​​
+        expect.any(constructor)​​
+        .not​​
+        .toBe(value)​​
+        .toHaveBeenCalled()​​
+        .toBeLessThan(number | bigint)​​
+        .toBeNull()​​
+        .toContain(item)​​
+        .toEqual(value)​​
+        .toMatch(regexp | string)​​
+        .toMatchSnapshot(propertyMatchers?, hint?)​​
+        .toThrow(error?)​​
+      </code></pre>
+      <aside class="notes">
+        The expect function is used every time you want to test a value. You will rarely call expect by itself.
+        <br /><br />
+        Instead, you will use expect along with a "matcher" function to assert something about a value.
+      </aside>
+        </section>
+        <!-- 18 slide -->
+        <section>
+          <!-- 18/0 slide -->
+          <section class="bullets-slide">
+            <h4 class="slide-name">Mock & Stub​</h4>
+            <ul>
+              <li class="fragment">
+                Stub is for replacing a method with code that returns a
+                specified result: initialize -> exercise -> verify.
+              </li>
+              <li class="fragment">
+                Mock is a stub with an assertion that the method gets called:
+                initialize -> set expectations -> exercise -> verify.
+              </li>
+              <li class="fragment">Stubs don't fail your tests, mock can.</li>
+            </ul>
+            <aside class="notes">
+              The purpose of the stub is state verification. The purpose of mock is characteristic verification.
+              <br /><br />
+              Most stubs are handwritten, but others are produced by tools.	
+              <br /><br />
+              Usually, third-party libraries like Mockito, JMock, and WireMock are used to construct mocks.
+            </aside>
+          </section>
+          <!-- 18/1 slide -->
+          <section class="text-and-conding-slide">
+            <h4 class="slide-name">The Jest Object​</h4>
+            <pre
+              class="fragment"
+            ><code data-trim data-noescape data-line-numbers>
+          // Mock functions​​
+          jest.mock(moduleName, factory)​​
+          jest.unmock(moduleName)​​
+          jest.requireActual(moduleName)​​
+          jest.resetModules()​​
+          jest.isolateModules(fn)​​
+          // Mock modules​​
+          jest.fn(implementation?)​​
+          jest.spyOn(object, methodName)​​
+          jest.clearAllMocks()​​
+          jest.resetAllMocks()​​
+          jest.restoreAllMocks()​​
+        </code></pre>
+        <aside class="notes">
+          Usually app uses external dependencies and services.
+          Mocking helps to replace some dependency of your code with your
+          own implementation to avoid network requests calling/returning
+          different data every time and etc.
+          <br /><br />
+          The jest object is automatically in scope within every test file. 
+          The methods in the jest object help create mocks and let you control Jest's overall behavior. 
+          It can also be imported explicitly by via import {jest} from '@jest/globals'.
+        </aside>
+          </section>
+        </section>
+        <!-- 19 slide -->
+        <section class="text-and-conding-slide">
+          <h4 class="slide-name">Snapshots​​</h4>
+          <pre class="fragment"><code data-trim data-line-numbers>
+          it('should match snapshot', () => {
+            const {toJSON} = render(<mybutton title="title"></mybutton>);
+            expect(toJSON()).toMatchSnapshot();
+          });</code></pre>
+          <aside class="notes"> 
+            Snapshot tests are used when you want to make sure your UI does not change unexpectedly.
+            The test will fail if the two snapshots do not match.
+            However snapshots themselves do not ensure that your component render logic is correct.
+            Use small snapshots because large snapshots can quickly become hard -> keep no-large-snapshots rule.
+            <br /><br />
+            Snapshot tests are a very useful tool whenever you want to make sure your UI does not change unexpectedly.
+            A typical snapshot test case renders a UI component, takes a snapshot, then compares it to a reference snapshot file stored alongside the test. 
+            The test will fail if the two snapshots do not match: either the change is unexpected, 
+            or the reference snapshot needs to be updated to the new version of the UI component.
+          </aside>
+        </section>
+        <!-- 20 slide -->
+        <section>
+          <!-- 20/0 slide -->
+          <section class="bullets-slide">
+            <h4 class="slide-name">Test coverage​</h4>
+            <ul>
+              <li class="fragment">
+                It is generally accepted that 80% coverage is a good goal to aim for.
+              </li>
+              <li class="fragment">
+                100% unit test coverage can be not so perfect as it can seem.
+              </li>
+            </ul>
+            <aside class="notes">
+              Trying to reach a higher coverage (>80%) might turn out to be costly, while not necessary producing enough benefit.​
+              <br /><br />
+              100% unit test coverage does not mean we had good tests, or even that the tests are complete.
+              <br /><br />
+              The tests could be missing important data and only testing with data that succeeds, failing to test data that causes failures.
+              <br /><br />
+              Merely executing the code without checking its functionality still counts in the coverage metrics.
+            </aside>
+          </section>
+          <!-- 20/1 slide -->
+          <section class="picture-slide">
+            <h4 class="slide-name">Covarage report​</h4>
+            <img src="assets/images/coverage_1.png" alt="simple" />
+            <aside class="notes">
+              After running all test suites we can see a matrix in the terminal.
+              <br /><br />
+              On the first line you can see summary coverage by categories (branch, funcs, lines...).
+              <br /><br />
+              Uncovered lines are highlighted here.
+              <br /><br />
+              And line by line you can see coverage all tested files by category as well.
+              <br /><br />
+              At the bottom spent time is shown and number of tests.
+            </aside>
+          </section>
+          <!-- 20/2 slide -->
+          <section class="picture-slide">
+            <h4 class="slide-name">
+              Covarage report in coverage/lcov-report/index.html​
+            </h4>
+            <img src="assets/images/coverage_2.png" alt="simple" />
+            <aside class="notes">
+              The same information which you saw on the previous slide you can find here (in index.html​) but in more user friendly way.
+              <br /><br />
+              It also allows to share the file easily.
+            </aside>
+          </section>
+          <!-- 20/3 slide -->
+          <section class="picture-slide">
+            <h4 class="slide-name">Statement not covered​</h4>
+            <img src="assets/images/coverage_3.png" alt="simple" />
+            <aside class="notes">
+              If you click on the name of the file in your refort file you can see coverage information about this file.
+            </aside>
+          </section>
+        </section>
+        <!-- 21 slide -->
+        <section class="picture-slide">
+          <h4 class="slide-name">When tests fail​​</h4>
+          <img src="assets/images/failed_tests.png" alt="simple" />
+          <aside class="notes">
+            Everything is not perfect. And your tests can also be not so good the first time.
+            Jest will let you know easily.
+          </aside>
+        </section>
+        <!-- 22 slide -->
+        <section class="text-and-conding-slide">
+          <h4 class="slide-name">Husky</h4>
+          <pre><code data-trim data-noescape data-line-numbers data-fragment-index="2">
+    "husky": {​​
+      "hooks": {​​
+        "pre-commit": "YOUR_COMMAND",​​
+        "pre-push": "YOUR_COMMAND"​​
+      }​​
+    }​​
+  </code></pre>
+  <aside class="notes">
+    Husky improves your commits and more. You can use it to lint your commit messages, run tests, lint code, etc... when you commit or push.
+    Husky supports all Git hooks.
+    <br /><br />
+    An easy way to keep your code clean and readable is to ensure as many of your project’s coding principles are followed. 
+    <br /><br />
+    I do this with my projects, by setting up the Husky pre-commit hook with ESLint, Prettier, and lint-staged.
+    <br /><br />
+    Husky lets us run commands or script before committing or pushing our code to git.
+    <br /><br />
+    (ESLint is a tool that can analyze our code and find errors in that code using ESLint rules. 
+    <br /><br />
+    Prettier is an opinionated code formatter that can format our code with the help of rules that you set or defaults are used.)
+  </aside>
+        </section>
+        <!-- 23 slide -->
+        <section class="qa-slide">
+          <h4>QA</h4>
+          <aside class="notes">
+            Thank you very much for your attention!
+            <br /><br />
+            If you have questions, please, go ahead.
+          </aside>
+        </section>
+      </div>
+    </div>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/dist/reveal.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/zoom/zoom.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/notes/notes.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/search/search.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/markdown/markdown.js"></script>
+    <script src="https://rolling-scopes-school.github.io/react-native-course/reveal-js/plugin/highlight/highlight.js"></script>
+    <script>
+      var url = new URL(window.location.href);
+      var showNotes = url.searchParams.has("showNotes");
+
+      if (showNotes) {
+        var head = document.getElementsByTagName("HEAD")[0];
+        var link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        link.href =
+          "https://rolling-scopes-school.github.io/react-native-course/reveal-js/speaker-notes-mobile.css";
+        head.appendChild(link);
+      }
+
+      Reveal.initialize({
+        disableLayout: true,
+        controls: true,
+        progress: true,
+        center: false,
+        hash: true,
+        autoPlayMedia: true,
+        showNotes,
+        plugins: [
+          RevealZoom,
+          RevealNotes,
+          RevealSearch,
+          RevealMarkdown,
+          RevealHighlight,
+        ],
+      });
+    </script>
+  </body>
+</html>
