@@ -23,3 +23,11 @@
 ## Presentation
 
 [link](https://rolling-scopes-school.github.io/react-native-course/animations/presentation.html)
+
+## Demo app repository
+
+[GitHub](https://github.com/DenisKhatsuk/react-native-animations/tree/develop)
+
+## Text version of this presentation
+
+[Google Docs](https://docs.google.com/document/d/1yM8WevxsHLliYuZILP1HfP8g9Goe6kiNw-lcwSnVlTg/edit?usp=sharing)
