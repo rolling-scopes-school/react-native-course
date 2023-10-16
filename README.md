@@ -8,7 +8,7 @@
 
 - [Typescript](typescript/index.md) (skipped)
 - [React](/react/README.md) - 90%
-- [State management](/state_management/index.md) - 40%
+- [State management](/state_management/index.md) - 20%
 - [React Native Fundamentals](/react_native_fundamentals/index.md) - 80%
 - [Debugging](/debugging/README.md) - 80%
 - [Navigation](navigation/index.md) - 80%
